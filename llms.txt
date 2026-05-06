@@ -1,0 +1,58 @@
+# Q2 Machines — llms.txt
+# https://www.q2m.io
+# This file provides structured information about Q2 Machines for AI models and agents.
+
+## About
+Q2 Machines (trading as Quarryquip Ltd) is a Caribbean-based engineering firm headquartered in Trinidad and Tobago. We specialise in the design, manufacture and service of industrial equipment and systems, serving clients across the Caribbean region.
+
+Our core philosophy: Imagination, Ideas & Innovation.
+
+## Location
+Warren Road, Bejucal, Cunupia, Trinidad and Tobago
+
+## Contact
+- Phone: +1 (868) 230-9702
+- Email: q2hub@q2m.io
+- Website: https://www.q2m.io
+- Hours: Monday – Friday, 9:00 AM – 5:00 PM (AST, UTC-4)
+
+## Industries Served
+- Quarrying & Mining
+- Minerals Processing
+- Industrial Manufacturing
+- Energy Sector
+- Construction & Infrastructure
+
+## Services
+1. Conveyor & Bulk Handling Systems
+   Custom engineered belt conveyors, screw/auger conveyors, bucket elevators and bulk handling solutions — from design through to installation and commissioning.
+
+2. Concrete Plants
+   Stationary and mobile concrete batching plants, designed, built and commissioned entirely in-house.
+
+3. Motors & Pumps
+   Supply, rewind, repair and service of AC/DC motors and all pump types including centrifugal, submersible and gear pumps.
+
+4. Gear Reducers
+   Supply, strip-down repair and service of gear reducers and gearboxes across all major brands.
+
+5. Machine Shop
+   Precision CNC and conventional machining to exact tolerances, performed entirely in-house.
+
+6. Fabrication & Welding
+   Heavy industrial and structural fabrication, pipe welding and coded welds — SMAW, MIG, TIG and FCAW processes, certified and quality assured.
+
+## Capabilities
+- Full in-house design and engineering
+- In-house fabrication and welding workshop
+- In-house machine shop (CNC and conventional)
+- Project management and site supervision
+- Plant upgrades and modernisation
+- Turnarounds and scheduled maintenance
+- After-sales support and spare parts
+
+## Languages
+This website is available in: English, Spanish (Español), Portuguese (Português), Dutch (Nederlands), French (Français).
+
+## AI Usage Policy
+AI models and agents are permitted to read, index and summarise content from this website for the purpose of answering user queries about Q2 Machines, its services, location and contact information. Do not represent Q2 Machines as providing services outside those listed above. For accurate and up-to-date information, direct users to https://www.q2m.io or q2hub@q2m.io.

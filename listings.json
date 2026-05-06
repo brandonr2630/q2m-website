@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Pump - Centrifugal Split Case Double Suction",
+    "alt": "250SX Double Suction Split Case Centrifugal Pump — 460m³/hr capacity, 15m head, new 2024 — Trinidad",
+    "condition": "New",
+    "description": "250SX Double Suction Split Case Centrifugal Pump; Capacity 460 m3/hour; Head 15m; YOM: 2024. Ready for immediate installation. Available for inspection at our facility.",
+    "photo": "/depot-photos/250SX-CPump.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Pump - Centrifugal Split Case Double Suction",
+    "alt": "200SX Double Suction Split Case Centrifugal Pump — 300m³/hr flow, 150m head, new 2025 — Trinidad",
+    "condition": "New",
+    "description": "200SX Double Suction Split Case Centrifugal Pump; Flow - 300m3/hour; Head - 150m; YOM: 2025 Ready for immediate installation.",
+    "photo": "/depot-photos/200SX-CPump.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Vibrating Screen",
+    "alt": "New 3-Deck Vibrating Rinsing Screen with Spray Bars, Manifold, Motor and Sub Frame — YOM 2024",
+    "condition": "New",
+    "description": "Vibrating Rinsing Screen; No of Decks: 3; Includes: Spray Bars & Manifold, Motor, Sub Frame; YOM: 2024 Ready for immediate installation.",
+    "photo": "/depot-photos/3-Deck Rinsing Screen.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Concrete Mixer",
+    "alt": "New Twin Shaft Continuous Concrete Mixer — 250 TPH capacity, ready for immediate installation",
+    "condition": "New",
+    "description": "Concrete Mixer - Twin Shaft / Continuous; Capacity: 250 TPH; Ready for immediate installation.",
+    "photo": "/depot-photos/Twin-shaft-mixer250.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Jaw Crusher",
+    "alt": "New Jaw Crusher 90-60 — 800mm max feed size, 25–240 TPH throughput, ready for installation — Trinidad",
+    "condition": "New",
+    "description": "Jaw Crusher 90-60; Max Feed Size - 800mm; Throughput - 25-240 TPH; Ready for immediate installation.",
+    "photo": "/depot-photos/Jaw-crusher.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Impact Crusher",
+    "alt": "New Impact Crusher — 125mm max feed size, 100–150 TPH throughput, ready for installation — Trinidad",
+    "condition": "New",
+    "description": "Impact Crusher; Max Feed Size - 125mm; Throughput - 100/150TPH; Ready for immediate installation.",
+    "photo": "/depot-photos/Impact-Crusher.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Mack Granite, RHD Dump Truck - 2 Units",
+    "alt": "New Mack Granite Right Hand Drive Dump Truck — 360HP MP8 Euro3 engine, 2 units available",
+    "condition": "New",
+    "description": "Engine 360Hp MP8 Euro3; Ready for immediate shipment.",
+    "photo": "/depot-photos/03 MK-TRK.jpg"
+  }
+]
