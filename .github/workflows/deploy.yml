@@ -65,7 +65,7 @@ jobs:
             done
           done <<< "$FILES"
 
-          # Upload each file via multipart (handles binary files correctly)
+          # Upload files: multipart for binary (images), save_file_content for text
           FAILED=0
           while IFS= read -r file; do
             [ -z "$file" ] && continue
@@ -79,13 +79,26 @@ jobs:
             fi
 
             echo "→ Uploading: $file"
-            STATUS=$(curl -s -o result.json -w "%{http_code}" -X POST \
-              "$HOST/execute/Fileman/upload_files" \
-              -H "Authorization: cpanel $CPANEL_USER:$TOKEN" \
-              -F "dir=$REMOTE_DIR" \
-              -F "file-1=@$file")
 
-            CPANEL_STATUS=$(jq -r 'if (.status == 1) and ((.data.failed // []) | length == 0) then "1" else "0" end' result.json 2>/dev/null || echo "0")
+            if file --mime "$file" | grep -q "charset=binary"; then
+              # Binary file (images, fonts, etc.) — use multipart upload
+              STATUS=$(curl -s -o result.json -w "%{http_code}" -X POST \
+                "$HOST/execute/Fileman/upload_files" \
+                -H "Authorization: cpanel $CPANEL_USER:$TOKEN" \
+                -F "dir=$REMOTE_DIR" \
+                -F "file-1=@$file")
+              CPANEL_STATUS=$(jq -r 'if (.status == 1) and ((.data.failed // []) | length == 0) then "1" else "0" end' result.json 2>/dev/null || echo "0")
+            else
+              # Text file (HTML, CSS, JS, JSON, SVG, etc.) — use save_file_content (supports overwrite)
+              FNAME=$(basename "$file")
+              STATUS=$(curl -s -o result.json -w "%{http_code}" -X POST \
+                "$HOST/execute/Fileman/save_file_content" \
+                -H "Authorization: cpanel $CPANEL_USER:$TOKEN" \
+                --data-urlencode "dir=$REMOTE_DIR" \
+                --data-urlencode "file=$FNAME" \
+                --data-urlencode "content@$file")
+              CPANEL_STATUS=$(python3 -c "import sys,json; d=json.load(open('result.json')); print(d.get('status',0))" 2>/dev/null || echo "0")
+            fi
 
             if [ "$STATUS" != "200" ] || [ "$CPANEL_STATUS" != "1" ]; then
               echo "  ✖ FAILED (HTTP $STATUS, cPanel status $CPANEL_STATUS)"
