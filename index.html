@@ -1326,8 +1326,8 @@ footer {
 #scroll-top svg { width: 20px; height: 20px; fill: var(--ink); }
 </style>
 <!-- Preload first slide (LCP element) so browser fetches it immediately -->
-<link rel="preload" as="image" href="photo1.webp" type="image/webp">
-<link rel="preload" as="image" href="photo1.jpg" imagesrcset="photo1.jpg">
+<link rel="preload" as="image" href="assets/images/photo1.webp" type="image/webp">
+<link rel="preload" as="image" href="assets/images/photo1.jpg" imagesrcset="assets/images/photo1.jpg">
 
 <!-- EmailJS deferred: loads only when user interacts with the contact form -->
 <script>
@@ -1386,7 +1386,7 @@ footer {
 <nav id="navbar">
   <a href="#" class="nav-logo">
     <div class="nav-logo-mark">
-      <img src="Q2M_Logo.svg" alt="Q2 Machines Logo" class="nav-logo-img" fetchpriority="high" />
+      <img src="assets/branding/Q2M_Logo.svg" alt="Q2 Machines Logo" class="nav-logo-img" fetchpriority="high" />
     </div>
 
   </a>
@@ -1469,26 +1469,26 @@ footer {
         <div class="about-img-frame">
           <div class="slideshow" id="about-slideshow">
             <!-- Slideshow photos: images are lazy-loaded via JS. WebP served to supporting browsers, JPG fallback for others. -->
-            <div class="slide active" data-webp="photo1.webp" data-jpg="photo1.jpg"></div>
-            <div class="slide" data-webp="photo2.webp" data-jpg="photo2.jpg"></div>
-            <div class="slide" data-webp="photo3.webp" data-jpg="photo3.jpg"></div>
-            <div class="slide" data-webp="photo4.webp" data-jpg="photo4.jpg"></div>
-            <div class="slide" data-webp="photo5.webp" data-jpg="photo5.jpg"></div>
-            <div class="slide" data-webp="photo6.webp" data-jpg="photo6.jpg"></div>
-            <div class="slide" data-webp="photo7.webp" data-jpg="photo7.jpg"></div>
-            <div class="slide" data-webp="photo8.webp" data-jpg="photo8.jpg"></div>
-            <div class="slide" data-webp="photo9.webp" data-jpg="photo9.jpg"></div>
-            <div class="slide" data-webp="photo10.webp" data-jpg="photo10.jpg"></div>
-            <div class="slide" data-webp="photo11.webp" data-jpg="photo11.jpg"></div>
-            <div class="slide" data-webp="photo12.webp" data-jpg="photo12.jpg"></div>
-            <div class="slide" data-webp="photo13.webp" data-jpg="photo13.jpg"></div>
-            <div class="slide" data-webp="photo14.webp" data-jpg="photo14.jpg"></div>
-            <div class="slide" data-webp="photo15.webp" data-jpg="photo15.jpg"></div>
-            <div class="slide" data-webp="photo16.webp" data-jpg="photo16.jpg"></div>
-            <div class="slide" data-webp="photo17.webp" data-jpg="photo17.jpg"></div>
-            <div class="slide" data-webp="photo18.webp" data-jpg="photo18.jpg"></div>
-            <div class="slide" data-webp="photo19.webp" data-jpg="photo19.jpg"></div>
-            <div class="slide" data-webp="photo20.webp" data-jpg="photo20.jpg"></div>
+            <div class="slide active" data-webp="assets/images/photo1.webp" data-jpg="assets/images/photo1.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo2.webp" data-jpg="assets/images/photo2.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo3.webp" data-jpg="assets/images/photo3.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo4.webp" data-jpg="assets/images/photo4.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo5.webp" data-jpg="assets/images/photo5.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo6.webp" data-jpg="assets/images/photo6.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo7.webp" data-jpg="assets/images/photo7.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo8.webp" data-jpg="assets/images/photo8.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo9.webp" data-jpg="assets/images/photo9.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo10.webp" data-jpg="assets/images/photo10.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo11.webp" data-jpg="assets/images/photo11.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo12.webp" data-jpg="assets/images/photo12.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo13.webp" data-jpg="assets/images/photo13.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo14.webp" data-jpg="assets/images/photo14.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo15.webp" data-jpg="assets/images/photo15.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo16.webp" data-jpg="assets/images/photo16.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo17.webp" data-jpg="assets/images/photo17.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo18.webp" data-jpg="assets/images/photo18.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo19.webp" data-jpg="assets/images/photo19.jpg"></div>
+            <div class="slide" data-webp="assets/images/photo20.webp" data-jpg="assets/images/photo20.jpg"></div>
           </div>
           <button class="slideshow-arrow slideshow-arrow-left" id="slideshow-prev" aria-label="Previous slide">&#8592;</button>
           <button class="slideshow-arrow slideshow-arrow-right" id="slideshow-next" aria-label="Next slide">&#8594;</button>
@@ -1498,7 +1498,7 @@ footer {
           <div class="slideshow-dots" id="slideshow-dots"></div>
         </div>
         <div class="about-badge">
-          <img src="Q2M_Logo.svg" alt="Q2 Machines">
+          <img src="assets/branding/Q2M_Logo.svg" alt="Q2 Machines">
         </div>
       </div>
       <div class="about-text">
@@ -1977,7 +1977,7 @@ footer {
 <footer>
   <div class="footer-inner">
     <div class="footer-logo-mark">
-      <img src="Q2M_Logo.svg" alt="Q2 Machines" class="footer-logo-img" />
+      <img src="assets/branding/Q2M_Logo.svg" alt="Q2 Machines" class="footer-logo-img" />
     </div>
     <div class="footer-name">Q<sup>2</sup> Machines</div>
     <div class="footer-slogan">Safety, Service &amp; Sustainability</div>
