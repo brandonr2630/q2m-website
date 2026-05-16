@@ -2,6 +2,66 @@
 
 ---
 
+## Session 6 — GitHub Infrastructure
+
+**Date:** 2026-05-16
+**Commits:** `9677483` (q2m-website), `3a2dd8e` (projects)
+
+### What Changed
+
+Centralised the deploy logic, enabled auto-merge, and wired up a cross-repo Projects board.
+
+### Changes Made
+
+| Change | Detail |
+|--------|--------|
+| Reusable deploy workflow | 130-line inline script replaced by 14-line call to `brandonr2630/projects/.github/workflows/deploy.yml@master` |
+| Auto-merge enabled | All 5 repos — PRs merge as soon as they're opened (no required status checks blocking) |
+| GitHub Projects board | [github.com/users/brandonr2630/projects/1](https://github.com/users/brandonr2630/projects/1) — all 5 repos linked |
+| `projects` repo made public | Required for reusable workflow to be callable from the 5 public project repos |
+
+### Outstanding
+
+- ⏳ Projects page (`projects.html`, `projects.json`, `assets/projects/`) — local only, needs real photos before deploying
+
+---
+
+## Session 5 — Security, Cleanup & Docs
+
+**Date:** 2026-05-16
+**Commits:** `788f006` (q2m-website); cross-repo work below
+
+### What Changed
+
+Cleared all actionable items from the Session 4 audit. Rotated credentials, fixed remaining deploy workflows, cleaned dead files, added branch protection, renamed project folders.
+
+### Changes Made — This Repo
+
+| Change | Commit |
+|--------|--------|
+| Removed one-time `assets/case-studies/` cleanup step from `deploy.yml` | `788f006` |
+
+### Cross-Repo Work
+
+| Repo | Change |
+|------|--------|
+| `coc-website`, `meridian-erp` | Deploy workflow: hybrid binary upload, directory creation, `workflow_dispatch` |
+| `coc-website`, `meridian-erp`, `q2-machines-job-cards` | Removed dead `.cpanel.yml` |
+| `coc-website`, `meridian-erp` | `HOST` and `CPANEL_USER` moved from hardcoded to GitHub Secrets |
+| `meridian-erp`, `coc-website` | README corrected (live URL, deploy section) |
+| `q2-machines-job-cards` | Word doc (`Q2_JobCard_ProjectContext.docx`) removed from git; `*.docx` added to `.gitignore` |
+| All 5 repos | Branch protection ruleset on `master` — requires PR, blocks force pushes, restricts deletions |
+| All repos | Project folders renamed to kebab-case to match GitHub repo names |
+| All repos | `CPANEL_API_TOKEN` rotated; token file deleted from disk |
+| `meridian-erp` | `handoff.md` created |
+| `projects` | `LLM` repo deleted; `my-web-pages` folder removed |
+
+### Outstanding
+
+- ⏳ Projects page (`projects.html`, `projects.json`, `assets/projects/`) — local only, needs real photos before deploying
+
+---
+
 ## Session 4 — Outstanding Cleanup & Cross-Repo Audit
 
 **Date:** 2026-05-16
@@ -34,11 +94,11 @@ All other repos brought up to the same standard:
 
 Items from the cross-repo audit that apply to this repo:
 
-- ⏳ Remove the `assets/case-studies/` deletion step from `deploy.yml` — it's a one-time cleanup and can be removed once confirmed the folder is gone from the server
-- ⏳ Branch protection on `master` not yet configured
-- ⏳ Projects page still local only (`projects.html`, `projects.json`, `assets/projects/`) — needs real photos before deploying
-- ⏳ COC Website and Terran ERP deploy workflows need updating (text-only upload, will corrupt binaries)
-- ⏳ `.cpanel.yml` files in q2-machines-job-cards, coc-website, and meridian-erp are dead code — should be removed
+- ✅ `assets/case-studies/` deletion step removed (`788f006`, Session 5)
+- ✅ Branch protection on `master` configured — all 5 repos (Session 5)
+- ⏳ Projects page still local only — needs real photos before deploying
+- ✅ COC Website and Meridian ERP deploy workflows updated (Session 5)
+- ✅ `.cpanel.yml` files removed from all repos (Session 5)
 
 ### Phone Management Strategy
 
@@ -206,4 +266,4 @@ Always excluded from deploy: `.github/`, `.cpanel.yml`, `handoff.md`
 
 ---
 
-**Last Updated:** 2026-05-16 (Session 4)
+**Last Updated:** 2026-05-16 (Session 6)
