@@ -30,7 +30,7 @@ Two new secrets added to `brandonr2630/q2m-website` → Settings → Secrets →
 
 ### Outstanding
 
-- `Q2M_Logo.png`, `Q2M_Logo.svg`, `Q2M_Logo.webp` are showing as deleted in git — they were moved to `assets/branding/` but the move was never committed. Commit this cleanup separately when ready.
+- ✅ Root-level logo files removed from git (`cd64c0b`) — canonical copies live in `assets/branding/`
 - Branch protection on `master` not yet configured — set via GitHub → Settings → Branches → Add rule.
 
 ---
