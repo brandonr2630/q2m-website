@@ -65,7 +65,7 @@ jobs:
             done
           done <<< "$FILES"
 
-          # Upload files: multipart for binary (images), save_file_content for text
+          # Upload files: binary via delete+multipart, text via save_file_content (supports overwrite)
           FAILED=0
           while IFS= read -r file; do
             [ -z "$file" ] && continue
@@ -77,11 +77,16 @@ jobs:
             else
               REMOTE_DIR="$DEPLOY_DIR/$SUBDIR"
             fi
+            FNAME=$(basename "$file")
 
             echo "→ Uploading: $file"
 
             if file --mime "$file" | grep -q "charset=binary"; then
-              # Binary file (images, fonts, etc.) — use multipart upload
+              # Binary file: delete first (no-op if missing), then upload via multipart
+              curl -s -X POST "$HOST/execute/Fileman/delete_files" \
+                -H "Authorization: cpanel $CPANEL_USER:$TOKEN" \
+                --data-urlencode "files-0-path=$REMOTE_DIR/$FNAME" \
+                --data-urlencode "files-0-type=file" > /dev/null 2>&1 || true
               STATUS=$(curl -s -o result.json -w "%{http_code}" -X POST \
                 "$HOST/execute/Fileman/upload_files" \
                 -H "Authorization: cpanel $CPANEL_USER:$TOKEN" \
@@ -89,8 +94,7 @@ jobs:
                 -F "file-1=@$file")
               CPANEL_STATUS=$(jq -r 'if (.status == 1) and ((.data.failed // []) | length == 0) then "1" else "0" end' result.json 2>/dev/null || echo "0")
             else
-              # Text file (HTML, CSS, JS, JSON, SVG, etc.) — use save_file_content (supports overwrite)
-              FNAME=$(basename "$file")
+              # Text file (HTML, CSS, JS, JSON, SVG, etc.): save_file_content overwrites natively
               STATUS=$(curl -s -o result.json -w "%{http_code}" -X POST \
                 "$HOST/execute/Fileman/save_file_content" \
                 -H "Authorization: cpanel $CPANEL_USER:$TOKEN" \
