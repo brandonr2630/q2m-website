@@ -82,9 +82,9 @@ Scaffolded a Projects page to showcase completed engineering work. No deployment
 
 Valid `category` values: `conveyor`, `concrete`, `fabrication`, `motors-pumps`, `structural`, `machine-shop`
 
-### Server Cleanup Required
+### Server Cleanup
 
-`assets/case-studies/` exists on the server (created during Session 1) but is superseded by `assets/projects/`. It is empty. Delete it via cPanel File Manager after next deploy.
+`assets/case-studies/` on the server will be deleted automatically on next deploy — a "Remove stale server directories" step was added to `deploy.yml` (`8eac062`). No manual cPanel action needed.
 
 ### Before Deploying
 
