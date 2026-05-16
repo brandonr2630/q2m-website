@@ -2,6 +2,53 @@
 
 ---
 
+## Session 4 — Outstanding Cleanup & Cross-Repo Audit
+
+**Date:** 2026-05-16
+**Commits:** `cd64c0b`, `8d6a8cc`, `8eac062`, `24e971c`
+
+### What Changed
+
+Resolved both outstanding items from Session 3. Conducted a full audit of all five Terran Resources repositories.
+
+### Changes Made
+
+| File | Change |
+|------|--------|
+| `Q2M_Logo.png/svg/webp` | Removed from repo root — canonical copies already in `assets/branding/` (`cd64c0b`) |
+| `.github/workflows/deploy.yml` | Added "Remove stale server directories" step to delete `assets/case-studies/` on next deploy (`8eac062`) |
+
+### Cross-Repo Work (same session)
+
+All other repos brought up to the same standard:
+
+| Repo | Changes |
+|------|---------|
+| `q2-machines-job-cards` | Deploy workflow overhauled — binary upload, secrets, `workflow_dispatch`, subdirectory creation |
+| `q2-machines-job-cards` | `.gitignore` created |
+| `meridian-erp` | `.gitignore` and `README.md` created |
+| `coc-website` | `.gitignore` expanded; `README.md` created |
+| `terran-resources-website` | `.gitignore` and `README.md` created |
+
+### Audit Findings — Outstanding Items
+
+Items from the cross-repo audit that apply to this repo:
+
+- ⏳ Remove the `assets/case-studies/` deletion step from `deploy.yml` — it's a one-time cleanup and can be removed once confirmed the folder is gone from the server
+- ⏳ Branch protection on `master` not yet configured
+- ⏳ Projects page still local only (`projects.html`, `projects.json`, `assets/projects/`) — needs real photos before deploying
+- ⏳ COC Website and Terran ERP deploy workflows need updating (text-only upload, will corrupt binaries)
+- ⏳ `.cpanel.yml` files in q2-machines-job-cards, coc-website, and meridian-erp are dead code — should be removed
+
+### Phone Management Strategy
+
+All repos are being prepared for remote management from GitHub Mobile:
+- `workflow_dispatch` on all workflows = manual redeploy from phone
+- Branch protection + PRs = code review from phone
+- `github.dev` (press `.` on any repo page in mobile browser) = file editing without a laptop
+
+---
+
 ## Session 3 — Repo Hygiene
 
 **Date:** 2026-05-16
@@ -159,4 +206,4 @@ Always excluded from deploy: `.github/`, `.cpanel.yml`, `handoff.md`
 
 ---
 
-**Last Updated:** 2026-05-16 (Session 3)
+**Last Updated:** 2026-05-16 (Session 4)
