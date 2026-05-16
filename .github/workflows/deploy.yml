@@ -14,6 +14,21 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Remove stale server directories
+        env:
+          TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+        run: |
+          HOST="${{ secrets.CPANEL_HOST }}"
+          CPANEL_USER="${{ secrets.CPANEL_USER }}"
+          DEPLOY_DIR="/home/terranre/public_html/q2m.io"
+
+          echo "→ Deleting stale assets/case-studies/ from server"
+          curl -s -X POST "$HOST/execute/Fileman/delete_files" \
+            -H "Authorization: cpanel $CPANEL_USER:$TOKEN" \
+            --data-urlencode "files-0-path=$DEPLOY_DIR/assets/case-studies" \
+            --data-urlencode "files-0-type=dir" > /dev/null 2>&1 || true
+          echo "  ✔ Done (no-op if already gone)"
+
       - name: Upload changed files to cPanel
         env:
           TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
