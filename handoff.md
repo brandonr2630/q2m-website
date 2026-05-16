@@ -2,6 +2,31 @@
 
 ---
 
+## Session 5 — Cross-Repo Deploy Fixes & Branch Protection
+
+**Date:** 2026-05-16
+**Commits:** `788f006` (q2m-website), `acb2af4`/`952ea8e` (coc-website), `7334849`/`3a23b33` (meridian-erp), `6e789fe` (q2-machines-job-cards)
+
+### What Changed
+
+Cleared all remaining actionable items from the Session 4 audit.
+
+### Changes Made
+
+| Repo | Change |
+|------|--------|
+| `coc-website` | Deploy workflow: hybrid binary upload, directory creation, `workflow_dispatch` |
+| `meridian-erp` | Deploy workflow: hybrid binary upload, directory creation, `workflow_dispatch` |
+| `coc-website`, `meridian-erp`, `q2-machines-job-cards` | Removed dead `.cpanel.yml` files |
+| `q2m-website` | Removed one-time `assets/case-studies/` deletion step from `deploy.yml` |
+| All 5 repos | Branch protection ruleset on `master` — requires PR, blocks force pushes, restricts deletions |
+
+### Outstanding
+
+- ⏳ Projects page (`projects.html`, `projects.json`, `assets/projects/`) — local only, needs real photos before deploying
+
+---
+
 ## Session 4 — Outstanding Cleanup & Cross-Repo Audit
 
 **Date:** 2026-05-16
@@ -34,11 +59,11 @@ All other repos brought up to the same standard:
 
 Items from the cross-repo audit that apply to this repo:
 
-- ⏳ Remove the `assets/case-studies/` deletion step from `deploy.yml` — it's a one-time cleanup and can be removed once confirmed the folder is gone from the server
-- ⏳ Branch protection on `master` not yet configured
+- ✅ Remove the `assets/case-studies/` deletion step from `deploy.yml` (`788f006`)
+- ✅ Branch protection on `master` configured (all 5 repos — rulesets)
 - ⏳ Projects page still local only (`projects.html`, `projects.json`, `assets/projects/`) — needs real photos before deploying
-- ⏳ COC Website and Terran ERP deploy workflows need updating (text-only upload, will corrupt binaries)
-- ⏳ `.cpanel.yml` files in q2-machines-job-cards, coc-website, and meridian-erp are dead code — should be removed
+- ✅ COC Website and Terran ERP deploy workflows updated (`acb2af4`, `7334849`)
+- ✅ `.cpanel.yml` files removed from q2-machines-job-cards, coc-website, meridian-erp
 
 ### Phone Management Strategy
 
@@ -78,7 +103,7 @@ Two new secrets added to `brandonr2630/q2m-website` → Settings → Secrets →
 ### Outstanding
 
 - ✅ Root-level logo files removed from git (`cd64c0b`) — canonical copies live in `assets/branding/`
-- Branch protection on `master` not yet configured — set via GitHub → Settings → Branches → Add rule.
+- ✅ Branch protection on `master` configured (Session 5 — rulesets on all 5 repos)
 
 ---
 
@@ -206,4 +231,4 @@ Always excluded from deploy: `.github/`, `.cpanel.yml`, `handoff.md`
 
 ---
 
-**Last Updated:** 2026-05-16 (Session 4)
+**Last Updated:** 2026-05-16 (Session 5)
