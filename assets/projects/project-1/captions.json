@@ -1,0 +1,380 @@
+{
+  "project": {
+    "title": "Industrial Plant Modernization & Equipment Upgrade",
+    "description": "Complete plant upgrade spanning 9 months from decommissioning through full operational commissioning",
+    "startDate": "2016-01-09",
+    "completionDate": "2017-03-06",
+    "location": "Trinidad and Tobago",
+    "phases": [
+      "Assessment & Decommissioning",
+      "Foundation Work",
+      "Installation & Assembly",
+      "Operations & Commissioning"
+    ]
+  },
+  "images": [
+    {
+      "id": "01",
+      "filename": "01-IMG-20160109-WA0014.jpg",
+      "webpFilename": "01-IMG-20160109-WA0014.webp",
+      "date": "2016-01-09",
+      "phase": "Assessment & Decommissioning",
+      "caption": "Existing Equipment Assessment - Determining Scope of Work",
+      "altText": "Existing industrial crane and equipment frame showing aged infrastructure requiring modernization",
+      "description": "Initial site assessment of aging equipment and infrastructure to determine project scope. Shows weathered structural framework and lifting equipment that will be replaced or refurbished.",
+      "keywords": ["equipment assessment", "site inspection", "industrial equipment", "crane", "structural frame"]
+    },
+    {
+      "id": "02",
+      "filename": "02-20160110_180350.jpg",
+      "webpFilename": "02-20160110_180350.webp",
+      "date": "2016-01-10",
+      "phase": "Assessment & Decommissioning",
+      "caption": "Structural Evaluation of Aging Infrastructure",
+      "altText": "Elevated view of deteriorated industrial structure with metal framework and equipment connections",
+      "description": "Close examination of structural conditions and connections to assess feasibility of equipment upgrades versus replacement.",
+      "keywords": ["structural assessment", "infrastructure evaluation", "equipment condition", "industrial structure"]
+    },
+    {
+      "id": "03",
+      "filename": "03-20160125_165527.jpg",
+      "webpFilename": "03-20160125_165527.webp",
+      "date": "2016-01-25",
+      "phase": "Assessment & Decommissioning",
+      "caption": "Overhead Crane Inspection and Structural Integrity Review",
+      "altText": "Large industrial overhead crane structure against blue sky showing weathered metal and framework",
+      "description": "Technical inspection of overhead crane system to evaluate structural integrity and determine if component can be salvaged or requires replacement.",
+      "keywords": ["crane inspection", "overhead crane", "structural integrity", "equipment evaluation"]
+    },
+    {
+      "id": "04",
+      "filename": "04-20160128_123611.jpg",
+      "webpFilename": "04-20160128_123611.webp",
+      "date": "2016-01-28",
+      "phase": "Assessment & Decommissioning",
+      "caption": "Corroded Structural Frame Documentation",
+      "altText": "Detailed view of severely corroded industrial steel beams and cross-bracing with extensive rust",
+      "description": "Documentation of corrosion and deterioration on critical structural components, providing baseline evidence for project scope and urgency.",
+      "keywords": ["corrosion", "structural damage", "steel frame", "deterioration", "engineering assessment"]
+    },
+    {
+      "id": "05",
+      "filename": "05-20160202_075913.jpg",
+      "webpFilename": "05-20160202_075913.webp",
+      "date": "2016-02-02",
+      "phase": "Assessment & Decommissioning",
+      "caption": "Large Equipment Frame Showing Age and Weathering",
+      "altText": "Industrial equipment frame viewed from below showing rusted metal beams and structural deterioration",
+      "description": "Evidence of age and environmental exposure on major equipment frame, demonstrating need for equipment replacement to meet modern operational standards.",
+      "keywords": ["equipment age", "weathering", "rust damage", "structural assessment", "replacement justification"]
+    },
+    {
+      "id": "06",
+      "filename": "06-20160110_151235.jpg",
+      "webpFilename": "06-20160110_151235.webp",
+      "date": "2016-01-10",
+      "phase": "Assessment & Decommissioning",
+      "caption": "Mobile Crane Positioning for Deconstruction Operations",
+      "altText": "Mobile crane with extended boom positioned at industrial site with equipment and workers visible",
+      "description": "Mobilization of heavy lifting equipment to begin deconstruction and salvage operations of existing infrastructure.",
+      "keywords": ["mobile crane", "deconstruction", "equipment mobilization", "lifting operations"]
+    },
+    {
+      "id": "07",
+      "filename": "07-20160128_081541.jpg",
+      "webpFilename": "07-20160128_081541.webp",
+      "date": "2016-01-28",
+      "phase": "Assessment & Decommissioning",
+      "caption": "Established Site Footprint with Equipment Staging",
+      "altText": "Wide view of industrial plant site with multiple pieces of equipment staged and positioned for operations",
+      "description": "Site layout showing equipment staging areas and established operational footprint for the modernization project.",
+      "keywords": ["site layout", "equipment staging", "site footprint", "project staging area"]
+    },
+    {
+      "id": "08",
+      "filename": "08-20160202_080208_001.jpg",
+      "webpFilename": "08-20160202_080208_001.webp",
+      "date": "2016-02-02",
+      "phase": "Assessment & Decommissioning",
+      "caption": "Existing Processing Plant Showing Scale and Layout",
+      "altText": "Panoramic view of industrial processing plant with multiple equipment structures and operational scale visible",
+      "description": "Full-scale view of existing plant infrastructure showing the scope and complexity of the modernization project.",
+      "keywords": ["processing plant", "industrial scale", "plant layout", "project scope", "equipment integration"]
+    },
+    {
+      "id": "09",
+      "filename": "09-20160204_141333(1).jpg",
+      "webpFilename": "09-20160204_141333(1).webp",
+      "date": "2016-02-04",
+      "phase": "Assessment & Decommissioning",
+      "caption": "Foundation Preparation and Site Excavation Underway",
+      "altText": "Aerial view of construction site with excavator and equipment working on foundation preparation",
+      "description": "Initial groundwork beginning with site excavation and foundation preparation using heavy equipment.",
+      "keywords": ["excavation", "foundation prep", "site preparation", "groundwork", "construction equipment"]
+    },
+    {
+      "id": "10",
+      "filename": "10-20160204_123623.jpg",
+      "webpFilename": "10-20160204_123623.webp",
+      "date": "2016-02-04",
+      "phase": "Assessment & Decommissioning",
+      "caption": "Foundation Excavation Showing Structural Footprint",
+      "altText": "Excavated foundation area showing concrete blocks and prepared ground for structural installation",
+      "description": "Site excavation and foundation block placement showing the structural footprint for new equipment installation.",
+      "keywords": ["foundation", "excavation", "concrete blocks", "structural footprint", "site preparation"]
+    },
+    {
+      "id": "11",
+      "filename": "11-20160216_203512.jpg",
+      "webpFilename": "11-20160216_203512.webp",
+      "date": "2016-02-16",
+      "phase": "Foundation Work",
+      "caption": "Night Foundation Work - Reinforcement and Concrete Prep",
+      "altText": "Night-time construction site showing reinforcement cage installation for concrete foundation work",
+      "description": "24/7 operations continuing with evening foundation reinforcement work, demonstrating project intensity and commitment.",
+      "keywords": ["foundation work", "reinforcement", "night shift", "intensive schedule", "concrete prep"]
+    },
+    {
+      "id": "12",
+      "filename": "12-20160223_150526.jpg",
+      "webpFilename": "12-20160223_150526.webp",
+      "date": "2016-02-23",
+      "phase": "Foundation Work",
+      "caption": "Structural Reinforcement Cage Installation",
+      "altText": "Steel reinforcement cage construction for concrete foundation with rebar framework visible",
+      "description": "Critical foundation reinforcement cage installation showing structural engineering for heavy equipment support.",
+      "keywords": ["reinforcement", "rebar", "foundation cage", "structural engineering", "concrete reinforcement"]
+    },
+    {
+      "id": "13",
+      "filename": "13-20160309_175730.jpg",
+      "webpFilename": "13-20160309_175730.webp",
+      "date": "2016-03-09",
+      "phase": "Foundation Work",
+      "caption": "Concrete Foundation Blocks for Equipment Mounting",
+      "altText": "Completed concrete foundation blocks positioned on prepared ground with equipment and excavator visible",
+      "description": "Foundation blocks installed and positioned to provide structural support mounting points for new equipment.",
+      "keywords": ["concrete blocks", "foundation mounting", "structural support", "equipment mounting", "infrastructure"]
+    },
+    {
+      "id": "14",
+      "filename": "14-20160309_175139.jpg",
+      "webpFilename": "14-20160309_175139.webp",
+      "date": "2016-03-09",
+      "phase": "Foundation Work",
+      "caption": "Foundation Excavation Showing Structural Footprint",
+      "altText": "Aerial perspective of excavated foundation site with positioning for multi-level equipment installation",
+      "description": "Completed foundation excavation revealing the structural footprint and layout for the modernized equipment system.",
+      "keywords": ["foundation layout", "structural footprint", "equipment positioning", "site preparation"]
+    },
+    {
+      "id": "15",
+      "filename": "15-20160304_171738.jpg",
+      "webpFilename": "15-20160304_171738.webp",
+      "date": "2016-03-04",
+      "phase": "Installation & Assembly",
+      "caption": "Site Preparation and Foundation Work - Ready for Installation",
+      "altText": "Industrial site with overhead structures, foundation work, and Caterpillar equipment for installation phase",
+      "description": "Site overview showing transition from foundation work to equipment installation phase with prepared infrastructure.",
+      "keywords": ["site preparation", "foundation complete", "installation ready", "project milestone", "equipment staging"]
+    },
+    {
+      "id": "16",
+      "filename": "16-20160401_174013.jpg",
+      "webpFilename": "16-20160401_174013.webp",
+      "date": "2016-04-01",
+      "phase": "Installation & Assembly",
+      "caption": "Equipment Positioning and Structural Assembly",
+      "altText": "Worker and equipment positioning during industrial equipment installation with overhead structures visible",
+      "description": "Active equipment assembly phase showing team coordination and precision positioning of major components.",
+      "keywords": ["equipment assembly", "installation", "team coordination", "precision positioning", "equipment integration"]
+    },
+    {
+      "id": "16B",
+      "filename": "16B-20160401_183607.jpg",
+      "webpFilename": "16B-20160401_183607.webp",
+      "date": "2016-04-01",
+      "phase": "Installation & Assembly",
+      "caption": "Night Shift Operations - Continuous 24/7 Work Schedule",
+      "altText": "Night-time operations showing industrial plant with lighting infrastructure and equipment installation work",
+      "description": "Evening operations demonstrating intensive 24/7 schedule to maintain project momentum and timeline.",
+      "keywords": ["night operations", "24/7 schedule", "continuous work", "project intensity", "operational commitment"]
+    },
+    {
+      "id": "17",
+      "filename": "17-20160413_090000.jpg",
+      "webpFilename": "17-20160413_090000.webp",
+      "date": "2016-04-13",
+      "phase": "Installation & Assembly",
+      "caption": "Structural Steel Framework Installation Under Overhead Gantry",
+      "altText": "Overhead view of structural steel beams being positioned with overhead gantry crane and safety railings",
+      "description": "Precision installation of structural steel framework showing engineering expertise and equipment coordination.",
+      "keywords": ["structural steel", "framework installation", "overhead gantry", "crane operations", "precision engineering"]
+    },
+    {
+      "id": "18",
+      "filename": "18-20160415_145321.jpg",
+      "webpFilename": "18-20160415_145321.webp",
+      "date": "2016-04-15",
+      "phase": "Installation & Assembly",
+      "caption": "Precision Equipment Mounting on Reinforced Concrete Foundation",
+      "altText": "Industrial equipment components being mounted on concrete foundation with structural supports visible",
+      "description": "Detailed view of equipment mounting procedures on prepared concrete foundation showing technical precision.",
+      "keywords": ["equipment mounting", "concrete foundation", "structural support", "precision installation", "engineering"]
+    },
+    {
+      "id": "19",
+      "filename": "19-20160419_103520.jpg",
+      "webpFilename": "19-20160419_103520.webp",
+      "date": "2016-04-19",
+      "phase": "Installation & Assembly",
+      "caption": "Heavy Equipment Installation Under Overhead Gantry Crane",
+      "altText": "Team of workers positioning large industrial equipment with overhead gantry crane and support structures",
+      "description": "Major equipment installation showing expert team coordination and heavy lifting capabilities with gantry crane system.",
+      "keywords": ["heavy equipment", "gantry crane", "installation", "team coordination", "lifting operations", "equipment assembly"]
+    },
+    {
+      "id": "19B",
+      "filename": "19B-20160611_103408.jpg",
+      "webpFilename": "19B-20160611_103408.webp",
+      "date": "2016-06-11",
+      "phase": "Installation & Assembly",
+      "caption": "Industrial Machinery Component Installation - Technical Detail View",
+      "altText": "Close-up of industrial machinery components showing detailed assembly and mechanical integration",
+      "description": "Detailed view of industrial machinery assembly showing technical complexity and precision of component integration.",
+      "keywords": ["machinery component", "technical assembly", "mechanical integration", "detailed installation", "engineering precision"]
+    },
+    {
+      "id": "20",
+      "filename": "20-20160419_144900.jpg",
+      "webpFilename": "20-20160419_144900.webp",
+      "date": "2016-04-19",
+      "phase": "Installation & Assembly",
+      "caption": "Cable and Rigging System for Equipment Hoisting and Load Distribution",
+      "altText": "Industrial rigging cables and pulleys showing cable systems for equipment hoisting and load control",
+      "description": "Specialized rigging and cable systems designed for safe equipment hoisting and precise load distribution.",
+      "keywords": ["rigging", "cable systems", "hoisting", "load distribution", "safety systems", "equipment lifting"]
+    },
+    {
+      "id": "21",
+      "filename": "21-20160611_104638.jpg",
+      "webpFilename": "21-20160611_104638.webp",
+      "date": "2016-06-11",
+      "phase": "Installation & Assembly",
+      "caption": "Suspended Equipment Alignment During Multi-Stage Installation",
+      "altText": "Large equipment suspended by crane with worker on platform guiding alignment and positioning",
+      "description": "Precision alignment of suspended equipment during multi-stage installation showing technical expertise and safety protocols.",
+      "keywords": ["suspended equipment", "alignment", "crane operations", "precision positioning", "installation sequence", "safety procedures"]
+    },
+    {
+      "id": "22B",
+      "filename": "22B-20160516_071349.jpg",
+      "webpFilename": "22B-20160516_071349.webp",
+      "date": "2016-05-16",
+      "phase": "Installation & Assembly",
+      "caption": "Conveyor System Component Preparation and Assembly",
+      "altText": "Industrial conveyor system components showing metal plates and structural assembly with yellow safety features",
+      "description": "Conveyor system component preparation showing material handling equipment integration into the overall plant system.",
+      "keywords": ["conveyor system", "component assembly", "material handling", "equipment preparation", "system integration"]
+    },
+    {
+      "id": "23",
+      "filename": "23-20160415_151736.jpg",
+      "webpFilename": "23-20160415_151736.webp",
+      "date": "2016-04-15",
+      "phase": "Installation & Assembly",
+      "caption": "Screening Equipment Modification and Installation Detail",
+      "altText": "Industrial screening equipment with yellow safety railings and structural mounting details visible",
+      "description": "Screening equipment installation with safety railings and structural support systems showing operational configuration.",
+      "keywords": ["screening equipment", "safety railings", "installation detail", "operational setup", "equipment configuration"]
+    },
+    {
+      "id": "24",
+      "filename": "24-20160416_144748.jpg",
+      "webpFilename": "24-20160416_144748.webp",
+      "date": "2016-04-16",
+      "phase": "Installation & Assembly",
+      "caption": "Multi-Level Equipment Frame - Overhead Perspective View",
+      "altText": "Aerial view of multi-tiered industrial equipment structure showing system integration and component stacking",
+      "description": "Overhead perspective revealing the complexity of multi-level equipment integration and system architecture.",
+      "keywords": ["multi-level equipment", "system integration", "overhead view", "equipment stacking", "complex systems"]
+    },
+    {
+      "id": "25",
+      "filename": "25-20160511_080852.jpg",
+      "webpFilename": "25-20160511_080852.webp",
+      "date": "2016-05-11",
+      "phase": "Installation & Assembly",
+      "caption": "Stacked Equipment Units Ready for Integration Testing",
+      "altText": "Rotated image of industrial equipment structure showing stacked units and processing stages",
+      "description": "Equipment assembly reaching completion stage with all major units stacked and ready for integration and testing.",
+      "keywords": ["equipment stacking", "assembly completion", "integration testing", "system readiness", "equipment configuration"]
+    },
+    {
+      "id": "26",
+      "filename": "26-20160611_134546.jpg",
+      "webpFilename": "26-20160611_134546.webp",
+      "date": "2016-06-11",
+      "phase": "Installation & Assembly",
+      "caption": "Integrated Equipment Stack with Operational Access Platforms",
+      "altText": "Industrial equipment system with yellow safety railings, operator platforms, and multi-stage processing configuration",
+      "description": "Completed equipment integration showing operational layout with safety platforms and access routes for plant operation.",
+      "keywords": ["equipment integration", "operational layout", "safety platforms", "system complete", "plant configuration"]
+    },
+    {
+      "id": "27",
+      "filename": "27-20160611_134623.jpg",
+      "webpFilename": "27-20160611_134623.webp",
+      "date": "2016-06-11",
+      "phase": "Installation & Assembly",
+      "caption": "Processing Equipment Detail - Final Assembly Stage",
+      "altText": "Rotated overhead view showing processing equipment details and final assembly components",
+      "description": "Detailed view of processing equipment in final assembly stage showing component integration and system configuration.",
+      "keywords": ["processing equipment", "final assembly", "component integration", "equipment detail", "assembly complete"]
+    },
+    {
+      "id": "28",
+      "filename": "28-20160611_134748.jpg",
+      "webpFilename": "28-20160611_134748.webp",
+      "date": "2016-06-11",
+      "phase": "Installation & Assembly",
+      "caption": "Complete Installation with Site Overview and Landscaping",
+      "altText": "Wide view of completed industrial installation showing full equipment system, site landscaping, and operational footprint",
+      "description": "Installation complete - full system overview showing the modernized equipment plant ready for commissioning and operations.",
+      "keywords": ["installation complete", "system overview", "project milestone", "equipment system", "operational readiness"]
+    },
+    {
+      "id": "29",
+      "filename": "29-20160819_065320.jpg",
+      "webpFilename": "29-20160819_065320.webp",
+      "date": "2016-08-19",
+      "phase": "Operations & Commissioning",
+      "caption": "Operational Equipment System - Multi-Level Processing Line",
+      "altText": "Complete industrial processing system showing multi-level equipment integration and operational configuration",
+      "description": "Operational system running showing the integrated equipment processing line in full production operation.",
+      "keywords": ["operational system", "processing line", "production ready", "equipment integration", "commissioning complete", "system operational"]
+    },
+    {
+      "id": "30",
+      "filename": "30-20170306_134626.jpg",
+      "webpFilename": "30-20170306_134626.webp",
+      "date": "2017-03-06",
+      "phase": "Operations & Commissioning",
+      "caption": "Aerial View of Completed System Integration - Project Completion",
+      "altText": "Aerial perspective of modernized industrial plant showing full equipment system integration and operational status",
+      "description": "Final project status - aerial view showing the complete modernized plant system fully integrated and operational.",
+      "keywords": ["project complete", "aerial view", "system integration", "operational status", "equipment system", "modernization complete"]
+    },
+    {
+      "id": "31",
+      "filename": "31-20161123_065704.jpg",
+      "webpFilename": "31-20161123_065704.webp",
+      "date": "2016-11-23",
+      "phase": "Operations & Commissioning",
+      "caption": "Internal Equipment Structure and Processing Chambers",
+      "altText": "Internal view of industrial equipment showing processing chambers and internal structural configuration",
+      "description": "Technical view of internal equipment structure and processing chambers showing the system's operational design.",
+      "keywords": ["internal structure", "processing chambers", "technical detail", "equipment internals", "system design", "engineering detail"]
+    }
+  ]
+}

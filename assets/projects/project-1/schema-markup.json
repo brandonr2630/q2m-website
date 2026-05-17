@@ -1,0 +1,111 @@
+{
+  "comment": "JSON-LD Schema Markup Examples for Google Images and Rich Results",
+  "projectSchema": {
+    "@context": "https://schema.org",
+    "@type": "Project",
+    "name": "Industrial Plant Modernization & Equipment Upgrade",
+    "description": "Complete plant upgrade spanning 9 months from decommissioning through full operational commissioning in Trinidad and Tobago",
+    "image": [
+      "https://q2m.io/jobs/assets/projects/project-1/webp/01-IMG-20160109-WA0014.webp",
+      "https://q2m.io/jobs/assets/projects/project-1/webp/29-20160819_065320.webp"
+    ],
+    "startDate": "2016-01-09",
+    "endDate": "2017-03-06",
+    "location": {
+      "@type": "Place",
+      "name": "Trinidad and Tobago"
+    },
+    "award": "Industrial Plant Modernization",
+    "jobTitle": "Plant Equipment Upgrade & Installation"
+  },
+
+  "imageSchemaExample": {
+    "comment": "Use this schema for EACH image in the gallery",
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "name": "Existing Equipment Assessment - Determining Scope of Work",
+    "url": "https://q2m.io/jobs/assets/projects/project-1/webp/01-IMG-20160109-WA0014.webp",
+    "alternativeText": "Existing industrial crane and equipment frame showing aged infrastructure requiring modernization",
+    "description": "Initial site assessment of aging equipment and infrastructure to determine project scope. Shows weathered structural framework and lifting equipment that will be replaced or refurbished.",
+    "thumbnail": "https://q2m.io/jobs/assets/projects/project-1/webp/01-IMG-20160109-WA0014.webp",
+    "author": {
+      "@type": "Organization",
+      "name": "Q2 Machines"
+    },
+    "datePublished": "2016-01-09",
+    "inLanguage": "en",
+    "copyrightNotice": "Q2 Machines",
+    "keywords": "equipment assessment, site inspection, industrial equipment, crane, structural frame",
+    "isPartOf": {
+      "@type": "Series",
+      "name": "Industrial Plant Modernization Project",
+      "identifier": "plant-upgrade-2016"
+    }
+  },
+
+  "gallerySchema": {
+    "comment": "Wrap the entire project gallery with this schema",
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Industrial Plant Modernization Project Gallery",
+    "description": "31-image case study documenting a 9-month industrial plant upgrade from assessment through full commissioning",
+    "url": "https://q2m.io/jobs/projects",
+    "mainEntity": {
+      "@type": "Project",
+      "name": "Industrial Plant Modernization & Equipment Upgrade",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://q2m.io/jobs/assets/projects/project-1/webp/29-20160819_065320.webp",
+        "name": "Operational Equipment System"
+      },
+      "startDate": "2016-01-09",
+      "endDate": "2017-03-06",
+      "location": {
+        "@type": "Place",
+        "name": "Trinidad and Tobago"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Q2 Machines",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://q2m.io/assets/logo.png"
+      }
+    }
+  },
+
+  "htmlImplementationGuide": {
+    "alt_text": {
+      "description": "Use alt text for ALL images - critical for SEO and accessibility",
+      "example": "<img src=\"image.webp\" alt=\"Existing industrial crane and equipment frame showing aged infrastructure requiring modernization\">",
+      "length": "125 characters (avoid truncation)",
+      "guidelines": [
+        "Describe WHAT the image shows, not the action",
+        "Include relevant keywords naturally",
+        "Avoid keyword stuffing",
+        "Be specific and descriptive"
+      ]
+    },
+    "visible_captions": {
+      "description": "Display captions below or alongside images for UX and SEO",
+      "example_html": "<figure>\n  <img src=\"image.webp\" alt=\"Existing industrial crane and equipment frame showing aged infrastructure requiring modernization\">\n  <figcaption>Existing Equipment Assessment - Determining Scope of Work</figcaption>\n</figure>",
+      "example_with_schema": "<figure itemscope itemtype=\"https://schema.org/ImageObject\">\n  <img src=\"image.webp\" alt=\"Existing industrial crane and equipment frame showing aged infrastructure requiring modernization\" itemprop=\"url\">\n  <figcaption itemprop=\"name\">Existing Equipment Assessment - Determining Scope of Work</figcaption>\n  <meta itemprop=\"description\" content=\"Initial site assessment of aging equipment and infrastructure to determine project scope...\">\n  <meta itemprop=\"datePublished\" content=\"2016-01-09\">\n</figure>",
+      "benefits": [
+        "Improves user engagement",
+        "Provides context for images",
+        "Helps Google understand content",
+        "Increases time-on-page"
+      ]
+    },
+    "structured_data": {
+      "implementation": "Add <script type=\"application/ld+json\"> blocks to your HTML",
+      "placement": "In <head> or <body>, anywhere before closing </body>",
+      "example": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"ImageObject\",\n  \"name\": \"Existing Equipment Assessment - Determining Scope of Work\",\n  \"url\": \"https://q2m.io/assets/projects/project-1/webp/01-IMG-20160109-WA0014.webp\",\n  \"alternativeText\": \"Existing industrial crane and equipment frame showing aged infrastructure requiring modernization\",\n  \"description\": \"Initial site assessment...\",\n  \"datePublished\": \"2016-01-09\"\n}\n</script>"
+    },
+    "complete_image_example": {
+      "description": "Full HTML example with all three components",
+      "html": "<figure itemscope itemtype=\"https://schema.org/ImageObject\">\n  <img \n    src=\"assets/projects/project-1/webp/01-IMG-20160109-WA0014.webp\" \n    alt=\"Existing industrial crane and equipment frame showing aged infrastructure requiring modernization\"\n    itemprop=\"url\"\n    loading=\"lazy\"\n    width=\"1200\"\n    height=\"800\"\n  >\n  <figcaption itemprop=\"name\">Existing Equipment Assessment - Determining Scope of Work</figcaption>\n  <meta itemprop=\"description\" content=\"Initial site assessment of aging equipment and infrastructure to determine project scope. Shows weathered structural framework and lifting equipment that will be replaced or refurbished.\">\n  <meta itemprop=\"datePublished\" content=\"2016-01-09\">\n  <meta itemprop=\"author\" content=\"Q2 Machines\">\n  <meta itemprop=\"keywords\" content=\"equipment assessment, site inspection, industrial equipment, crane, structural frame\">\n</figure>"
+    }
+  }
+}

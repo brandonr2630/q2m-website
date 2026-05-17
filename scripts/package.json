@@ -1,0 +1,15 @@
+{
+  "name": "q2m-website-scripts",
+  "version": "1.0.0",
+  "description": "Utility scripts for q2m-website",
+  "main": "upscale-images.js",
+  "scripts": {
+    "upscale:project-1": "node upscale-images.js ../assets/projects/project-1",
+    "upscale:project-2": "node upscale-images.js ../assets/projects/project-2",
+    "upscale:project-3": "node upscale-images.js ../assets/projects/project-3",
+    "upscale:all": "npm run upscale:project-1 && npm run upscale:project-2 && npm run upscale:project-3"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}

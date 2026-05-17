@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Q² Machines</title>
+<meta name="description" content="Engineering projects delivered by Q² Machines across the Caribbean — conveyor systems, concrete plants, fabrication, motors and pumps.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Q² Machines — Quarryquip Ltd">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Projects | Q² Machines">
+<meta property="og:description" content="Engineering projects delivered across the Caribbean — conveyor systems, concrete plants, fabrication, motors and pumps.">
+<meta property="og:url" content="https://www.q2m.io/projects.html">
+<meta property="og:site_name" content="Q² Machines">
+<meta property="og:locale" content="en_TT">
+<meta property="og:image" content="https://www.q2m.io/og_banner.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Engineering Projects | Q² Machines",
+  "description": "Engineering projects delivered across the Caribbean — conveyor systems, concrete plants, fabrication, motors and pumps.",
+  "url": "https://www.q2m.io/projects.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Q² Machines",
+    "url": "https://www.q2m.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.q2m.io/assets/branding/Q2M_Logo.svg"
+    }
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Project",
+          "name": "Sand & Gravel Wet Processing Plant Upgrade",
+          "description": "Design of the secondary stage of a 250 TPH Sand & Gravel Processing Plant including Civil Infrastructure, Structural Steelwork Superstructure, Machinery Commissioning, Electrical & Controls Works, 300 m³/hr clear-process-water supply and distribution system, tailings discharge system and laydown areas.",
+          "startDate": "2016-01-09",
+          "endDate": "2017-03-06",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://www.q2m.io/assets/projects/project-1/webp/29-20160819_065320.webp",
+            "name": "Operational Equipment System - Multi-Level Processing Line",
+            "description": "Completed aggregate processing plant showing multi-level equipment integration and operational processing line."
+          },
+          "location": {
+            "@type": "Place",
+            "name": "Trinidad and Tobago"
+          }
+        }
+      }
+    ]
+  }
+}
+</script>
+<style>
+:root {
+  --gold: #F5C500;
+  --gold-dark: #C49B00;
+  --gold-dim: rgba(245,197,0,0.12);
+  --gold-line: rgba(245,197,0,0.3);
+  --ink: #0A0A0A;
+  --ink-2: #111111;
+  --ink-3: #1A1A1A;
+  --text: #F0F0F0;
+  --text-2: #A0A0A0;
+  --text-3: #505050;
+  --border: rgba(245,197,0,0.15);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overscroll-behavior-y:none;}
+body{background:var(--ink);color:var(--text);font-family:'Barlow',sans-serif;font-size:15px;overflow-x:hidden;overscroll-behavior-y:none;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--ink-2);}::-webkit-scrollbar-thumb{background:var(--gold-dark);}
+
+/* ── SCROLL TOP ── */
+#scroll-top-btn{position:fixed;bottom:32px;right:24px;z-index:999;width:44px;height:44px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s,background .2s,transform .2s;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
+#scroll-top-btn.visible{opacity:1;pointer-events:auto;}
+#scroll-top-btn:hover{background:var(--gold-dark);transform:translateY(-3px);}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:flex-end;justify-content:space-between;padding:16px 60px 18px;background:#F4F3EF;border-bottom:2px solid var(--gold);transition:padding .3s;gap:32px;overflow:hidden;}
+nav.scrolled{background:#F4F3EF;box-shadow:0 2px 16px rgba(0,0,0,0.12);padding-top:10px;padding-bottom:10px;}
+nav.scrolled .nav-logo-mark{width:80px;height:80px;}
+nav.scrolled .nav-logo-name{font-size:32px;}
+nav.scrolled .nav-logo-mark,nav.scrolled .nav-logo-name{transition:all .3s;}
+.nav-logo{position:relative;z-index:1;display:flex;align-items:flex-end;gap:0;text-decoration:none;flex-shrink:0;}
+.nav-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;}
+.hamburger{position:relative;z-index:1;}
+.nav-logo-mark{width:150px;height:150px;background:transparent;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s;}
+.nav-logo-mark:hover{transform:rotate(-3deg);}
+.nav-logo-mark img{width:100%;height:100%;object-fit:contain;}
+.nav-logo-img{width:100%;height:100%;mix-blend-mode:multiply;}
+.nav-logo-text-wrap{display:flex;flex-direction:column;gap:10px;justify-content:space-between;align-self:flex-end;height:150px;}
+.nav-logo-name{font-family:'Oswald','Barlow Condensed',sans-serif;font-size:64px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);-webkit-text-stroke:1.5px #000;paint-order:stroke fill;line-height:1;display:block;position:relative;}
+.nav-logo-name sup{font-size:0.65em;vertical-align:top;line-height:1;-webkit-text-stroke:1px #000;position:relative;top:0;}
+.nav-logo-slogan{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#333333;opacity:.85;line-height:1;display:block;align-self:flex-end;margin-top:auto;}
+.nav-links{display:flex;align-items:center;gap:20px;list-style:none;flex-shrink:0;}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#333333;text-decoration:none;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width .2s;}
+.nav-links a:hover{color:var(--gold-dark);}
+.nav-links a:hover::after{width:100%;}
+.nav-links a.active{color:var(--gold-dark);}
+.nav-links a.active::after{width:100%;}
+.nav-cta{background:var(--gold)!important;color:var(--ink)!important;padding:8px 20px;border-radius:2px;font-weight:700!important;}
+.nav-cta::after{display:none!important;}
+.nav-cta:hover{background:var(--ink)!important;color:var(--gold)!important;}
+
+/* ── LANGUAGE FLAGS ── */
+.lang-flags{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.lang-flag{cursor:pointer;border:none;background:none;padding:2px;border-radius:3px;transition:transform .15s,opacity .15s;opacity:0.65;line-height:1;position:relative;display:inline-flex;align-items:center;}
+.lang-flag .fi{width:24px;height:18px;border-radius:2px;display:block;}
+.lang-flag:hover{transform:scale(1.2);opacity:1;}
+.lang-flag.active{opacity:1;outline:2px solid var(--gold-dark);border-radius:3px;}
+.lang-flag[title]::after{content:attr(title);position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-family:'Share Tech Mono',monospace;font-size:9px;color:#333;letter-spacing:1px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s;}
+.lang-flag:hover[title]::after{opacity:1;}
+.mobile-lang-flags{display:flex;gap:16px;margin-top:8px;}
+.mobile-lang-flags .lang-flag{opacity:0.7;}
+.mobile-lang-flags .lang-flag .fi{width:36px;height:27px;}
+.mobile-lang-flags .lang-flag.active{opacity:1;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;align-self:center;}
+.hamburger span{width:24px;height:2px;background:#333;display:block;transition:all .3s;}
+
+/* ── MOBILE MENU ── */
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.98);z-index:1001;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--text-2);text-decoration:none;transition:color .2s;}
+.mobile-menu a:hover{color:var(--gold);}
+.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--text-2);font-size:28px;cursor:pointer;padding:8px;}
+
+/* ── GOLD DIVIDER ── */
+.gold-divider{height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.4;position:relative;z-index:1;}
+
+/* ── PAGE HERO ── */
+.page-hero{padding:220px 60px 80px;position:relative;overflow:hidden;}
+.page-hero::after{content:'PROJECTS';position:absolute;bottom:-30px;right:-10px;font-family:'Oswald',sans-serif;font-size:clamp(100px,18vw,220px);font-weight:700;letter-spacing:-4px;color:var(--gold);opacity:0.04;line-height:1;pointer-events:none;user-select:none;}
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.section-label::before{content:'';width:30px;height:1px;background:var(--gold);}
+.page-hero h1{font-family:'Oswald',sans-serif;font-size:clamp(44px,7vw,80px);font-weight:700;letter-spacing:-1px;line-height:1.0;margin-bottom:20px;}
+.page-hero h1 span{color:var(--gold);}
+.page-hero p{font-size:17px;color:var(--text-2);max-width:620px;line-height:1.7;}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.3s;}
+
+/* ── PROJECTS GRID ── */
+.projects-section{padding:72px 60px 80px;position:relative;z-index:1;}
+.projects-inner{max-width:1200px;margin:0 auto;}
+.filter-bar{display:flex;align-items:center;gap:12px;margin-bottom:48px;flex-wrap:wrap;}
+.filter-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--text-3);margin-right:4px;}
+.filter-btn{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border:1px solid var(--text-3);color:var(--text-2);background:none;border-radius:2px;cursor:pointer;transition:all .2s;}
+.filter-btn:hover{border-color:var(--gold);color:var(--gold);}
+.filter-btn.active{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+.filter-count{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:28px;}
+
+/* ── PROJECT CARD ── */
+.project-card{background:var(--ink-2);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column;opacity:0;transform:translateY(20px);animation:cardIn .5s forwards;}
+@keyframes cardIn{to{opacity:1;transform:none;}}
+.project-card:hover{transform:translateY(-5px);border-color:var(--gold-line);box-shadow:0 16px 48px rgba(0,0,0,0.5);}
+.project-cover-placeholder{width:100%;aspect-ratio:16/9;background:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* ── CARD CAROUSEL ── */
+.card-carousel{width:100%;aspect-ratio:1;position:relative;overflow:hidden;background:var(--ink-3);flex-shrink:0;}
+.card-carousel-track{position:relative;width:100%;height:100%;}
+.card-carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;pointer-events:none;}
+.card-carousel-slide.active{opacity:1;pointer-events:auto;}
+.card-carousel-slide img{width:100%;height:100%;object-fit:contain;display:block;}
+.card-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,0.5);border:1px solid rgba(245,197,0,0.3);color:var(--text);font-size:18px;width:36px;height:36px;border-radius:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,color .2s;opacity:0;transition:opacity .2s,background .2s,border-color .2s;}
+.card-carousel:hover .card-carousel-arrow{opacity:1;}
+.card-carousel-arrow:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+.card-carousel-arrow.prev{left:10px;}
+.card-carousel-arrow.next{right:10px;}
+.card-carousel-counter{position:absolute;bottom:10px;right:12px;font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.5);padding:3px 8px;border-radius:2px;z-index:10;pointer-events:none;}
+.project-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column;gap:10px;}
+.project-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.category-badge{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:2px;background:var(--gold-dim);color:var(--gold);border:1px solid var(--gold-line);}
+.project-year{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-3);}
+.project-sector{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-3);}
+.project-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;letter-spacing:0.3px;color:var(--text);line-height:1.2;}
+.project-summary{font-size:14px;color:var(--text-2);line-height:1.65;flex:1;}
+.project-view-btn{margin-top:14px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 20px;background:none;border:1px solid var(--gold);color:var(--gold);border-radius:2px;cursor:pointer;transition:all .2s;text-align:center;width:100%;}
+.project-view-btn:hover{background:var(--gold);color:var(--ink);}
+
+/* ── STATES ── */
+.state-wrap{grid-column:1/-1;text-align:center;padding:80px 40px;}
+.state-wrap.bordered{border:1px dashed var(--text-3);border-radius:3px;}
+.state-icon{opacity:0.2;margin-bottom:24px;}
+.state-wrap h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;letter-spacing:1px;color:var(--text-2);margin-bottom:12px;}
+.state-wrap p{font-size:14px;color:var(--text-3);line-height:1.6;}
+.spinner{width:36px;height:36px;margin:0 auto 24px;border:3px solid var(--text-3);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ── LIGHTBOX ── */
+.lightbox{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;flex-direction:column;}
+.lightbox.open{display:flex;}
+.lightbox-img-wrap{display:flex;align-items:center;justify-content:center;flex:1;width:100%;padding:60px 80px 20px;}
+.lightbox img{max-width:90vw;max-height:75vh;object-fit:contain;border-radius:2px;}
+.lightbox-close{position:absolute;top:24px;right:28px;background:none;border:none;font-size:32px;color:var(--text-2);cursor:pointer;transition:color .2s;line-height:1;}
+.lightbox-close:hover{color:var(--gold);}
+.lightbox-caption{padding:0 40px 32px;text-align:center;}
+.lightbox-caption h3{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;letter-spacing:1px;color:var(--text);margin-bottom:6px;}
+.lightbox-caption p{font-size:13px;color:var(--text-2);line-height:1.6;max-width:640px;margin:0 auto;}
+.lightbox-nav{display:flex;gap:12px;justify-content:center;padding-bottom:8px;}
+.lightbox-nav-btn{background:none;border:1px solid var(--text-3);color:var(--text-2);font-size:20px;width:44px;height:44px;border-radius:2px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;}
+.lightbox-nav-btn:hover{border-color:var(--gold);color:var(--gold);}
+.lightbox-counter{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text-3);align-self:center;min-width:50px;text-align:center;}
+
+/* ── CTA SECTION ── */
+.cta-section{background:var(--ink-2);border-top:1px solid var(--border);padding:80px 60px 90px;position:relative;z-index:1;}
+.cta-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.cta-headline{font-family:'Oswald',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:700;letter-spacing:-0.5px;line-height:1.1;margin-bottom:16px;}
+.cta-headline span{color:var(--gold);}
+.cta-sub{font-size:15px;color:var(--text-2);line-height:1.7;max-width:460px;}
+.cta-actions{display:flex;flex-direction:column;gap:16px;align-items:flex-start;}
+.cta-btn{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 32px;border-radius:2px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:10px;}
+.cta-btn-primary{background:var(--gold);color:var(--ink);border:none;}
+.cta-btn-primary:hover{background:var(--gold-dark);}
+.cta-btn-secondary{background:none;color:var(--text-2);border:1px solid var(--text-3);}
+.cta-btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ── FOOTER ── */
+footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;position:relative;z-index:1;overflow:hidden;}
+.footer-inner{max-width:600px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;position:relative;z-index:1;}
+.footer-logo-img{width:80px;height:80px;object-fit:contain;mix-blend-mode:multiply;opacity:0.75;}
+.footer-logo-mark{width:120px;height:120px;background:transparent;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.footer-logo-mark img{width:100%;height:100%;object-fit:contain;}
+.footer-logo-mark svg{width:100%;height:100%;mix-blend-mode:multiply;}
+.footer-name{font-family:'Oswald','Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);line-height:1;}
+.footer-slogan{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#333333;opacity:.8;margin-top:3px;}
+.footer-copy{font-size:12px;color:#555555;font-family:'Share Tech Mono',monospace;}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;justify-content:center;}
+.footer-links a{font-size:12px;color:#333333;text-decoration:none;font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s;}
+.footer-links a:hover{color:var(--gold-dark);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){nav{padding:14px 32px;}.page-hero{padding:180px 32px 72px;}.projects-section{padding:56px 32px 72px;}.cta-section{padding:64px 32px 72px;}footer{padding:48px 32px 36px;}}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}nav{padding:12px 24px 14px;}.nav-logo-mark{width:80px;height:80px;}.nav-logo-text-wrap{height:80px;gap:4px;}.nav-logo-name{font-size:36px;}.nav-logo-slogan{font-size:12px;letter-spacing:2px;}.page-hero{padding:150px 24px 60px;}.projects-section{padding:48px 24px 60px;}.cta-inner{grid-template-columns:1fr;gap:40px;}.cta-section{padding:52px 24px 64px;}footer{padding:40px 24px 32px;}.lightbox-img-wrap{padding:60px 24px 16px;}}
+@media(max-width:480px){.projects-grid{grid-template-columns:1fr;}.page-hero h1{font-size:40px;}nav{padding:8px 14px 10px;}.nav-logo-mark{width:60px;height:60px;}.nav-logo-name{font-size:26px;}.nav-logo-slogan{font-size:10px;letter-spacing:1.5px;}}
+</style>
+</head>
+<body>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="/" onclick="closeMobileMenu()" data-i18n="nav_home">Home</a>
+  <a href="/#about" onclick="closeMobileMenu()" data-i18n="nav_about">About</a>
+  <a href="/#services" onclick="closeMobileMenu()" data-i18n="nav_services">Services</a>
+  <a href="/depot.html" onclick="closeMobileMenu()" data-i18n="nav_depot">Depot</a>
+  <a href="/projects.html" onclick="closeMobileMenu()" style="color:var(--gold);" data-i18n="nav_projects">Projects</a>
+  <a href="/#contact" onclick="closeMobileMenu()" data-i18n="nav_contact">Contact</a>
+  <a href="/#contact" onclick="closeMobileMenu()" data-i18n="nav_cta" style="background:var(--gold);color:var(--ink);padding:14px 32px;border-radius:2px;font-size:20px;margin-top:8px;">Tell Us Your Needs</a>
+  <div class="mobile-lang-flags">
+    <button class="lang-flag active" data-lang="en" title="English"><span class="fi fi-tt"></span></button>
+    <button class="lang-flag" data-lang="es" title="Español"><span class="fi fi-es"></span></button>
+    <button class="lang-flag" data-lang="pt" title="Português"><span class="fi fi-br"></span></button>
+    <button class="lang-flag" data-lang="nl" title="Nederlands"><span class="fi fi-nl"></span></button>
+    <button class="lang-flag" data-lang="fr" title="Français"><span class="fi fi-fr"></span></button>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">
+      <img src="assets/branding/Q2M_Logo.svg" alt="Q2 Machines Logo" class="nav-logo-img" />
+    </div>
+  </a>
+  <div class="nav-right">
+    <div class="lang-flags" id="lang-flags">
+      <button class="lang-flag active" data-lang="en" title="English"><span class="fi fi-tt"></span></button>
+      <button class="lang-flag" data-lang="es" title="Español"><span class="fi fi-es"></span></button>
+      <button class="lang-flag" data-lang="pt" title="Português"><span class="fi fi-br"></span></button>
+      <button class="lang-flag" data-lang="nl" title="Nederlands"><span class="fi fi-nl"></span></button>
+      <button class="lang-flag" data-lang="fr" title="Français"><span class="fi fi-fr"></span></button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/" data-i18n="nav_home">Home</a></li>
+      <li><a href="/#about" data-i18n="nav_about">About</a></li>
+      <li><a href="/#services" data-i18n="nav_services">Services</a></li>
+      <li><a href="/depot.html" data-i18n="nav_depot">Depot</a></li>
+      <li><a href="/projects.html" class="active" data-i18n="nav_projects">Projects</a></li>
+      <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" onclick="openMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label reveal" data-i18n="proj_label">Our Work</div>
+    <h1 class="reveal reveal-delay-1" id="proj-title">
+      Engineering <span>Projects</span>
+    </h1>
+    <p class="reveal reveal-delay-2" data-i18n="proj_desc">Delivered across the Caribbean — from conveyor systems and concrete plants to precision fabrication, motors and pumps. Every project is engineered, built and commissioned in-house.</p>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ── PROJECTS ── -->
+<section class="projects-section">
+  <div class="projects-inner">
+    <div class="filter-bar reveal">
+      <span class="filter-label" data-i18n="filter_label">Filter:</span>
+      <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)" data-i18n="filter_all">All Projects</button>
+      <button class="filter-btn" data-filter="conveyor" onclick="setFilter('conveyor',this)" data-i18n="filter_conveyor">Conveyor &amp; Bulk</button>
+      <button class="filter-btn" data-filter="concrete" onclick="setFilter('concrete',this)" data-i18n="filter_concrete">Concrete Plants</button>
+      <button class="filter-btn" data-filter="fabrication" onclick="setFilter('fabrication',this)" data-i18n="filter_fabrication">Fabrication</button>
+      <button class="filter-btn" data-filter="motors-pumps" onclick="setFilter('motors-pumps',this)" data-i18n="filter_motors">Motors &amp; Pumps</button>
+      <span class="filter-count" id="filter-count"></span>
+    </div>
+    <div class="projects-grid" id="projects-grid">
+      <div class="state-wrap">
+        <div class="spinner"></div>
+        <p style="color:var(--text-3);font-size:13px;">Loading projects…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="reveal">
+      <div class="section-label" data-i18n="cta_label">Work With Us</div>
+      <h2 class="cta-headline" id="cta-title">
+        Have a <span>Project</span><br>in Mind?
+      </h2>
+      <p class="cta-sub" data-i18n="cta_sub">Tell us what you need to build, fix or deliver. Our team will come back with a plan.</p>
+    </div>
+    <div class="reveal reveal-delay-1 cta-actions">
+      <a href="/#contact" class="cta-btn cta-btn-primary" data-i18n="cta_btn1">Tell Us Your Needs →</a>
+      <a href="/depot.html" class="cta-btn cta-btn-secondary" data-i18n="cta_btn2">Browse Equipment Depot</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo-mark">
+      <img src="assets/branding/Q2M_Logo.svg" alt="Q2 Machines" class="footer-logo-img" />
+    </div>
+    <div class="footer-name">Q<sup>2</sup> Machines</div>
+    <div class="footer-slogan" data-i18n="footer_slogan">Safety, Service &amp; Sustainability</div>
+    <ul class="footer-links">
+      <li><a href="/" data-i18n="nav_home">Home</a></li>
+      <li><a href="/#about" data-i18n="nav_about">About</a></li>
+      <li><a href="/#services" data-i18n="nav_services">Services</a></li>
+      <li><a href="/depot.html" data-i18n="nav_depot">Depot</a></li>
+      <li><a href="/projects.html" data-i18n="nav_projects">Projects</a></li>
+      <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:center;">
+      <a href="tel:+18682309702" style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#555;text-decoration:none;">(868) 230-9702</a>
+      <span style="color:#ccc;">·</span>
+      <a href="mailto:qhub@q2m.io" style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#555;text-decoration:none;">qhub@q2m.io</a>
+    </div>
+    <div class="footer-copy">© <span id="footer-year"></span> Q<sup>2</sup> Machines. All rights reserved.</div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:#999;letter-spacing:.5px;font-style:italic;">Gloria Patri, et Filio, et Spiritui Sancto. Amen</div>
+  </div>
+</footer>
+
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxBg(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <div class="lightbox-caption">
+    <h3 id="lightbox-title"></h3>
+    <p id="lightbox-summary"></p>
+  </div>
+  <div class="lightbox-nav">
+    <button class="lightbox-nav-btn" onclick="lightboxStep(-1)" aria-label="Previous">‹</button>
+    <span class="lightbox-counter" id="lightbox-counter"></span>
+    <button class="lightbox-nav-btn" onclick="lightboxStep(1)" aria-label="Next">›</button>
+  </div>
+</div>
+
+<script>
+// ── NAV ──────────────────────────────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  document.getElementById('scroll-top-btn').classList.toggle('visible', window.scrollY > 300);
+});
+
+function openMobileMenu() { document.getElementById('mobile-menu').classList.add('open'); }
+function closeMobileMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
+
+// ── i18n ─────────────────────────────────────────────────────────────────────
+let currentLang = 'en';
+
+const translations = {
+  en: {
+    nav_home:'Home', nav_about:'About', nav_services:'Services', nav_depot:'Depot', nav_projects:'Projects', nav_contact:'Contact', nav_cta:'Tell Us Your Needs',
+    proj_label:'Our Work', proj_title_html:'Engineering <span>Projects</span>',
+    proj_desc:'Delivered across the Caribbean — from conveyor systems and concrete plants to precision fabrication, motors and pumps. Every project is engineered, built and commissioned in-house.',
+    filter_label:'Filter:', filter_all:'All Projects', filter_conveyor:'Conveyor & Bulk', filter_concrete:'Concrete Plants', filter_fabrication:'Fabrication', filter_motors:'Motors & Pumps',
+    view_project:'View Project →',
+    cta_label:'Work With Us', cta_title_html:'Have a <span>Project</span><br>in Mind?',
+    cta_sub:'Tell us what you need to build, fix or deliver. Our team will come back with a plan.',
+    cta_btn1:'Tell Us Your Needs →', cta_btn2:'Browse Equipment Depot',
+    footer_slogan:'Safety, Service & Sustainability',
+    cat_conveyor:'Conveyor & Bulk Handling', cat_concrete:'Concrete Plants', cat_fabrication:'Fabrication & Welding', cat_motors:'Motors & Pumps', cat_structural:'Structural Systems', cat_machine:'Machine Shop',
+  },
+  es: {
+    nav_home:'Inicio', nav_about:'Nosotros', nav_services:'Servicios', nav_depot:'Depósito', nav_projects:'Proyectos', nav_contact:'Contacto', nav_cta:'Cuéntenos su Necesidad',
+    proj_label:'Nuestro Trabajo', proj_title_html:'Proyectos de <span>Ingeniería</span>',
+    proj_desc:'Entregados en todo el Caribe — desde sistemas de cinta transportadora y plantas de concreto hasta fabricación de precisión, motores y bombas. Cada proyecto es diseñado, construido y puesto en marcha internamente.',
+    filter_label:'Filtrar:', filter_all:'Todos los Proyectos', filter_conveyor:'Transportador y Granel', filter_concrete:'Plantas de Concreto', filter_fabrication:'Fabricación', filter_motors:'Motores y Bombas',
+    view_project:'Ver Proyecto →',
+    cta_label:'Trabaje con Nosotros', cta_title_html:'¿Tiene un <span>Proyecto</span><br>en Mente?',
+    cta_sub:'Díganos qué necesita construir, reparar o entregar. Nuestro equipo le responderá con un plan.',
+    cta_btn1:'Cuéntenos sus Necesidades →', cta_btn2:'Ver Depósito de Equipos',
+    footer_slogan:'Seguridad, Servicio y Sostenibilidad',
+    cat_conveyor:'Transportadores y Manejo a Granel', cat_concrete:'Plantas de Concreto', cat_fabrication:'Fabricación y Soldadura', cat_motors:'Motores y Bombas', cat_structural:'Sistemas Estructurales', cat_machine:'Taller de Máquinas',
+  },
+  pt: {
+    nav_home:'Início', nav_about:'Sobre', nav_services:'Serviços', nav_depot:'Depósito', nav_projects:'Projetos', nav_contact:'Contato', nav_cta:'Fale Conosco',
+    proj_label:'Nosso Trabalho', proj_title_html:'Projetos de <span>Engenharia</span>',
+    proj_desc:'Entregues em todo o Caribe — de sistemas de correias transportadoras e usinas de concreto à fabricação de precisão, motores e bombas. Cada projeto é projetado, construído e comissionado internamente.',
+    filter_label:'Filtrar:', filter_all:'Todos os Projetos', filter_conveyor:'Transportador e Granel', filter_concrete:'Usinas de Concreto', filter_fabrication:'Fabricação', filter_motors:'Motores e Bombas',
+    view_project:'Ver Projeto →',
+    cta_label:'Trabalhe Conosco', cta_title_html:'Tem um <span>Projeto</span><br>em Mente?',
+    cta_sub:'Diga-nos o que precisa construir, reparar ou entregar. Nossa equipe responderá com um plano.',
+    cta_btn1:'Fale Sobre Suas Necessidades →', cta_btn2:'Ver Depósito de Equipamentos',
+    footer_slogan:'Segurança, Serviço e Sustentabilidade',
+    cat_conveyor:'Transportadores e Manuseio a Granel', cat_concrete:'Usinas de Concreto', cat_fabrication:'Fabricação e Soldagem', cat_motors:'Motores e Bombas', cat_structural:'Sistemas Estruturais', cat_machine:'Oficina Mecânica',
+  },
+  nl: {
+    nav_home:'Home', nav_about:'Over Ons', nav_services:'Diensten', nav_depot:'Depot', nav_projects:'Projecten', nav_contact:'Contact', nav_cta:'Vertel Ons Uw Behoefte',
+    proj_label:'Ons Werk', proj_title_html:'Engineering <span>Projecten</span>',
+    proj_desc:'Gerealiseerd door het Caribisch gebied — van transportbandsystemen en betonplanten tot precisie fabricage, motoren en pompen. Elk project wordt intern ontworpen, gebouwd en in bedrijf gesteld.',
+    filter_label:'Filter:', filter_all:'Alle Projecten', filter_conveyor:'Transportband & Bulk', filter_concrete:'Betonplanten', filter_fabrication:'Fabricage', filter_motors:'Motoren & Pompen',
+    view_project:'Bekijk Project →',
+    cta_label:'Werk Met Ons', cta_title_html:'Heeft U een <span>Project</span><br>in Gedachten?',
+    cta_sub:'Vertel ons wat u wilt bouwen, repareren of realiseren. Ons team komt terug met een plan.',
+    cta_btn1:'Vertel Ons Uw Behoeften →', cta_btn2:'Uitrustingsdepot Bekijken',
+    footer_slogan:'Veiligheid, Service & Duurzaamheid',
+    cat_conveyor:'Transportband & Bulkverwerking', cat_concrete:'Betonplanten', cat_fabrication:'Fabricage & Lassen', cat_motors:'Motoren & Pompen', cat_structural:'Constructieve Systemen', cat_machine:'Machinewerkplaats',
+  },
+  fr: {
+    nav_home:'Accueil', nav_about:'À Propos', nav_services:'Services', nav_depot:'Dépôt', nav_projects:'Projets', nav_contact:'Contact', nav_cta:'Dites-nous vos Besoins',
+    proj_label:'Notre Travail', proj_title_html:'Projets <span>d\'Ingénierie</span>',
+    proj_desc:'Réalisés à travers les Caraïbes — des systèmes de convoyeurs et centrales à béton à la fabrication de précision, moteurs et pompes. Chaque projet est conçu, construit et mis en service en interne.',
+    filter_label:'Filtrer :', filter_all:'Tous les Projets', filter_conveyor:'Convoyeur & Vrac', filter_concrete:'Centrales à Béton', filter_fabrication:'Fabrication', filter_motors:'Moteurs & Pompes',
+    view_project:'Voir le Projet →',
+    cta_label:'Travaillez Avec Nous', cta_title_html:'Avez-Vous un <span>Projet</span><br>en Tête ?',
+    cta_sub:'Dites-nous ce que vous devez construire, réparer ou livrer. Notre équipe reviendra avec un plan.',
+    cta_btn1:'Dites-nous Vos Besoins →', cta_btn2:'Parcourir le Dépôt d\'Équipements',
+    footer_slogan:'Sécurité, Service & Durabilité',
+    cat_conveyor:'Convoyeurs & Manutention en Vrac', cat_concrete:'Centrales à Béton', cat_fabrication:'Fabrication & Soudage', cat_motors:'Moteurs & Pompes', cat_structural:'Systèmes Structurels', cat_machine:'Atelier d\'Usinage',
+  },
+};
+
+function applyTranslations(lang) {
+  currentLang = lang;
+  const t = translations[lang] || translations.en;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+  const projTitle = document.getElementById('proj-title');
+  if (projTitle) projTitle.innerHTML = t.proj_title_html;
+  const ctaTitle = document.getElementById('cta-title');
+  if (ctaTitle) ctaTitle.innerHTML = t.cta_title_html;
+  document.querySelectorAll('.lang-flag').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === lang));
+  renderProjects();
+}
+
+document.querySelectorAll('.lang-flag').forEach(btn => {
+  btn.addEventListener('click', () => applyTranslations(btn.getAttribute('data-lang')));
+});
+
+// ── REVEAL ───────────────────────────────────────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── FOOTER YEAR ──────────────────────────────────────────────────────────────
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+// ── CATEGORY LABELS ──────────────────────────────────────────────────────────
+function getCategoryLabels() {
+  const t = translations[currentLang] || translations.en;
+  return {
+    conveyor: t.cat_conveyor,
+    concrete: t.cat_concrete,
+    fabrication: t.cat_fabrication,
+    'motors-pumps': t.cat_motors,
+    structural: t.cat_structural,
+    'machine-shop': t.cat_machine,
+  };
+}
+
+// ── DATA ─────────────────────────────────────────────────────────────────────
+let allProjects = [];
+let currentFilter = 'all';
+
+async function loadProjects() {
+  try {
+    const res = await fetch('/projects.json?v=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    allProjects = Array.isArray(data) ? [...data].reverse() : [];
+    renderProjects();
+  } catch(e) {
+    document.getElementById('projects-grid').innerHTML = `
+      <div class="state-wrap bordered">
+        <div class="state-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5C500" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h3>Unable to load projects</h3>
+        <p>Please try refreshing, or contact us at <a href="mailto:qhub@q2m.io" style="color:var(--gold);">qhub@q2m.io</a></p>
+      </div>`;
+  }
+}
+
+function renderProjects() {
+  const grid = document.getElementById('projects-grid');
+  const countEl = document.getElementById('filter-count');
+  const filtered = currentFilter === 'all' ? allProjects : allProjects.filter(p => p.category === currentFilter);
+  countEl.textContent = filtered.length + ' project' + (filtered.length !== 1 ? 's' : '');
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="state-wrap bordered">
+        <div class="state-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5C500" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h3>No projects in this category yet</h3>
+        <p>Check back soon.</p>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map((p, i) => {
+    const t = translations[currentLang] || translations.en;
+    const categoryLabels = getCategoryLabels();
+    const label = categoryLabels[p.category] || p.category;
+    const imgs = p.images && p.images.length ? p.images : (p.cover ? [p.cover] : []);
+    const pidx = allProjects.indexOf(p);
+    const slidesHtml = imgs.length
+      ? imgs.map((src, si) => `<div class="card-carousel-slide${si === 0 ? ' active' : ''}"><img src="${src}" alt="${p.title} — image ${si + 1}" loading="${si === 0 ? 'eager' : 'lazy'}" /></div>`).join('')
+      : `<div class="card-carousel-slide active"><div class="project-cover-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m3 9 4-4 4 4 4-4 4 4"/><path d="M3 15h18"/></svg></div></div>`;
+    const arrowsHtml = imgs.length > 1 ? `
+      <button class="card-carousel-arrow prev" onclick="cardCarouselStep(${pidx},-1,event)" aria-label="Previous">&#8249;</button>
+      <button class="card-carousel-arrow next" onclick="cardCarouselStep(${pidx},1,event)" aria-label="Next">&#8250;</button>
+      <span class="card-carousel-counter" id="cc-counter-${pidx}">1 / ${imgs.length}</span>` : '';
+    return `
+      <div class="project-card" style="animation-delay:${i * 60}ms">
+        <div class="card-carousel" id="cc-${pidx}" data-pidx="${pidx}" data-total="${imgs.length}" data-current="0"
+             onmouseenter="cardCarouselPause(${pidx})" onmouseleave="cardCarouselResume(${pidx})">
+          <div class="card-carousel-track">${slidesHtml}</div>
+          ${arrowsHtml}
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="category-badge">${label}</span>
+            <span class="project-sector">${p.sector || ''}</span>
+            <span class="project-year">${p.year || ''}</span>
+          </div>
+          <div class="project-title">${p.title}</div>
+          <div class="project-summary">${p['summary_' + currentLang] || p.summary || ''}</div>
+          <button class="project-view-btn" onclick="openLightbox(${pidx})">${t.view_project}</button>
+        </div>
+      </div>`;
+  }).join('');
+
+  initCarousels();
+}
+
+function setFilter(value, btn) {
+  currentFilter = value;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b === btn));
+  renderProjects();
+}
+
+// ── CARD CAROUSELS ────────────────────────────────────────────────────────────
+const ccTimers = {};
+
+function cardCarouselGoTo(pidx, idx) {
+  const el = document.getElementById('cc-' + pidx);
+  if (!el) return;
+  const total = +el.dataset.total;
+  if (total <= 1) return;
+  const slides = el.querySelectorAll('.card-carousel-slide');
+  const next = (idx + total) % total;
+  slides.forEach((s, i) => s.classList.toggle('active', i === next));
+  el.dataset.current = next;
+  const counter = document.getElementById('cc-counter-' + pidx);
+  if (counter) counter.textContent = (next + 1) + ' / ' + total;
+}
+
+function cardCarouselStep(pidx, dir, e) {
+  if (e) e.stopPropagation();
+  const el = document.getElementById('cc-' + pidx);
+  if (!el) return;
+  cardCarouselGoTo(pidx, +el.dataset.current + dir);
+  cardCarouselResume(pidx);
+}
+
+function cardCarouselAutoStart(pidx) {
+  const el = document.getElementById('cc-' + pidx);
+  if (!el || +el.dataset.total <= 1) return;
+  ccTimers[pidx] = setInterval(() => {
+    cardCarouselGoTo(pidx, +el.dataset.current + 1);
+  }, 3500);
+}
+
+function cardCarouselPause(pidx) {
+  clearInterval(ccTimers[pidx]);
+}
+
+function cardCarouselResume(pidx) {
+  cardCarouselPause(pidx);
+  cardCarouselAutoStart(pidx);
+}
+
+function initCarousels() {
+  Object.keys(ccTimers).forEach(k => clearInterval(ccTimers[k]));
+  allProjects.forEach((p, pidx) => {
+    const imgs = p.images && p.images.length ? p.images : (p.cover ? [p.cover] : []);
+    if (imgs.length > 1) cardCarouselAutoStart(pidx);
+
+    const el = document.getElementById('cc-' + pidx);
+    if (!el) return;
+    let ts = null;
+    el.addEventListener('touchstart', e => { ts = e.touches[0].clientX; }, { passive: true });
+    el.addEventListener('touchend', e => {
+      if (ts === null) return;
+      const dx = e.changedTouches[0].clientX - ts;
+      if (Math.abs(dx) > 40) cardCarouselStep(pidx, dx < 0 ? 1 : -1, null);
+      ts = null;
+    }, { passive: true });
+  });
+}
+
+// ── LIGHTBOX ─────────────────────────────────────────────────────────────────
+let lbProject = null;
+let lbImages = [];
+let lbIndex = 0;
+
+function openLightbox(projectIndex) {
+  lbProject = allProjects[projectIndex];
+  lbImages = lbProject.images && lbProject.images.length ? lbProject.images : (lbProject.cover ? [lbProject.cover] : []);
+  lbIndex = 0;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function renderLightbox() {
+  if (!lbImages.length) return;
+  document.getElementById('lightbox-img').src = lbImages[lbIndex];
+  document.getElementById('lightbox-img').alt = lbProject.title;
+  document.getElementById('lightbox-title').textContent = lbProject.title;
+  document.getElementById('lightbox-summary').textContent = lbProject['summary_' + currentLang] || lbProject.summary || '';
+  document.getElementById('lightbox-counter').textContent = lbImages.length > 1 ? (lbIndex + 1) + ' / ' + lbImages.length : '';
+}
+
+function lightboxStep(dir) {
+  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+  renderLightbox();
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeLightboxBg(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+}
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') lightboxStep(1);
+  if (e.key === 'ArrowLeft') lightboxStep(-1);
+});
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+loadProjects();
+</script>
+</body>
+</html>
