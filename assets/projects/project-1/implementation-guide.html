@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Page - Image Implementation Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .example { background: #f5f5f5; padding: 15px; margin: 20px 0; border-left: 4px solid #0066cc; }
+        figure { margin: 20px 0; text-align: center; }
+        figcaption { font-style: italic; color: #666; margin-top: 10px; }
+        code { background: #f0f0f0; padding: 2px 6px; }
+        .note { background: #fff3cd; padding: 10px; margin: 10px 0; border-radius: 4px; }
+        h2 { color: #0066cc; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>Projects Page Implementation Guide</h1>
+    <p>This guide shows how to use the captions, alt text, and schema markup for Google SEO.</p>
+
+    <h2>1. Basic Image with Alt Text & Caption</h2>
+    <div class="example">
+        <p><strong>Simple implementation:</strong></p>
+        <pre><code>&lt;figure&gt;
+  &lt;img
+    src="assets/projects/project-1/webp/01-IMG-20160109-WA0014.webp"
+    alt="Existing industrial crane and equipment frame showing aged infrastructure requiring modernization"
+  &gt;
+  &lt;figcaption&gt;Existing Equipment Assessment - Determining Scope of Work&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+    </div>
+
+    <h2>2. Image with Schema Markup (Recommended)</h2>
+    <div class="example">
+        <p><strong>SEO-optimized implementation:</strong></p>
+        <pre><code>&lt;figure itemscope itemtype="https://schema.org/ImageObject"&gt;
+  &lt;img
+    src="assets/projects/project-1/webp/01-IMG-20160109-WA0014.webp"
+    alt="Existing industrial crane and equipment frame showing aged infrastructure requiring modernization"
+    itemprop="url"
+    loading="lazy"
+    width="1200"
+    height="800"
+  &gt;
+  &lt;figcaption itemprop="name"&gt;Existing Equipment Assessment - Determining Scope of Work&lt;/figcaption&gt;
+  &lt;meta itemprop="description" content="Initial site assessment of aging equipment and infrastructure to determine project scope. Shows weathered structural framework and lifting equipment that will be replaced or refurbished."&gt;
+  &lt;meta itemprop="datePublished" content="2016-01-09"&gt;
+  &lt;meta itemprop="author" content="Q2 Machines"&gt;
+  &lt;meta itemprop="keywords" content="equipment assessment, site inspection, industrial equipment, crane, structural frame"&gt;
+&lt;/figure&gt;</code></pre>
+    </div>
+
+    <h2>3. Project-Level Schema (Add to Page Head)</h2>
+    <div class="example">
+        <p><strong>Add this once per projects page in &lt;head&gt; or before &lt;/body&gt;:</strong></p>
+        <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Project",
+  "name": "Industrial Plant Modernization & Equipment Upgrade",
+  "description": "Complete plant upgrade spanning 9 months from decommissioning through full operational commissioning",
+  "image": [
+    "https://q2m.io/jobs/assets/projects/project-1/webp/01-IMG-20160109-WA0014.webp",
+    "https://q2m.io/jobs/assets/projects/project-1/webp/29-20160819_065320.webp"
+  ],
+  "startDate": "2016-01-09",
+  "endDate": "2017-03-06",
+  "location": {
+    "@type": "Place",
+    "name": "Trinidad and Tobago"
+  }
+}
+&lt;/script&gt;</code></pre>
+    </div>
+
+    <h2>4. Gallery/Collection Schema (For Multiple Projects)</h2>
+    <div class="example">
+        <p><strong>If you have multiple project galleries on the page:</strong></p>
+        <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Q2 Machines Project Gallery",
+  "description": "Case studies of completed industrial equipment and plant modernization projects",
+  "url": "https://q2m.io/jobs/projects",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://q2m.io/jobs/assets/projects/project-1/webp/29-20160819_065320.webp"
+  }
+}
+&lt;/script&gt;</code></pre>
+    </div>
+
+    <h2>Data Sources</h2>
+    <div class="note">
+        <p><strong>Reference files in the project-1 folder:</strong></p>
+        <ul>
+            <li><code>captions.json</code> — All captions, alt text, descriptions for each image</li>
+            <li><code>schema-markup.json</code> — Schema examples and implementation patterns</li>
+            <li><code>implementation-guide.html</code> — This file</li>
+        </ul>
+    </div>
+
+    <h2>Key SEO Benefits</h2>
+    <div class="note">
+        <h3>Alt Text Benefits:</h3>
+        <ul>
+            <li>Helps Google Image Search index your images</li>
+            <li>Improves accessibility for screen readers</li>
+            <li>Appears if image fails to load</li>
+            <li>Includes relevant keywords naturally</li>
+        </ul>
+
+        <h3>Visible Captions Benefits:</h3>
+        <ul>
+            <li>Improves user engagement and time-on-page</li>
+            <li>Provides context for the content</li>
+            <li>Helps Google understand image subject</li>
+            <li>Improves click-through rate from search</li>
+        </ul>
+
+        <h3>Schema Markup Benefits:</h3>
+        <ul>
+            <li>Rich results in Google Search</li>
+            <li>Structured data helps Google understand relationships</li>
+            <li>May show in Google Images with extra metadata</li>
+            <li>Improves SEO for project showcase/portfolio pages</li>
+        </ul>
+    </div>
+
+    <h2>Quick Reference: Image Naming Pattern</h2>
+    <table border="1" cellpadding="10" style="width: 100%;">
+        <tr>
+            <th>Original JPG</th>
+            <th>WebP Version</th>
+            <th>Caption ID</th>
+        </tr>
+        <tr>
+            <td>01-IMG-20160109-WA0014.jpg</td>
+            <td>01-IMG-20160109-WA0014.webp</td>
+            <td>ID: "01" in captions.json</td>
+        </tr>
+        <tr>
+            <td>02-20160110_180350.jpg</td>
+            <td>02-20160110_180350.webp</td>
+            <td>ID: "02" in captions.json</td>
+        </tr>
+    </table>
+
+    <h2>Implementation Checklist</h2>
+    <div class="note">
+        <input type="checkbox"> All images use WebP format (original JPG kept in archive)
+        <input type="checkbox"> Each image has descriptive alt text (125+ chars)
+        <input type="checkbox"> Each image has visible caption using &lt;figcaption&gt;
+        <input type="checkbox"> Images use &lt;picture&gt; element with WebP + JPEG fallback (optional but recommended)
+        <input type="checkbox"> Schema markup added for project-level data
+        <input type="checkbox"> Images have width/height attributes to prevent layout shift
+        <input type="checkbox"> Images use lazy loading (loading="lazy")
+        <input type="checkbox"> Alt text matches description from captions.json
+    </div>
+
+    <h2>Testing & Validation</h2>
+    <ul>
+        <li><strong>Google Rich Results Test:</strong> https://search.google.com/test/rich-results</li>
+        <li><strong>Schema.org Validator:</strong> https://validator.schema.org/</li>
+        <li><strong>Google Images:</strong> Test that images appear in Google Image Search</li>
+        <li><strong>Lighthouse:</strong> Check accessibility score (alt text coverage)</li>
+    </ul>
+
+</body>
+</html>

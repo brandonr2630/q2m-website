@@ -11,5 +11,6 @@ jobs:
     uses: brandonr2630/projects/.github/workflows/deploy.yml@master
     with:
       deploy_dir: /home/terranre/public_html/q2m.io
+      exclude_extra: ^scripts/|^server\.js$|^convert-webp\.js$|assets/projects/project-[0-9]+/implementation-guide\.html$
     secrets: inherit
 
