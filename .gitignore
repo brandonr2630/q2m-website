@@ -1,5 +1,8 @@
 jobs/
 
+# Archives (old versions; no deploy value)
+archives/
+
 # macOS
 .DS_Store
 .AppleDouble
