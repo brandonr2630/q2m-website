@@ -223,6 +223,7 @@ footer {
   <a href="/#about" onclick="closeMobileMenu()" data-i18n="nav_about">About</a>
   <a href="/#services" onclick="closeMobileMenu()" data-i18n="nav_services">Services</a>
   <a href="/depot.html" onclick="closeMobileMenu()" data-i18n="nav_depot">Depot</a>
+  <a href="/projects.html" onclick="closeMobileMenu()" data-i18n="nav_projects">Projects</a>
   <a href="/#contact" onclick="closeMobileMenu()" data-i18n="nav_contact">Contact</a>
   <a href="/#contact" onclick="closeMobileMenu()" data-i18n="nav_cta" style="background:var(--gold);color:var(--ink);padding:14px 32px;border-radius:2px;font-size:20px;margin-top:8px;">Tell Us Your Needs</a>
   <div class="mobile-lang-flags">
@@ -254,6 +255,7 @@ footer {
       <li><a href="/#about" data-i18n="nav_about">About</a></li>
       <li><a href="/#services" data-i18n="nav_services">Services</a></li>
       <li><a href="/depot.html" class="active" data-i18n="nav_depot">Depot</a></li>
+      <li><a href="/projects.html" data-i18n="nav_projects">Projects</a></li>
       <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
     </ul>
   </div>
@@ -362,6 +364,7 @@ footer {
       <li><a href="/#about" data-i18n="footer_about">About</a></li>
       <li><a href="/#services" data-i18n="footer_services">Services</a></li>
       <li><a href="/depot.html" data-i18n="nav_depot">Depot</a></li>
+      <li><a href="/projects.html" data-i18n="nav_projects">Projects</a></li>
       <li><a href="/#contact" data-i18n="footer_contact">Contact</a></li>
     </ul>
     <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:center;">
@@ -387,7 +390,7 @@ footer {
 // ── TRANSLATIONS ──────────────────────────────────────────────────────────────
 const translations = {
   en: {
-    nav_home:'Home', nav_about:'About', nav_services:'Services', nav_depot:'Depot', nav_contact:'Contact', nav_cta:'Tell Us Your Needs',
+    nav_home:'Home', nav_about:'About', nav_services:'Services', nav_depot:'Depot', nav_projects:'Projects', nav_contact:'Contact', nav_cta:'Tell Us Your Needs',
     footer_about:'About', footer_services:'Services', footer_contact:'Contact',
     depot_label:'Equipment Depot', depot_title_1:'New &', depot_title_2:'Pre-Owned',
     depot_sub:'New, used and refurbished industrial equipment — inspected and ready for immediate deployment. All new and refurbished equipment is supplied with a warranty. Spares & service support is guaranteed for every item we sell.',
@@ -408,7 +411,7 @@ const translations = {
     depot_sending:'Sending…', depot_sent:'Sent ✓',
   },
   es: {
-    nav_home:'Inicio', nav_about:'Nosotros', nav_services:'Servicios', nav_depot:'Depósito', nav_contact:'Contacto', nav_cta:'Cuéntenos su Necesidad',
+    nav_home:'Inicio', nav_about:'Nosotros', nav_services:'Servicios', nav_depot:'Depósito', nav_projects:'Proyectos', nav_contact:'Contacto', nav_cta:'Cuéntenos su Necesidad',
     footer_about:'Nosotros', footer_services:'Servicios', footer_contact:'Contacto',
     depot_label:'Depósito de Equipos', depot_title_1:'Nuevo y', depot_title_2:'Pre-Usado',
     depot_sub:'Equipos industriales nuevos, usados y reacondicionados — inspeccionados y listos para uso inmediato. Todo el equipo nuevo y reacondicionado se suministra con garantía. El soporte de repuestos y servicio está garantizado para cada artículo que vendemos.',
@@ -429,7 +432,7 @@ const translations = {
     depot_sending:'Enviando…', depot_sent:'Enviado ✓',
   },
   pt: {
-    nav_home:'Início', nav_about:'Sobre', nav_services:'Serviços', nav_depot:'Depósito', nav_contact:'Contato', nav_cta:'Fale Conosco',
+    nav_home:'Início', nav_about:'Sobre', nav_services:'Serviços', nav_depot:'Depósito', nav_projects:'Projetos', nav_contact:'Contato', nav_cta:'Fale Conosco',
     footer_about:'Sobre', footer_services:'Serviços', footer_contact:'Contato',
     depot_label:'Depósito de Equipamentos', depot_title_1:'Novo e', depot_title_2:'Pré-Usado',
     depot_sub:'Equipamentos industriais novos, usados e recondicionados — inspeccionados e prontos para implantação imediata. Todos os equipamentos novos e recondicionados são fornecidos com garantia. Suporte de peças e serviço garantido para cada item que vendemos.',
@@ -450,7 +453,7 @@ const translations = {
     depot_sending:'Enviando…', depot_sent:'Enviado ✓',
   },
   nl: {
-    nav_home:'Home', nav_about:'Over Ons', nav_services:'Diensten', nav_depot:'Depot', nav_contact:'Contact', nav_cta:'Vertel Ons Uw Wensen',
+    nav_home:'Home', nav_about:'Over Ons', nav_services:'Diensten', nav_depot:'Depot', nav_projects:'Projecten', nav_contact:'Contact', nav_cta:'Vertel Ons Uw Wensen',
     footer_about:'Over Ons', footer_services:'Diensten', footer_contact:'Contact',
     depot_label:'Apparatuur Depot', depot_title_1:'Nieuw &', depot_title_2:'Tweedehands',
     depot_sub:'Nieuwe, gebruikte en gereviseerde industriële apparatuur — geïnspecteerd en gereed voor onmiddellijke ingebruikname. Alle nieuwe en gereviseerde apparatuur wordt geleverd met garantie. Onderdelen- en serviceondersteuning is gegarandeerd voor elk item dat wij verkopen.',
@@ -471,7 +474,7 @@ const translations = {
     depot_sending:'Verzenden…', depot_sent:'Verzonden ✓',
   },
   fr: {
-    nav_home:'Accueil', nav_about:'À Propos', nav_services:'Services', nav_depot:'Dépôt', nav_contact:'Contact', nav_cta:'Parlez-nous de Votre Projet',
+    nav_home:'Accueil', nav_about:'À Propos', nav_services:'Services', nav_depot:'Dépôt', nav_projects:'Projets', nav_contact:'Contact', nav_cta:'Parlez-nous de Votre Projet',
     footer_about:'À Propos', footer_services:'Services', footer_contact:'Contact',
     depot_label:"Dépôt d'Équipements", depot_title_1:'Neuf &', depot_title_2:'Occasion',
     depot_sub:"Équipements industriels neufs, d'occasion et reconditionnés — inspectés et prêts pour un déploiement immédiat. Tous les équipements neufs et reconditionnés sont fournis avec une garantie. Le support en pièces détachées et en service est garanti pour chaque article que nous vendons.",
