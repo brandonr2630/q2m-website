@@ -2,6 +2,77 @@
 
 ---
 
+## Session 7 — Projects Page Launch
+
+**Date:** 2026-05-17
+**PRs:** [#6](https://github.com/brandonr2630/q2m-website/pull/6), [#7](https://github.com/brandonr2630/q2m-website/pull/7), [#8](https://github.com/brandonr2630/q2m-website/pull/8)
+
+### What Changed
+
+Built and deployed the Projects page end-to-end — image carousel, watermarks, full i18n, and nav integration across all pages.
+
+### Changes Made
+
+| Change | Detail |
+|--------|--------|
+| `projects.html` — image carousel | CSS fade carousel per card: auto-advance 3.5s, hover pause, prev/next arrows, touch swipe, slide counter |
+| `projects.html` — i18n | Full 5-language support (EN/ES/PT/NL/FR): `data-i18n` on all static text, `applyTranslations()` re-renders cards and lightbox on language switch |
+| `projects.json` — translated summaries | Added `summary_es`, `summary_pt`, `summary_nl`, `summary_fr` fields; card and lightbox use `p['summary_' + currentLang]` |
+| WebP images (34) | All watermarked: Q2M logo, 300px wide, bottom-left, `#F4F3EF` background tile, 16px inner padding, 36px edge padding |
+| WebP images — orientation | 3-batch rotation pass (CW and CCW) to correct portrait images shot sideways |
+| Slide 35 removed | `31-20161123_065704.webp` removed from `projects.json` image array; file kept on disk |
+| `scripts/upscale-images.js` | Sharp-based watermark utility — reads `assets/projects/<dir>`, composites logo onto each image |
+| `scripts/.gitignore` | `node_modules/` excluded from git |
+| `deploy.yml` | `exclude_extra` updated to exclude `^scripts/` from deploy |
+| `index.html` nav | "Projects" link added to desktop nav, mobile menu and footer |
+| `depot.html` nav | "Projects" link added to desktop nav, mobile menu and footer; `nav_projects` translation key added in all 5 languages |
+
+### Image Carousel — Key CSS
+
+```css
+.card-carousel { width:100%; aspect-ratio:1; position:relative; overflow:hidden; }
+.card-carousel-slide { position:absolute; inset:0; opacity:0; transition:opacity .6s ease; }
+.card-carousel-slide.active { opacity:1; }
+.card-carousel-slide img { width:100%; height:100%; object-fit:contain; display:block; }
+```
+
+`object-fit: contain` on a 1:1 square container — no cropping for either portrait (9:16) or landscape (16:9) images.
+
+### projects.json Entry Format (current)
+
+```json
+{
+  "id": "plant-upgrade-2016",
+  "title": "...",
+  "client": "Confidential",
+  "sector": "Quarrying",
+  "category": "conveyor",
+  "year": 2016,
+  "summary": "English summary.",
+  "summary_es": "...",
+  "summary_pt": "...",
+  "summary_nl": "...",
+  "summary_fr": "...",
+  "cover": "assets/projects/project-1/webp/29-20160819_065320.webp",
+  "images": ["assets/projects/project-1/webp/01-....webp", "..."]
+}
+```
+
+### Watermark Script
+
+```bash
+cd scripts && npm install   # first time only
+node upscale-images.js ../assets/projects/project-1
+```
+
+Reads from the directory's `webp/` subfolder, writes watermarked files in-place.
+
+### Outstanding
+
+- ⏳ Projects page has only 1 project (project-1). Add project-2, project-3 by dropping WebP images into `assets/projects/project-2/webp/` etc. and adding entries to `projects.json`.
+
+---
+
 ## Session 6 — GitHub Infrastructure
 
 **Date:** 2026-05-16
@@ -266,4 +337,4 @@ Always excluded from deploy: `.github/`, `.cpanel.yml`, `handoff.md`
 
 ---
 
-**Last Updated:** 2026-05-16 (Session 6)
+**Last Updated:** 2026-05-17 (Session 7)

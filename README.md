@@ -10,10 +10,11 @@ Marketing and equipment depot site for Q2 Machines Ltd.
 |------|---------|
 | `index.html` | Homepage |
 | `depot.html` | Equipment depot listings |
-| `projects.html` | Completed projects showcase (not yet deployed) |
+| `projects.html` | Completed projects showcase — image carousel, i18n, lightbox |
 | `listings.json` | Equipment depot data — edit this to update listings |
 | `projects.json` | Projects data — edit this to add/update projects |
 | `assets/` | Images, branding, product photos |
+| `scripts/upscale-images.js` | Sharp utility — watermarks WebP images with Q2M logo |
 
 ## Deploy
 
@@ -34,9 +35,10 @@ Binary files (images) use `Fileman/upload_files` (multipart). Text files use `Fi
 
 ## Adding Projects
 
-1. Create `assets/projects/<project-id>/` and drop in photos
-2. Add an entry to `projects.json` — see format below
-3. Push to `master`
+1. Create `assets/projects/<project-id>/webp/` and add watermarked WebP images
+2. To watermark: drop originals into the folder, run `cd scripts && node upscale-images.js ../assets/projects/<project-id>`
+3. Add an entry to `projects.json` — see format below
+4. Push to `master`
 
 ```json
 {
@@ -46,9 +48,13 @@ Binary files (images) use `Fileman/upload_files` (multipart). Text files use `Fi
   "sector": "Quarrying",
   "category": "conveyor",
   "year": 2024,
-  "summary": "One-line description.",
-  "cover": "assets/projects/your-project-id/cover.jpg",
-  "images": ["assets/projects/your-project-id/cover.jpg"]
+  "summary": "English summary.",
+  "summary_es": "Spanish summary.",
+  "summary_pt": "Portuguese summary.",
+  "summary_nl": "Dutch summary.",
+  "summary_fr": "French summary.",
+  "cover": "assets/projects/your-project-id/webp/cover.webp",
+  "images": ["assets/projects/your-project-id/webp/01-photo.webp"]
 }
 ```
 
