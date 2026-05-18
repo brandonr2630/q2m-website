@@ -2,6 +2,43 @@
 
 ---
 
+## Session 9 — Carousel UI Polish (Tier 1)
+
+**Date:** 2026-05-18
+**Commit:** `ce0402a`
+
+### What Changed
+
+Enhanced the project card carousel with refined UI/UX for improved perceived professionalism: visual progress bar, polished arrow interactions, and refined counter styling.
+
+### Changes Made
+
+| Enhancement | Detail |
+|------------|--------|
+| Progress bar | Gold bar at bottom of carousel that fills as you advance (CSS `::after` with dynamic width via `--progress-width`) |
+| Carousel hover effect | Subtle border highlight + inset glow on hover (border-color transition, box-shadow) |
+| Arrow button polish | Enhanced hover state: scale 1.1 transform + gold glow shadow, opacity smooth transition |
+| Counter styling | Larger (11px → 12px), bolder (font-weight: 600), better contrast (text-2 color), visible on hover only |
+| Lightbox counter | Matching styling to carousel counter for visual consistency |
+
+### Implementation Details
+
+**CSS:**
+- `.card-carousel::after` — progress bar using CSS custom property `--progress-width`
+- `.card-carousel.has-slides::after { opacity: 1; }` — show progress only for multi-image carousels
+- `.card-carousel-arrow:hover { transform: translateY(-50%) scale(1.1); box-shadow: 0 4px 12px rgba(245,197,0,0.3); }` — 3D-like interaction
+- Counter visibility managed via hover state: `opacity: 0` → `opacity: 1` on parent hover
+
+**JavaScript:**
+- `initCarousels()` — adds `has-slides` class and sets initial progress `--progress-width`
+- `cardCarouselGoTo()` — updates progress bar: `percent = ((next + 1) / total) * 100`
+
+### Outstanding
+
+None — ready to deploy.
+
+---
+
 ## Session 8 — Hero Section Restructuring
 
 **Date:** 2026-05-18
@@ -381,4 +418,4 @@ Always excluded from deploy: `.github/`, `.cpanel.yml`, `handoff.md`
 
 ---
 
-**Last Updated:** 2026-05-17 (Session 7)
+**Last Updated:** 2026-05-18 (Session 9)
