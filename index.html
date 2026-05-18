@@ -390,16 +390,16 @@ nav.scrolled .nav-logo-name { transition: all .3s; }
 }
 .lang-flag:hover { transform: scale(1.2); opacity: 1; }
 .lang-flag.active { opacity: 1; outline: 2px solid var(--gold-dark); border-radius: 3px; }
-.lang-flag[title]::after {
-  content: attr(title);
-  position: absolute; bottom: -22px; left: 50%;
+.lang-flag[data-abbr]::after {
+  content: attr(data-abbr);
+  position: absolute; top: -20px; left: 50%;
   transform: translateX(-50%);
   font-family: 'Share Tech Mono', monospace;
-  font-size: 9px; color: #333; letter-spacing: 1px;
+  font-size: 9px; font-weight: 700; color: #333; letter-spacing: 1px;
   white-space: nowrap; pointer-events: none;
   opacity: 0; transition: opacity .15s;
 }
-.lang-flag:hover[title]::after { opacity: 1; }
+.lang-flag:hover[data-abbr]::after { opacity: 1; }
 
 /* Mobile flags in menu */
 .mobile-lang-flags {
@@ -1442,11 +1442,11 @@ footer {
   <a href="#contact" onclick="closeMobileMenu()" data-i18n="nav_contact">Contact</a>
   <a href="#contact" onclick="closeMobileMenu()" data-i18n="nav_cta" style="background:var(--gold);color:var(--ink);padding:14px 32px;border-radius:2px;font-size:20px;margin-top:8px;">Tell Us Your Needs</a>
   <div class="mobile-lang-flags">
-    <button class="lang-flag active" data-lang="en" title="English"><span class="fi fi-tt"></span></button>
-    <button class="lang-flag" data-lang="es" title="Español"><span class="fi fi-es"></span></button>
-    <button class="lang-flag" data-lang="pt" title="Português"><span class="fi fi-br"></span></button>
-    <button class="lang-flag" data-lang="nl" title="Nederlands"><span class="fi fi-nl"></span></button>
-    <button class="lang-flag" data-lang="fr" title="Français"><span class="fi fi-fr"></span></button>
+    <button class="lang-flag active" data-lang="en" title="English" data-abbr="EN"><span class="fi fi-tt"></span></button>
+    <button class="lang-flag" data-lang="es" title="Español" data-abbr="ES"><span class="fi fi-es"></span></button>
+    <button class="lang-flag" data-lang="pt" title="Português" data-abbr="PT"><span class="fi fi-br"></span></button>
+    <button class="lang-flag" data-lang="nl" title="Nederlands" data-abbr="NL"><span class="fi fi-nl"></span></button>
+    <button class="lang-flag" data-lang="fr" title="Français" data-abbr="FR"><span class="fi fi-fr"></span></button>
   </div>
 </div>
 
@@ -1460,11 +1460,11 @@ footer {
   </a>
   <div class="nav-right">
     <div class="lang-flags" id="lang-flags">
-      <button class="lang-flag active" data-lang="en" title="English"><span class="fi fi-tt"></span></button>
-      <button class="lang-flag" data-lang="es" title="Español"><span class="fi fi-es"></span></button>
-      <button class="lang-flag" data-lang="pt" title="Português"><span class="fi fi-br"></span></button>
-      <button class="lang-flag" data-lang="nl" title="Nederlands"><span class="fi fi-nl"></span></button>
-      <button class="lang-flag" data-lang="fr" title="Français"><span class="fi fi-fr"></span></button>
+      <button class="lang-flag active" data-lang="en" title="English" data-abbr="EN"><span class="fi fi-tt"></span></button>
+      <button class="lang-flag" data-lang="es" title="Español" data-abbr="ES"><span class="fi fi-es"></span></button>
+      <button class="lang-flag" data-lang="pt" title="Português" data-abbr="PT"><span class="fi fi-br"></span></button>
+      <button class="lang-flag" data-lang="nl" title="Nederlands" data-abbr="NL"><span class="fi fi-nl"></span></button>
+      <button class="lang-flag" data-lang="fr" title="Français" data-abbr="FR"><span class="fi fi-fr"></span></button>
     </div>
     <ul class="nav-links">
       <li><a href="#about" data-i18n="nav_about">About</a></li>
