@@ -469,13 +469,45 @@ nav.scrolled .nav-logo-name { transition: all .3s; }
 
 .hero-title {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(52px, 8vw, 96px);
+  font-size: clamp(28px, 5.5vw, 72px);
   font-weight: 900; line-height: .95;
   text-transform: uppercase; letter-spacing: -1px;
   color: #fff; margin-bottom: 28px;
   opacity: 0; animation: fadeUp .6s .35s forwards;
 }
 .hero-title em { font-style: italic; color: var(--gold); display: block; }
+.hero-tagline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(20px, 3vw, 34px);
+  font-weight: 700; font-style: italic;
+  color: var(--gold); text-transform: uppercase;
+  letter-spacing: 0px; margin-bottom: 28px;
+  opacity: 0; animation: fadeUp .6s .45s forwards;
+  display: flex; align-items: baseline;
+}
+.hero-tagline-white { color: #fff; }
+.hero-chevrons { display: flex; gap: 0; margin-right: 6px; line-height: 1; position: relative; top: 0.23em; }
+.hero-chev {
+  display: inline-block;
+  font-size: 2.2em; font-style: normal; line-height: 1;
+  color: var(--gold);
+  opacity: 0.15;
+  animation: chevPulse 3s ease-in-out infinite;
+}
+.hero-chev:nth-child(2) { animation-delay: 0.2s; }
+.hero-chev:nth-child(3) { animation-delay: 0.4s; }
+.hero-letter {
+  opacity: 0.35;
+  animation: textPulse 3s ease-in-out infinite;
+}
+@keyframes chevPulse {
+  0%, 100% { opacity: 0.15; }
+  30%, 50% { opacity: 1; }
+}
+@keyframes textPulse {
+  0%, 100% { opacity: 0.35; }
+  30%, 50% { opacity: 1; }
+}
 
 .hero-desc {
   font-size: 17px; font-weight: 300;
@@ -795,6 +827,24 @@ section { position: relative; z-index: 1; }
   border: none; padding: 0;
 }
 .arc-dot.active { background: var(--gold); transform: scale(1.4); }
+
+/* ── SERVICES CTA ── */
+.svc-cta-wrap {
+  text-align: center;
+  margin-top: 64px;
+}
+.svc-cta-btn {
+  display: inline-block;
+  padding: 14px 44px;
+  background: var(--gold);
+  color: #000;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.svc-cta-btn:hover { background: var(--gold-dark); }
 
 /* ── PANEL ── */
 .svc-panel {
@@ -1271,7 +1321,7 @@ footer {
   nav { padding: 8px 16px; }
 
   .hero { padding: 120px 20px 60px; }
-  .hero-title { font-size: clamp(40px, 10vw, 64px); }
+  .hero-title { font-size: clamp(22px, 7vw, 48px); }
   .hero-desc { font-size: 15px; }
   .hero-specialisms { gap: 6px; }
   .hero-specialism-tag { font-size: 10px; padding: 3px 8px; }
@@ -1302,7 +1352,7 @@ footer {
 
   .hero { padding: 100px 16px 48px; }
   .hero-eyebrow { font-size: 10px; }
-  .hero-title { font-size: clamp(36px, 11vw, 52px); letter-spacing: -0.5px; }
+  .hero-title { font-size: clamp(16px, 7.5vw, 36px); letter-spacing: -0.5px; }
   .hero-desc { font-size: 14px; line-height: 1.6; }
   .hero-actions { gap: 10px; }
 
@@ -1378,16 +1428,7 @@ footer {
 })();
 </script>
 
-<!-- Canonical & hreflang -->
-<!-- Single-page multilingual site: all language variants share one URL.
-     x-default signals the fallback for unmatched languages / direct URL visitors. -->
 <link rel="canonical" href="https://www.q2m.io/" />
-<link rel="alternate" hreflang="x-default" href="https://www.q2m.io/" />
-<link rel="alternate" hreflang="en" href="https://www.q2m.io/" />
-<link rel="alternate" hreflang="es" href="https://www.q2m.io/" />
-<link rel="alternate" hreflang="pt" href="https://www.q2m.io/" />
-<link rel="alternate" hreflang="nl" href="https://www.q2m.io/" />
-<link rel="alternate" hreflang="fr" href="https://www.q2m.io/" />
 </head>
 <body>
 
@@ -1444,9 +1485,12 @@ footer {
   <div class="hero-content">
     <div class="hero-eyebrow" data-i18n="hero_eyebrow">Safety, Service &amp; Sustainability</div>
     <h1 class="hero-title">
-      <span data-i18n="hero_title_1">As materials flow,</span><br>
-      <em data-i18n="hero_title_2">profits grow.</em>
+      <span data-i18n="hero_title_1">Plant Engineering &amp; Manufacture</span><br>
+      <em data-i18n="hero_title_2">Caribbean &amp; Latin America</em>
     </h1>
+    <p class="hero-tagline">
+      <span class="hero-chevrons"><span class="hero-chev">›</span><span class="hero-chev">›</span><span class="hero-chev">›</span></span><span class="hero-tagline-text"><span class="hero-tagline-part" data-i18n="hero_tagline_1">As materials flow,</span>&nbsp;<span class="hero-tagline-part hero-tagline-white" data-i18n="hero_tagline_2">profits grow.</span></span>
+    </p>
     <p class="hero-desc" data-i18n="hero_desc">
       Lost Time Incidents, unplanned downtime and inefficiency choke production flows, increasing costs and eroding profits. Q&#178; Machines has anchored its services on a bedrock of safety, sustainability and service — providing precision-engineered solutions designed, built and serviced in the region, for the region.
     </p>
@@ -1874,6 +1918,10 @@ footer {
     <!-- ── MOBILE SCROLL ── -->
     <div class="arc-mobile" id="arc-mobile">
       <!-- panels cloned by JS -->
+    </div>
+
+    <div class="svc-cta-wrap">
+      <a href="#contact" class="svc-cta-btn" data-i18n="nav_cta">Tell Us Your Needs</a>
     </div>
 
   </div>
@@ -2368,7 +2416,8 @@ const translations = {
   en: {
     nav_about: 'About', nav_services: 'Services', nav_contact: 'Contact', nav_cta: 'Tell Us Your Needs',
     hero_eyebrow: 'Safety, Service & Sustainability',
-    hero_title_1: 'As materials flow,', hero_title_2: 'profits grow.', hero_title_3: '',
+    hero_title_1: 'Plant Engineering & Manufacture', hero_title_2: 'Caribbean & Latin America', hero_title_3: '',
+    hero_tagline_1: 'As materials flow,', hero_tagline_2: 'profits grow.',
     hero_desc: 'Lost Time Incidents, unplanned downtime and inefficiency choke production flows, increasing costs and eroding profits. Q² Machines has anchored its services on a bedrock of safety, sustainability and service — providing precision-engineered solutions designed, built and serviced in the region, for the region.',
     scroll: 'Scroll',
     about_label: 'About Us',
@@ -2453,7 +2502,8 @@ const translations = {
   es: {
     nav_about: 'Nosotros', nav_services: 'Servicios', nav_contact: 'Contacto', nav_cta: 'Cuéntenos su Necesidad',
     hero_eyebrow: 'Seguridad, Servicio y Sostenibilidad',
-    hero_title_1: 'Cuando los materiales fluyen,', hero_title_2: 'las ganancias crecen.', hero_title_3: '',
+    hero_title_1: 'Ingeniería de Plantas y Manufactura', hero_title_2: 'Caribe y Latinoamérica', hero_title_3: '',
+    hero_tagline_1: 'Cuando los materiales fluyen,', hero_tagline_2: 'las ganancias crecen.',
     hero_desc: 'Los Incidentes con Tiempo Perdido, el tiempo de inactividad no planificado y la ineficiencia sofocan los flujos de producción, aumentando los costos y erosionando las ganancias. Q² Machines ha anclado sus servicios en una base de seguridad, sostenibilidad y servicio — proporcionando soluciones de ingeniería de precisión diseñadas, construidas y mantenidas en la región, para la región.',
     scroll: 'Desplazar',
     about_label: 'Quiénes Somos',
@@ -2538,7 +2588,8 @@ const translations = {
   pt: {
     nav_about: 'Sobre Nós', nav_services: 'Serviços', nav_contact: 'Contato', nav_cta: 'Fale Conosco',
     hero_eyebrow: 'Segurança, Serviço e Sustentabilidade',
-    hero_title_1: 'Quando os materiais fluem,', hero_title_2: 'os lucros crescem.', hero_title_3: '',
+    hero_title_1: 'Engenharia de Plantas e Manufatura', hero_title_2: 'Caribe e América Latina', hero_title_3: '',
+    hero_tagline_1: 'Quando os materiais fluem,', hero_tagline_2: 'os lucros crescem.',
     hero_desc: 'Incidentes com Tempo Perdido, inatividade não planejada e ineficiência sufocam os fluxos de produção, aumentando os custos e corroendo os lucros. A Q² Machines ancorou seus serviços em uma base de segurança, sustentabilidade e serviço — fornecendo soluções de engenharia de precisão projetadas, construídas e mantidas na região, para a região.',
     scroll: 'Rolar',
     about_label: 'Sobre Nós',
@@ -2623,7 +2674,8 @@ const translations = {
   nl: {
     nav_about: 'Over Ons', nav_services: 'Diensten', nav_contact: 'Contact', nav_cta: 'Vertel Ons Uw Behoefte',
     hero_eyebrow: 'Veiligheid, Service & Duurzaamheid',
-    hero_title_1: 'Wanneer materialen stromen,', hero_title_2: 'groeien de winsten.', hero_title_3: '',
+    hero_title_1: 'Plant Engineering & Productie', hero_title_2: 'Caribisch Gebied & Latijns-Amerika', hero_title_3: '',
+    hero_tagline_1: 'Wanneer materialen stromen,', hero_tagline_2: 'groeien de winsten.',
     hero_desc: 'Verloren-tijdincidenten, ongeplande stilstand en inefficiëntie verstikken de productiestromen, verhogen de kosten en tasten de winst aan. Q² Machines heeft haar diensten verankerd in een fundament van veiligheid, duurzaamheid en service — met precisie-engineered oplossingen ontworpen, gebouwd en onderhouden in de regio, voor de regio.',
     scroll: 'Scrollen',
     about_label: 'Over Ons',
@@ -2708,7 +2760,8 @@ const translations = {
   fr: {
     nav_about: 'À Propos', nav_services: 'Services', nav_contact: 'Contact', nav_cta: 'Dites-nous vos Besoins',
     hero_eyebrow: 'Sécurité, Service & Durabilité',
-    hero_title_1: 'Quand les matériaux s\'écoulent,', hero_title_2: 'les profits croissent.', hero_title_3: '',
+    hero_title_1: 'Ingénierie Industrielle & Fabrication', hero_title_2: 'Caraïbes & Amérique Latine', hero_title_3: '',
+    hero_tagline_1: 'Quand les matériaux s\'écoulent,', hero_tagline_2: 'les profits croissent.',
     hero_desc: 'Les Incidents avec Temps Perdu, les arrêts imprévus et l\'inefficacité étouffent les flux de production, augmentant les coûts et érodant les profits. Q² Machines a ancré ses services sur un socle de sécurité, durabilité et service — en fournissant des solutions d\'ingénierie de précision conçues, construites et entretenues dans la région, pour la région.',
     scroll: 'Défiler',
     about_label: 'À Propos',
@@ -2836,7 +2889,30 @@ function applyTranslations(lang) {
   document.querySelectorAll('.lang-flag').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
+
+  applyTaglinePulse();
 }
+
+function applyTaglinePulse() {
+  let delay = 0.6;
+  const step = 0.04;
+  document.querySelectorAll('.hero-tagline-part').forEach(part => {
+    const text = part.textContent;
+    let html = '';
+    for (const ch of text) {
+      if (ch === ' ') {
+        html += '&nbsp;';
+      } else {
+        const safe = ch === '&' ? '&amp;' : ch === '<' ? '&lt;' : ch === '>' ? '&gt;' : ch;
+        html += `<span class="hero-letter" style="animation-delay:${delay.toFixed(2)}s">${safe}</span>`;
+        delay += step;
+      }
+    }
+    part.innerHTML = html;
+  });
+}
+
+applyTaglinePulse();
 
 // Attach click handlers to all flag buttons
 document.querySelectorAll('.lang-flag').forEach(btn => {
