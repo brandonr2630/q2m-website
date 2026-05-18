@@ -2,6 +2,74 @@
 
 ---
 
+## Session 10 — SEO Audit
+
+**Date:** 2026-05-18
+
+### Audit Summary
+
+Full technical + on-page SEO audit of all three pages (index.html, depot.html, projects.html). No deployment changes made this session — findings and action list recorded below.
+
+### Findings
+
+#### Critical
+
+| Finding | Detail |
+|---------|--------|
+| JS-rendered translations invisible to Google | All 5 languages (EN/ES/PT/NL/FR) are rendered client-side from a single URL. Google only indexes English. No hreflang tags exist because there are no alternate-language URLs. Zero SEO benefit from translations. No penalty either — it's one page. |
+
+#### High
+
+| Finding | Detail |
+|---------|--------|
+| depot.html — broken favicon paths | `favicon32x32.png`, `favicon16x16.png`, `appletouchicon.png` — all missing hyphens. These 404 on every page load. |
+| depot.html + projects.html — blocking Google Fonts | Both pages use a plain `<link rel="stylesheet">` for Google Fonts. index.html uses the `media="print"` non-blocking trick. Should be consistent. |
+
+#### Medium
+
+| Finding | Detail |
+|---------|--------|
+| depot.html + projects.html — missing Twitter card meta | OG tags present on both pages, but no `twitter:card`, `twitter:title`, `twitter:description`, or `twitter:image`. |
+| depot.html — no schema markup | The equipment listings page has zero structured data. Opportunity for `ItemList`/`Product` schema and rich results. |
+| Schema — email obfuscated | `ContactPoint` in index.html JSON-LD has `"email": "qhub-at-q2m.io"` — not a valid email format. Machine-readable structured data should use the real address or omit the field. |
+| Schema — invalid `@type: "Project"` | projects.html uses `"@type": "Project"` which is not a valid Schema.org type. Use `"@type": "CreativeWork"` instead. |
+| Schema — `GeoCircle` missing `geoRadius` | index.html `areaServed` uses `GeoCircle` without the required `geoRadius` property. Add `"geoRadius": "800000"` or simplify to a plain string. |
+
+#### Low
+
+| Finding | Detail |
+|---------|--------|
+| 404.html missing noindex | Custom 404 page has no `<meta name="robots" content="noindex, follow">`. Google may index it. |
+| depot.html + projects.html title tags too short | depot.html: "Equipment Depot \| Q² Machines" (31 chars). projects.html: "Projects \| Q² Machines" (23 chars). Both leave keyword opportunity on the table. |
+| `<meta name="keywords">` on index.html | Ignored by Google/Bing since 2009. Harmless dead weight. |
+| OG image identical across all pages | All three pages share the same `og_banner.jpg`. Not incorrect, but per-page images would improve social sharing CTR. |
+
+### Action List
+
+#### Do Now (easy wins)
+
+- [ ] Fix depot.html favicon paths — add hyphens: `favicon-32x32.png`, `favicon-16x16.png`, `apple-touch-icon.png`
+- [ ] Fix depot.html + projects.html font loading — replace blocking `<link rel="stylesheet">` with `media="print"` non-blocking pattern from index.html
+- [ ] Add Twitter card meta to depot.html and projects.html (4 lines each: `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`)
+- [ ] Add `<meta name="robots" content="noindex, follow">` to 404.html
+- [ ] Fix schema email in index.html — change `"qhub-at-q2m.io"` to `"qhub@q2m.io"` or remove the field
+- [ ] Fix `"@type": "Project"` → `"@type": "CreativeWork"` in projects.html schema
+- [ ] Add `"geoRadius": "800000"` to `GeoCircle` in index.html schema, or simplify `areaServed` to a plain string
+
+#### Medium Effort
+
+- [ ] Expand depot.html title — e.g. "Used & Refurbished Industrial Equipment Trinidad | Q² Machines"
+- [ ] Expand projects.html title — e.g. "Engineering Projects Caribbean | Q² Machines"
+- [ ] Add `ItemList`/`Product` schema to depot.html (generate from listings.json at render time via JS)
+- [ ] Add introductory paragraph above depot.html listings for on-page keyword content
+
+#### Longer Term
+
+- [ ] Add more projects to projects.html (content depth and indexed text)
+- [ ] Decide on multilingual SEO strategy: separate URL paths per language (`/es/`, `/pt/`) with hreflang, or accept English-only indexation
+
+---
+
 ## Session 9 — Carousel UI Polish (Tier 1)
 
 **Date:** 2026-05-18
