@@ -2,6 +2,50 @@
 
 ---
 
+## Session 8 — Hero Section Restructuring
+
+**Date:** 2026-05-18
+**PR:** [#10](https://github.com/brandonr2630/q2m-website/pull/10)
+
+### What Changed
+
+Restructured the hero section from a flat list of 8 capability tags into a 3-tier hierarchy that answers customer needs: Industries → Plant Services → Equipment/Capabilities. Added tiered typography and color gradient for visual hierarchy.
+
+### Changes Made
+
+| Change | Detail |
+|--------|--------|
+| Hero tags — restructured | From 8 items to 17 items across 3 visual tiers |
+| Tier 1 (Industries) | Minerals, Quarrying, Concrete & Cement, Asphalt, Recycling, Manufacturing |
+| Tier 2 (Plant Services) | EPC, Plant Turnarounds, O&M, Emergency Repair & Rebuild, Commissioning & Startup |
+| Tier 3 (Equipment/Capabilities) | Conveyors & Bulk Material Handling Systems, Concrete Plants and Equipment, Pumps & Power Transmission Systems, Structural Steelwork, Plant Foundations & Infrastructure, Fabrication & Machining |
+| Font sizes — tiered | 14px (Tier 1) → 12px (Tier 2) → 10px (Tier 3) |
+| Colors — gradient | Gold (Tier 1) → White (Tier 2) → Gray (Tier 3) |
+| Spacing — standardized | 16px gap between rows; 44px gap before action buttons |
+| CSS classes added | `.tier-1`, `.tier-2`, `.tier-3` for targeting specific rows |
+
+### Rationale
+
+The original 8 tags focused on **what Q2M offers** (company-centric). The new 3-tier structure answers **what problems customers face** and **which industries they operate in** (customer-centric):
+- Visitors identify their industry first
+- Then see the plant-related services Q2M provides
+- Then see the specific equipment and systems available
+
+The visual hierarchy (size, color, spacing) reinforces this flow: industries are prominent, services are mid-tone, equipment is subtle.
+
+### Design Details
+
+- **Tier 1 colors:** Gold (#F5C500) with 50% border opacity, 15% background opacity
+- **Tier 2 colors:** White (#FFFFFF) with 30% border opacity, 8% background opacity
+- **Tier 3 colors:** Gray (#808080) with 30% border opacity, 10% background opacity
+- **Row spacing:** `.hero-specialisms { margin-bottom: 16px; }` with `.hero-specialisms:last-of-type { margin-bottom: 44px; }` to preserve space before buttons
+
+### Outstanding
+
+None — ready to deploy once PR is merged.
+
+---
+
 ## Session 7 — Projects Page Launch
 
 **Date:** 2026-05-17
