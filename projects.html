@@ -178,17 +178,21 @@ nav.scrolled .nav-logo-mark,nav.scrolled .nav-logo-name{transition:all .3s;}
 .project-cover-placeholder{width:100%;aspect-ratio:16/9;background:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
 /* ── CARD CAROUSEL ── */
-.card-carousel{width:100%;aspect-ratio:1;position:relative;overflow:hidden;background:var(--ink-3);flex-shrink:0;}
+.card-carousel{width:100%;aspect-ratio:1;position:relative;overflow:hidden;background:var(--ink-3);flex-shrink:0;border:1px solid transparent;transition:border-color .3s,box-shadow .3s;}
+.card-carousel:hover{border-color:var(--gold-line);box-shadow:inset 0 0 12px rgba(245,197,0,0.08);}
+.card-carousel::after{content:'';position:absolute;bottom:0;left:0;height:2px;background:var(--gold);width:var(--progress-width,0%);transition:width .6s ease;z-index:11;opacity:0;}
+.card-carousel.has-slides::after{opacity:1;}
 .card-carousel-track{position:relative;width:100%;height:100%;}
 .card-carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;pointer-events:none;}
 .card-carousel-slide.active{opacity:1;pointer-events:auto;}
 .card-carousel-slide img{width:100%;height:100%;object-fit:contain;display:block;}
-.card-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,0.5);border:1px solid rgba(245,197,0,0.3);color:var(--text);font-size:18px;width:36px;height:36px;border-radius:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,color .2s;opacity:0;transition:opacity .2s,background .2s,border-color .2s;}
-.card-carousel:hover .card-carousel-arrow{opacity:1;}
-.card-carousel-arrow:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+.card-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,0.5);border:1px solid rgba(245,197,0,0.3);color:var(--text);font-size:18px;width:36px;height:36px;border-radius:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:all .2s ease;}
+.card-carousel:hover .card-carousel-arrow{opacity:0.8;}
+.card-carousel-arrow:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);transform:translateY(-50%) scale(1.1);box-shadow:0 4px 12px rgba(245,197,0,0.3);}
 .card-carousel-arrow.prev{left:10px;}
 .card-carousel-arrow.next{right:10px;}
-.card-carousel-counter{position:absolute;bottom:10px;right:12px;font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.5);padding:3px 8px;border-radius:2px;z-index:10;pointer-events:none;}
+.card-carousel-counter{position:absolute;bottom:10px;right:12px;font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:600;color:var(--text-2);background:rgba(0,0,0,0.6);padding:6px 12px;border-radius:2px;z-index:10;pointer-events:none;letter-spacing:0.5px;opacity:0;transition:opacity .3s;}
+.card-carousel:hover .card-carousel-counter{opacity:1;}
 .project-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column;gap:10px;}
 .project-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .category-badge{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:2px;background:var(--gold-dim);color:var(--gold);border:1px solid var(--gold-line);}
@@ -221,7 +225,7 @@ nav.scrolled .nav-logo-mark,nav.scrolled .nav-logo-name{transition:all .3s;}
 .lightbox-nav{display:flex;gap:12px;justify-content:center;padding-bottom:8px;}
 .lightbox-nav-btn{background:none;border:1px solid var(--text-3);color:var(--text-2);font-size:20px;width:44px;height:44px;border-radius:2px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;}
 .lightbox-nav-btn:hover{border-color:var(--gold);color:var(--gold);}
-.lightbox-counter{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text-3);align-self:center;min-width:50px;text-align:center;}
+.lightbox-counter{font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:600;color:var(--text-2);align-self:center;min-width:60px;text-align:center;padding:4px 10px;background:rgba(0,0,0,0.3);border-radius:2px;letter-spacing:0.5px;}
 
 /* ── CTA SECTION ── */
 .cta-section{background:var(--ink-2);border-top:1px solid var(--border);padding:80px 60px 90px;position:relative;z-index:1;}
@@ -616,6 +620,8 @@ function cardCarouselGoTo(pidx, idx) {
   el.dataset.current = next;
   const counter = document.getElementById('cc-counter-' + pidx);
   if (counter) counter.textContent = (next + 1) + ' / ' + total;
+  const percent = ((next + 1) / total) * 100;
+  el.style.setProperty('--progress-width', percent + '%');
 }
 
 function cardCarouselStep(pidx, dir, e) {
@@ -647,10 +653,16 @@ function initCarousels() {
   Object.keys(ccTimers).forEach(k => clearInterval(ccTimers[k]));
   allProjects.forEach((p, pidx) => {
     const imgs = p.images && p.images.length ? p.images : (p.cover ? [p.cover] : []);
-    if (imgs.length > 1) cardCarouselAutoStart(pidx);
-
     const el = document.getElementById('cc-' + pidx);
     if (!el) return;
+
+    if (imgs.length > 1) {
+      el.classList.add('has-slides');
+      cardCarouselAutoStart(pidx);
+      const percent = (1 / imgs.length) * 100;
+      el.style.setProperty('--progress-width', percent + '%');
+    }
+
     let ts = null;
     el.addEventListener('touchstart', e => { ts = e.touches[0].clientX; }, { passive: true });
     el.addEventListener('touchend', e => {
