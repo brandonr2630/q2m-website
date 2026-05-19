@@ -536,6 +536,7 @@ const translations = {
     proj_desc:'Delivered across the Caribbean — from conveyor systems and concrete plants to precision fabrication, motors and pumps. Every project is engineered, built and commissioned in-house.',
     filter_label:'Filter:', filter_all:'All Projects', filter_conveyor:'Conveyor & Bulk', filter_concrete:'Concrete Plants', filter_fabrication:'Fabrication', filter_motors:'Motors & Pumps',
     view_project:'View Project →',
+    proj_enquire:'Enquire About a Similar Project →',
     cta_label:'Work With Us', cta_title_html:'Have a <span>Project</span><br>in Mind?',
     cta_sub:'Tell us what you need to build, fix or deliver. Our team will come back with a plan.',
     cta_btn1:'Tell Us Your Needs →', cta_btn2:'Browse Equipment Depot',
@@ -549,6 +550,7 @@ const translations = {
     proj_desc:'Entregados en todo el Caribe — desde sistemas de cinta transportadora y plantas de concreto hasta fabricación de precisión, motores y bombas. Cada proyecto es diseñado, construido y puesto en marcha internamente.',
     filter_label:'Filtrar:', filter_all:'Todos los Proyectos', filter_conveyor:'Transportador y Granel', filter_concrete:'Plantas de Concreto', filter_fabrication:'Fabricación', filter_motors:'Motores y Bombas',
     view_project:'Ver Proyecto →',
+    proj_enquire:'Consultar un Proyecto Similar →',
     cta_label:'Trabaje con Nosotros', cta_title_html:'¿Tiene un <span>Proyecto</span><br>en Mente?',
     cta_sub:'Díganos qué necesita construir, reparar o entregar. Nuestro equipo le responderá con un plan.',
     cta_btn1:'Cuéntenos sus Necesidades →', cta_btn2:'Ver Depósito de Equipos',
@@ -562,6 +564,7 @@ const translations = {
     proj_desc:'Entregues em todo o Caribe — de sistemas de correias transportadoras e usinas de concreto à fabricação de precisão, motores e bombas. Cada projeto é projetado, construído e comissionado internamente.',
     filter_label:'Filtrar:', filter_all:'Todos os Projetos', filter_conveyor:'Transportador e Granel', filter_concrete:'Usinas de Concreto', filter_fabrication:'Fabricação', filter_motors:'Motores e Bombas',
     view_project:'Ver Projeto →',
+    proj_enquire:'Consultar um Projeto Similar →',
     cta_label:'Trabalhe Conosco', cta_title_html:'Tem um <span>Projeto</span><br>em Mente?',
     cta_sub:'Diga-nos o que precisa construir, reparar ou entregar. Nossa equipe responderá com um plano.',
     cta_btn1:'Fale Sobre Suas Necessidades →', cta_btn2:'Ver Depósito de Equipamentos',
@@ -575,6 +578,7 @@ const translations = {
     proj_desc:'Gerealiseerd door het Caribisch gebied — van transportbandsystemen en betonplanten tot precisie fabricage, motoren en pompen. Elk project wordt intern ontworpen, gebouwd en in bedrijf gesteld.',
     filter_label:'Filter:', filter_all:'Alle Projecten', filter_conveyor:'Transportband & Bulk', filter_concrete:'Betonplanten', filter_fabrication:'Fabricage', filter_motors:'Motoren & Pompen',
     view_project:'Bekijk Project →',
+    proj_enquire:'Informeer Over een Vergelijkbaar Project →',
     cta_label:'Werk Met Ons', cta_title_html:'Heeft U een <span>Project</span><br>in Gedachten?',
     cta_sub:'Vertel ons wat u wilt bouwen, repareren of realiseren. Ons team komt terug met een plan.',
     cta_btn1:'Vertel Ons Uw Behoeften →', cta_btn2:'Uitrustingsdepot Bekijken',
@@ -588,6 +592,7 @@ const translations = {
     proj_desc:'Réalisés à travers les Caraïbes — des systèmes de convoyeurs et centrales à béton à la fabrication de précision, moteurs et pompes. Chaque projet est conçu, construit et mis en service en interne.',
     filter_label:'Filtrer :', filter_all:'Tous les Projets', filter_conveyor:'Convoyeur & Vrac', filter_concrete:'Centrales à Béton', filter_fabrication:'Fabrication', filter_motors:'Moteurs & Pompes',
     view_project:'Voir le Projet →',
+    proj_enquire:'Renseignez-vous Sur un Projet Similaire →',
     cta_label:'Travaillez Avec Nous', cta_title_html:'Avez-Vous un <span>Projet</span><br>en Tête ?',
     cta_sub:'Dites-nous ce que vous devez construire, réparer ou livrer. Notre équipe reviendra avec un plan.',
     cta_btn1:'Dites-nous Vos Besoins →', cta_btn2:'Parcourir le Dépôt d\'Équipements',
@@ -695,7 +700,7 @@ function renderProjects() {
           <div class="project-title">${p['title_' + currentLang] || p.title}</div>
           ${p.location ? `<div class="project-location">${p.location}</div>` : ''}
           <div class="project-summary">${p['summary_' + currentLang] || p.summary || ''}</div>
-          <a href="/#contact" class="project-view-btn">${t.cta_btn1}</a>
+          <a href="/#contact" class="project-view-btn">${t.proj_enquire}</a>
         </div>
       </div>`;
   }).join('');
