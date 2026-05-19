@@ -56,8 +56,7 @@
       "assets/projects/project-1/webp/27-20160611_134623.webp",
       "assets/projects/project-1/webp/28-20160611_134748.webp",
       "assets/projects/project-1/webp/29-20160819_065320.webp",
-      "assets/projects/project-1/webp/30-20170306_134626.webp",
-      "assets/projects/project-1/webp/31-20161123_065704.webp"
+      "assets/projects/project-1/webp/30-20170306_134626.webp"
     ],
     "imageAlts": [
       "Existing industrial crane and equipment frame showing aged infrastructure requiring modernization",
@@ -93,8 +92,7 @@
       "Overhead view showing processing equipment details and final assembly components",
       "Wide view of completed industrial installation showing full equipment system, site landscaping, and operational footprint",
       "Complete industrial processing system showing multi-level equipment integration and operational configuration",
-      "Aerial perspective of modernized industrial plant showing full equipment system integration and operational status",
-      "Internal view of industrial equipment showing processing chambers and internal structural configuration"
+      "Aerial perspective of modernized industrial plant showing full equipment system integration and operational status"
     ]
   },
   {
@@ -114,7 +112,7 @@
       "tier2": ["Commissioning & Startup"],
       "tier3": ["Plant Foundation & Infrastructure", "Structural Steelwork", "Machinery Installation & Commissioning"]
     },
-    "summary": "Supply, installation and commissioning of a twin-shaft ready-mix concrete batching plant inclusive of aggregate storage bins, screw conveyors, weigh hoppers, cement silos, water metering systems and electrical controls. Works also included civil foundations, structural steelwork access platforms and the full electrical integration with a SCADA control system.",
+    "summary": "This project entailed the mobilisation, installation and commissioning of a semi-mobile concrete batch plant with a 70 tonne, 2 compartment silo. The scope also included the design and construction management for the plant foundations; installation and commissioning of all plant components, including radial loading conveyor, Aggregate Bins, Water Supply & Distribution Systems; Pneumatic Systems; Electricals and Controls.",
     "summary_es": "Suministro, instalación y puesta en marcha de una planta de concreto premezclado de eje doble, incluyendo silos de almacenamiento de áridos, tornillos sin fin, tolvas de pesaje, silos de cemento, sistemas de dosificación de agua y controles eléctricos. Los trabajos también incluyeron cimentaciones civiles, plataformas de acceso en acero estructural y la integración eléctrica completa con un sistema de control SCADA.",
     "summary_pt": "Fornecimento, instalação e comissionamento de uma usina de concreto usinado de eixo duplo, incluindo silos de armazenamento de agregados, transportadores helicoidais, balanças doseadoras, silos de cimento, sistemas de medição de água e controles elétricos. Os trabalhos também incluíram fundações civis, plataformas de acesso em aço estrutural e integração elétrica completa com sistema de controle SCADA.",
     "summary_nl": "Levering, installatie en inbedrijfstelling van een dubbelassige kant-en-klaar betonmengcentrale inclusief aggregaatopslagbunkers, schroefvijzels, weegbunkers, cementsilo's, waterdoseersystemen en elektrische besturing. De werkzaamheden omvatten ook civiele funderingen, constructieve staalwerk toegangsplatforms en de volledige elektrische integratie met een SCADA-besturingssysteem.",
