@@ -217,12 +217,12 @@ nav.scrolled .nav-logo-mark,nav.scrolled .nav-logo-name{transition:all .3s;}
 .projects-grid{display:flex;flex-direction:column;gap:40px;}
 
 /* ── PROJECT CARD ── */
-.project-card{background:var(--ink-2);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:border-color .25s,box-shadow .25s;display:flex;flex-direction:row;opacity:0;transform:translateY(20px);animation:cardIn .5s forwards;min-height:420px;}
+.project-card{background:var(--ink-2);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:border-color .25s,box-shadow .25s;display:flex;flex-direction:row;opacity:0;transform:translateY(20px);animation:cardIn .5s forwards;}
 @keyframes cardIn{to{opacity:1;transform:none;}}
 .project-card:hover{border-color:var(--gold-line);box-shadow:0 16px 48px rgba(0,0,0,0.5);}
 
 /* ── CARD CAROUSEL ── */
-.card-carousel{width:46%;aspect-ratio:auto;height:100%;min-height:420px;position:relative;overflow:hidden;background:var(--ink-3);flex-shrink:0;border:1px solid transparent;transition:border-color .3s,box-shadow .3s;}
+.card-carousel{width:46%;height:480px;flex-shrink:0;position:relative;overflow:hidden;background:var(--ink-3);border:1px solid transparent;transition:border-color .3s,box-shadow .3s;}
 .card-carousel:hover{border-color:var(--gold-line);box-shadow:inset 0 0 12px rgba(245,197,0,0.08);}
 .card-carousel::after{content:'';position:absolute;bottom:0;left:0;height:2px;background:var(--gold);width:var(--progress-width,0%);transition:width .6s ease;z-index:11;opacity:0;}
 .card-carousel.has-slides::after{opacity:1;}
