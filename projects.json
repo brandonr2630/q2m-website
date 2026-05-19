@@ -3,14 +3,14 @@
     "id": "plant-upgrade-2016",
     "title": "Sand & Gravel Wet Processing Plant Upgrade",
     "client": "Confidential",
-    "sector": "Concrete & Cement",
-    "location": "Port of Spain, Trinidad & Tobago",
+    "sector": "Quarrying",
+    "location": "Valencia, Trinidad & Tobago",
     "category": "conveyor",
     "year": 2016,
     "tags": {
-      "tier1": ["Concrete & Cement"],
-      "tier2": ["Commissioning & Startup"],
-      "tier3": ["Plant Foundation & Infrastructure", "Structural Steelwork", "Machinery Installation & Commissioning"]
+      "tier1": ["Quarrying"],
+      "tier2": ["Plant Turnarounds", "Commissioning & Startup"],
+      "tier3": ["Plant Foundations & Infrastructure", "Structural Steelwork", "Machinery Installation & Commissioning"]
     },
     "summary": "The project entailed the design of the secondary stage of a 250 TPH Sand & Gravel Processing Plant. The works included design and construction of the Civil Infrastructure, Structural Steelwork Superstructure; Machinery Commissioning; Electrical & Controls Works; 300 cubic metres per hour, clear-process-water supply and distribution system inclusive of foundations, tailings discharge system and laydown areas and such like.",
     "summary_es": "El proyecto consistió en el diseño de la segunda etapa de una Planta de Procesamiento de Arena y Grava de 250 TPH. Los trabajos incluyeron el diseño y construcción de la Infraestructura Civil, la Superestructura de Acero Estructural; Puesta en Marcha de Maquinaria; Trabajos Eléctricos y de Control; sistema de suministro y distribución de agua limpia de proceso de 300 metros cúbicos por hora, con cimentaciones, sistema de descarga de colas y zonas de acopio, entre otros.",
@@ -60,14 +60,14 @@
     "id": "concrete-batching-2020",
     "title": "Ready-Mix Concrete Batching Plant",
     "client": "Confidential",
-    "sector": "Quarrying",
-    "location": "Valencia, Trinidad & Tobago",
+    "sector": "Concrete & Cement",
+    "location": "Port of Spain, Trinidad & Tobago",
     "category": "concrete",
     "year": 2020,
     "tags": {
-      "tier1": ["Quarrying"],
-      "tier2": ["Plant Turnarounds", "Commissioning & Startup"],
-      "tier3": ["Plant Foundations & Infrastructure", "Structural Steelwork", "Machinery Installation & Commissioning"]
+      "tier1": ["Concrete & Cement"],
+      "tier2": ["Commissioning & Startup"],
+      "tier3": ["Plant Foundation & Infrastructure", "Structural Steelwork", "Machinery Installation & Commissioning"]
     },
     "summary": "Supply, installation and commissioning of a twin-shaft ready-mix concrete batching plant inclusive of aggregate storage bins, screw conveyors, weigh hoppers, cement silos, water metering systems and electrical controls. Works also included civil foundations, structural steelwork access platforms and the full electrical integration with a SCADA control system.",
     "summary_es": "Suministro, instalación y puesta en marcha de una planta de concreto premezclado de eje doble, incluyendo silos de almacenamiento de áridos, tornillos sin fin, tolvas de pesaje, silos de cemento, sistemas de dosificación de agua y controles eléctricos. Los trabajos también incluyeron cimentaciones civiles, plataformas de acceso en acero estructural y la integración eléctrica completa con un sistema de control SCADA.",
