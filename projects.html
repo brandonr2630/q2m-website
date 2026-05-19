@@ -238,12 +238,14 @@ nav.scrolled .nav-logo-mark,nav.scrolled .nav-logo-name{transition:all .3s;}
 .card-carousel-counter{position:absolute;bottom:10px;right:12px;font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:600;color:var(--text-2);background:rgba(0,0,0,0.6);padding:6px 12px;border-radius:2px;z-index:10;pointer-events:none;letter-spacing:0.5px;opacity:0;transition:opacity .3s;}
 .card-carousel:hover .card-carousel-counter{opacity:1;}
 .project-body{padding:40px 48px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:0;}
-.project-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:6px;}
-.project-tag::before{content:'';width:24px;height:1px;background:var(--gold);flex-shrink:0;}
-.project-tag.muted{color:var(--text-3);}
-.project-tag.muted::before{background:var(--text-3);}
-.project-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,3vw,40px);font-weight:700;letter-spacing:-0.3px;color:var(--text);line-height:1.1;margin:18px 0 14px;}
-.project-location{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text-3);letter-spacing:1px;display:flex;align-items:center;gap:8px;margin-bottom:24px;}
+.project-specialisms{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.project-specialism-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:2px;}
+.project-specialisms.tier-1 .project-specialism-tag{font-size:13px;color:var(--gold);border:1px solid rgba(245,197,0,0.5);background:rgba(245,197,0,0.15);}
+.project-specialisms.tier-2 .project-specialism-tag{font-size:11px;color:#FFFFFF;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);}
+.project-specialisms.tier-3{gap:4px;margin-bottom:0;}
+.project-specialisms.tier-3 .project-specialism-tag{font-size:10px;color:#808080;border:1px solid rgba(128,128,128,0.3);background:rgba(128,128,128,0.1);padding:2px 6px;letter-spacing:1px;}
+.project-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,3vw,40px);font-weight:700;letter-spacing:-0.3px;color:var(--text);line-height:1.1;margin:20px 0 10px;}
+.project-location{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text-3);letter-spacing:1px;display:flex;align-items:center;gap:8px;margin-bottom:20px;}
 .project-location::before{content:'↳';color:var(--gold);font-size:14px;font-family:sans-serif;}
 .project-summary{font-size:14px;color:var(--text-2);line-height:1.7;flex:1;}
 .project-view-btn{margin-top:28px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 20px;background:none;border:1px solid var(--gold);color:var(--gold);border-radius:2px;cursor:pointer;transition:all .2s;text-align:center;align-self:flex-start;min-width:200px;}
@@ -462,10 +464,15 @@ window.__PROJECTS__ = [
     "id": "plant-upgrade-2016",
     "title": "Sand & Gravel Wet Processing Plant Upgrade",
     "client": "Confidential",
-    "sector": "Quarrying",
-    "location": "Trinidad & Tobago",
+    "sector": "Concrete & Cement",
+    "location": "Port of Spain, Trinidad & Tobago",
     "category": "conveyor",
     "year": 2016,
+    "tags": {
+      "tier1": ["Concrete & Cement"],
+      "tier2": ["Commissioning & Startup"],
+      "tier3": ["Plant Foundation & Infrastructure", "Structural Steelwork", "Machinery Installation & Commissioning"]
+    },
     "summary": "The project entailed the design of the secondary stage of a 250 TPH Sand & Gravel Processing Plant. The works included design and construction of the Civil Infrastructure, Structural Steelwork Superstructure; Machinery Commissioning; Electrical & Controls Works; 300 cubic metres per hour, clear-process-water supply and distribution system inclusive of foundations, tailings discharge system and laydown areas and such like.",
     "summary_es": "El proyecto consistió en el diseño de la segunda etapa de una Planta de Procesamiento de Arena y Grava de 250 TPH. Los trabajos incluyeron el diseño y construcción de la Infraestructura Civil, la Superestructura de Acero Estructural; Puesta en Marcha de Maquinaria; Trabajos Eléctricos y de Control; sistema de suministro y distribución de agua limpia de proceso de 300 metros cúbicos por hora, con cimentaciones, sistema de descarga de colas y zonas de acopio, entre otros.",
     "summary_pt": "O projeto envolveu o design da segunda etapa de uma Planta de Processamento de Areia e Cascalho de 250 TPH. Os trabalhos incluíram o design e construção da Infraestrutura Civil, Superestrutura de Aço Estrutural; Comissionamento de Maquinário; Obras Elétricas e de Controle; sistema de fornecimento e distribuição de água de processo limpa de 300 metros cúbicos por hora, com fundações, sistema de descarga de rejeitos e áreas de depósito, entre outros.",
@@ -478,10 +485,15 @@ window.__PROJECTS__ = [
     "id": "concrete-batching-2020",
     "title": "Ready-Mix Concrete Batching Plant",
     "client": "Confidential",
-    "sector": "Construction",
-    "location": "Trinidad & Tobago",
+    "sector": "Quarrying",
+    "location": "Valencia, Trinidad & Tobago",
     "category": "concrete",
     "year": 2020,
+    "tags": {
+      "tier1": ["Quarrying"],
+      "tier2": ["Plant Turnarounds", "Commissioning & Startup"],
+      "tier3": ["Plant Foundations & Infrastructure", "Structural Steelwork", "Machinery Installation & Commissioning"]
+    },
     "summary": "Supply, installation and commissioning of a twin-shaft ready-mix concrete batching plant inclusive of aggregate storage bins, screw conveyors, weigh hoppers, cement silos, water metering systems and electrical controls. Works also included civil foundations, structural steelwork access platforms and the full electrical integration with a SCADA control system.",
     "summary_es": "Suministro, instalación y puesta en marcha de una planta de concreto premezclado de eje doble, incluyendo silos de almacenamiento de áridos, tornillos sin fin, tolvas de pesaje, silos de cemento, sistemas de dosificación de agua y controles eléctricos. Los trabajos también incluyeron cimentaciones civiles, plataformas de acceso en acero estructural y la integración eléctrica completa con un sistema de control SCADA.",
     "summary_pt": "Fornecimento, instalação e comissionamento de uma usina de concreto usinado de eixo duplo, incluindo silos de armazenamento de agregados, transportadores helicoidais, balanças doseadoras, silos de cimento, sistemas de medição de água e controles elétricos. Os trabalhos também incluíram fundações civis, plataformas de acesso em aço estrutural e integração elétrica completa com sistema de controle SCADA.",
@@ -656,9 +668,9 @@ function renderProjects() {
           ${arrowsHtml}
         </div>
         <div class="project-body">
-          <div class="project-tag">${label}</div>
-          ${p.sector ? `<div class="project-tag muted">${p.sector}</div>` : ''}
-          ${p.year ? `<div class="project-tag muted">${p.year}</div>` : ''}
+          ${(p.tags?.tier1||[]).length ? `<div class="project-specialisms tier-1">${p.tags.tier1.map(t=>`<span class="project-specialism-tag">${t}</span>`).join('')}</div>` : ''}
+          ${(p.tags?.tier2||[]).length ? `<div class="project-specialisms tier-2">${p.tags.tier2.map(t=>`<span class="project-specialism-tag">${t}</span>`).join('')}</div>` : ''}
+          ${(p.tags?.tier3||[]).length ? `<div class="project-specialisms tier-3">${p.tags.tier3.map(t=>`<span class="project-specialism-tag">${t}</span>`).join('')}</div>` : ''}
           <div class="project-title">${p.title}</div>
           ${p.location ? `<div class="project-location">${p.location}</div>` : ''}
           <div class="project-summary">${p['summary_' + currentLang] || p.summary || ''}</div>
