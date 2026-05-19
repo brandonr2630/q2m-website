@@ -2,6 +2,10 @@
   {
     "id": "plant-upgrade-2016",
     "title": "Sand & Gravel Wet Processing Plant Upgrade",
+    "title_es": "Modernización de Planta de Procesamiento de Arena y Grava",
+    "title_pt": "Modernização de Planta de Processamento de Areia e Cascalho",
+    "title_nl": "Modernisering Verwerkingsinstallatie Zand & Grind",
+    "title_fr": "Modernisation de l'Usine de Traitement de Sable et Gravier",
     "client": "Confidential",
     "sector": "Quarrying",
     "location": "Valencia, Trinidad & Tobago",
@@ -59,6 +63,10 @@
   {
     "id": "concrete-batching-2020",
     "title": "Ready-Mix Concrete Batching Plant",
+    "title_es": "Planta de Concreto Premezclado",
+    "title_pt": "Usina de Concreto Usinado",
+    "title_nl": "Kant-en-klaar Betonmengcentrale",
+    "title_fr": "Centrale à Béton Prêt-à-l'emploi",
     "client": "Confidential",
     "sector": "Concrete & Cement",
     "location": "Port of Spain, Trinidad & Tobago",
