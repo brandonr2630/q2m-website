@@ -256,7 +256,7 @@ nav.scrolled .nav-logo-mark,nav.scrolled .nav-logo-name{transition:all .3s;}
 .card-carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;pointer-events:none;}
 .card-carousel-slide.active{opacity:1;pointer-events:auto;}
 .card-carousel-slide img{width:100%;height:100%;object-fit:contain;display:block;}
-.slide-label{position:absolute;top:14px;right:16px;font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:700;font-size:20px;letter-spacing:0.5px;color:var(--gold);text-shadow:0 1px 8px rgba(0,0,0,0.9);pointer-events:none;z-index:5;}
+.slide-label{position:absolute;top:14px;right:16px;font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:700;font-size:26px;letter-spacing:0.5px;color:var(--gold);text-shadow:0 1px 8px rgba(0,0,0,0.9);pointer-events:none;z-index:5;}
 .card-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,0.5);border:1px solid rgba(245,197,0,0.3);color:var(--text);font-size:18px;width:36px;height:36px;border-radius:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:all .2s ease;}
 .card-carousel:hover .card-carousel-arrow{opacity:0.8;}
 .card-carousel-arrow:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);transform:translateY(-50%) scale(1.1);box-shadow:0 4px 12px rgba(245,197,0,0.3);}
@@ -569,6 +569,7 @@ const translations = {
     footer_slogan:'Safety, Service & Sustainability',
     cat_conveyor:'Conveyor & Bulk Handling', cat_concrete:'Concrete Plants', cat_fabrication:'Fabrication & Welding', cat_motors:'Motors & Pumps', cat_structural:'Structural Systems', cat_machine:'Machine Shop',
     tags:{'Quarrying':'Quarrying','Concrete & Cement':'Concrete & Cement','Plant Turnarounds':'Plant Turnarounds','Commissioning & Startup':'Commissioning & Startup','Plant Foundation & Infrastructure':'Plant Foundation & Infrastructure','Plant Foundations & Infrastructure':'Plant Foundations & Infrastructure','Structural Steelwork':'Structural Steelwork','Machinery Installation & Commissioning':'Machinery Installation & Commissioning'},
+    slide_began:'How it began', slide_ended:'How it ended',
   },
   es: {
     nav_home:'Inicio', nav_about:'Nosotros', nav_services:'Servicios', nav_depot:'Depósito', nav_projects:'Proyectos', nav_contact:'Contacto', nav_cta:'Cuéntenos su Necesidad',
@@ -583,6 +584,7 @@ const translations = {
     footer_slogan:'Seguridad, Servicio y Sostenibilidad',
     cat_conveyor:'Transportadores y Manejo a Granel', cat_concrete:'Plantas de Concreto', cat_fabrication:'Fabricación y Soldadura', cat_motors:'Motores y Bombas', cat_structural:'Sistemas Estructurales', cat_machine:'Taller de Máquinas',
     tags:{'Quarrying':'Cantería','Concrete & Cement':'Concreto y Cemento','Plant Turnarounds':'Paradas de Planta','Commissioning & Startup':'Puesta en Marcha','Plant Foundation & Infrastructure':'Cimentación e Infraestructura','Plant Foundations & Infrastructure':'Cimentaciones e Infraestructura','Structural Steelwork':'Acero Estructural','Machinery Installation & Commissioning':'Instalación y Puesta en Marcha de Maquinaria'},
+    slide_began:'Cómo comenzó', slide_ended:'Cómo terminó',
   },
   pt: {
     nav_home:'Início', nav_about:'Sobre', nav_services:'Serviços', nav_depot:'Depósito', nav_projects:'Projetos', nav_contact:'Contato', nav_cta:'Fale Conosco',
@@ -597,6 +599,7 @@ const translations = {
     footer_slogan:'Segurança, Serviço e Sustentabilidade',
     cat_conveyor:'Transportadores e Manuseio a Granel', cat_concrete:'Usinas de Concreto', cat_fabrication:'Fabricação e Soldagem', cat_motors:'Motores e Bombas', cat_structural:'Sistemas Estruturais', cat_machine:'Oficina Mecânica',
     tags:{'Quarrying':'Mineração','Concrete & Cement':'Concreto e Cimento','Plant Turnarounds':'Paradas de Planta','Commissioning & Startup':'Comissionamento e Startup','Plant Foundation & Infrastructure':'Fundação e Infraestrutura','Plant Foundations & Infrastructure':'Fundações e Infraestrutura','Structural Steelwork':'Estruturas Metálicas','Machinery Installation & Commissioning':'Instalação e Comissionamento de Maquinário'},
+    slide_began:'Como começou', slide_ended:'Como terminou',
   },
   nl: {
     nav_home:'Home', nav_about:'Over Ons', nav_services:'Diensten', nav_depot:'Depot', nav_projects:'Projecten', nav_contact:'Contact', nav_cta:'Vertel Ons Uw Behoefte',
@@ -611,6 +614,7 @@ const translations = {
     footer_slogan:'Veiligheid, Service & Duurzaamheid',
     cat_conveyor:'Transportband & Bulkverwerking', cat_concrete:'Betonplanten', cat_fabrication:'Fabricage & Lassen', cat_motors:'Motoren & Pompen', cat_structural:'Constructieve Systemen', cat_machine:'Machinewerkplaats',
     tags:{'Quarrying':'Steengroeven','Concrete & Cement':'Beton & Cement','Plant Turnarounds':'Plant Shutdowns','Commissioning & Startup':'Inbedrijfstelling','Plant Foundation & Infrastructure':'Fundering & Infrastructuur','Plant Foundations & Infrastructure':'Funderingen & Infrastructuur','Structural Steelwork':'Constructief Staalwerk','Machinery Installation & Commissioning':'Machine-installatie & Inbedrijfstelling'},
+    slide_began:'Hoe het begon', slide_ended:'Hoe het eindigde',
   },
   fr: {
     nav_home:'Accueil', nav_about:'À Propos', nav_services:'Services', nav_depot:'Dépôt', nav_projects:'Projets', nav_contact:'Contact', nav_cta:'Dites-nous vos Besoins',
@@ -625,6 +629,7 @@ const translations = {
     footer_slogan:'Sécurité, Service & Durabilité',
     cat_conveyor:'Convoyeurs & Manutention en Vrac', cat_concrete:'Centrales à Béton', cat_fabrication:'Fabrication & Soudage', cat_motors:'Moteurs & Pompes', cat_structural:'Systèmes Structurels', cat_machine:'Atelier d\'Usinage',
     tags:{'Quarrying':'Carrières','Concrete & Cement':'Béton & Ciment','Plant Turnarounds':'Arrêts de Maintenance','Commissioning & Startup':'Mise en Service','Plant Foundation & Infrastructure':'Fondation & Infrastructure','Plant Foundations & Infrastructure':'Fondations & Infrastructure','Structural Steelwork':'Charpente Métallique','Machinery Installation & Commissioning':'Installation & Mise en Service de Machines'},
+    slide_began:'Les débuts', slide_ended:'Le résultat final',
   },
 };
 
@@ -706,7 +711,7 @@ function renderProjects() {
     const imgs = p.images && p.images.length ? p.images : (p.cover ? [p.cover] : []);
     const pidx = allProjects.indexOf(p);
     const slidesHtml = imgs.length
-      ? imgs.map((src, si) => { const label = si === 1 ? 'How it began' : (si === imgs.length - 1 ? 'How it ended' : ''); return `<div class="card-carousel-slide${si === 0 ? ' active' : ''}"><img src="${src}" alt="${p.imageAlts?.[si] || (p.title + ', ' + (p.location||'') + ' — ' + (p.tags?.tier3?.[0]||p.tags?.tier1?.[0]||'') + ' — photo ' + (si+1) + ' of ' + imgs.length)}" loading="${si === 0 ? 'eager' : 'lazy'}" />${label ? `<span class="slide-label">${label}</span>` : ''}</div>`; }).join('')
+      ? imgs.map((src, si) => { const label = si === 1 ? t.slide_began : (si === imgs.length - 1 ? t.slide_ended : ''); return `<div class="card-carousel-slide${si === 0 ? ' active' : ''}"><img src="${src}" alt="${p.imageAlts?.[si] || (p.title + ', ' + (p.location||'') + ' — ' + (p.tags?.tier3?.[0]||p.tags?.tier1?.[0]||'') + ' — photo ' + (si+1) + ' of ' + imgs.length)}" loading="${si === 0 ? 'eager' : 'lazy'}" />${label ? `<span class="slide-label">${label}</span>` : ''}</div>`; }).join('')
       : `<div class="card-carousel-slide active"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m3 9 4-4 4 4 4-4 4 4"/><path d="M3 15h18"/></svg></div></div>`;
     const arrowsHtml = imgs.length > 1 ? `
       <button class="card-carousel-arrow prev" onclick="cardCarouselStep(${pidx},-1,event)" aria-label="Previous">&#8249;</button>
@@ -771,7 +776,7 @@ function cardCarouselAutoStart(pidx) {
   if (!el || +el.dataset.total <= 1) return;
   ccTimers[pidx] = setInterval(() => {
     cardCarouselGoTo(pidx, +el.dataset.current + 1);
-  }, 3500);
+  }, 5500);
 }
 
 function cardCarouselPause(pidx) {
