@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Engineering Projects | Q² Machines",
-  "description": "Engineering projects delivered across the Caribbean — conveyor systems, concrete plants, fabrication, motors and pumps.",
+  "description": "Engineering projects delivered across the Caribbean — conveyor systems, concrete plants, fabrication, motors and pumps. Every project is engineered, built and commissioned in-house by Q² Machines.",
   "url": "https://www.q2m.io/projects.html",
   "publisher": {
     "@type": "Organization",
@@ -47,7 +47,7 @@
         "item": {
           "@type": "Project",
           "name": "Sand & Gravel Wet Processing Plant Upgrade",
-          "description": "Design of the secondary stage of a 250 TPH Sand & Gravel Processing Plant including Civil Infrastructure, Structural Steelwork Superstructure, Machinery Commissioning, Electrical & Controls Works, 300 m³/hr clear-process-water supply and distribution system, tailings discharge system and laydown areas.",
+          "description": "The project entailed the design of the secondary stage of a 250 TPH Sand & Gravel Processing Plant. The works included design and construction of the Civil Infrastructure, Structural Steelwork Superstructure; Machinery Commissioning; Electrical & Controls Works; 300 cubic metres per hour, clear-process-water supply and distribution system inclusive of foundations, tailings discharge system and laydown areas and such like.",
           "startDate": "2016-01-09",
           "endDate": "2017-03-06",
           "image": {
@@ -58,8 +58,52 @@
           },
           "location": {
             "@type": "Place",
-            "name": "Trinidad and Tobago"
-          }
+            "name": "Trinidad and Tobago",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "TT"
+            }
+          },
+          "about": [
+            "Conveyor & Bulk Handling",
+            "Quarrying",
+            "Civil Infrastructure",
+            "Structural Steelwork",
+            "Machinery Commissioning",
+            "Electrical & Controls"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Project",
+          "name": "Ready-Mix Concrete Batching Plant",
+          "description": "Supply, installation and commissioning of a twin-shaft ready-mix concrete batching plant inclusive of aggregate storage bins, screw conveyors, weigh hoppers, cement silos, water metering systems and electrical controls. Works also included civil foundations, structural steelwork access platforms and the full electrical integration with a SCADA control system.",
+          "startDate": "2020-01-01",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://www.q2m.io/assets/projects/project-2/WebP/01-DJI_0067.webp",
+            "name": "Ready-Mix Concrete Batching Plant - Aerial View",
+            "description": "Aerial drone view of completed ready-mix concrete batching plant installation in Trinidad and Tobago."
+          },
+          "location": {
+            "@type": "Place",
+            "name": "Trinidad and Tobago",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "TT"
+            }
+          },
+          "about": [
+            "Concrete Plants",
+            "Construction",
+            "Civil Foundations",
+            "Structural Steelwork",
+            "SCADA Control Systems",
+            "Plant Commissioning"
+          ]
         }
       }
     ]
@@ -170,23 +214,22 @@ nav.scrolled .nav-logo-mark,nav.scrolled .nav-logo-name{transition:all .3s;}
 .filter-btn:hover{border-color:var(--gold);color:var(--gold);}
 .filter-btn.active{background:var(--gold);border-color:var(--gold);color:var(--ink);}
 .filter-count{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text-3);margin-left:auto;}
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:28px;}
+.projects-grid{display:flex;flex-direction:column;gap:40px;}
 
 /* ── PROJECT CARD ── */
-.project-card{background:var(--ink-2);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column;opacity:0;transform:translateY(20px);animation:cardIn .5s forwards;}
+.project-card{background:var(--ink-2);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:border-color .25s,box-shadow .25s;display:flex;flex-direction:row;opacity:0;transform:translateY(20px);animation:cardIn .5s forwards;min-height:420px;}
 @keyframes cardIn{to{opacity:1;transform:none;}}
-.project-card:hover{transform:translateY(-5px);border-color:var(--gold-line);box-shadow:0 16px 48px rgba(0,0,0,0.5);}
-.project-cover-placeholder{width:100%;aspect-ratio:16/9;background:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.project-card:hover{border-color:var(--gold-line);box-shadow:0 16px 48px rgba(0,0,0,0.5);}
 
 /* ── CARD CAROUSEL ── */
-.card-carousel{width:100%;aspect-ratio:1;position:relative;overflow:hidden;background:var(--ink-3);flex-shrink:0;border:1px solid transparent;transition:border-color .3s,box-shadow .3s;}
+.card-carousel{width:46%;aspect-ratio:auto;height:100%;min-height:420px;position:relative;overflow:hidden;background:var(--ink-3);flex-shrink:0;border:1px solid transparent;transition:border-color .3s,box-shadow .3s;}
 .card-carousel:hover{border-color:var(--gold-line);box-shadow:inset 0 0 12px rgba(245,197,0,0.08);}
 .card-carousel::after{content:'';position:absolute;bottom:0;left:0;height:2px;background:var(--gold);width:var(--progress-width,0%);transition:width .6s ease;z-index:11;opacity:0;}
 .card-carousel.has-slides::after{opacity:1;}
 .card-carousel-track{position:relative;width:100%;height:100%;}
 .card-carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;pointer-events:none;}
 .card-carousel-slide.active{opacity:1;pointer-events:auto;}
-.card-carousel-slide img{width:100%;height:100%;object-fit:contain;display:block;}
+.card-carousel-slide img{width:100%;height:100%;object-fit:cover;display:block;}
 .card-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,0.5);border:1px solid rgba(245,197,0,0.3);color:var(--text);font-size:18px;width:36px;height:36px;border-radius:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:all .2s ease;}
 .card-carousel:hover .card-carousel-arrow{opacity:0.8;}
 .card-carousel-arrow:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);transform:translateY(-50%) scale(1.1);box-shadow:0 4px 12px rgba(245,197,0,0.3);}
@@ -194,18 +237,20 @@ nav.scrolled .nav-logo-mark,nav.scrolled .nav-logo-name{transition:all .3s;}
 .card-carousel-arrow.next{right:10px;}
 .card-carousel-counter{position:absolute;bottom:10px;right:12px;font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:600;color:var(--text-2);background:rgba(0,0,0,0.6);padding:6px 12px;border-radius:2px;z-index:10;pointer-events:none;letter-spacing:0.5px;opacity:0;transition:opacity .3s;}
 .card-carousel:hover .card-carousel-counter{opacity:1;}
-.project-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column;gap:10px;}
-.project-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-.category-badge{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:2px;background:var(--gold-dim);color:var(--gold);border:1px solid var(--gold-line);}
-.project-year{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-3);}
-.project-sector{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-3);}
-.project-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;letter-spacing:0.3px;color:var(--text);line-height:1.2;}
-.project-summary{font-size:14px;color:var(--text-2);line-height:1.65;flex:1;}
-.project-view-btn{margin-top:14px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 20px;background:none;border:1px solid var(--gold);color:var(--gold);border-radius:2px;cursor:pointer;transition:all .2s;text-align:center;width:100%;}
+.project-body{padding:40px 48px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:0;}
+.project-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.project-tag::before{content:'';width:24px;height:1px;background:var(--gold);flex-shrink:0;}
+.project-tag.muted{color:var(--text-3);}
+.project-tag.muted::before{background:var(--text-3);}
+.project-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,3vw,40px);font-weight:700;letter-spacing:-0.3px;color:var(--text);line-height:1.1;margin:18px 0 14px;}
+.project-location{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text-3);letter-spacing:1px;display:flex;align-items:center;gap:8px;margin-bottom:24px;}
+.project-location::before{content:'↳';color:var(--gold);font-size:14px;font-family:sans-serif;}
+.project-summary{font-size:14px;color:var(--text-2);line-height:1.7;flex:1;}
+.project-view-btn{margin-top:28px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 20px;background:none;border:1px solid var(--gold);color:var(--gold);border-radius:2px;cursor:pointer;transition:all .2s;text-align:center;align-self:flex-start;min-width:200px;}
 .project-view-btn:hover{background:var(--gold);color:var(--ink);}
 
 /* ── STATES ── */
-.state-wrap{grid-column:1/-1;text-align:center;padding:80px 40px;}
+.state-wrap{text-align:center;padding:80px 40px;}
 .state-wrap.bordered{border:1px dashed var(--text-3);border-radius:3px;}
 .state-icon{opacity:0.2;margin-bottom:24px;}
 .state-wrap h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;letter-spacing:1px;color:var(--text-2);margin-bottom:12px;}
@@ -257,7 +302,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){nav{padding:14px 32px;}.page-hero{padding:180px 32px 72px;}.projects-section{padding:56px 32px 72px;}.cta-section{padding:64px 32px 72px;}footer{padding:48px 32px 36px;}}
-@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}nav{padding:12px 24px 14px;}.nav-logo-mark{width:80px;height:80px;}.nav-logo-text-wrap{height:80px;gap:4px;}.nav-logo-name{font-size:36px;}.nav-logo-slogan{font-size:12px;letter-spacing:2px;}.page-hero{padding:150px 24px 60px;}.projects-section{padding:48px 24px 60px;}.cta-inner{grid-template-columns:1fr;gap:40px;}.cta-section{padding:52px 24px 64px;}footer{padding:40px 24px 32px;}.lightbox-img-wrap{padding:60px 24px 16px;}}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}nav{padding:12px 24px 14px;}.nav-logo-mark{width:80px;height:80px;}.nav-logo-text-wrap{height:80px;gap:4px;}.nav-logo-name{font-size:36px;}.nav-logo-slogan{font-size:12px;letter-spacing:2px;}.page-hero{padding:150px 24px 60px;}.projects-section{padding:48px 24px 60px;}.cta-inner{grid-template-columns:1fr;gap:40px;}.cta-section{padding:52px 24px 64px;}footer{padding:40px 24px 32px;}.lightbox-img-wrap{padding:60px 24px 16px;}.project-card{flex-direction:column;min-height:unset;}.card-carousel{width:100%;min-height:unset;aspect-ratio:16/9;height:auto;}.project-body{padding:24px;}.project-view-btn{align-self:stretch;}}
 @media(max-width:480px){.projects-grid{grid-template-columns:1fr;}.page-hero h1{font-size:40px;}nav{padding:8px 14px 10px;}.nav-logo-mark{width:60px;height:60px;}.nav-logo-name{font-size:26px;}.nav-logo-slogan{font-size:10px;letter-spacing:1.5px;}}
 </style>
 </head>
@@ -412,6 +457,43 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 </div>
 
 <script>
+window.__PROJECTS__ = [
+  {
+    "id": "plant-upgrade-2016",
+    "title": "Sand & Gravel Wet Processing Plant Upgrade",
+    "client": "Confidential",
+    "sector": "Quarrying",
+    "location": "Trinidad & Tobago",
+    "category": "conveyor",
+    "year": 2016,
+    "summary": "The project entailed the design of the secondary stage of a 250 TPH Sand & Gravel Processing Plant. The works included design and construction of the Civil Infrastructure, Structural Steelwork Superstructure; Machinery Commissioning; Electrical & Controls Works; 300 cubic metres per hour, clear-process-water supply and distribution system inclusive of foundations, tailings discharge system and laydown areas and such like.",
+    "summary_es": "El proyecto consistió en el diseño de la segunda etapa de una Planta de Procesamiento de Arena y Grava de 250 TPH. Los trabajos incluyeron el diseño y construcción de la Infraestructura Civil, la Superestructura de Acero Estructural; Puesta en Marcha de Maquinaria; Trabajos Eléctricos y de Control; sistema de suministro y distribución de agua limpia de proceso de 300 metros cúbicos por hora, con cimentaciones, sistema de descarga de colas y zonas de acopio, entre otros.",
+    "summary_pt": "O projeto envolveu o design da segunda etapa de uma Planta de Processamento de Areia e Cascalho de 250 TPH. Os trabalhos incluíram o design e construção da Infraestrutura Civil, Superestrutura de Aço Estrutural; Comissionamento de Maquinário; Obras Elétricas e de Controle; sistema de fornecimento e distribuição de água de processo limpa de 300 metros cúbicos por hora, com fundações, sistema de descarga de rejeitos e áreas de depósito, entre outros.",
+    "summary_nl": "Het project omvatte het ontwerp van de tweede fase van een 250 TPH Zand- en Grindverwerkingsinstallatie. De werkzaamheden omvatten het ontwerp en de bouw van de Civiele Infrastructuur, Constructief Staalwerk Bovenbouw; Inbedrijfstelling van Machines; Elektrische en Besturingswerken; een 300 kubieke meter per uur helder proceswater toevoer- en distributiesysteem inclusief funderingen, tailings afvoersysteem en opslaglocaties en dergelijke.",
+    "summary_fr": "Le projet a consisté en la conception de la deuxième étape d'une usine de traitement de sable et gravier de 250 TPH. Les travaux comprenaient la conception et la construction de l'Infrastructure Civile, la Superstructure en Acier Structural ; la Mise en Service des Machines ; les Travaux Électriques et de Contrôle ; un système d'alimentation et de distribution d'eau de process claire de 300 mètres cubes par heure avec fondations, système d'évacuation des résidus et zones de stockage, entre autres.",
+    "cover": "assets/projects/project-1/webp/29-20160819_065320.webp",
+    "images": ["assets/projects/project-1/webp/01-IMG-20160109-WA0014.webp","assets/projects/project-1/webp/02-20160110_180350.webp","assets/projects/project-1/webp/03-20160125_165527.webp","assets/projects/project-1/webp/04-20160128_123611.webp","assets/projects/project-1/webp/05-20160202_075913.webp","assets/projects/project-1/webp/06-20160110_151235.webp","assets/projects/project-1/webp/07-20160128_081541.webp","assets/projects/project-1/webp/08-20160202_080208_001.webp","assets/projects/project-1/webp/09-20160204_141333(1).webp","assets/projects/project-1/webp/10-20160204_123623.webp","assets/projects/project-1/webp/11-20160216_203512.webp","assets/projects/project-1/webp/12-20160223_150526.webp","assets/projects/project-1/webp/13-20160309_175730.webp","assets/projects/project-1/webp/14-20160309_175139.webp","assets/projects/project-1/webp/14B-20160319_134727.webp","assets/projects/project-1/webp/15-20160304_171738.webp","assets/projects/project-1/webp/16-20160401_174013.webp","assets/projects/project-1/webp/16B-20160401_183607.webp","assets/projects/project-1/webp/17-20160413_090000.webp","assets/projects/project-1/webp/18-20160415_145321.webp","assets/projects/project-1/webp/19-20160419_103520.webp","assets/projects/project-1/webp/19B-20160611_103408.webp","assets/projects/project-1/webp/20-20160419_144900.webp","assets/projects/project-1/webp/21-20160611_104638.webp","assets/projects/project-1/webp/22-20160419_161830(1).webp","assets/projects/project-1/webp/22B-20160516_071349.webp","assets/projects/project-1/webp/23-20160415_151736.webp","assets/projects/project-1/webp/24-20160416_144748.webp","assets/projects/project-1/webp/25-20160511_080852.webp","assets/projects/project-1/webp/26-20160611_134546.webp","assets/projects/project-1/webp/27-20160611_134623.webp","assets/projects/project-1/webp/28-20160611_134748.webp","assets/projects/project-1/webp/29-20160819_065320.webp","assets/projects/project-1/webp/30-20170306_134626.webp","assets/projects/project-1/webp/31-20161123_065704.webp"]
+  },
+  {
+    "id": "concrete-batching-2020",
+    "title": "Ready-Mix Concrete Batching Plant",
+    "client": "Confidential",
+    "sector": "Construction",
+    "location": "Trinidad & Tobago",
+    "category": "concrete",
+    "year": 2020,
+    "summary": "Supply, installation and commissioning of a twin-shaft ready-mix concrete batching plant inclusive of aggregate storage bins, screw conveyors, weigh hoppers, cement silos, water metering systems and electrical controls. Works also included civil foundations, structural steelwork access platforms and the full electrical integration with a SCADA control system.",
+    "summary_es": "Suministro, instalación y puesta en marcha de una planta de concreto premezclado de eje doble, incluyendo silos de almacenamiento de áridos, tornillos sin fin, tolvas de pesaje, silos de cemento, sistemas de dosificación de agua y controles eléctricos. Los trabajos también incluyeron cimentaciones civiles, plataformas de acceso en acero estructural y la integración eléctrica completa con un sistema de control SCADA.",
+    "summary_pt": "Fornecimento, instalação e comissionamento de uma usina de concreto usinado de eixo duplo, incluindo silos de armazenamento de agregados, transportadores helicoidais, balanças doseadoras, silos de cimento, sistemas de medição de água e controles elétricos. Os trabalhos também incluíram fundações civis, plataformas de acesso em aço estrutural e integração elétrica completa com sistema de controle SCADA.",
+    "summary_nl": "Levering, installatie en inbedrijfstelling van een dubbelassige kant-en-klaar betonmengcentrale inclusief aggregaatopslagbunkers, schroefvijzels, weegbunkers, cementsilo's, waterdoseersystemen en elektrische besturing. De werkzaamheden omvatten ook civiele funderingen, constructieve staalwerk toegangsplatforms en de volledige elektrische integratie met een SCADA-besturingssysteem.",
+    "summary_fr": "Fourniture, installation et mise en service d'une centrale à béton prêt-à-l'emploi à double arbre, incluant des silos de stockage de granulats, des convoyeurs à vis, des trémies de pesage, des silos à ciment, des systèmes de dosage d'eau et des automatismes. Les travaux comprenaient également des fondations civiles, des plateformes d'accès en charpente métallique et l'intégration électrique complète avec un système de contrôle SCADA.",
+    "cover": "assets/projects/project-2/WebP/01-DJI_0067.webp",
+    "images": ["assets/projects/project-2/WebP/01-DJI_0067.webp","assets/projects/project-2/WebP/02-WhatsApp Image 2026-05-18 at 9.39.37 PM (1).webp","assets/projects/project-2/WebP/03-WhatsApp Image 2026-05-18 at 9.39.37 PM.webp","assets/projects/project-2/WebP/04-WhatsApp Image 2026-05-18 at 9.39.36 PM.webp","assets/projects/project-2/WebP/05-PlantInstallation-8509.webp","assets/projects/project-2/WebP/06-PlantInstallation-8617.webp","assets/projects/project-2/WebP/07-PlantInstallation-1270373.webp","assets/projects/project-2/WebP/08-PlantInstallation-8641.webp","assets/projects/project-2/WebP/09-PlantInstallation-1270384.webp","assets/projects/project-2/WebP/10-PlantInstallation-8838.webp","assets/projects/project-2/WebP/11-PlantInstallation-8845.webp","assets/projects/project-2/WebP/12-PlantInstallation-8938.webp","assets/projects/project-2/WebP/13-PlantInstallation-1270420.webp","assets/projects/project-2/WebP/14-PlantInstallation-9208.webp","assets/projects/project-2/WebP/15-PlantInstallation-9211.webp","assets/projects/project-2/WebP/16-PlantInstallation-9214.webp","assets/projects/project-2/WebP/17-PlantInstallation-9225.webp","assets/projects/project-2/WebP/18-PlantInstallation-9348.webp","assets/projects/project-2/WebP/19-PlantInstallation-9357.webp","assets/projects/project-2/WebP/20-PlantInstallation-1280193.webp","assets/projects/project-2/WebP/21-PlantInstallation-1280196.webp","assets/projects/project-2/WebP/22-PlantInstallation-1280221.webp","assets/projects/project-2/WebP/24-PlantInstallation-9447.webp","assets/projects/project-2/WebP/25-PlantInstallation-1280105.webp","assets/projects/project-2/WebP/26-PlantInstallation-9373.webp","assets/projects/project-2/WebP/27-DJI_0068.webp","assets/projects/project-2/WebP/28-DJI_0069.webp"]
+  }
+];
+</script>
+
+<script>
 // ── NAV ──────────────────────────────────────────────────────────────────────
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
@@ -532,21 +614,9 @@ function getCategoryLabels() {
 let allProjects = [];
 let currentFilter = 'all';
 
-async function loadProjects() {
-  try {
-    const res = await fetch('/projects.json?v=' + Date.now());
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    allProjects = Array.isArray(data) ? [...data].reverse() : [];
-    renderProjects();
-  } catch(e) {
-    document.getElementById('projects-grid').innerHTML = `
-      <div class="state-wrap bordered">
-        <div class="state-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5C500" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-        <h3>Unable to load projects</h3>
-        <p>Please try refreshing, or contact us at <a href="mailto:qhub@q2m.io" style="color:var(--gold);">qhub@q2m.io</a></p>
-      </div>`;
-  }
+function loadProjects() {
+  allProjects = Array.isArray(window.__PROJECTS__) ? [...window.__PROJECTS__].reverse() : [];
+  renderProjects();
 }
 
 function renderProjects() {
@@ -573,25 +643,24 @@ function renderProjects() {
     const pidx = allProjects.indexOf(p);
     const slidesHtml = imgs.length
       ? imgs.map((src, si) => `<div class="card-carousel-slide${si === 0 ? ' active' : ''}"><img src="${src}" alt="${p.title} — image ${si + 1}" loading="${si === 0 ? 'eager' : 'lazy'}" /></div>`).join('')
-      : `<div class="card-carousel-slide active"><div class="project-cover-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m3 9 4-4 4 4 4-4 4 4"/><path d="M3 15h18"/></svg></div></div>`;
+      : `<div class="card-carousel-slide active"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m3 9 4-4 4 4 4-4 4 4"/><path d="M3 15h18"/></svg></div></div>`;
     const arrowsHtml = imgs.length > 1 ? `
       <button class="card-carousel-arrow prev" onclick="cardCarouselStep(${pidx},-1,event)" aria-label="Previous">&#8249;</button>
       <button class="card-carousel-arrow next" onclick="cardCarouselStep(${pidx},1,event)" aria-label="Next">&#8250;</button>
       <span class="card-carousel-counter" id="cc-counter-${pidx}">1 / ${imgs.length}</span>` : '';
     return `
-      <div class="project-card" style="animation-delay:${i * 60}ms">
+      <div class="project-card" style="animation-delay:${i * 80}ms">
         <div class="card-carousel" id="cc-${pidx}" data-pidx="${pidx}" data-total="${imgs.length}" data-current="0"
              onmouseenter="cardCarouselPause(${pidx})" onmouseleave="cardCarouselResume(${pidx})">
           <div class="card-carousel-track">${slidesHtml}</div>
           ${arrowsHtml}
         </div>
         <div class="project-body">
-          <div class="project-meta">
-            <span class="category-badge">${label}</span>
-            <span class="project-sector">${p.sector || ''}</span>
-            <span class="project-year">${p.year || ''}</span>
-          </div>
+          <div class="project-tag">${label}</div>
+          ${p.sector ? `<div class="project-tag muted">${p.sector}</div>` : ''}
+          ${p.year ? `<div class="project-tag muted">${p.year}</div>` : ''}
           <div class="project-title">${p.title}</div>
+          ${p.location ? `<div class="project-location">${p.location}</div>` : ''}
           <div class="project-summary">${p['summary_' + currentLang] || p.summary || ''}</div>
           <button class="project-view-btn" onclick="openLightbox(${pidx})">${t.view_project}</button>
         </div>
