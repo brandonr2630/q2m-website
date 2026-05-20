@@ -6,7 +6,8 @@
   "scripts": {
     "build-langs": "node build-lang-pages.js",
     "build-depot-langs": "node build-depot-langs.js",
-    "build-all": "node build-lang-pages.js && node build-depot-langs.js",
+    "build-projects-langs": "node build-projects-langs.js",
+    "build-all": "node build-lang-pages.js && node build-depot-langs.js && node build-projects-langs.js",
     "upscale:project-1": "node upscale-images.js ../assets/projects/project-1",
     "upscale:project-2": "node upscale-images.js ../assets/projects/project-2",
     "upscale:project-3": "node upscale-images.js ../assets/projects/project-3",
