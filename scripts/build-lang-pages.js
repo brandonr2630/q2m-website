@@ -48,8 +48,8 @@ const LANGS = [
     dir:         'es',
     canonical:   'https://www.q2m.io/es/',
     ogLocale:    'es_419',
-    title:       'Q² Machines — Ingeniería Industrial, Trinidad y el Caribe',
-    description: 'Q² Machines es una empresa de ingeniería especializada en el Diseño, Fabricación y Servicio de Sistemas Transportadores, Plantas de Concreto, Motores y Bombas en el Caribe y América Latina.',
+    title:       'Q² Machines — Ingeniería Industrial | Caribe y Suramérica',
+    description: 'Q² Machines es una empresa de ingeniería especializada en Sistemas Transportadores, Plantas de Concreto y Motores & Bombas — atendiendo industrias de minería, canteras y manufactura en el Caribe, Venezuela, Colombia y Suramérica.',
   },
   {
     code:        'pt',
@@ -57,8 +57,8 @@ const LANGS = [
     dir:         'pt',
     canonical:   'https://www.q2m.io/pt/',
     ogLocale:    'pt_BR',
-    title:       'Q² Machines — Engenharia Industrial, Trinidad e Caribe',
-    description: 'Q² Machines é uma empresa de engenharia especializada em Projeto, Fabricação e Serviço de Sistemas Transportadores, Usinas de Concreto, Motores e Bombas no Caribe e América Latina.',
+    title:       'Q² Machines — Engenharia Industrial | Caribe e América do Sul',
+    description: 'Q² Machines é uma empresa de engenharia especializada em Sistemas Transportadores, Usinas de Concreto e Motores & Bombas — atendendo indústrias de mineração, pedreiras e manufatura no Caribe, Venezuela, Guiana e América do Sul.',
   },
   {
     code:        'nl',
@@ -112,8 +112,13 @@ for (const lang of LANGS) {
   $('meta[name="twitter:title"]').attr('content', lang.title);
   $('meta[name="twitter:description"]').attr('content', lang.description);
 
-  // canonical
-  $('head').append(`<link rel="canonical" href="${lang.canonical}">`);
+  // canonical — replace the existing English canonical rather than appending a second one
+  const existingCanonical = $('link[rel="canonical"]');
+  if (existingCanonical.length) {
+    existingCanonical.attr('href', lang.canonical);
+  } else {
+    $('head').append(`<link rel="canonical" href="${lang.canonical}">`);
+  }
 
   // hreflang
   $('head').append(HREFLANG);
@@ -153,10 +158,6 @@ for (const lang of LANGS) {
       // Fix obfuscated email
       if (node.contactPoint?.email) node.contactPoint.email = 'qhub@q2m.io';
       if (node.email === 'qhub-at-q2m.io') node.email = 'qhub@q2m.io';
-      // Add missing geoRadius to GeoCircle
-      if (node.areaServed?.['@type'] === 'GeoCircle' && !node.areaServed.geoRadius) {
-        node.areaServed.geoRadius = '800000';
-      }
     });
     schema['@graph'].push({
       '@type':      'WebPage',
