@@ -242,6 +242,7 @@ nav.scrolled .nav-logo-mark,nav.scrolled .nav-logo-name{transition:all .3s;}
 /* ── PROJECTS GRID ── */
 .projects-section{padding:72px 60px 80px;position:relative;z-index:1;}
 .projects-inner{max-width:1200px;margin:0 auto;}
+.proj-intro{font-size:15px;color:var(--text-2);max-width:760px;line-height:1.7;margin-bottom:40px;}
 .filter-bar{display:flex;align-items:center;gap:12px;margin-bottom:48px;flex-wrap:wrap;}
 .filter-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--text-3);margin-right:4px;}
 .filter-btn{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border:1px solid var(--text-3);color:var(--text-2);background:none;border-radius:2px;cursor:pointer;transition:all .2s;}
@@ -415,6 +416,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 <!-- ── PROJECTS ── -->
 <section class="projects-section">
   <div class="projects-inner">
+    <p class="proj-intro reveal" data-i18n="proj_intro">A Q² Machines entregou projetos de engenharia em Trinidad, Guiana e no Caribe em geral — sistemas de esteiras para mineração e manuseio a granel, usinas de concreto, fabricação estrutural e instalações de motores e bombas. Cada projeto é projetado, construído e comissionado internamente a partir das nossas instalações em Trinidad.</p>
     <div class="filter-bar reveal">
       <span class="filter-label" data-i18n="filter_label">Filtrar:</span>
       <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)" data-i18n="filter_all">Todos os Projetos</button>
@@ -574,6 +576,7 @@ const translations = {
     nav_home:'Home', nav_about:'About', nav_services:'Services', nav_depot:'Depot', nav_projects:'Projects', nav_contact:'Contact', nav_cta:'Tell Us Your Needs',
     proj_label:'Our Work', proj_title_html:'Engineering <span>Projects</span>',
     proj_desc:'Delivered across the Caribbean — from conveyor systems and concrete plants to precision fabrication, motors and pumps. Every project is engineered, built and commissioned in-house.',
+    proj_intro:'Q² Machines has delivered engineering projects across Trinidad, Guyana, and the wider Caribbean — conveyor systems for quarrying and bulk handling, concrete batching plants, structural fabrication, and motor and pump installations. Every project is engineered, built and commissioned in-house from our facility in Trinidad.',
     filter_label:'Filter:', filter_all:'All Projects', filter_conveyor:'Conveyor & Bulk', filter_concrete:'Concrete Plants', filter_fabrication:'Fabrication', filter_motors:'Motors & Pumps',
     view_project:'View Project →',
     proj_enquire:'Enquire About a Similar Project →',
@@ -589,6 +592,7 @@ const translations = {
     nav_home:'Inicio', nav_about:'Nosotros', nav_services:'Servicios', nav_depot:'Depósito', nav_projects:'Proyectos', nav_contact:'Contacto', nav_cta:'Cuéntenos su Necesidad',
     proj_label:'Nuestro Trabajo', proj_title_html:'Proyectos de <span>Ingeniería</span>',
     proj_desc:'Entregados en todo el Caribe — desde sistemas de cinta transportadora y plantas de concreto hasta fabricación de precisión, motores y bombas. Cada proyecto es diseñado, construido y puesto en marcha internamente.',
+    proj_intro:'Q² Machines ha entregado proyectos de ingeniería en Trinidad, Guyana y el Caribe en general — sistemas transportadores para canteras y manejo a granel, plantas dosificadoras de concreto, fabricación estructural e instalaciones de motores y bombas. Cada proyecto es diseñado, construido y puesto en marcha internamente desde nuestras instalaciones en Trinidad.',
     filter_label:'Filtrar:', filter_all:'Todos los Proyectos', filter_conveyor:'Transportador y Granel', filter_concrete:'Plantas de Concreto', filter_fabrication:'Fabricación', filter_motors:'Motores y Bombas',
     view_project:'Ver Proyecto →',
     proj_enquire:'Consultar un Proyecto Similar →',
@@ -604,6 +608,7 @@ const translations = {
     nav_home:'Início', nav_about:'Sobre', nav_services:'Serviços', nav_depot:'Depósito', nav_projects:'Projetos', nav_contact:'Contato', nav_cta:'Fale Conosco',
     proj_label:'Nosso Trabalho', proj_title_html:'Projetos de <span>Engenharia</span>',
     proj_desc:'Entregues em todo o Caribe — de sistemas de correias transportadoras e usinas de concreto à fabricação de precisão, motores e bombas. Cada projeto é projetado, construído e comissionado internamente.',
+    proj_intro:'A Q² Machines entregou projetos de engenharia em Trinidad, Guiana e no Caribe em geral — sistemas de esteiras para mineração e manuseio a granel, usinas de concreto, fabricação estrutural e instalações de motores e bombas. Cada projeto é projetado, construído e comissionado internamente a partir das nossas instalações em Trinidad.',
     filter_label:'Filtrar:', filter_all:'Todos os Projetos', filter_conveyor:'Transportador e Granel', filter_concrete:'Usinas de Concreto', filter_fabrication:'Fabricação', filter_motors:'Motores e Bombas',
     view_project:'Ver Projeto →',
     proj_enquire:'Consultar um Projeto Similar →',
@@ -619,6 +624,7 @@ const translations = {
     nav_home:'Home', nav_about:'Over Ons', nav_services:'Diensten', nav_depot:'Depot', nav_projects:'Projecten', nav_contact:'Contact', nav_cta:'Vertel Ons Uw Behoefte',
     proj_label:'Ons Werk', proj_title_html:'Engineering <span>Projecten</span>',
     proj_desc:'Gerealiseerd door het Caribisch gebied — van transportbandsystemen en betonplanten tot precisie fabricage, motoren en pompen. Elk project wordt intern ontworpen, gebouwd en in bedrijf gesteld.',
+    proj_intro:'Q² Machines heeft technische projecten uitgevoerd in Trinidad, Guyana en het bredere Caribisch gebied — transportbandsystemen voor groeven en bulkverwerking, betoncentra, staalconstructies en motor- en pompinstallaties. Elk project wordt intern ontworpen, gebouwd en in bedrijf gesteld vanuit onze vestiging in Trinidad.',
     filter_label:'Filter:', filter_all:'Alle Projecten', filter_conveyor:'Transportband & Bulk', filter_concrete:'Betonplanten', filter_fabrication:'Fabricage', filter_motors:'Motoren & Pompen',
     view_project:'Bekijk Project →',
     proj_enquire:'Informeer Over een Vergelijkbaar Project →',
@@ -634,6 +640,7 @@ const translations = {
     nav_home:'Accueil', nav_about:'À Propos', nav_services:'Services', nav_depot:'Dépôt', nav_projects:'Projets', nav_contact:'Contact', nav_cta:'Dites-nous vos Besoins',
     proj_label:'Notre Travail', proj_title_html:'Projets <span>d\'Ingénierie</span>',
     proj_desc:'Réalisés à travers les Caraïbes — des systèmes de convoyeurs et centrales à béton à la fabrication de précision, moteurs et pompes. Chaque projet est conçu, construit et mis en service en interne.',
+    proj_intro:"Q² Machines a réalisé des projets d'ingénierie à Trinité, au Guyana et dans l'ensemble des Caraïbes — systèmes convoyeurs pour carrières et manutention en vrac, centrales à béton, fabrication structurelle et installations de moteurs et pompes. Chaque projet est conçu, construit et mis en service en interne depuis notre site à Trinité.",
     filter_label:'Filtrer :', filter_all:'Tous les Projets', filter_conveyor:'Convoyeur & Vrac', filter_concrete:'Centrales à Béton', filter_fabrication:'Fabrication', filter_motors:'Moteurs & Pompes',
     view_project:'Voir le Projet →',
     proj_enquire:'Renseignez-vous Sur un Projet Similaire →',
