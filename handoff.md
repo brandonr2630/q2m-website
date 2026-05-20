@@ -2,6 +2,203 @@
 
 ---
 
+## Session 14 — LatAm & Caribbean Visibility Push
+
+**Date:** 2026-05-19
+
+### Goal
+
+Improve Q2M website visibility across South America, the Caribbean, and Latin America.
+
+### What Changed
+
+| Item | Detail |
+|------|--------|
+| **Canonical bug fixed — all 4 language homepages** | `es/`, `pt/`, `nl/`, `fr/` index.html each had a wrong canonical (`href="https://www.q2m.io/"`) in `<head>`, plus duplicate appended canonicals at the bottom. Google was treating all language pages as duplicates of English and not indexing them. Fixed by updating `build-lang-pages.js` to replace the existing canonical (`.attr('href', ...)`) instead of appending a second one. Regenerated all 4 pages. |
+| **Duplicate canonical removed from index.html** | A stale `<link rel="canonical" href="https://www.q2m.io/" />` existed outside `</head>` at line 1444. Removed. |
+| **ES & PT titles/descriptions — LatAm targeting** | ES: "Q² Machines — Ingeniería Industrial \| Caribe y Suramérica" + description mentioning Venezuela, Colombia, Suramérica. PT: "Engenharia Industrial \| Caribe e América do Sul" + description mentioning Venezuela, Guiana, América do Sul. Updated in `build-lang-pages.js` LANGS config and regenerated. |
+| **Schema `areaServed` — explicit country list** | Replaced `GeoCircle` (800km radius) with an array of explicit `Country`/`AdministrativeArea` nodes: TT, GY, SR, VE, CO, BR, JM, BB, DO, Caribbean, Latin America. Applied to `index.html`; all language pages pick it up via build script. |
+| **index.html meta description** | Added "South America and Latin America" to the English meta description. |
+| **Sitemap — language pages added** | Added `es/`, `pt/` (priority 0.9), `nl/`, `fr/` (priority 0.7) homepage URLs — all were missing. Added `es/depot.html` and `pt/depot.html` (priority 0.7). |
+| **depot.html — title & description** | Title: "Industrial Equipment for Sale — Caribbean & South America \| Q² Machines". Description explicitly mentions Caribbean, South America, Latin America. |
+| **depot.html — OG/Twitter card** | Added `og:image:width/height/alt` and full Twitter card meta (was missing). |
+| **depot.html — favicon paths fixed** | `favicon32x32.png` → `favicon-32x32.png`, etc. (was causing 404s on every load). |
+| **depot.html — non-blocking fonts** | Replaced blocking `<link rel="stylesheet">` for Google Fonts with `media="print"` non-blocking pattern + `<noscript>` fallback. |
+| **depot.html — hreflang** | Added `en`, `es`, `pt-BR`, and `x-default` alternates. |
+| **depot.html — ItemList/Product schema** | Added `@type: ItemList` JSON-LD with 7 `Product` nodes from `listings.json`. Enables Google rich results for individual equipment items. |
+| **es/depot.html + pt/depot.html** | New pre-rendered Spanish and Portuguese equipment depot pages. Spanish buyers searching "equipos industriales venta Caribe" or "trituradora de mandíbula Trinidad" will now find an indexed Spanish page. PT equivalent for Brazil. |
+| **404.html — noindex** | Added `<meta name="robots" content="noindex, follow">`. |
+| **build-depot-langs.js** | New build script at `scripts/build-depot-langs.js`. Run with `cd scripts && node build-depot-langs.js`. Added to `package.json` as `build-depot-langs`; `build-all` runs both scripts. |
+
+### Key Lesson
+
+**`$('head').append(canonical)` does not replace an existing canonical — it adds a second one.** When there are multiple canonical tags, Google uses the first. The build script was appending a correct language-specific canonical *after* the English one already in `<head>`, so Google always saw the English URL as canonical and never indexed the language pages. Fix: use `$('link[rel="canonical"]').attr('href', url)` to replace in-place.
+
+### Build Commands
+
+```bash
+cd scripts
+
+# Regenerate all language homepages (run after index.html changes)
+node build-lang-pages.js
+
+# Regenerate Spanish + Portuguese depot pages (run after depot.html changes)
+node build-depot-langs.js
+
+# Both at once
+npm run build-all
+```
+
+### Outstanding
+
+- [ ] es/depot.html nav Depot link still points to `/depot.html` (English) — consider updating to `/es/depot.html`
+- [ ] Product schema descriptions in es/depot.html are English — translate for richer Spanish indexation
+- [ ] nl/depot.html and fr/depot.html not yet created (Suriname / French Antilles markets)
+- [ ] Add more projects to projects.html (content depth)
+- [ ] Filter categories (Fabrication, Motors & Pumps, Structural, Machine Shop) return empty — hide or add stubs
+- [ ] Translations for nl/fr should be verified by native speakers
+
+---
+
+## Session 13 — Projects Page Redesign, Content & Full SEO Pass
+
+**Date:** 2026-05-19
+**PRs:** [#21](https://github.com/brandonr2630/q2m-website/pull/21) → [#33](https://github.com/brandonr2630/q2m-website/pull/33) — all merged & deployed
+
+### What Changed
+
+Complete overhaul of `projects.html`: layout, content, storytelling, and a full SEO pass covering structured data, meta tags, language pages, and crawl hygiene.
+
+---
+
+### Layout — Horizontal Card with Carousel
+
+Replaced the card grid with a vertical list of full-width horizontal cards. Each card has:
+- **Left (46%):** image carousel (480px tall, auto-advance 3.5s, hover-pause, arrows, touch-swipe, progress bar)
+- **Right (flex:1):** tier tags → project title → location → scope narrative → enquiry button
+
+`object-fit: contain` kept throughout to avoid cropping engineering photos. The carousel container needs **explicit `height`** (not just `min-height`) because the slides use `position:absolute;inset:0` — see lesson below.
+
+---
+
+### Project 2 Added
+
+- 27 WebP images at `assets/projects/project-2/WebP/` (capital W — case-sensitive on Linux server)
+- Full data entry in `window.__PROJECTS__` and `projects.json`: id, titles ×5 langs, tags (tier1/2/3), summaries ×5 langs, images[], imageAlts[]
+
+---
+
+### Carousel Storytelling
+
+- **Slide 0:** Final product preview (completion aerial) — no label. For project 1, a copy of the last image was prepended for this purpose.
+- **Slide 1:** "How it began" (bold, gold, italic — 20px, top-right)
+- **Last slide:** "How it ended" (same style)
+
+---
+
+### Image Alt Text (Google Image Search)
+
+`imageAlts[]` arrays added to both projects in `window.__PROJECTS__` and `projects.json`. Project 1 alts sourced from `assets/projects/project-1/captions.json`. Project 2 alts are context-descriptive.
+
+Render logic: `p.imageAlts?.[si] || fallback-string` — never an empty alt.
+
+---
+
+### i18n
+
+- Tiered specialism tags translated via `translateTag(text)` → `translations[currentLang].tags[text]`
+- Project titles use `p['title_' + currentLang] || p.title`
+- Enquiry button uses `t.proj_enquire` key (contextual, not the generic CTA copy)
+- All 5 languages have tags map in `translations` object
+
+**Critical:** When updating a project summary in English, always update all four `summary_es/pt/nl/fr` fields in the same commit. Stale translations have shipped twice in this project and are the most visible content bug.
+
+---
+
+### Contact Button
+
+"View Project" (dead, called removed lightbox) replaced with "Enquire About a Similar Project →" (`proj_enquire` i18n key) linking to `/#contact`. Translated in all 5 languages.
+
+---
+
+### SEO Changes (PR #32, #33)
+
+| Item | Change |
+|------|--------|
+| `robots.txt` | `Disallow: /archives/` — blocks 15+ stale HTML versions from Google's index |
+| `projects.html` head | Preconnect hints for fonts.googleapis.com, fonts.gstatic.com, cdn.jsdelivr.net |
+| JSON-LD | `@type: "Project"` → `@type: "CreativeWork"` (Project is not a schema.org type) |
+| JSON-LD | Added BreadcrumbList (Home → Projects) |
+| JSON-LD | Project 2 description was stale in structured data — corrected |
+| Meta | Twitter card tags added; og:image dimensions and alt added |
+| Meta | Page title strengthened with keywords; meta description adds T&T location signal |
+| hreflang | All alternates now point to language-specific URLs (not the same URL ×6) |
+| Language pages | `es/projects.html`, `pt/projects.html`, `nl/projects.html`, `fr/projects.html` created — full copies with correct `html lang`, meta, canonical, hreflang, BreadcrumbList in each language, `currentLang` defaulted, root-relative asset paths |
+| `sitemap.xml` | All 4 language project pages added at priority 0.6 |
+
+---
+
+### Key Lessons (also in lessons-learned skill)
+
+1. **`height:100%` on absolute-positioned carousel slides collapses if parent only has `min-height`** — set explicit `height` on the carousel container.
+2. **`window.__PROJECTS__` inline vs `fetch()`** — inline guarantees Googlebot sees the data without executing async JS. Use inline for any content that must be indexed.
+3. **`@type: "Project"` is silently ignored by Google** — not a valid schema.org type. Use `CreativeWork`.
+4. **hreflang all pointing to the same URL gives zero multilingual SEO signal** — each language must have its own URL for hreflang to work.
+5. **Language pages in subdirectories must use root-relative asset paths** — `assets/img.webp` from `es/projects.html` resolves to `es/assets/img.webp` (404). Use `/assets/img.webp`.
+
+---
+
+### Outstanding
+
+- [ ] Project 3 — no images or data yet. Add when ready.
+- [ ] Filter categories (Fabrication, Motors & Pumps, Structural, Machine Shop) return empty — hide them or add stub projects.
+- [ ] `year` field in project data is not displayed on the card — consider adding.
+- [ ] Translations for projects are human-reviewed for English and Spanish; Dutch and French should be verified by native speakers.
+- [ ] depot.html: favicon paths still broken (missing hyphens) — carried over from Session 10 audit.
+- [ ] 404.html: missing `noindex` meta — carried over from Session 10 audit.
+
+---
+
+## Session 12 — Project 2 WebP Images & Watermarks
+
+**Date:** 2026-05-18
+
+### What Changed
+
+Converted all 27 project-2 source images (JPG) to WebP and applied the Q2M logo watermark, matching the treatment used for project-1.
+
+#### Conversion
+
+- 27 images from `assets/projects/project-2/original/` converted to WebP at quality 85
+- Output to `assets/projects/project-2/WebP/`
+- Filenames retain original numeric prefix (01–28) with `.webp` extension
+- Tool: `sharp` v0.34.5 via Node.js (installed in `%TEMP%\webp-convert`)
+
+#### Watermark
+
+- Logo: `assets/branding/Q2M_Logo.png`, resized to fit, placed bottom-left on a `#F4F3EF` background tile with 16px inner padding, 36px from edge — same spec as project-1
+- Large images (≥2000px shortest side): logo at **300px wide**
+- Small images (02, 03, 04 — WhatsApp shots ~960px; 10 — 1712px): logo scaled to **~9% of shortest dimension** (86px and 154px respectively) to maintain consistent visual weight
+
+| Image | Dimensions | Logo width |
+|-------|-----------|-----------|
+| 01, 05–09, 11–28 (DJI / PlantInstallation) | 1795–3648px | 300px |
+| 02, 03, 04 (WhatsApp) | 960–1280px | 86px |
+| 10 (PlantInstallation-8838) | 1712×1910 | 154px |
+
+### Files Changed
+
+| Path | Change |
+|------|--------|
+| `assets/projects/project-2/WebP/*.webp` | 27 new watermarked WebP files |
+
+### Notes
+
+- No script committed — conversion run ad-hoc via temp Node environment
+- If images need to be regenerated, use the same sharp pipeline: convert from `original/`, composite logo tile at 9% of shortest dimension (max 300px), quality 85
+
+---
+
 ## Session 11 — Multilingual SEO: Pre-rendered Pages for All 5 Languages
 
 **Date:** 2026-05-18
