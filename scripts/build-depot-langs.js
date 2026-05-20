@@ -58,12 +58,32 @@ const LANGS = [
     title:       'Equipamentos Industriais à Venda — Caribe e América do Sul | Q² Machines',
     description: 'Equipamentos industriais novos, usados e recondicionados à venda desde Trinidad — bombas, britadores, peneiras, misturadoras e mais. Disponíveis para compradores no Caribe, Venezuela, Guiana e América do Sul.',
   },
+  {
+    code:        'nl',
+    htmlLang:    'nl',
+    dir:         'nl',
+    canonical:   'https://www.q2m.io/nl/depot.html',
+    ogLocale:    'nl_NL',
+    title:       'Industriële Apparatuur te Koop — Caribisch gebied & Zuid-Amerika | Q² Machines',
+    description: 'Nieuwe, gebruikte en gereviseerde industriële apparatuur te koop vanuit Trinidad — pompen, brekers, zeven, mixers en meer. Beschikbaar voor kopers in het Caribisch gebied, Venezuela, Colombia en Zuid-Amerika.',
+  },
+  {
+    code:        'fr',
+    htmlLang:    'fr',
+    dir:         'fr',
+    canonical:   'https://www.q2m.io/fr/depot.html',
+    ogLocale:    'fr_FR',
+    title:       'Équipements Industriels à Vendre — Caraïbes et Amérique du Sud | Q² Machines',
+    description: "Équipements industriels neufs, d'occasion et reconditionnés à vendre depuis Trinidad — pompes, concasseurs, cribles, malaxeurs et plus. Disponibles pour les acheteurs aux Caraïbes, au Venezuela, en Colombie et en Amérique du Sud.",
+  },
 ];
 
 const HREFLANG = `
 <link rel="alternate" hreflang="en"        href="https://www.q2m.io/depot.html">
 <link rel="alternate" hreflang="es"        href="https://www.q2m.io/es/depot.html">
 <link rel="alternate" hreflang="pt-BR"     href="https://www.q2m.io/pt/depot.html">
+<link rel="alternate" hreflang="nl"        href="https://www.q2m.io/nl/depot.html">
+<link rel="alternate" hreflang="fr"        href="https://www.q2m.io/fr/depot.html">
 <link rel="alternate" hreflang="x-default" href="https://www.q2m.io/depot.html">`;
 
 for (const lang of LANGS) {
@@ -119,6 +139,10 @@ for (const lang of LANGS) {
   // Set active language flag
   $('.lang-flag').removeClass('active');
   $(`.lang-flag[data-lang="${lang.code}"]`).addClass('active');
+
+  // Patch cross-page nav hrefs to stay in the same language subdirectory
+  $('a[href="/depot.html"]').attr('href', `/${lang.code}/depot.html`);
+  $('a[href="/projects.html"]').attr('href', `/${lang.code}/projects.html`);
 
   // Fix relative asset paths for subdirectory (assets/ → /assets/)
   $('img[src]').each((_, el) => {
