@@ -2,6 +2,73 @@
 
 ---
 
+## Session 15 — SEO Visibility Push (continued)
+
+**Date:** 2026-05-20
+**PRs:** [#38](https://github.com/brandonr2630/q2m-website/pull/38), [#39](https://github.com/brandonr2630/q2m-website/pull/39), [#40](https://github.com/brandonr2630/q2m-website/pull/40), [#41](https://github.com/brandonr2630/q2m-website/pull/41), [#42](https://github.com/brandonr2630/q2m-website/pull/42) — all open, pending merge
+
+### Goal
+
+Complete the multilingual SEO buildout started in Session 14: add nl/fr depot pages, fix all cross-language navigation, add geo-targeted indexable copy to every page, and ensure `areaServed` schema signals are consistent across the full site.
+
+### What Changed
+
+| Item | Detail |
+|------|--------|
+| **nl/depot.html + fr/depot.html** | New pre-rendered Dutch and French equipment depot pages. Full translated UI, canonical, hreflang, og/twitter meta, translated JSON-LD product schema (all 7 listings). (#38) |
+| **listings.json — nl/fr translations** | Added `title_nl`, `description_nl`, `title_fr`, `description_fr` to all 7 items. Product schema on nl/fr depot pages is now fully translated. (#38) |
+| **depot.html hreflang** | Added nl and fr alternates to the English depot page hreflang block. Was previously only en/es/pt-BR/x-default. (#38) |
+| **depot_intro paragraph** | Added `<p class="listings-intro reveal" data-i18n="depot_intro">` above the filter bar in depot.html — static, Googlebot-visible keyword copy naming the Caribbean, Venezuela, Colombia, Guyana and South America. Translation in all 5 languages (en/es/pt/nl/fr). (#38) |
+| **Nav link fix — all language pages** | All language pages (es/pt/nl/fr × index/depot/projects) were sending "Depot" and "Projects" nav clicks back to `/depot.html` and `/projects.html` (English). All three build scripts now patch `a[href="/depot.html"]` → `/{lang}/depot.html` and `a[href="/projects.html"]` → `/{lang}/projects.html`. (#38, #39) |
+| **build-projects-langs.js** | New build script at `scripts/build-projects-langs.js`. Generates es/pt/nl/fr versions of projects.html with correct canonical, hreflang, og locale, translated UI, nav link patching, and a WebPage JSON-LD node with `inLanguage`. (#39) |
+| **scripts/package.json** | Added `build-projects-langs` script; updated `build-all` to run all three build scripts. (#39) |
+| **proj_intro paragraph** | Added `<p class="proj-intro reveal" data-i18n="proj_intro">` above the projects filter bar — static copy naming Trinidad, Guyana and the Caribbean with project type keywords (conveyor systems, concrete batching plants, structural fabrication, motors and pumps). Translation in all 5 languages. (#40) |
+| **about_body — all 5 languages** | Extended from "serve clients across the Caribbean" to name Venezuela, Colombia, Guyana and South America explicitly. Updated in both the static HTML and the JS translation objects. (#41) |
+| **about_pt5 — all 5 languages** | Replaced vague "Caribbean and Latin America" with specific country list: Caribbean, Venezuela, Colombia, Guyana, Suriname and South America. All 5 languages. (#41) |
+| **depot.html schema — areaServed** | Added `Organization` node to the `@graph` with full `areaServed` array (11 countries/regions matching index.html). Updated `ItemList` description to name specific countries. (#42) |
+| **projects.html schema — areaServed** | Added `@id` and `areaServed` array to the `publisher` Organization node. Updated `CollectionPage` description to name target countries. (#42) |
+| **sitemap.xml** | Added `nl/depot.html` and `fr/depot.html` entries (priority 0.6). Bumped all `lastmod` to 2026-05-20. (#38, #41) |
+| **Google Search Console walkthrough** | Documented DNS TXT verification steps and sitemap submission process for the user. |
+
+### Build Commands (updated)
+
+```bash
+cd scripts
+
+# Regenerate language homepages (run after index.html changes)
+node build-lang-pages.js
+
+# Regenerate language depot pages — es/pt/nl/fr (run after depot.html or listings.json changes)
+node build-depot-langs.js
+
+# Regenerate language projects pages — es/pt/nl/fr (run after projects.html changes)
+node build-projects-langs.js
+
+# All three at once
+npm run build-all
+```
+
+### Key Lesson
+
+**Cross-page nav hrefs in language subdirectory pages must be patched in the build script.** When a language page is in `/es/`, a nav link `href="/depot.html"` correctly navigates to the root English page — not the Spanish one. All three build scripts now include:
+```js
+$('a[href="/depot.html"]').attr('href', `/${lang.code}/depot.html`);
+$('a[href="/projects.html"]').attr('href', `/${lang.code}/projects.html`);
+```
+This must be repeated in any future build script that generates pages in a language subdirectory.
+
+### Outstanding
+
+- [ ] Merge and deploy PRs #38–#42
+- [ ] **Google Search Console** — add `q2m.io` as a Domain property, verify via DNS TXT record in GreenGeeks Zone Editor, submit `sitemap.xml`, request indexing for `/`, `/depot.html`, `/projects.html`, `/es/`, `/pt/`
+- [ ] **Google Business Profile** — create a profile for Q² Machines (improves visibility in Maps and regional search)
+- [ ] Filter categories (Fabrication, Motors & Pumps, Structural, Machine Shop) return empty — hide or add projects
+- [ ] Project 3 — no images or data yet
+- [ ] nl/fr translations should be verified by native speakers before relying on them for market trust
+- [ ] Backlinks — reach out to regional trade directories, industry association listings (Caribbean Manufacturers Association, etc.)
+
+---
+
 ## Session 14 — LatAm & Caribbean Visibility Push
 
 **Date:** 2026-05-19
@@ -746,4 +813,4 @@ Always excluded from deploy: `.github/`, `.cpanel.yml`, `handoff.md`
 
 ---
 
-**Last Updated:** 2026-05-18 (Session 11 — multilingual SEO deployed)
+**Last Updated:** 2026-05-20 (Session 15 — full SEO visibility push, PRs #38–#42 pending)
