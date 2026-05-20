@@ -25,6 +25,8 @@
 <link rel="alternate" hreflang="en"        href="https://www.q2m.io/depot.html">
 <link rel="alternate" hreflang="es"        href="https://www.q2m.io/es/depot.html">
 <link rel="alternate" hreflang="pt-BR"     href="https://www.q2m.io/pt/depot.html">
+<link rel="alternate" hreflang="nl"        href="https://www.q2m.io/nl/depot.html">
+<link rel="alternate" hreflang="fr"        href="https://www.q2m.io/fr/depot.html">
 <link rel="alternate" hreflang="x-default" href="https://www.q2m.io/depot.html">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -141,6 +143,7 @@ nav.scrolled .nav-logo-mark,nav.scrolled .nav-logo-name{transition:all .3s;}
 /* ── LISTINGS ── */
 .listings-section{padding:72px 60px 80px;position:relative;z-index:1;}
 .listings-inner{max-width:1200px;margin:0 auto;}
+.listings-intro{font-size:15px;color:var(--text-2);max-width:760px;line-height:1.7;margin-bottom:40px;}
 .filter-bar{display:flex;align-items:center;gap:12px;margin-bottom:48px;flex-wrap:wrap;}
 .filter-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--text-3);margin-right:4px;}
 .filter-btn{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border:1px solid var(--text-3);color:var(--text-2);background:none;border-radius:2px;cursor:pointer;transition:all .2s;}
@@ -399,6 +402,7 @@ footer {
 <!-- ── LISTINGS ── -->
 <section class="listings-section">
   <div class="listings-inner">
+    <p class="listings-intro reveal" data-i18n="depot_intro">From Trinidad, Q² Machines supplies new and pre-owned industrial equipment to buyers across the Caribbean, Venezuela, Colombia, Guyana and South America. Browse our current inventory of pumps, crushers, screens, mixers, dump trucks and more — available for immediate purchase, inspection and export.</p>
     <div class="filter-bar reveal">
       <span class="filter-label" data-i18n="depot_filter_label">Filter:</span>
       <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)" data-i18n="depot_filter_all">All Items</button>
@@ -514,6 +518,7 @@ const translations = {
     depot_label:'Equipment Depot', depot_title_1:'New &', depot_title_2:'Pre-Owned',
     depot_sub:'New, used and refurbished industrial equipment — inspected and ready for immediate deployment. All new and refurbished equipment is supplied with a warranty. Spares & service support is guaranteed for every item we sell.',
     depot_filter_label:'Filter:', depot_filter_all:'All Items', depot_filter_new:'New', depot_filter_used:'Used', depot_filter_refurbished:'Refurbished',
+    depot_intro:'From Trinidad, Q² Machines supplies new and pre-owned industrial equipment to buyers across the Caribbean, Venezuela, Colombia, Guyana and South America. Browse our current inventory of pumps, crushers, screens, mixers, dump trucks and more — available for immediate purchase, inspection and export.',
     depot_loading:'Loading inventory…',
     depot_empty_title:'No items in stock at this time', depot_empty_sub:'Check back soon — we regularly update our inventory.',
     depot_empty_filter_title:'No items match this filter', depot_empty_filter_sub:'Try selecting a different condition above.',
@@ -535,6 +540,7 @@ const translations = {
     depot_label:'Depósito de Equipos', depot_title_1:'Nuevo y', depot_title_2:'Pre-Usado',
     depot_sub:'Equipos industriales nuevos, usados y reacondicionados — inspeccionados y listos para uso inmediato. Todo el equipo nuevo y reacondicionado se suministra con garantía. El soporte de repuestos y servicio está garantizado para cada artículo que vendemos.',
     depot_filter_label:'Filtrar:', depot_filter_all:'Todos', depot_filter_new:'Nuevo', depot_filter_used:'Usado', depot_filter_refurbished:'Reacondicionado',
+    depot_intro:'Desde Trinidad, Q² Machines suministra equipos industriales nuevos y usados a compradores en el Caribe, Venezuela, Colombia, Guyana y Suramérica. Explore nuestro inventario actual de bombas, trituradoras, cribas, mezcladoras, camiones volquete y más — disponibles para compra inmediata, inspección y exportación.',
     depot_loading:'Cargando inventario…',
     depot_empty_title:'No hay artículos en stock en este momento', depot_empty_sub:'Vuelva pronto — actualizamos nuestro inventario regularmente.',
     depot_empty_filter_title:'Ningún artículo coincide con este filtro', depot_empty_filter_sub:'Pruebe seleccionando una condición diferente.',
@@ -556,6 +562,7 @@ const translations = {
     depot_label:'Depósito de Equipamentos', depot_title_1:'Novo e', depot_title_2:'Pré-Usado',
     depot_sub:'Equipamentos industriais novos, usados e recondicionados — inspeccionados e prontos para implantação imediata. Todos os equipamentos novos e recondicionados são fornecidos com garantia. Suporte de peças e serviço garantido para cada item que vendemos.',
     depot_filter_label:'Filtrar:', depot_filter_all:'Todos os Itens', depot_filter_new:'Novo', depot_filter_used:'Usado', depot_filter_refurbished:'Recondicionado',
+    depot_intro:'Com sede em Trinidad, a Q² Machines fornece equipamentos industriais novos e usados a compradores no Caribe, Venezuela, Guiana, Colômbia e América do Sul. Navegue pelo nosso inventário atual de bombas, britadores, peneiras, misturadoras, caminhões basculantes e mais — disponíveis para compra imediata, inspeção e exportação.',
     depot_loading:'Carregando inventário…',
     depot_empty_title:'Nenhum item em stock no momento', depot_empty_sub:'Volte em breve — atualizamos nosso inventário regularmente.',
     depot_empty_filter_title:'Nenhum item corresponde a este filtro', depot_empty_filter_sub:'Tente selecionar uma condição diferente.',
@@ -577,6 +584,7 @@ const translations = {
     depot_label:'Apparatuur Depot', depot_title_1:'Nieuw &', depot_title_2:'Tweedehands',
     depot_sub:'Nieuwe, gebruikte en gereviseerde industriële apparatuur — geïnspecteerd en gereed voor onmiddellijke ingebruikname. Alle nieuwe en gereviseerde apparatuur wordt geleverd met garantie. Onderdelen- en serviceondersteuning is gegarandeerd voor elk item dat wij verkopen.',
     depot_filter_label:'Filter:', depot_filter_all:'Alle Items', depot_filter_new:'Nieuw', depot_filter_used:'Gebruikt', depot_filter_refurbished:'Gereviseerd',
+    depot_intro:'Vanuit Trinidad levert Q² Machines nieuwe en tweedehands industriële apparatuur aan kopers in het Caribisch gebied, Venezuela, Colombia, Guyana en Zuid-Amerika. Blader door ons actuele aanbod van pompen, brekers, zeven, mixers, kiepwagens en meer — direct beschikbaar voor aankoop, inspectie en export.',
     depot_loading:'Inventaris laden…',
     depot_empty_title:'Momenteel geen items op voorraad', depot_empty_sub:'Kom snel terug — we werken onze voorraad regelmatig bij.',
     depot_empty_filter_title:'Geen items komen overeen met dit filter', depot_empty_filter_sub:'Probeer een andere conditie te selecteren.',
@@ -598,6 +606,7 @@ const translations = {
     depot_label:"Dépôt d'Équipements", depot_title_1:'Neuf &', depot_title_2:'Occasion',
     depot_sub:"Équipements industriels neufs, d'occasion et reconditionnés — inspectés et prêts pour un déploiement immédiat. Tous les équipements neufs et reconditionnés sont fournis avec une garantie. Le support en pièces détachées et en service est garanti pour chaque article que nous vendons.",
     depot_filter_label:'Filtrer :', depot_filter_all:'Tous les Articles', depot_filter_new:'Neuf', depot_filter_used:'Occasion', depot_filter_refurbished:'Reconditionné',
+    depot_intro:"Depuis Trinidad, Q² Machines fournit des équipements industriels neufs et d'occasion à des acheteurs dans les Caraïbes, au Venezuela, en Colombie, au Guyana et en Amérique du Sud. Parcourez notre inventaire actuel de pompes, concasseurs, cribles, malaxeurs, camions-bennes et plus encore — disponibles immédiatement pour achat, inspection et exportation.",
     depot_loading:"Chargement de l'inventaire…",
     depot_empty_title:'Aucun article en stock pour le moment', depot_empty_sub:'Revenez bientôt — nous mettons régulièrement à jour notre inventaire.',
     depot_empty_filter_title:'Aucun article ne correspond à ce filtre', depot_empty_filter_sub:'Essayez de sélectionner une autre condition.',
