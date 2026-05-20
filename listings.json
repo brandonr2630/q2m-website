@@ -2,57 +2,85 @@
   {
     "id": 1,
     "title": "Pump - Centrifugal Split Case Double Suction",
+    "title_es": "Bomba Centrífuga Bipartida de Doble Succión 250SX",
+    "title_pt": "Bomba Centrífuga Bipartida de Dupla Sucção 250SX",
     "alt": "250SX Double Suction Split Case Centrifugal Pump — 460m³/hr capacity, 15m head, new 2024 — Trinidad",
     "condition": "New",
     "description": "250SX Double Suction Split Case Centrifugal Pump; Capacity 460 m3/hour; Head 15m; YOM: 2024. Ready for immediate installation. Available for inspection at our facility.",
+    "description_es": "Bomba Centrífuga Bipartida de Doble Succión 250SX; Caudal: 460 m³/hora; Altura manométrica: 15m; Año de fabricación: 2024. Lista para instalación inmediata. Disponible para inspección en nuestras instalaciones.",
+    "description_pt": "Bomba Centrífuga Bipartida de Dupla Sucção 250SX; Vazão: 460 m³/hora; Altura manométrica: 15m; Ano de fabricação: 2024. Pronta para instalação imediata. Disponível para inspeção em nossas instalações.",
     "photo": "assets/products/250SX-CPump.jpg"
   },
   {
     "id": 2,
     "title": "Pump - Centrifugal Split Case Double Suction",
+    "title_es": "Bomba Centrífuga Bipartida de Doble Succión 200SX",
+    "title_pt": "Bomba Centrífuga Bipartida de Dupla Sucção 200SX",
     "alt": "200SX Double Suction Split Case Centrifugal Pump — 300m³/hr flow, 150m head, new 2025 — Trinidad",
     "condition": "New",
     "description": "200SX Double Suction Split Case Centrifugal Pump; Flow - 300m3/hour; Head - 150m; YOM: 2025 Ready for immediate installation.",
+    "description_es": "Bomba Centrífuga Bipartida de Doble Succión 200SX; Caudal: 300 m³/hora; Altura manométrica: 150m; Año de fabricación: 2025. Lista para instalación inmediata.",
+    "description_pt": "Bomba Centrífuga Bipartida de Dupla Sucção 200SX; Vazão: 300 m³/hora; Altura manométrica: 150m; Ano de fabricação: 2025. Pronta para instalação imediata.",
     "photo": "assets/products/200SX-CPump.jpg"
   },
   {
     "id": 3,
     "title": "Vibrating Screen",
+    "title_es": "Criba Vibratoria de Lavado — 3 Pisos",
+    "title_pt": "Peneira Vibratória de Lavagem — 3 Decks",
     "alt": "New 3-Deck Vibrating Rinsing Screen with Spray Bars, Manifold, Motor and Sub Frame — YOM 2024",
     "condition": "New",
     "description": "Vibrating Rinsing Screen; No of Decks: 3; Includes: Spray Bars & Manifold, Motor, Sub Frame; YOM: 2024 Ready for immediate installation.",
+    "description_es": "Criba Vibratoria de Lavado; Número de pisos: 3; Incluye: Barras y Manifold de Aspersión, Motor, Sub-bastidor; Año de fabricación: 2024. Lista para instalación inmediata.",
+    "description_pt": "Peneira Vibratória de Lavagem; Número de decks: 3; Inclui: Barras e Manifold de Aspersão, Motor, Subestrutura; Ano de fabricação: 2024. Pronta para instalação imediata.",
     "photo": "assets/products/3-Deck Rinsing Screen.jpg"
   },
   {
     "id": 4,
     "title": "Concrete Mixer",
+    "title_es": "Mezcladora de Concreto de Eje Doble Continua",
+    "title_pt": "Misturador de Concreto de Eixo Duplo Contínuo",
     "alt": "New Twin Shaft Continuous Concrete Mixer — 250 TPH capacity, ready for immediate installation",
     "condition": "New",
     "description": "Concrete Mixer - Twin Shaft / Continuous; Capacity: 250 TPH; Ready for immediate installation.",
+    "description_es": "Mezcladora de Concreto de Eje Doble / Continua; Capacidad: 250 TPH. Lista para instalación inmediata.",
+    "description_pt": "Misturador de Concreto de Eixo Duplo / Contínuo; Capacidade: 250 TPH. Pronto para instalação imediata.",
     "photo": "assets/products/Twin-shaft-mixer250.jpg"
   },
   {
     "id": 5,
     "title": "Jaw Crusher",
+    "title_es": "Trituradora de Mandíbula 90-60",
+    "title_pt": "Britador de Mandíbula 90-60",
     "alt": "New Jaw Crusher 90-60 — 800mm max feed size, 25–240 TPH throughput, ready for installation — Trinidad",
     "condition": "New",
     "description": "Jaw Crusher 90-60; Max Feed Size - 800mm; Throughput - 25-240 TPH; Ready for immediate installation.",
+    "description_es": "Trituradora de Mandíbula 90-60; Tamaño máximo de alimentación: 800mm; Rendimiento: 25–240 TPH. Lista para instalación inmediata.",
+    "description_pt": "Britador de Mandíbula 90-60; Tamanho máximo de alimentação: 800mm; Produção: 25–240 TPH. Pronto para instalação imediata.",
     "photo": "assets/products/Jaw-crusher.jpg"
   },
   {
     "id": 6,
     "title": "Impact Crusher",
+    "title_es": "Trituradora de Impacto",
+    "title_pt": "Britador de Impacto",
     "alt": "New Impact Crusher — 125mm max feed size, 100–150 TPH throughput, ready for installation — Trinidad",
     "condition": "New",
     "description": "Impact Crusher; Max Feed Size - 125mm; Throughput - 100/150TPH; Ready for immediate installation.",
+    "description_es": "Trituradora de Impacto; Tamaño máximo de alimentación: 125mm; Rendimiento: 100–150 TPH. Lista para instalación inmediata.",
+    "description_pt": "Britador de Impacto; Tamanho máximo de alimentação: 125mm; Produção: 100–150 TPH. Pronto para instalação imediata.",
     "photo": "assets/products/Impact-Crusher.jpg"
   },
   {
     "id": 7,
     "title": "Mack Granite, RHD Dump Truck - 2 Units",
+    "title_es": "Camión Volquete Mack Granite (Conducción por la Derecha) — 2 Unidades",
+    "title_pt": "Caminhão Basculante Mack Granite (Direção à Direita) — 2 Unidades",
     "alt": "New Mack Granite Right Hand Drive Dump Truck — 360HP MP8 Euro3 engine, 2 units available",
     "condition": "New",
     "description": "Engine 360Hp MP8 Euro3; Ready for immediate shipment.",
+    "description_es": "Motor 360HP MP8 Euro3; 2 unidades disponibles. Listo para envío inmediato.",
+    "description_pt": "Motor 360HP MP8 Euro3; 2 unidades disponíveis. Pronto para embarque imediato.",
     "photo": "assets/products/03 MK-TRK.jpg"
   }
 ]

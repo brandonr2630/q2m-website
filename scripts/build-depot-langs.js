@@ -21,20 +21,23 @@ const cheerio = require('cheerio');
 
 const ROOT = path.resolve(__dirname, '..');
 
-const html = fs.readFileSync(path.join(ROOT, 'depot.html'), 'utf-8');
+// Pre-patch currentLang in the raw HTML before cheerio loads it — safer than
+// post-serialisation string replace which can silently no-op if DOM is reordered.
+const rawHtml  = fs.readFileSync(path.join(ROOT, 'depot.html'), 'utf-8');
+const listings = JSON.parse(fs.readFileSync(path.join(ROOT, 'listings.json'), 'utf-8'));
 
 // Extract the translations object from the embedded script
 const START_MARKER = 'const translations = {';
 const FN_MARKER    = 'function applyTranslations';
-const s   = html.indexOf(START_MARKER);
-const eFn = html.indexOf(FN_MARKER);
+const s   = rawHtml.indexOf(START_MARKER);
+const eFn = rawHtml.indexOf(FN_MARKER);
 if (s === -1 || eFn === -1) {
   console.error('ERROR: Could not locate translations object in depot.html');
   process.exit(1);
 }
-const e = html.lastIndexOf('};', eFn);
+const e = rawHtml.lastIndexOf('};', eFn);
 // eslint-disable-next-line no-eval
-const translations = eval(`(${html.slice(s + 'const translations = '.length, e + 1)})`);
+const translations = eval(`(${rawHtml.slice(s + 'const translations = '.length, e + 1)})`);
 
 const LANGS = [
   {
@@ -65,6 +68,9 @@ const HREFLANG = `
 
 for (const lang of LANGS) {
   const t = translations[lang.code];
+  // Patch currentLang in the raw source before cheerio loads, avoiding
+  // a post-serialisation string replace that can silently no-op.
+  const html = rawHtml.replace("let currentLang = 'en';", `let currentLang = '${lang.code}';`);
   const $ = cheerio.load(html, { decodeEntities: false });
 
   // <html lang>
@@ -114,11 +120,6 @@ for (const lang of LANGS) {
   $('.lang-flag').removeClass('active');
   $(`.lang-flag[data-lang="${lang.code}"]`).addClass('active');
 
-  // Default currentLang in JS
-  $.root().html(
-    $.html().replace("let currentLang = 'en';", `let currentLang = '${lang.code}';`)
-  );
-
   // Fix relative asset paths for subdirectory (assets/ → /assets/)
   $('img[src]').each((_, el) => {
     const src = $(el).attr('src');
@@ -130,10 +131,19 @@ for (const lang of LANGS) {
   // Update JSON-LD schema url to match language page
   const schemaEl = $('script[type="application/ld+json"]');
   try {
+    if (!schemaEl.length) throw new Error('no ld+json element found');
     const schema = JSON.parse(schemaEl.html());
     schema['@graph'].forEach(node => {
       if (node['@type'] === 'ItemList') {
         node.url = lang.canonical;
+        (node.itemListElement || []).forEach(listItem => {
+          const src = listings.find(l => l.id === listItem.position);
+          if (!src) return;
+          const tName = src[`title_${lang.code}`];
+          const tDesc = src[`description_${lang.code}`];
+          if (tName) listItem.item.name        = tName;
+          if (tDesc) listItem.item.description = tDesc;
+        });
       }
     });
     schema['@graph'].push({
