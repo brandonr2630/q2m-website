@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* Language auto-redirect — runs once per session tab */
+(function() {
+  if (sessionStorage.getItem('q2m-lang-redir')) return;
+  var lang = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().split('-')[0];
+  var dest = { es: '/es/', pt: '/pt/', nl: '/nl/', fr: '/fr/' }[lang];
+  if (dest) { sessionStorage.setItem('q2m-lang-redir', '1'); location.replace(dest); }
+})();
+</script>
 <title>Q² Machines — Engineering Firm, Trinidad & Caribbean</title>
 <meta name="description" content="Q² Machines is an engineering firm specialising in the Design, Manufacture & Service of Conveyor Systems, Bulk Handling Systems, Concrete Plants, Motors & Pumps across the Caribbean, South America and Latin America.">
 <meta name="robots" content="index, follow">

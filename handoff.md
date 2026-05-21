@@ -2,6 +2,62 @@
 
 ---
 
+## Session 16 — SEO + CRO Audit (q2m.io)
+
+**Date:** 2026-05-20
+**Source:** Full SEO + Page CRO audit run against live `q2m.io`
+
+### Context
+
+Most technical SEO findings from Session 10 have already been actioned (Sessions 11–15). This session records the CRO findings (all new), a small set of SEO items to verify, and the outstanding PRs from Session 15.
+
+---
+
+### SEO — Verify These (may already be resolved)
+
+- [ ] **Multiple H1s on homepage** — Audit detected two H1 elements: "Plant Engineering & Manufacture" and "Safety, Service & Sustainability". Not mentioned as fixed in prior sessions. Open `index.html` and confirm only one `<h1>` exists; demote the tagline to a styled `<p>` or `<h2>`.
+- [ ] **www vs non-www** — Sitemap and canonicals use `https://www.q2m.io/`. Both `q2m.io` and `www.q2m.io` return content. Confirm a 301 redirect from non-www → www (or vice versa) is in place at the server level so both versions don't serve the same page without a redirect.
+- [ ] **JavaScript-only inventory (depot + projects)** — Inventory and project listings load client-side only. Google can index JS-rendered content but it's processed in a second wave. Use Google Search Console → URL Inspection on `/depot.html` and `/projects.html` to confirm Googlebot is actually rendering and indexing the listings. If not, a `<noscript>` fallback or pre-rendered static subset is needed.
+
+---
+
+### CRO — Homepage
+
+- [ ] **Hero message clarity** — "›››As materials flow, profits grow" is memorable but abstract. A search visitor landing from "conveyor system manufacturer Trinidad" needs immediate confirmation they're in the right place. Add a one-line descriptor below/above the tagline: *"Industrial plant engineering, manufacture & maintenance — Trinidad & the Caribbean."*
+- [ ] **CTA hierarchy** — If two hero buttons exist ("Our Services ↓" and "Tell Us Your Needs"), the primary should be filled/solid and the secondary outlined. Visual weight should match conversion priority — exploration first, contact second.
+- [ ] **Project Description field — make it optional** — The enquiry form marks "Project Description" as required. This filters out early-stage leads who don't yet have a brief. Make it optional and add helper text: *"Not sure yet? Just say hello — we'll follow up within 1 business day."*
+- [ ] **Social proof — add above the fold** — No client logos, testimonials, or stats are visible on the homepage. Add one of: (a) a strip of 3–5 client logos, (b) a client pull-quote, or (c) a stat row: *"X projects completed · Y years operating · Caribbean & South America"*.
+- [ ] **Services carousel → icon grid** — Replace 8-item carousel with a 2×4 static grid of cards with custom icons and a one-line descriptor. Deferred to a future session.
+- [ ] **Response time near form** — Add *"We typically respond within 1 business day"* adjacent to the Submit button. Reduces commitment anxiety.
+
+---
+
+### CRO — Depot Page (/depot.html)
+
+- [ ] **Inventory loading fallback** — If the `listings.json` fetch takes more than ~3 seconds or fails, users see an empty page. Add a hard timeout: after 3s with no data, show a message: *"Having trouble loading? [Contact us](#contact) and we'll send you our current inventory."*
+- [ ] **Disable filters until inventory loads** — The filter bar (All | New | Used | Refurbished) appears before products are visible. Disable or hide filters until inventory is rendered. Show counts per filter once loaded (e.g., "Used (12)").
+- [ ] **Enquiry form context** — Add a line above the depot enquiry form: *"See something you'd like? Fill in the form and our team will get back to you with pricing and availability."*
+
+---
+
+### CRO — Projects Page (/projects.html)
+
+- [ ] **Projects loading fallback** — Same issue as depot: portfolio loads dynamically. Consider embedding 2–3 featured project cards as static HTML so above-the-fold content is always present, even before the async fetch completes.
+- [ ] **Deepen case study content** — Each project card should include: the client industry, the problem solved, and a measurable outcome (e.g., "Reduced conveyor downtime by 40%"). Transforms the portfolio from a photo gallery into a sales tool.
+
+---
+
+### Outstanding (carried from Session 15)
+
+- [ ] Merge and deploy PRs [#38](https://github.com/brandonr2630/q2m-website/pull/38), [#39](https://github.com/brandonr2630/q2m-website/pull/39), [#40](https://github.com/brandonr2630/q2m-website/pull/40), [#41](https://github.com/brandonr2630/q2m-website/pull/41), [#42](https://github.com/brandonr2630/q2m-website/pull/42)
+- [ ] **Google Search Console** — add `q2m.io` as a Domain property, verify via DNS TXT record, submit `sitemap.xml`, request indexing for `/`, `/depot.html`, `/projects.html`, `/es/`, `/pt/`
+- [ ] **Google Business Profile** — create a profile for Q² Machines
+- [ ] Filter categories (Fabrication, Motors & Pumps, Structural, Machine Shop) return empty — hide or add projects
+- [ ] Project 3 — no images or data yet
+- [ ] nl/fr translations should be verified by native speakers
+
+---
+
 ## Session 15 — SEO Visibility Push (continued)
 
 **Date:** 2026-05-20
@@ -813,4 +869,4 @@ Always excluded from deploy: `.github/`, `.cpanel.yml`, `handoff.md`
 
 ---
 
-**Last Updated:** 2026-05-20 (Session 15 — full SEO visibility push, PRs #38–#42 pending)
+**Last Updated:** 2026-05-20 (Session 16 — SEO + CRO audit; Session 15 PRs #38–#42 still pending)

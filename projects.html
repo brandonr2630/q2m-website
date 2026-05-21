@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* Language auto-redirect — runs once per session tab */
+(function() {
+  if (sessionStorage.getItem('q2m-lang-redir')) return;
+  var lang = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().split('-')[0];
+  var dest = { es: '/es/projects.html', pt: '/pt/projects.html', nl: '/nl/projects.html', fr: '/fr/projects.html' }[lang];
+  if (dest) { sessionStorage.setItem('q2m-lang-redir', '1'); location.replace(dest); }
+})();
+</script>
 <title>Engineering Projects — Conveyor Systems & Concrete Plants | Q² Machines</title>
 <meta name="description" content="Engineering projects delivered by Q² Machines across the Caribbean — conveyor systems, concrete plants, structural steelwork and machinery commissioning. Based in Trinidad & Tobago.">
 <meta name="robots" content="index, follow">
