@@ -1,6 +1,15 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* Language auto-redirect — runs once per session tab */
+(function() {
+  if (sessionStorage.getItem('q2m-lang-redir')) return;
+  var lang = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().split('-')[0];
+  var dest = { es: '/es/', pt: '/pt/', nl: '/nl/', fr: '/fr/' }[lang];
+  if (dest) { sessionStorage.setItem('q2m-lang-redir', '1'); location.replace(dest); }
+})();
+</script>
 <title>Q² Machines — Industriële Engineering, Trinidad en Caribisch Gebied</title>
 <meta name="description" content="Q² Machines is een engineeringbedrijf gespecialiseerd in het Ontwerp, de Fabricage en het Onderhoud van Transportbandsystemen, Betonplanten, Motoren en Pompen in het Caribisch Gebied.">
 <meta name="robots" content="index, follow">
@@ -1621,15 +1630,15 @@ footer {
   <div class="hero-stats">
     <div class="hero-stat">
       <div class="hero-stat-num">15+</div>
-      <div class="hero-stat-label">Years Experience</div>
+      <div class="hero-stat-label" data-i18n="stat_years_label">Jaar Ervaring</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num">Caribbean</div>
-      <div class="hero-stat-label">Reach</div>
+      <div class="hero-stat-num" data-i18n="stat_reach_num">Caraïben</div>
+      <div class="hero-stat-label" data-i18n="stat_reach_label">Bereik</div>
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num">100%</div>
-      <div class="hero-stat-label">Quality Assured</div>
+      <div class="hero-stat-label" data-i18n="stat_quality_label">Kwaliteit Gewaarborgd</div>
     </div>
   </div>
 
@@ -2583,6 +2592,7 @@ const translations = {
     tag_minerals: 'Minerals', tag_quarrying: 'Quarrying', tag_concrete_cement: 'Concrete & Cement', tag_asphalt: 'Asphalt', tag_recycling: 'Recycling', tag_manufacturing: 'Manufacturing',
     tag_epc: 'EPC', tag_plant_turnarounds: 'Plant Turnarounds', tag_om: 'O&M', tag_emergency_repair: 'Emergency Repair & Rebuild', tag_commissioning: 'Commissioning & Startup',
     tag_conveyors: 'Conveyors & Bulk Material Handling Systems', tag_concrete_plants: 'Concrete Plants and Equipment', tag_pumps_power: 'Pumps & Power Transmission Systems', tag_structural: 'Structural Steelwork', tag_foundations: 'Plant Foundations & Infrastructure', tag_fabrication: 'Fabrication & Machining', tag_machinery: 'Machinery Installation & Commissioning', tag_safety: 'Plant Safety Systems',
+    stat_years_label: 'Years Experience', stat_reach_num: 'Caribbean', stat_reach_label: 'Reach', stat_quality_label: 'Quality Assured',
   },
   es: {
     nav_about: 'Nosotros', nav_services: 'Servicios', nav_contact: 'Contacto', nav_cta: 'Cuéntenos su Necesidad',
@@ -2672,6 +2682,7 @@ const translations = {
     tag_minerals: 'Minerales', tag_quarrying: 'Canteras', tag_concrete_cement: 'Concreto y Cemento', tag_asphalt: 'Asfalto', tag_recycling: 'Reciclaje', tag_manufacturing: 'Manufactura',
     tag_epc: 'EPC', tag_plant_turnarounds: 'Paradas de Planta', tag_om: 'O&M', tag_emergency_repair: 'Reparación y Reconstrucción de Emergencia', tag_commissioning: 'Puesta en Marcha',
     tag_conveyors: 'Sistemas Transportadores y Manejo a Granel', tag_concrete_plants: 'Plantas de Concreto y Equipos', tag_pumps_power: 'Bombas y Sistemas de Transmisión', tag_structural: 'Acería Estructural', tag_foundations: 'Cimentaciones e Infraestructura', tag_fabrication: 'Fabricación y Maquinado', tag_machinery: 'Instalación y Puesta en Marcha de Maquinaria', tag_safety: 'Sistemas de Seguridad de Planta',
+    stat_years_label: 'Años de Experiencia', stat_reach_num: 'Caribe', stat_reach_label: 'Alcance', stat_quality_label: 'Calidad Garantizada',
   },
   pt: {
     nav_about: 'Sobre Nós', nav_services: 'Serviços', nav_contact: 'Contato', nav_cta: 'Fale Conosco',
@@ -2761,6 +2772,7 @@ const translations = {
     tag_minerals: 'Minerais', tag_quarrying: 'Pedreiras', tag_concrete_cement: 'Concreto e Cimento', tag_asphalt: 'Asfalto', tag_recycling: 'Reciclagem', tag_manufacturing: 'Manufatura',
     tag_epc: 'EPC', tag_plant_turnarounds: 'Paradas de Planta', tag_om: 'O&M', tag_emergency_repair: 'Reparo e Reconstrução de Emergência', tag_commissioning: 'Comissionamento e Partida',
     tag_conveyors: 'Sistemas Transportadores e Manuseio a Granel', tag_concrete_plants: 'Usinas de Concreto e Equipamentos', tag_pumps_power: 'Bombas e Sistemas de Transmissão', tag_structural: 'Estruturas Metálicas', tag_foundations: 'Fundações e Infraestrutura', tag_fabrication: 'Fabricação e Usinagem', tag_machinery: 'Instalação e Comissionamento de Maquinário', tag_safety: 'Sistemas de Segurança de Planta',
+    stat_years_label: 'Anos de Experiência', stat_reach_num: 'Caribe', stat_reach_label: 'Alcance', stat_quality_label: 'Qualidade Garantida',
   },
   nl: {
     nav_about: 'Over Ons', nav_services: 'Diensten', nav_contact: 'Contact', nav_cta: 'Vertel Ons Uw Behoefte',
@@ -2850,6 +2862,7 @@ const translations = {
     tag_minerals: 'Mineralen', tag_quarrying: 'Steengroeven', tag_concrete_cement: 'Beton & Cement', tag_asphalt: 'Asfalt', tag_recycling: 'Recycling', tag_manufacturing: 'Productie',
     tag_epc: 'EPC', tag_plant_turnarounds: 'Fabrieksstilstand', tag_om: 'O&M', tag_emergency_repair: 'Noodreparatie & Revisie', tag_commissioning: 'Inbedrijfstelling & Opstart',
     tag_conveyors: 'Transportband- en Bulkgoederen Systemen', tag_concrete_plants: 'Betonplanten en Apparatuur', tag_pumps_power: 'Pompen & Aandrijfsystemen', tag_structural: 'Constructiestaalwerk', tag_foundations: 'Plantfunderingen & Infrastructuur', tag_fabrication: 'Fabricage & Machinale Bewerking', tag_machinery: 'Machines Installatie & Inbedrijfstelling', tag_safety: 'Veiligheidssystemen voor Fabrieken',
+    stat_years_label: 'Jaar Ervaring', stat_reach_num: 'Caraïben', stat_reach_label: 'Bereik', stat_quality_label: 'Kwaliteit Gewaarborgd',
   },
   fr: {
     nav_about: 'À Propos', nav_services: 'Services', nav_contact: 'Contact', nav_cta: 'Dites-nous vos Besoins',
@@ -2939,6 +2952,7 @@ const translations = {
     tag_minerals: 'Minéraux', tag_quarrying: 'Carrières', tag_concrete_cement: 'Béton & Ciment', tag_asphalt: 'Asphalte', tag_recycling: 'Recyclage', tag_manufacturing: 'Fabrication',
     tag_epc: 'EPC', tag_plant_turnarounds: 'Arrêts d\'Usine', tag_om: 'O&M', tag_emergency_repair: 'Réparation & Reconstruction d\'Urgence', tag_commissioning: 'Mise en Service & Démarrage',
     tag_conveyors: 'Systèmes de Convoyeurs et Manutention en Vrac', tag_concrete_plants: 'Centrales à Béton et Équipements', tag_pumps_power: 'Pompes & Transmission de Puissance', tag_structural: 'Charpente Métallique', tag_foundations: 'Fondations & Infrastructure d\'Usine', tag_fabrication: 'Fabrication & Usinage', tag_machinery: 'Installation & Mise en Service de Machines', tag_safety: 'Systèmes de Sécurité d\'Usine',
+    stat_years_label: 'Ans d\'Expérience', stat_reach_num: 'Caraïbes', stat_reach_label: 'Portée', stat_quality_label: 'Qualité Garantie',
   }
 };
 
