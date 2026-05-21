@@ -498,6 +498,7 @@ nav.scrolled .nav-logo-name { transition: all .3s; }
   font-size: clamp(28px, 5.5vw, 72px);
   font-weight: 900; line-height: .95;
   text-transform: uppercase; letter-spacing: -1px;
+  text-wrap: balance;
   color: #fff; margin-bottom: 28px;
   opacity: 0; animation: fadeUp .6s .35s forwards;
 }
@@ -661,6 +662,7 @@ section { position: relative; z-index: 1; }
   font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(36px, 5vw, 60px); font-weight: 900;
   text-transform: uppercase; letter-spacing: -0.5px;
+  text-wrap: balance;
   line-height: 1; color: #fff; margin-bottom: 20px;
 }
 .section-title span { color: var(--gold); }
@@ -672,6 +674,31 @@ section { position: relative; z-index: 1; }
   width: 100%; height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   opacity: .3;
+  position: relative;
+}
+.gold-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -160px;
+  width: 160px;
+  height: 14px;
+  background: radial-gradient(ellipse at center,
+    rgba(245,197,0,1)   0%,
+    rgba(245,197,0,0.5) 30%,
+    rgba(245,197,0,0.1) 65%,
+    transparent         100%
+  );
+  transform: translateY(-50%);
+  animation: pulseSweep 3.5s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes pulseSweep {
+  from { transform: translateY(-50%) translateX(0); }
+  to   { transform: translateY(-50%) translateX(calc(100vw + 320px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gold-divider::after { animation: none; }
 }
 
 /* ── ABOUT ── */
@@ -774,6 +801,7 @@ section { position: relative; z-index: 1; }
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 22px; font-weight: 800;
   text-transform: uppercase; letter-spacing: 2px;
+  text-wrap: balance;
   color: var(--gold); line-height: 1.2;
 }
 .about-slogan-attr {
@@ -923,6 +951,7 @@ section { position: relative; z-index: 1; }
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 20px; font-weight: 800;
   text-transform: uppercase; letter-spacing: 1.5px;
+  text-wrap: balance;
   color: #fff; line-height: 1.15; margin-bottom: 10px;
   margin-top: 6px; text-align: center;
   transition: color .7s cubic-bezier(.23,1,.32,1);
