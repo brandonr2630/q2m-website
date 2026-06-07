@@ -1,4 +1,56 @@
-# Q2M Website Handoff
+# Q2M Website — Handoff
+
+*Last updated: 2026-05-21 · Session 17*
+
+---
+
+## Quick Reference
+
+| Item | Value |
+|------|-------|
+| Live URL | `https://www.q2m.io` |
+| GitHub repo | `brandonr2630/q2m-website` |
+| Deploy | Push to `master` via PR → GitHub Actions → GreenGeeks cPanel auto-deploys |
+
+---
+
+## Sessions
+
+## Session 17 — Language Auto-Redirect & Hero Stats i18n Fix
+
+**Date:** 2026-05-21
+**PRs:** [#43](https://github.com/brandonr2630/q2m-website/pull/43) merged, [#44](https://github.com/brandonr2630/q2m-website/pull/44) merged
+
+### What Changed
+
+| Item | Detail |
+|------|--------|
+| **Language auto-redirect** | Added inline `navigator.language` detection script to `index.html`, `depot.html`, and `projects.html`. On first visit, redirects browser-language speakers to their pre-rendered page (`/es/`, `/pt/`, `/nl/`, `/fr/`). Uses `sessionStorage` flag to prevent re-redirect. Uses `location.replace()` to keep browser history clean. (#43) |
+| **Hero stats i18n** | Added `data-i18n` attributes to the three hero stat elements (Years Experience, Caribbean / Reach, Quality Assured). Added `stat_years_label`, `stat_reach_num`, `stat_reach_label`, `stat_quality_label` keys to all 5 language blocks. Regenerated all 4 pre-rendered language homepages. (#44) |
+| **Services carousel deferred** | Noted in handoff: replace 8-item carousel with 2×4 icon grid — deferred to a future session. |
+| **PRs #38–#42 confirmed merged** | All were already merged (auto-merged 2026-05-20). |
+
+### Outstanding (carried from Session 16)
+
+- [ ] **Multiple H1s on homepage** — verify only one `<h1>` exists in `index.html`
+- [ ] **www vs non-www** — confirm 301 redirect at server level
+- [ ] **JS-only inventory** — use Search Console URL Inspection on `/depot.html` and `/projects.html`
+- [ ] **Hero message clarity** — add one-line descriptor below tagline
+- [ ] **CTA hierarchy** — primary button solid, secondary outlined
+- [ ] **Project Description field** — make optional, add helper text
+- [ ] **Social proof** — client logos, pull-quote, or stat row above the fold
+- [ ] **Services carousel → icon grid** — deferred to future session
+- [ ] **Response time near form** — add "We typically respond within 1 business day" near Submit
+- [ ] **Depot: inventory loading fallback** — show contact message after 3s timeout
+- [ ] **Depot: disable filters until loaded** — show counts per filter once rendered
+- [ ] **Depot: enquiry form context** — add descriptor line above form
+- [ ] **Projects: loading fallback** — embed 2–3 static featured cards above the fold
+- [ ] **Projects: deepen case study content** — industry, problem, measurable outcome per card
+- [ ] **Google Search Console** — Domain property, DNS verify, submit sitemap, request indexing
+- [ ] **Google Business Profile** — create for Q² Machines
+- [ ] **Filter categories empty** — Fabrication, Motors & Pumps, Structural, Machine Shop
+- [ ] **Project 3** — no images or data yet
+- [ ] **nl/fr translations** — verify with native speakers
 
 ---
 
@@ -860,13 +912,20 @@ Always excluded from deploy: `.github/`, `.cpanel.yml`, `handoff.md`
 
 ---
 
+## Known Issues
+
+No known issues.
+
+## Next Up
+
+- Outstanding CRO items from Session 16 audit (see Session 16 notes)
+- Contact form backend not yet wired
+
+---
+
 ## References
 
 - **Repository:** https://github.com/brandonr2630/q2m-website
 - **Live Site:** https://www.q2m.io
 - **Deploy workflow:** `.github/workflows/deploy.yml`
 - **Deployment:** cPanel Fileman API → GreenGeeks (`chi203.greengeeks.net`)
-
----
-
-**Last Updated:** 2026-05-20 (Session 16 — SEO + CRO audit; Session 15 PRs #38–#42 still pending)
