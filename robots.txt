@@ -27,4 +27,22 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+User-agent: CCBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
 Sitemap: https://www.q2m.io/sitemap.xml

@@ -12,7 +12,7 @@ Warren Road, Bejucal, Cunupia, Trinidad and Tobago
 
 ## Contact
 - Phone: +1 (868) 230-9702
-- Email: q2hub@q2m.io
+- Email: qhub@q2m.io
 - Website: https://www.q2m.io
 - Hours: Monday – Friday, 9:00 AM – 5:00 PM (AST, UTC-4)
 
@@ -41,6 +41,12 @@ Warren Road, Bejucal, Cunupia, Trinidad and Tobago
 
 6. Fabrication & Welding
    Heavy industrial and structural fabrication, pipe welding and coded welds — SMAW, MIG, TIG and FCAW processes, certified and quality assured.
+
+7. Structural Systems
+   Design, fabrication and erection of industrial and commercial steel structures, bridges, walkways, platforms, pipe racks and access systems.
+
+8. Geotechnical Testing Equipment
+   Supply, calibration and support of geotechnical testing equipment including dynamic cone penetrometers, CBR equipment, compaction hammers and ASTM molds.
 
 ## Capabilities
 - Full in-house design and engineering

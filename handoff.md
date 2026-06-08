@@ -1,6 +1,6 @@
 # Q2M Website — Handoff
 
-*Last updated: 2026-05-21 · Session 17*
+*Last updated: 2026-06-08 · Session 18*
 
 ---
 
@@ -15,6 +15,46 @@
 ---
 
 ## Sessions
+
+## Session 18 — SEO & AI Search Audit
+
+**Date:** 2026-06-08
+**Source:** Full SEO + AI search audit of live `q2m.io`
+
+### What Changed This Session
+
+| Item | Detail |
+|------|--------|
+| **`llms.txt` — email corrected** | `q2hub@q2m.io` → `qhub@q2m.io` (was a typo; matches the email constructed by the JS obfuscation code) |
+| **`llms.txt` — two services added** | Structural Systems and Geotechnical Testing Equipment were listed on the site but missing from `llms.txt`. Now complete at 8 services. |
+| **`robots.txt` — AI crawlers added** | Added 6 previously missing user-agents: `CCBot` (Common Crawl — used for LLM training), `OAI-SearchBot` (OpenAI web search), `meta-externalagent` (Meta AI), `YouBot` (You.com), `Bytespider` (ByteDance), `Amazonbot`. |
+
+### Outstanding — AI Search & `llms.txt`
+
+- [ ] **Expand `llms.txt`** — add: years in operation (15+), Depot page (equipment for sale), Projects page (portfolio), and richer industry/capability descriptions. Currently lacks enough depth for AI models to give detailed answers about the company.
+- [ ] **Add `llms-full.txt`** — a verbose plain-text company profile for LLM retrieval: history, sectors, service descriptions, geographic reach, typical project types.
+
+### Outstanding — Structured Data
+
+- [ ] **Add `FAQPage` schema to `index.html`** — 6–8 Q&As covering: services offered, industries served, geographic coverage, can you design custom systems?, do you service outside Trinidad?, contact info and hours. Directly feeds AI answer boxes and voice search.
+- [ ] **Add `WebSite` schema with `SearchAction` to `index.html`** — enables Google Sitelinks searchbox for branded queries.
+- [ ] **Add `url` properties to each `Service` in the `ItemList`** — link each service to `/#services` (or a future dedicated service anchor/page).
+
+### Outstanding — On-Page Content
+
+- [ ] **Slideshow photos: switch from CSS `background-image` to `<img>` tags** — all 20 about-section photos use `data-webp`/`data-jpg` attributes loaded via JS into CSS backgrounds; they have zero alt text and are invisible to image search. Convert to `<img>` elements with descriptive alt text (e.g. "belt conveyor installation at quarry site, Trinidad and Tobago").
+- [ ] **Add standalone `/about.html`** — company history, team, certifications and values currently only exist as a section on the homepage. A dedicated page improves E-E-A-T signals and gives AI models a citable source.
+- [ ] **Add certifications/accreditations on-page and in schema** — if BS/ASME welding certs, ISO, or quality standards apply, add them to the About section and the `Organization` schema node.
+- [ ] **Add privacy policy page** — the contact form collects name, email, and phone; a privacy policy page is best practice and expected by users.
+
+### Outstanding — Technical SEO
+
+- [ ] **`projects.html` — Google Fonts loaded synchronously** — line 44 uses a blocking `<link rel="stylesheet">` instead of the `media="print"` non-blocking pattern used on `index.html` and `depot.html`. Fix to avoid CLS/FCP regression.
+- [ ] **`depot.html` — EmailJS loaded on page load** — lines 54–55 load and init EmailJS unconditionally. `index.html` defers this until first user interaction with the contact section. Apply the same deferred-load pattern to `depot.html`.
+- [ ] **`sitemap.xml` — `lastmod` dates go stale** — currently all hardcoded to `2026-05-20`. Add a deploy step or pre-deploy script to update `lastmod` for changed files so Google re-crawls them promptly.
+- [ ] **Unique `og:image` per page** — `depot.html` and `projects.html` both use the same `og_banner.jpg` as the homepage. Create page-relevant OG images (equipment shot for depot, project photo for projects) to improve social share CTR.
+
+---
 
 ## Session 17 — Language Auto-Redirect & Hero Stats i18n Fix
 
