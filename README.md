@@ -64,6 +64,18 @@ Valid categories: `conveyor`, `concrete`, `fabrication`, `motors-pumps`, `struct
 
 Edit `listings.json` directly and push to `master`.
 
+## AI Feature Ideas
+
+Reference implementations from [Shubhamsaboo/awesome-llm-apps](https://github.com/Shubhamsaboo/awesome-llm-apps) that map to plausible next features for the site:
+
+| Idea | Reference example |
+|------|--------------------|
+| Chat widget answering equipment/depot questions from `listings.json` | [`advanced_llm_apps/thinkpath_chatbot_app`](https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/advanced_llm_apps/thinkpath_chatbot_app) |
+| Natural-language search across `listings.json` / `projects.json` | [`rag_tutorials/ai_blog_search`](https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/rag_tutorials/ai_blog_search) |
+| Auto-generate alt text / summaries for depot and project photos | [`starter_ai_agents/multimodal_ai_agent`](https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/starter_ai_agents/multimodal_ai_agent) |
+
+These are starting points, not dependencies — evaluate before adding to the site.
+
 ## Repository
 
 https://github.com/brandonr2630/q2m-website
