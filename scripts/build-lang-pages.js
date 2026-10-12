@@ -66,8 +66,8 @@ const LANGS = [
     dir:         'nl',
     canonical:   'https://www.q2m.io/nl/',
     ogLocale:    'nl_NL',
-    title:       'Q² Machines (Q2M) — Industriële Engineering, Trinidad en Caribisch Gebied',
-    description: 'Q² Machines is een engineeringbedrijf gespecialiseerd in het Ontwerp, de Fabricage en het Onderhoud van Transportbandsystemen, Betonplanten, Motoren en Pompen in het Caribisch Gebied.',
+    title:       'Q² Machines (Q2M) — Industriële Techniek, Trinidad en Caribisch Gebied',
+    description: 'Q² Machines is een technisch bedrijf gespecialiseerd in het Ontwerp, de Fabricage en het Onderhoud van Transportbandsystemen, Betonplanten, Motoren en Pompen in het Caribisch Gebied.',
   },
   {
     code:        'fr',
