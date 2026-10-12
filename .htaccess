@@ -11,7 +11,5 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Serve .txt files (llms.txt, llms-full.txt, robots.txt) as UTF-8 so special characters display correctly
-<IfModule mod_mime.c>
-    AddCharset UTF-8 .txt
-</IfModule>
+# Send a UTF-8 charset with text responses (.txt files were served as text/plain with no charset)
+AddDefaultCharset UTF-8
