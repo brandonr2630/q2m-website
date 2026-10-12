@@ -114,6 +114,25 @@ Status: design drafted, **not approved, no code**. Branch `feat/products-page` e
 - [ ] Contact form uses EmailJS (client-side). Decide whether that is the long-term answer or a server-side backend is wanted.
 - [ ] `pumpcurveshandoff.md` — decide whether to keep, move into `docs/`, or drop.
 
+### 8. Infrastructure & visibility review (2026-10-12)
+
+**Conclusion:** speed and server setup are not the bottleneck. Search Console showed zero category queries in 3 months, so the biggest levers are *being found* (service pages, Business Profile, backlinks), then page weight.
+
+**Baseline measured (re-measure to compare):**
+- Server: gzip works (homepage 186 KB → 56 KB), HTTP/3 advertised (`alt-svc`), HSTS (1 year, preload), `X-Frame-Options`, `nosniff`; non-www/http → `https://www` in **one** 301 hop; TTFB ≈0.27 s (measured from the dev machine, **not** from Trinidad).
+- Homepage weight: ≈2.3 MB transferred, ≈2.28 MB of it images; HTML 42 KB; load ≈0.8 s. `photo1.jpg` (870 KB) **and** `photo1.webp` (593 KB) are both fetched, plus `photo4/3/2.webp` (308/302/200 KB) — the slideshow appears to load the JPG fallback alongside the WebP (cause not yet confirmed).
+- Lab LCP (mobile, throttled): home 1.1 s, depot 2.3 s, projects 2.0 s, CLS 0. **No CrUX field data** yet (too little traffic).
+- Caching: images ≈15 days, logo 7 days, HTML has no `Cache-Control`. Missing headers: CSP, Referrer-Policy, Permissions-Policy; no `/.well-known/security.txt`.
+- Repo: ≈190 MB of tracked images (originals up to 5 MB, e.g. `assets/images/photo5.jpg`, and a duplicate copy under `ARCHIVES/`); not served, but heavy to clone.
+
+**To do, in order of expected impact:**
+- [ ] **Service pages — one URL per service** (conveyors, concrete plants, motors & pumps, gear reducers, machine shop, fabrication & welding, structural, geotechnical). The main ranking lever for "conveyor systems Trinidad"-type searches. Needs owner content; start with a short brief per page, build with the same generated-language pattern as About/Privacy, no `Product`/`Offer` schema (prices on request).
+- [ ] **Business Profile + backlinks** (owner): see §1.
+- [ ] **Bing Webmaster Tools**: import the site from Search Console (owner login, ~10 min). Bing's index feeds Copilot/ChatGPT search. Then add an **IndexNow** key file (Claude can do this part).
+- [ ] **Homepage image weight**: confirm why both `photo1.jpg` and `photo1.webp` load; lazy-load below-the-fold slideshow images; serve responsive sizes; consider 1-year `max-age` only with versioned filenames; consider removing originals/`ARCHIVES/` from the repo.
+- [ ] **Measurement**: Search Console is the only data source (the privacy page promises no analytics). Optional: cookieless analytics (Plausible/Umami) — **update `privacy.html` first**, plus its translations.
+- [ ] Optional / low value: security headers (a wrong CSP can break the site — test carefully), Cloudflare free tier (DNS change + privacy-page line), unique `og:image` per page.
+
 ### Verified resolved (do not re-open)
 
 One `<h1>` on the homepage. www/non-www/http all 301 to `https://www.q2m.io/`. Favicon paths, 404 `noindex`, Twitter cards, schema email, `CreativeWork`, `geoRadius`/`areaServed`, canonicals, hreflang, nl/fr depot pages, es/pt/nl/fr nav-link patching, `WebSite` schema node, AI crawlers in `robots.txt`, `llms.txt` email/service fixes, footer language links, `(Q2M)` brand signals, footer tagline and copyright translated, depot `Product`/`Offer` invalid-items error (removed in #56), depot EmailJS now lazy-loaded, projects Google Fonts non-blocking, sitemap `lastmod` automated, README rewritten, schema + visible address now "71 Warren Road" (all PR #58), homepage FAQ + `FAQPage` schema, expanded `llms.txt` and new `llms-full.txt` (#60), `.txt` files now served as `charset=UTF-8` (#62), About and Privacy pages in 5 languages with consent notice under both forms (#64), top-menu About link opens `/about.html` (#65), leftover English on the language pages translated (#66, #67, #68).
