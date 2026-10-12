@@ -48,8 +48,28 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>emailjs.init('UpAaa1434xTFZf_c8');</script>
+<script>
+// EmailJS deferred: loads only when the user interacts with the enquiry form (or submits)
+var _emailjsPromise = null;
+function loadEmailJS() {
+  if (_emailjsPromise) return _emailjsPromise;
+  _emailjsPromise = new Promise(function(resolve, reject) {
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    s.onload = function() { emailjs.init('UpAaa1434xTFZf_c8'); resolve(); };
+    s.onerror = function() { _emailjsPromise = null; s.remove(); reject(new Error('EmailJS failed to load')); };
+    document.head.appendChild(s);
+  });
+  return _emailjsPromise;
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('eq-form');
+  if (!form) return;
+  ['focusin', 'click', 'pointerdown', 'touchstart'].forEach(function(ev) {
+    form.addEventListener(ev, function() { loadEmailJS().catch(function() {}); }, { once: true, passive: true });
+  });
+});
+</script>
 <style>
 :root {
   --gold: #F5C500;
@@ -822,13 +842,13 @@ function submitEnquiry(e) {
   if (!name || !email || !message) { msg.textContent = 'Please fill in all required fields.'; msg.className = 'form-msg error'; return; }
   btn.disabled = true; text.textContent = t.depot_sending; arrow.textContent = '⏳';
   msg.textContent = ''; msg.className = 'form-msg';
-  emailjs.send('service_ekf77uo', 'template_cemd6of', {
+  loadEmailJS().then(() => emailjs.send('service_ekf77uo', 'template_cemd6of', {
     from_name: name, from_email: email,
     phone: document.getElementById('eq-phone').value.trim() || '—',
     company: document.getElementById('eq-company').value.trim() || '—',
     service: document.getElementById('eq-item').value.trim() || 'Depot enquiry',
     message: message, response_method: 'Email'
-  })
+  }))
   .then(() => {
     text.textContent = t.depot_sent; arrow.textContent = '';
     msg.textContent = t.depot_send_ok; msg.className = 'form-msg success';
