@@ -30,7 +30,7 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 ```
 
 - Source files use **CRLF** line endings. Scripts that rewrite them must preserve CRLF or the diff becomes the whole file.
-- `README.md` still describes the old Fileman deploy — out of date (see Open Items §7).
+- `README.md` was rewritten 2026-10-12 and is current. `sitemap.xml` `lastmod` dates come from git: run `npm run build-all` (or `npm run update-sitemap`) before committing page changes.
 
 ---
 
@@ -47,7 +47,7 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - Dutch pages rank for generic used-equipment queries (`gebruikte industriële apparatuur` pos 5.9, `verkoop van tweedehands industriële apparatuur` pos 9.1) with no clicks — the translated-page strategy can rank.
 - Mobile position is better than desktop (6.1 vs 13.4); 7 of 9 clicks were mobile.
 
-**Work in progress (not on `master`):** the Products page. Branch `feat/products-page` in the main checkout. It is **behind master** (missing #53–#55) and holds **uncommitted, untracked** WIP — see Open Items §2. It exists only on OneDrive; commit it to the branch before anything risky.
+**Work in progress (not on `master`):** the Products page. Branch `feat/products-page` in the main checkout. It was fast-forwarded to master on 2026-10-12 (through #58) and holds **uncommitted, untracked** WIP — see Open Items §2. It exists only on OneDrive; commit it to the branch before anything risky.
 
 ---
 
@@ -57,7 +57,7 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 
 - [x] **Indexing requested 2026-10-12** (URL Inspection → Request indexing) for `/depot.html`, `/pt/depot.html`, `/fr/depot.html`, `/nl/projects.html` and the other depot pages. `es/depot.html` was already indexed.
 - [ ] **Follow up in 2–4 weeks:** Search Console → Pages: confirm "Discovered – currently not indexed" drops from 4 (footer language links live since PR #54). Re-inspect the depot pages (Test live URL): the **Product snippets / Merchant listings "7 invalid items"** errors came from the removed `Product`/`Offer` markup (PR #56). Google's *stored* copy still shows them until it recrawls — the live pages are clean (verified: no `Product`/`Offer` in any of the 5 depot pages). If Test live URL still reports errors, something else on the page triggers them.
-- [ ] **Google Business Profile** — the schema `sameAs` already links a Maps place ("Q2 Machines"). A profile likely exists; the job is to **claim, verify and complete** it (category, hours, photos, website link, services). Main route to "machine shop near me" and Maps results.
+- [ ] **Google Business Profile** — the Maps place ("Q2 Machines", linked in the schema `sameAs`) is **already claimed by the business**. Public view on 2026-10-12: category "Machine shop" only, 71 Warren Road, Bejucal, Cunupia, hours close 5 pm, phone (868) 230-9702 (all match the site), 19 photos, **no reviews/rating**, last owner post 2026-04-29, website link is bare `q2m.io`. Owner-only tasks (needs the Google login; cannot be done from the repo): add secondary categories (e.g. conveyor system supplier, industrial equipment supplier, steel fabricator, concrete plant), fill the services list and description, set the website to `https://www.q2m.io`, ask customers for reviews, post updates every few weeks. Site-side address match is done (PR #58).
 - [ ] **Backlinks / directories** — regional trade directories and association listings (e.g. Caribbean Manufacturers Association). Low-authority domain; this is the biggest lever and no code change replaces it.
 - [ ] **Category pages** — the homepage is one page for 8 services, so nothing targets "conveyor systems Trinidad" or "concrete batching plant Caribbean". Dedicated service pages (conveyors, concrete plants, structural steel, pumps & power transmission) plus the Products page. Needs a design pass first.
 - [ ] **Search Console housekeeping** — confirm the Domain property is verified (DNS TXT) and `sitemap.xml` is submitted and shows 15 discovered URLs.
@@ -75,9 +75,6 @@ Status: design drafted, **not approved, no code**. Branch `feat/products-page` e
 
 ### 3. Technical SEO / performance
 
-- [ ] **`projects.html` Google Fonts are render-blocking** (plain `<link rel="stylesheet">`, line ~44). Use the `media="print"` non-blocking pattern from `index.html`/`depot.html`.
-- [ ] **`depot.html` loads and inits EmailJS on page load** (lines ~54–55). Defer until first interaction with the contact section, as `index.html` does.
-- [ ] **`sitemap.xml` `lastmod` is stale** — every entry is still `2026-05-20`. Add a pre-deploy step or script to bump `lastmod` for changed files.
 - [ ] **Unique `og:image` per page** — depot and projects reuse the homepage `og_banner.jpg`.
 - [ ] **Slideshow photos** — 20 about-section photos are loaded via JS (`data-webp`/`data-jpg`) into CSS backgrounds with no alt text, invisible to image search. Convert to `<img>` with descriptive alt text.
 - [ ] **JS-only inventory** — `/depot.html` loads listings client-side. Use URL Inspection → "View crawled page" to confirm Googlebot sees the listings; if not, add a static fallback. (Projects data is already inline via `window.__PROJECTS__`.)
@@ -110,20 +107,19 @@ Status: design drafted, **not approved, no code**. Branch `feat/products-page` e
 
 ### 7. Housekeeping
 
-- [ ] **`README.md` is out of date** — still documents the Fileman API deploy, lists only three pages and one script. Update to match Quick Reference above.
 - [ ] Contact form uses EmailJS (client-side). Decide whether that is the long-term answer or a server-side backend is wanted.
 - [ ] `pumpcurveshandoff.md` — decide whether to keep, move into `docs/`, or drop.
 
 ### Verified resolved (do not re-open)
 
-One `<h1>` on the homepage. www/non-www/http all 301 to `https://www.q2m.io/`. Favicon paths, 404 `noindex`, Twitter cards, schema email, `CreativeWork`, `geoRadius`/`areaServed`, canonicals, hreflang, nl/fr depot pages, es/pt/nl/fr nav-link patching, `WebSite` schema node, AI crawlers in `robots.txt`, `llms.txt` email/service fixes, footer language links, `(Q2M)` brand signals, footer tagline and copyright translated, depot `Product`/`Offer` invalid-items error (removed in #56).
+One `<h1>` on the homepage. www/non-www/http all 301 to `https://www.q2m.io/`. Favicon paths, 404 `noindex`, Twitter cards, schema email, `CreativeWork`, `geoRadius`/`areaServed`, canonicals, hreflang, nl/fr depot pages, es/pt/nl/fr nav-link patching, `WebSite` schema node, AI crawlers in `robots.txt`, `llms.txt` email/service fixes, footer language links, `(Q2M)` brand signals, footer tagline and copyright translated, depot `Product`/`Offer` invalid-items error (removed in #56), depot EmailJS now lazy-loaded, projects Google Fonts non-blocking, sitemap `lastmod` automated, README rewritten, schema + visible address now "71 Warren Road" (all PR #58).
 
 ---
 
 ## Session 20 — Search Console Diagnosis, Brand/Indexing Fix, Footer i18n
 
 **Date:** 2026-10-12
-**PRs:** [#54](https://github.com/brandonr2630/q2m-website/pull/54), [#55](https://github.com/brandonr2630/q2m-website/pull/55) and [#56](https://github.com/brandonr2630/q2m-website/pull/56) — merged, deployed, verified live.
+**PRs:** [#54](https://github.com/brandonr2630/q2m-website/pull/54), [#55](https://github.com/brandonr2630/q2m-website/pull/55), [#56](https://github.com/brandonr2630/q2m-website/pull/56) and [#58](https://github.com/brandonr2630/q2m-website/pull/58) (plus the handoff rewrite in #57) — merged, deployed, verified live.
 
 ### Why
 
@@ -138,6 +134,7 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 | Brand signals (#54) | Homepage title now `Q² Machines (Q2M) — …` in all 5 languages (via `LANGS` in `build-lang-pages.js`). `Organization` and `LocalBusiness` `alternateName` = Q2M / Q2 Machines; new `WebSite` JSON-LD node with `publisher` → `#organization`. |
 | Footer tagline i18n (#55) | `data-i18n="footer_slogan"` added to `index.html` and `depot.html` (projects already had it), keys for 5 languages. |
 | Depot schema (#56) | URL Inspection on `/depot.html` reported **7 invalid items**: each listing was a `Product` whose `Offer` had `priceCurrency` + `availability` but **no `price`** (required for product rich results). Prices are **on request**, so Product rich results are not possible. The 7 items in the depot `ItemList` are now plain `Thing` (name, description, image); the `Offer` is removed, and so is `brand: Q² Machines` (wrong for third-party equipment such as the SBM crushers). Regenerated es/pt/nl/fr. |
+| Technical fixes (#58) | Five independent fixes built in parallel (one worktree each) and merged as one PR: **depot EmailJS** now loads on first interaction with `#eq-form` via `loadEmailJS()` (a cached Promise; submit waits on it and retries if the CDN fails; no email is sent until the user submits); **projects fonts** use the `media="print"` swap + `<noscript>` pattern; **sitemap** `lastmod` is set by `scripts/update-sitemap-lastmod.js` (last commit date of each URL's source file, today if uncommitted; run by `build-all` or `npm run update-sitemap`; warns and leaves entries unchanged in shallow clones); **README** rewritten; **address** `71 Warren Road, Bejucal, Cunupia` in both schema nodes and the three visible address strings, matching the Business Profile. |
 | Copyright i18n (#55) | "All rights reserved." wrapped in `<span data-i18n="footer_rights">` on all three source pages, keys for 5 languages. |
 
 ### Lessons (new this session)
@@ -149,6 +146,9 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 5. **Check for CRLF before scripting edits** to source files; normalise, edit, restore.
 6. **Use a clean `git worktree` off `origin/master`** when the main checkout holds uncommitted WIP — create it **inside the repo** at `.worktrees/<name>` (excluded via `.git/info/exclude`), never in Temp.
 7. **Do not mark up a `Product` without a price.** An `Offer` needs `price` (or a `priceSpecification`); currency + availability alone makes the item invalid. For price-on-request stock use plain `Thing`/`ListItem` markup. Never fake a price (e.g. `0`) — Google treats that as misleading. If prices are ever published, add a `price` field to `listings.json` and restore `Product` + `Offer` only for items that have one.
+8. **Parallel fixes:** give each fix its own worktree under `.worktrees/` with disjoint files, write the pass/fail check *first* (scripted, with a negative control that fails on unmodified master), merge the branches into one integration branch, confirm `npm run build-all` leaves no diff, then open one PR.
+9. **Treat sub-agent reports as claims.** Re-run the checks yourself and read the diff: one agent fixed the schema address but left three visible address strings, and another caught that `upscale-images.js` never watermarked (the old docs said it did).
+10. **Markup checks are not behaviour checks:** for JS changes, load the page and observe the network (EmailJS: 0 requests on load, 1 after focusing the form) and `document.fonts`; do not submit real forms (it emails the business).
 
 ### Notes
 
@@ -195,7 +195,7 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 | 17 | 2026-05-21 | Language auto-redirect (`navigator.language`, `sessionStorage` guard) and hero stats i18n (PRs #43, #44). |
 | 18 | 2026-06-08 | SEO/AI-search audit: `llms.txt` fixes, 6 AI crawlers in `robots.txt` (PR #52). Remaining audit items are in Open Items §3–4. |
 | 19 | 2026-07-02 | Products page design drafted, paused before approval. |
-| 20 | 2026-10-12 | Search Console diagnosis; footer language links, Q2M brand signals, footer i18n, depot schema fix (PRs #54, #55, #56). |
+| 20 | 2026-10-12 | Search Console diagnosis; footer language links, Q2M brand signals, footer i18n, depot schema fix, lazy EmailJS, non-blocking projects fonts, sitemap lastmod script, README rewrite, address match (PRs #54–#58). |
 
 ---
 
@@ -204,5 +204,5 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 - **Repository:** https://github.com/brandonr2630/q2m-website
 - **Live site:** https://www.q2m.io
 - **Deploy workflow:** `.github/workflows/deploy.yml` → `brandonr2630/projects/.github/workflows/deploy.yml@master`
-- **Build scripts:** `scripts/build-lang-pages.js`, `build-depot-langs.js`, `build-projects-langs.js` (`npm run build-all`); image watermarking in `scripts/upscale-images.js`
+- **Build scripts:** `scripts/build-lang-pages.js`, `build-depot-langs.js`, `build-projects-langs.js` (`npm run build-all`); `scripts/update-sitemap-lastmod.js` (sitemap dates, also run by `build-all`); `scripts/upscale-images.js` only upscales/converts to `-upscaled.webp` — it does **not** watermark (the Session 7/12 watermarking was done with an ad-hoc `sharp` script that was never committed)
 - **Project board:** https://github.com/users/brandonr2630/projects/1
