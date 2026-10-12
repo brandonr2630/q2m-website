@@ -125,8 +125,8 @@ for (const lang of LANGS) {
   $(`.lang-flag[data-lang="${lang.code}"]`).addClass('active');
 
   // Patch cross-page nav hrefs to stay in the same language subdirectory
-  $('a[href="/depot.html"]').attr('href', `/${lang.code}/depot.html`);
-  $('a[href="/projects.html"]').attr('href', `/${lang.code}/projects.html`);
+  $('a[href="/depot.html"]').not('.footer-langs a').attr('href', `/${lang.code}/depot.html`);
+  $('a[href="/projects.html"]').not('.footer-langs a').attr('href', `/${lang.code}/projects.html`);
 
   // Fix relative asset paths for subdirectory (assets/ → /assets/)
   $('img[src]').each((_, el) => {

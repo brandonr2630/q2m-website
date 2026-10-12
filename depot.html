@@ -235,6 +235,9 @@ footer {
 .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; justify-content: center; }
 .footer-links a { font-size: 12px; color: #333333; text-decoration: none; font-family: 'Barlow Condensed',sans-serif; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s; }
 .footer-links a:hover { color: var(--gold-dark); }
+.footer-langs { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; align-items:center; font-size:12px; color:#999; }
+.footer-langs a { color:#555555; text-decoration:none; font-family:'Barlow Condensed',sans-serif; letter-spacing:1px; }
+.footer-langs a:hover { color:var(--gold-dark); }
 
 /* ── LIGHTBOX ── */
 .lightbox{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.93);align-items:center;justify-content:center;}
@@ -523,6 +526,15 @@ footer {
       <li><a href="/projects.html" data-i18n="nav_projects">Projects</a></li>
       <li><a href="/#contact" data-i18n="footer_contact">Contact</a></li>
     </ul>
+    <div class="footer-langs" role="navigation" aria-label="Languages"><a href="/depot.html" lang="en" hreflang="en">English</a>
+      <span aria-hidden="true">·</span>
+      <a href="/es/depot.html" lang="es" hreflang="es">Español</a>
+      <span aria-hidden="true">·</span>
+      <a href="/pt/depot.html" lang="pt" hreflang="pt-BR">Português</a>
+      <span aria-hidden="true">·</span>
+      <a href="/nl/depot.html" lang="nl" hreflang="nl">Nederlands</a>
+      <span aria-hidden="true">·</span>
+      <a href="/fr/depot.html" lang="fr" hreflang="fr">Français</a></div>
     <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:center;">
       <a href="tel:+18682309702" style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#555;text-decoration:none;">(868) 230-9702</a>
       <span style="color:#ccc;">·</span>
