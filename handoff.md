@@ -82,8 +82,8 @@ Status: design drafted, **not approved, no code**. Branch `feat/products-page` e
 
 ### 4. AI search / structured data
 
-- [ ] **Expand `llms.txt`** (years in operation 15+, Depot, Projects, richer capability text) and add **`llms-full.txt`** (verbose company profile).
-- [ ] **`FAQPage` schema** on `index.html` (6–8 Q&As: services, industries, geography, custom design, outside Trinidad, contact/hours). None exists yet.
+- [ ] **FAQ follow-ups:** nl/fr FAQ translations (and the rest of the nl/fr site) need native-speaker review; if a founding year or other facts change, update `faq_*` keys, `llms.txt` and `llms-full.txt` together. Google no longer shows FAQ rich results for most sites, so the value is AI/other-engine readability, not snippets.
+- [ ] **Keep `llms-full.txt` in sync** when `listings.json` (depot stock) or `projects.json` change; it lists the 7 depot items and both projects by hand. Consider generating it from the JSON in `build-all`.
 - [ ] **`url` on each `Service`** in the `ItemList` (link to `/#services` or per-service anchors/pages).
 - [ ] **Certifications/accreditations** on-page and in the `Organization` node, if BS/ASME/ISO apply.
 - [ ] Standalone **`/about.html`** (history, team, values) for E-E-A-T and a citable page.
@@ -112,14 +112,14 @@ Status: design drafted, **not approved, no code**. Branch `feat/products-page` e
 
 ### Verified resolved (do not re-open)
 
-One `<h1>` on the homepage. www/non-www/http all 301 to `https://www.q2m.io/`. Favicon paths, 404 `noindex`, Twitter cards, schema email, `CreativeWork`, `geoRadius`/`areaServed`, canonicals, hreflang, nl/fr depot pages, es/pt/nl/fr nav-link patching, `WebSite` schema node, AI crawlers in `robots.txt`, `llms.txt` email/service fixes, footer language links, `(Q2M)` brand signals, footer tagline and copyright translated, depot `Product`/`Offer` invalid-items error (removed in #56), depot EmailJS now lazy-loaded, projects Google Fonts non-blocking, sitemap `lastmod` automated, README rewritten, schema + visible address now "71 Warren Road" (all PR #58).
+One `<h1>` on the homepage. www/non-www/http all 301 to `https://www.q2m.io/`. Favicon paths, 404 `noindex`, Twitter cards, schema email, `CreativeWork`, `geoRadius`/`areaServed`, canonicals, hreflang, nl/fr depot pages, es/pt/nl/fr nav-link patching, `WebSite` schema node, AI crawlers in `robots.txt`, `llms.txt` email/service fixes, footer language links, `(Q2M)` brand signals, footer tagline and copyright translated, depot `Product`/`Offer` invalid-items error (removed in #56), depot EmailJS now lazy-loaded, projects Google Fonts non-blocking, sitemap `lastmod` automated, README rewritten, schema + visible address now "71 Warren Road" (all PR #58), homepage FAQ + `FAQPage` schema, expanded `llms.txt` and new `llms-full.txt` (#60), `.txt` files now served as `charset=UTF-8` (#62).
 
 ---
 
 ## Session 20 — Search Console Diagnosis, Brand/Indexing Fix, Footer i18n
 
 **Date:** 2026-10-12
-**PRs:** [#54](https://github.com/brandonr2630/q2m-website/pull/54), [#55](https://github.com/brandonr2630/q2m-website/pull/55), [#56](https://github.com/brandonr2630/q2m-website/pull/56) and [#58](https://github.com/brandonr2630/q2m-website/pull/58) (plus the handoff rewrite in #57) — merged, deployed, verified live.
+**PRs:** [#54](https://github.com/brandonr2630/q2m-website/pull/54), [#55](https://github.com/brandonr2630/q2m-website/pull/55), [#56](https://github.com/brandonr2630/q2m-website/pull/56) and [#58](https://github.com/brandonr2630/q2m-website/pull/58), [#60](https://github.com/brandonr2630/q2m-website/pull/60), [#61](https://github.com/brandonr2630/q2m-website/pull/61) and [#62](https://github.com/brandonr2630/q2m-website/pull/62) (plus the handoff updates in #57 and #59) — merged, deployed, verified live.
 
 ### Why
 
@@ -135,6 +135,8 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 | Footer tagline i18n (#55) | `data-i18n="footer_slogan"` added to `index.html` and `depot.html` (projects already had it), keys for 5 languages. |
 | Depot schema (#56) | URL Inspection on `/depot.html` reported **7 invalid items**: each listing was a `Product` whose `Offer` had `priceCurrency` + `availability` but **no `price`** (required for product rich results). Prices are **on request**, so Product rich results are not possible. The 7 items in the depot `ItemList` are now plain `Thing` (name, description, image); the `Offer` is removed, and so is `brand: Q² Machines` (wrong for third-party equipment such as the SBM crushers). Regenerated es/pt/nl/fr. |
 | Technical fixes (#58) | Five independent fixes built in parallel (one worktree each) and merged as one PR: **depot EmailJS** now loads on first interaction with `#eq-form` via `loadEmailJS()` (a cached Promise; submit waits on it and retries if the CDN fails; no email is sent until the user submits); **projects fonts** use the `media="print"` swap + `<noscript>` pattern; **sitemap** `lastmod` is set by `scripts/update-sitemap-lastmod.js` (last commit date of each URL's source file, today if uncommitted; run by `build-all` or `npm run update-sitemap`; warns and leaves entries unchanged in shallow clones); **README** rewritten; **address** `71 Warren Road, Bejucal, Cunupia` in both schema nodes and the three visible address strings, matching the Business Profile. |
+| FAQ + llms (#60) | **Visible 7-question FAQ** (`<section id="faq">`, `<details class="faq-item">` accordions, between Services and Contact) with `faq_*` i18n keys in all 5 languages. **`FAQPage` JSON-LD** whose text equals the visible text; `build-lang-pages.js` translates it per language page (own `@id`, `inLanguage`). **`llms.txt`** rewritten (fixed the `q2hub@` typo, 71 street number, operating since 2013, industries, depot with prices on request, projects, FAQ, language URLs) and new **`llms-full.txt`** (about 7,000 chars: services, the 7 depot items, both projects, markets, FAQ, contact incl. WhatsApp). Decision: say **"since 2013"** (founding year given by the owner), never a running "15+ years" number that goes stale; no certification, response-time or other unverified claims; no email address in the FAQ (keeps the page's email obfuscation). |
+| Charset (#61, #62) | `llms.txt`, `llms-full.txt` and `robots.txt` were served as `text/plain` with no charset, so "Q²" could be misread. `AddCharset UTF-8 .txt` (#61) was **ignored** by this server; `AddDefaultCharset UTF-8` (#62) works and now sends `charset=UTF-8` on text responses (HTML and JSON too, harmless). |
 | Copyright i18n (#55) | "All rights reserved." wrapped in `<span data-i18n="footer_rights">` on all three source pages, keys for 5 languages. |
 
 ### Lessons (new this session)
@@ -149,6 +151,9 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 8. **Parallel fixes:** give each fix its own worktree under `.worktrees/` with disjoint files, write the pass/fail check *first* (scripted, with a negative control that fails on unmodified master), merge the branches into one integration branch, confirm `npm run build-all` leaves no diff, then open one PR.
 9. **Treat sub-agent reports as claims.** Re-run the checks yourself and read the diff: one agent fixed the schema address but left three visible address strings, and another caught that `upscale-images.js` never watermarked (the old docs said it did).
 10. **Markup checks are not behaviour checks:** for JS changes, load the page and observe the network (EmailJS: 0 requests on load, 1 after focusing the form) and `document.fonts`; do not submit real forms (it emails the business).
+11. **Server config needs a live check:** `AddCharset` in `.htaccess` was accepted but did nothing on this host; `AddDefaultCharset` worked. After any `.htaccess` change, `curl -I` the real header and re-check that key pages still return 200 and the redirects still 301. `.htaccess` is site-wide; a syntax error 500s everything, so keep edits small and wrap optional directives in `<IfModule>`. The repo also has a dead `htaccess` (no dot) and the HTTPS redirect is written twice in `.htaccess`.
+12. **Schema must match visible text:** `FAQPage` markup is only valid when the same text is on the page. The oracle compares the JSON-LD with the rendered `<details>` text in every language, and was mutation-tested (break the schema only, break a year, delete an item) to prove it can fail.
+13. **Check at the right viewport:** the in-app browser pane can report a 0px-wide viewport; set an explicit size with `resize_window` before measuring overflow, then reset it to desktop.
 
 ### Notes
 
@@ -195,7 +200,7 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 | 17 | 2026-05-21 | Language auto-redirect (`navigator.language`, `sessionStorage` guard) and hero stats i18n (PRs #43, #44). |
 | 18 | 2026-06-08 | SEO/AI-search audit: `llms.txt` fixes, 6 AI crawlers in `robots.txt` (PR #52). Remaining audit items are in Open Items §3–4. |
 | 19 | 2026-07-02 | Products page design drafted, paused before approval. |
-| 20 | 2026-10-12 | Search Console diagnosis; footer language links, Q2M brand signals, footer i18n, depot schema fix, lazy EmailJS, non-blocking projects fonts, sitemap lastmod script, README rewrite, address match (PRs #54–#58). |
+| 20 | 2026-10-12 | Search Console diagnosis; footer language links, Q2M brand signals, footer i18n, depot schema fix, lazy EmailJS, non-blocking projects fonts, sitemap lastmod script, README rewrite, address match, homepage FAQ + FAQPage schema, llms.txt/llms-full.txt, UTF-8 charset (PRs #54–#62). |
 
 ---
 
