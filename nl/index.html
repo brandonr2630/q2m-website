@@ -1688,7 +1688,7 @@ footer {
   <button class="mobile-close" onclick="closeMobileMenu()" aria-label="Close menu">✕</button>
   <a href="/nl/about.html" onclick="closeMobileMenu()" data-i18n="nav_about">Over Ons</a>
   <a href="#services" onclick="closeMobileMenu()" data-i18n="nav_services">Diensten</a>
-  <a href="/nl/depot.html" onclick="closeMobileMenu()">Depot</a>
+  <a href="/nl/depot.html" onclick="closeMobileMenu()" data-i18n="nav_depot">Depot</a>
   <a href="/nl/projects.html" onclick="closeMobileMenu()" data-i18n="nav_projects">Projects</a>
   <a href="#contact" onclick="closeMobileMenu()" data-i18n="nav_contact">Contact</a>
   <a href="#contact" onclick="closeMobileMenu()" data-i18n="nav_cta" style="background:var(--gold);color:var(--ink);padding:14px 32px;border-radius:2px;font-size:20px;margin-top:8px;">Vertel Ons Uw Behoefte</a>
@@ -1720,7 +1720,7 @@ footer {
     <ul class="nav-links">
       <li><a href="/nl/about.html" data-i18n="nav_about">Over Ons</a></li>
       <li><a href="#services" data-i18n="nav_services">Diensten</a></li>
-      <li><a href="/nl/depot.html">Depot</a></li>
+      <li><a href="/nl/depot.html" data-i18n="nav_depot">Depot</a></li>
       <li><a href="/nl/projects.html" data-i18n="nav_projects">Projects</a></li>
       <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
     </ul>
@@ -1769,8 +1769,8 @@ footer {
       <span class="hero-specialism-tag" data-i18n="tag_safety">Veiligheidssystemen voor Fabrieken</span>
     </div>
     <div class="hero-actions">
-      <a href="#services" class="btn-primary">Our Services ↓</a>
-      <a href="#contact" class="btn-secondary">Tell Us Your Needs</a>
+      <a href="#services" class="btn-primary" data-i18n="hero_btn1">Onze Diensten ↓</a>
+      <a href="#contact" class="btn-secondary" data-i18n="nav_cta">Vertel Ons Uw Behoefte</a>
     </div>
   </div>
 
@@ -1791,7 +1791,7 @@ footer {
 
   <div class="scroll-indicator">
     <div class="scroll-line"></div>
-    Scroll
+    <span data-i18n="scroll">Scrollen</span>
   </div>
 </section>
 
@@ -2158,7 +2158,7 @@ footer {
       <button class="arc-arrow left" id="arc-prev" aria-label="Previous">←</button>
       <button class="arc-arrow right" id="arc-next" aria-label="Next">→</button>
       <div class="arc-dots" id="arc-dots"></div>
-      <div class="arc-hint">Use arrows to explore our services</div>
+      <div class="arc-hint" data-i18n="arc_hint">Gebruik de pijlen om onze diensten te verkennen</div>
     </div>
 
     <!-- ── MOBILE SCROLL ── -->
@@ -2268,7 +2268,7 @@ footer {
           </div>
           <div class="map-card-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            Get Directions
+            <span data-i18n="map_btn">Routebeschrijving</span>
           </div>
         </a>
       </div>
@@ -2302,15 +2302,15 @@ footer {
           <label class="form-label" for="cf-service" data-i18n="lbl_service">Vereiste Dienst</label>
           <select id="cf-service" class="form-input" style="cursor:pointer;">
             <option value="" data-i18n="ph_service">Selecteer een dienst...</option>
-            <option>Bulk Material Handling Systems</option>
-            <option>Concrete Plants</option>
-            <option>Motors &amp; Gear Reducers</option>
-            <option>Pumps</option>
-            <option>Machine Shop</option>
-            <option>Fabrication &amp; Welding</option>
-            <option>Structural Systems</option>
-            <option>Geotechnical Testing Equipment</option>
-            <option>Multiple / Other</option>
+            <option value="Bulk Material Handling Systems" data-i18n="svc_opt1">Bulkmateriaalverwerkingssystemen</option>
+            <option value="Concrete Plants" data-i18n="svc_opt2">Betoncentrales</option>
+            <option value="Motors &amp; Gear Reducers" data-i18n="svc_opt3">Motoren en Tandwielreductoren</option>
+            <option value="Pumps" data-i18n="svc_opt4">Pompen</option>
+            <option value="Machine Shop" data-i18n="svc_opt5">Machinewerkplaats</option>
+            <option value="Fabrication &amp; Welding" data-i18n="svc_opt6">Constructie en Lassen</option>
+            <option value="Structural Systems" data-i18n="svc_opt7">Staalconstructies</option>
+            <option value="Geotechnical Testing Equipment" data-i18n="svc_opt8">Geotechnische Beproevingsapparatuur</option>
+            <option value="Multiple / Other" data-i18n="svc_opt9">Meerdere / Overig</option>
           </select>
         </div>
         <div class="form-group reveal reveal-delay-3">
@@ -2353,7 +2353,7 @@ footer {
     <ul class="footer-links">
       <li><a href="/nl/about.html" data-i18n="footer_about">Over Ons</a></li>
       <li><a href="#services" data-i18n="footer_services">Diensten</a></li>
-      <li><a href="/nl/depot.html">Depot</a></li>
+      <li><a href="/nl/depot.html" data-i18n="nav_depot">Depot</a></li>
       <li><a href="/nl/projects.html" data-i18n="nav_projects">Projects</a></li>
       <li><a href="#contact" data-i18n="footer_contact">Contact</a></li>
       <li><a href="/nl/privacy.html" data-i18n="footer_privacy">Privacybeleid</a></li>
@@ -2719,6 +2719,16 @@ const translations = {
     footer_slogan: 'Safety, Service & Sustainability',
     footer_rights: 'All rights reserved.',
     footer_privacy: 'Privacy Policy', form_privacy_pre: 'By sending this form you agree that we may use your details to respond to your enquiry.', form_privacy_link: 'Privacy Policy', about_more: 'Learn more about us →',
+    nav_depot: 'Depot', hero_btn1: 'Our Services ↓', arc_hint: 'Use arrows to explore our services', map_btn: 'Get Directions',
+    svc_opt1: 'Bulk Material Handling Systems',
+    svc_opt2: 'Concrete Plants',
+    svc_opt3: 'Motors & Gear Reducers',
+    svc_opt4: 'Pumps',
+    svc_opt5: 'Machine Shop',
+    svc_opt6: 'Fabrication & Welding',
+    svc_opt7: 'Structural Systems',
+    svc_opt8: 'Geotechnical Testing Equipment',
+    svc_opt9: 'Multiple / Other',
     faq_label: 'Questions', faq_title_1: 'Frequently Asked', faq_title_2: 'Questions',
     faq_q1: 'What does Q² Machines do?',
     faq_a1: 'Q² Machines is a Trinidad-based engineering firm, operating since 2013. We design, manufacture and service industrial plant equipment: conveyor and bulk handling systems, concrete batching plants, structural steelwork, and motors, pumps and gear reducers, backed by our own machine shop and fabrication and welding workshop.',
@@ -2827,6 +2837,16 @@ const translations = {
     footer_slogan: 'Seguridad, Servicio y Sostenibilidad',
     footer_rights: 'Todos los derechos reservados.',
     footer_privacy: 'Política de Privacidad', form_privacy_pre: 'Al enviar este formulario acepta que usemos sus datos para responder a su consulta.', form_privacy_link: 'Política de Privacidad', about_more: 'Conozca más sobre nosotros →',
+    nav_depot: 'Depósito', hero_btn1: 'Nuestros Servicios ↓', arc_hint: 'Use las flechas para explorar nuestros servicios', map_btn: 'Cómo llegar',
+    svc_opt1: 'Sistemas de Manejo de Materiales a Granel',
+    svc_opt2: 'Plantas de Concreto',
+    svc_opt3: 'Motores y Reductores de Engranajes',
+    svc_opt4: 'Bombas',
+    svc_opt5: 'Taller de Mecanizado',
+    svc_opt6: 'Fabricación y Soldadura',
+    svc_opt7: 'Sistemas Estructurales',
+    svc_opt8: 'Equipos de Ensayo Geotécnico',
+    svc_opt9: 'Varios / Otros',
     faq_label: 'Preguntas', faq_title_1: 'Preguntas', faq_title_2: 'Frecuentes',
     faq_q1: '¿A qué se dedica Q² Machines?',
     faq_a1: 'Q² Machines es una empresa de ingeniería con sede en Trinidad, en operación desde 2013. Diseñamos, fabricamos y damos servicio a equipos para plantas industriales: sistemas de transporte y manejo de materiales a granel, plantas dosificadoras de concreto, estructuras de acero, y motores, bombas y reductores de engranajes, respaldados por nuestro propio taller de mecanizado y de fabricación y soldadura.',
@@ -2935,6 +2955,16 @@ const translations = {
     footer_slogan: 'Segurança, Serviço e Sustentabilidade',
     footer_rights: 'Todos os direitos reservados.',
     footer_privacy: 'Política de Privacidade', form_privacy_pre: 'Ao enviar este formulário, você concorda que usemos seus dados para responder à sua solicitação.', form_privacy_link: 'Política de Privacidade', about_more: 'Saiba mais sobre nós →',
+    nav_depot: 'Depósito', hero_btn1: 'Nossos Serviços ↓', arc_hint: 'Use as setas para explorar nossos serviços', map_btn: 'Como chegar',
+    svc_opt1: 'Sistemas de Manuseio de Materiais a Granel',
+    svc_opt2: 'Usinas de Concreto',
+    svc_opt3: 'Motores e Redutores de Engrenagens',
+    svc_opt4: 'Bombas',
+    svc_opt5: 'Oficina de Usinagem',
+    svc_opt6: 'Fabricação e Soldagem',
+    svc_opt7: 'Sistemas Estruturais',
+    svc_opt8: 'Equipamentos de Ensaio Geotécnico',
+    svc_opt9: 'Vários / Outros',
     faq_label: 'Perguntas', faq_title_1: 'Perguntas', faq_title_2: 'Frequentes',
     faq_q1: 'O que a Q² Machines faz?',
     faq_a1: 'A Q² Machines é uma empresa de engenharia sediada em Trinidad, em operação desde 2013. Projetamos, fabricamos e fazemos a manutenção de equipamentos para plantas industriais: sistemas de transporte e manuseio de granéis, usinas de concreto, estruturas de aço, motores, bombas e redutores de engrenagens, apoiados por nossa própria oficina de usinagem, fabricação e soldagem.',
@@ -3043,6 +3073,16 @@ const translations = {
     footer_slogan: 'Veiligheid, Service & Duurzaamheid',
     footer_rights: 'Alle rechten voorbehouden.',
     footer_privacy: 'Privacybeleid', form_privacy_pre: 'Door dit formulier te versturen gaat u ermee akkoord dat wij uw gegevens gebruiken om uw aanvraag te beantwoorden.', form_privacy_link: 'Privacybeleid', about_more: 'Meer over ons →',
+    nav_depot: 'Depot', hero_btn1: 'Onze Diensten ↓', arc_hint: 'Gebruik de pijlen om onze diensten te verkennen', map_btn: 'Routebeschrijving',
+    svc_opt1: 'Bulkmateriaalverwerkingssystemen',
+    svc_opt2: 'Betoncentrales',
+    svc_opt3: 'Motoren en Tandwielreductoren',
+    svc_opt4: 'Pompen',
+    svc_opt5: 'Machinewerkplaats',
+    svc_opt6: 'Constructie en Lassen',
+    svc_opt7: 'Staalconstructies',
+    svc_opt8: 'Geotechnische Beproevingsapparatuur',
+    svc_opt9: 'Meerdere / Overig',
     faq_label: 'Vragen', faq_title_1: 'Veelgestelde', faq_title_2: 'Vragen',
     faq_q1: 'Wat doet Q² Machines?',
     faq_a1: 'Q² Machines is een technisch bedrijf in Trinidad, actief sinds 2013. Wij ontwerpen, fabriceren en onderhouden apparatuur voor industriële installaties: transportband- en bulkverwerkingssystemen, betoncentrales, staalconstructies en motoren, pompen en tandwielreductoren, ondersteund door onze eigen machinewerkplaats en constructie- en lasafdeling.',
@@ -3151,6 +3191,16 @@ const translations = {
     footer_slogan: 'Sécurité, Service & Durabilité',
     footer_rights: 'Tous droits réservés.',
     footer_privacy: 'Politique de Confidentialité', form_privacy_pre: 'En envoyant ce formulaire, vous acceptez que nous utilisions vos coordonnées pour répondre à votre demande.', form_privacy_link: 'Politique de Confidentialité', about_more: 'En savoir plus sur nous →',
+    nav_depot: 'Dépôt', hero_btn1: 'Nos Services ↓', arc_hint: 'Utilisez les flèches pour explorer nos services', map_btn: 'Itinéraire',
+    svc_opt1: 'Systèmes de Manutention de Matières en Vrac',
+    svc_opt2: 'Centrales à Béton',
+    svc_opt3: 'Moteurs et Réducteurs',
+    svc_opt4: 'Pompes',
+    svc_opt5: 'Atelier d\'Usinage',
+    svc_opt6: 'Fabrication et Soudage',
+    svc_opt7: 'Charpentes Métalliques',
+    svc_opt8: 'Équipements d\'Essais Géotechniques',
+    svc_opt9: 'Plusieurs / Autre',
     faq_label: 'Questions', faq_title_1: 'Questions', faq_title_2: 'Fréquentes',
     faq_q1: 'Que fait Q² Machines ?',
     faq_a1: 'Q² Machines est une entreprise d\'ingénierie basée à Trinidad, en activité depuis 2013. Nous concevons, fabriquons et entretenons des équipements pour installations industrielles : systèmes de convoyage et de manutention de vrac, centrales à béton, charpentes métalliques, moteurs, pompes et réducteurs, appuyés par notre propre atelier d\'usinage, de fabrication et de soudage.',
