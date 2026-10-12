@@ -160,6 +160,15 @@ for (const lang of LANGS) {
     const schema = JSON.parse(schemaEl.html());
     schema['@graph'].forEach(node => {
       // Fix obfuscated email
+      // Translate the FAQPage schema from the same keys as the visible FAQ
+      if (node['@type'] === 'FAQPage') {
+        node['@id'] = `${lang.canonical}#faq`;
+        node.inLanguage = lang.htmlLang;
+        node.mainEntity.forEach((q, i) => {
+          q.name = t[`faq_q${i + 1}`];
+          q.acceptedAnswer.text = t[`faq_a${i + 1}`];
+        });
+      }
       if (node.contactPoint?.email) node.contactPoint.email = 'qhub@q2m.io';
       if (node.email === 'qhub-at-q2m.io') node.email = 'qhub@q2m.io';
     });
