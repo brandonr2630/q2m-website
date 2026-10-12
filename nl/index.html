@@ -978,6 +978,9 @@ section { position: relative; z-index: 1; }
   letter-spacing: 1.5px; margin-top: 6px;
 }
 
+.about-more { margin-top: 28px; }
+.about-more a { font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid var(--gold-line); padding-bottom:3px; }
+.about-more a:hover { color:var(--gold-dark); }
 .about-points { display:flex; flex-direction:column; gap:12px; margin-top:24px; }
 .about-point {
   display:flex; align-items:flex-start; gap:12px;
@@ -1462,6 +1465,9 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   border: 2px solid var(--gold);
 }
 .form-submit:hover { background: transparent; color: var(--gold); }
+.form-privacy { font-size: 12px; color: var(--text-2); line-height: 1.6; margin-top: 14px; }
+.form-privacy a { color: var(--gold-dark); text-decoration: underline; text-underline-offset: 2px; }
+.form-privacy a:hover { color: var(--gold); }
 .form-submit:disabled { opacity:.5; cursor:not-allowed; }
 .form-msg { margin-top:12px; font-size:13px; text-align:center; min-height:18px; }
 .form-msg.success { color:#66BB6A; }
@@ -1848,6 +1854,7 @@ footer {
           <div class="about-point" data-i18n="about_pt4">Bedient de sectoren Steengroeven, Mineralen, Energie, Industrie en Productie</div>
           <div class="about-point" data-i18n="about_pt5">Regionaal bereik: Caribisch gebied, Venezuela, Colombia, Guyana, Suriname en Zuid-Amerika</div>
         </div>
+        <p class="about-more reveal reveal-delay-4"><a href="/nl/about.html" data-i18n="about_more">Meer over ons →</a></p>
       </div>
     </div>
   </div>
@@ -2325,6 +2332,7 @@ footer {
           <span id="submit-text" data-i18n="btn_submit">Aanvraag Indienen</span>
           <span id="submit-arrow">→</span>
         </button>
+        <p class="form-privacy"><span data-i18n="form_privacy_pre">Door dit formulier te versturen gaat u ermee akkoord dat wij uw gegevens gebruiken om uw aanvraag te beantwoorden.</span> <a href="/nl/privacy.html" data-i18n="form_privacy_link">Privacybeleid</a></p>
         <div class="form-msg" id="form-msg"></div>
       </form>
     </div>
@@ -2343,11 +2351,12 @@ footer {
     <div class="footer-name">Q<sup>2</sup> Machines</div>
     <div class="footer-slogan" data-i18n="footer_slogan">Veiligheid, Service &amp; Duurzaamheid</div>
     <ul class="footer-links">
-      <li><a href="#about" data-i18n="footer_about">Over Ons</a></li>
+      <li><a href="/nl/about.html" data-i18n="footer_about">Over Ons</a></li>
       <li><a href="#services" data-i18n="footer_services">Diensten</a></li>
       <li><a href="/nl/depot.html">Depot</a></li>
       <li><a href="/nl/projects.html" data-i18n="nav_projects">Projects</a></li>
       <li><a href="#contact" data-i18n="footer_contact">Contact</a></li>
+      <li><a href="/nl/privacy.html" data-i18n="footer_privacy">Privacybeleid</a></li>
     </ul>
     <div class="footer-langs" role="navigation" aria-label="Languages"><a href="/" lang="en" hreflang="en">English</a>
       <span aria-hidden="true">·</span>
@@ -2709,6 +2718,7 @@ const translations = {
     about_slogan: 'Safety, Service & Sustainability',
     footer_slogan: 'Safety, Service & Sustainability',
     footer_rights: 'All rights reserved.',
+    footer_privacy: 'Privacy Policy', form_privacy_pre: 'By sending this form you agree that we may use your details to respond to your enquiry.', form_privacy_link: 'Privacy Policy', about_more: 'Learn more about us →',
     faq_label: 'Questions', faq_title_1: 'Frequently Asked', faq_title_2: 'Questions',
     faq_q1: 'What does Q² Machines do?',
     faq_a1: 'Q² Machines is a Trinidad-based engineering firm, operating since 2013. We design, manufacture and service industrial plant equipment: conveyor and bulk handling systems, concrete batching plants, structural steelwork, and motors, pumps and gear reducers, backed by our own machine shop and fabrication and welding workshop.',
@@ -2816,6 +2826,7 @@ const translations = {
     about_slogan: 'Seguridad, Servicio y Sostenibilidad',
     footer_slogan: 'Seguridad, Servicio y Sostenibilidad',
     footer_rights: 'Todos los derechos reservados.',
+    footer_privacy: 'Política de Privacidad', form_privacy_pre: 'Al enviar este formulario acepta que usemos sus datos para responder a su consulta.', form_privacy_link: 'Política de Privacidad', about_more: 'Conozca más sobre nosotros →',
     faq_label: 'Preguntas', faq_title_1: 'Preguntas', faq_title_2: 'Frecuentes',
     faq_q1: '¿A qué se dedica Q² Machines?',
     faq_a1: 'Q² Machines es una empresa de ingeniería con sede en Trinidad, en operación desde 2013. Diseñamos, fabricamos y damos servicio a equipos para plantas industriales: sistemas de transporte y manejo de materiales a granel, plantas dosificadoras de concreto, estructuras de acero, y motores, bombas y reductores de engranajes, respaldados por nuestro propio taller de mecanizado y de fabricación y soldadura.',
@@ -2923,6 +2934,7 @@ const translations = {
     about_slogan: 'Segurança, Serviço e Sustentabilidade',
     footer_slogan: 'Segurança, Serviço e Sustentabilidade',
     footer_rights: 'Todos os direitos reservados.',
+    footer_privacy: 'Política de Privacidade', form_privacy_pre: 'Ao enviar este formulário, você concorda que usemos seus dados para responder à sua solicitação.', form_privacy_link: 'Política de Privacidade', about_more: 'Saiba mais sobre nós →',
     faq_label: 'Perguntas', faq_title_1: 'Perguntas', faq_title_2: 'Frequentes',
     faq_q1: 'O que a Q² Machines faz?',
     faq_a1: 'A Q² Machines é uma empresa de engenharia sediada em Trinidad, em operação desde 2013. Projetamos, fabricamos e fazemos a manutenção de equipamentos para plantas industriais: sistemas de transporte e manuseio de granéis, usinas de concreto, estruturas de aço, motores, bombas e redutores de engrenagens, apoiados por nossa própria oficina de usinagem, fabricação e soldagem.',
@@ -3030,6 +3042,7 @@ const translations = {
     about_slogan: 'Veiligheid, Service & Duurzaamheid',
     footer_slogan: 'Veiligheid, Service & Duurzaamheid',
     footer_rights: 'Alle rechten voorbehouden.',
+    footer_privacy: 'Privacybeleid', form_privacy_pre: 'Door dit formulier te versturen gaat u ermee akkoord dat wij uw gegevens gebruiken om uw aanvraag te beantwoorden.', form_privacy_link: 'Privacybeleid', about_more: 'Meer over ons →',
     faq_label: 'Vragen', faq_title_1: 'Veelgestelde', faq_title_2: 'Vragen',
     faq_q1: 'Wat doet Q² Machines?',
     faq_a1: 'Q² Machines is een technisch bedrijf in Trinidad, actief sinds 2013. Wij ontwerpen, fabriceren en onderhouden apparatuur voor industriële installaties: transportband- en bulkverwerkingssystemen, betoncentrales, staalconstructies en motoren, pompen en tandwielreductoren, ondersteund door onze eigen machinewerkplaats en constructie- en lasafdeling.',
@@ -3137,6 +3150,7 @@ const translations = {
     about_slogan: 'Sécurité, Service & Durabilité',
     footer_slogan: 'Sécurité, Service & Durabilité',
     footer_rights: 'Tous droits réservés.',
+    footer_privacy: 'Politique de Confidentialité', form_privacy_pre: 'En envoyant ce formulaire, vous acceptez que nous utilisions vos coordonnées pour répondre à votre demande.', form_privacy_link: 'Politique de Confidentialité', about_more: 'En savoir plus sur nous →',
     faq_label: 'Questions', faq_title_1: 'Questions', faq_title_2: 'Fréquentes',
     faq_q1: 'Que fait Q² Machines ?',
     faq_a1: 'Q² Machines est une entreprise d\'ingénierie basée à Trinidad, en activité depuis 2013. Nous concevons, fabriquons et entretenons des équipements pour installations industrielles : systèmes de convoyage et de manutention de vrac, centrales à béton, charpentes métalliques, moteurs, pompes et réducteurs, appuyés par notre propre atelier d\'usinage, de fabrication et de soudage.',

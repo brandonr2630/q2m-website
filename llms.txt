@@ -77,6 +77,10 @@ https://www.q2m.io/projects.html
 - Do you repair motors, pumps and gear reducers? Yes.
 - How do I contact you? +1 (868) 230-9702 or the contact form at https://www.q2m.io/#contact. Open Monday to Friday, 9:00 AM – 5:00 PM.
 
+## About page and Privacy Policy
+- About: https://www.q2m.io/about.html
+- Privacy Policy: https://www.q2m.io/privacy.html (no cookies, no analytics; enquiry forms are sent by email through EmailJS)
+
 ## Languages
 This website is available in: English, Spanish (Español), Portuguese (Português), Dutch (Nederlands), French (Français).
 - English: https://www.q2m.io/
