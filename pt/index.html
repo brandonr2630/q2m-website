@@ -650,7 +650,7 @@ nav.scrolled .nav-logo-name { transition: all .3s; }
   top: 0; left: 0; width: 4px; height: 100%;
   background: var(--gold);
 }
-.hero-content { position: relative; z-index: 1; max-width: 820px; }
+.hero-content { position: relative; z-index: 1; max-width: 820px; min-width: 0; }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
   font-family: 'Share Tech Mono', monospace;
@@ -1740,7 +1740,7 @@ footer {
       <em data-i18n="hero_title_2">Caribe e América Latina</em>
     </h1>
     <p class="hero-tagline">
-      <span class="hero-chevrons"><span class="hero-chev">›</span><span class="hero-chev">›</span><span class="hero-chev">›</span></span><span class="hero-tagline-text"><span class="hero-tagline-part" data-i18n="hero_tagline_1">Quando os materiais fluem,</span>&nbsp;<span class="hero-tagline-part hero-tagline-white" data-i18n="hero_tagline_2">os lucros crescem.</span></span>
+      <span class="hero-chevrons"><span class="hero-chev">›</span><span class="hero-chev">›</span><span class="hero-chev">›</span></span><span class="hero-tagline-text"><span class="hero-tagline-part" data-i18n="hero_tagline_1">Quando os materiais fluem,</span> <span class="hero-tagline-part hero-tagline-white" data-i18n="hero_tagline_2">os lucros crescem.</span></span>
     </p>
     <p class="hero-desc" data-i18n="hero_desc">Incidentes com Tempo Perdido, inatividade não planejada e ineficiência sufocam os fluxos de produção, aumentando os custos e corroendo os lucros. A Q² Machines ancorou seus serviços em uma base de segurança, sustentabilidade e serviço — fornecendo soluções de engenharia de precisão projetadas, construídas e mantidas na região, para a região.</p>
     <div class="hero-specialisms tier-1">
@@ -3358,7 +3358,7 @@ function applyTaglinePulse() {
     let html = '';
     for (const ch of text) {
       if (ch === ' ') {
-        html += '&nbsp;';
+        html += ' ';   // normal space so the tagline can wrap on narrow screens
       } else {
         const safe = ch === '&' ? '&amp;' : ch === '<' ? '&lt;' : ch === '>' ? '&gt;' : ch;
         html += `<span class="hero-letter" style="animation-delay:${delay.toFixed(2)}s">${safe}</span>`;
