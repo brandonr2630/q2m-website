@@ -470,9 +470,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="section-label reveal" data-i18n="proj_label">Nosso Trabalho</div>
-    <h1 class="reveal reveal-delay-1" id="proj-title">
-      Engineering <span>Projects</span>
-    </h1>
+    <h1 class="reveal reveal-delay-1" id="proj-title" data-i18n="proj_title_html">Projetos de <span>Engenharia</span></h1>
     <p class="reveal reveal-delay-2" data-i18n="proj_desc">Entregues em todo o Caribe — de sistemas de correias transportadoras e usinas de concreto à fabricação de precisão, motores e bombas. Cada projeto é projetado, construído e comissionado internamente.</p>
   </div>
 </section>
@@ -495,7 +493,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
     <div class="projects-grid" id="projects-grid">
       <div class="state-wrap">
         <div class="spinner"></div>
-        <p style="color:var(--text-3);font-size:13px;">Loading projects…</p>
+        <p style="color:var(--text-3);font-size:13px;" data-i18n="proj_loading">Carregando projetos…</p>
       </div>
     </div>
   </div>
@@ -508,9 +506,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
   <div class="cta-inner">
     <div class="reveal">
       <div class="section-label" data-i18n="cta_label">Trabalhe Conosco</div>
-      <h2 class="cta-headline" id="cta-title">
-        Have a <span>Project</span><br>in Mind?
-      </h2>
+      <h2 class="cta-headline" id="cta-title" data-i18n="cta_title_html">Tem um <span>Projeto</span><br>em Mente?</h2>
       <p class="cta-sub" data-i18n="cta_sub">Diga-nos o que precisa construir, reparar ou entregar. Nossa equipe responderá com um plano.</p>
     </div>
     <div class="reveal reveal-delay-1 cta-actions">
@@ -666,6 +662,7 @@ const translations = {
     footer_slogan:'Safety, Service & Sustainability',
     footer_rights:'All rights reserved.',
     footer_privacy:'Privacy Policy',
+    proj_loading:'Loading projects…',
     cat_conveyor:'Conveyor & Bulk Handling', cat_concrete:'Concrete Plants', cat_fabrication:'Fabrication & Welding', cat_motors:'Motors & Pumps', cat_structural:'Structural Systems', cat_machine:'Machine Shop',
     tags:{'Quarrying':'Quarrying','Concrete & Cement':'Concrete & Cement','Plant Turnarounds':'Plant Turnarounds','Commissioning & Startup':'Commissioning & Startup','Plant Foundation & Infrastructure':'Plant Foundation & Infrastructure','Plant Foundations & Infrastructure':'Plant Foundations & Infrastructure','Structural Steelwork':'Structural Steelwork','Machinery Installation & Commissioning':'Machinery Installation & Commissioning'},
     slide_began:'How it began', slide_ended:'How it ended',
@@ -684,6 +681,7 @@ const translations = {
     footer_slogan:'Seguridad, Servicio y Sostenibilidad',
     footer_rights:'Todos los derechos reservados.',
     footer_privacy:'Política de Privacidad',
+    proj_loading:'Cargando proyectos…',
     cat_conveyor:'Transportadores y Manejo a Granel', cat_concrete:'Plantas de Concreto', cat_fabrication:'Fabricación y Soldadura', cat_motors:'Motores y Bombas', cat_structural:'Sistemas Estructurales', cat_machine:'Taller de Máquinas',
     tags:{'Quarrying':'Cantería','Concrete & Cement':'Concreto y Cemento','Plant Turnarounds':'Paradas de Planta','Commissioning & Startup':'Puesta en Marcha','Plant Foundation & Infrastructure':'Cimentación e Infraestructura','Plant Foundations & Infrastructure':'Cimentaciones e Infraestructura','Structural Steelwork':'Acero Estructural','Machinery Installation & Commissioning':'Instalación y Puesta en Marcha de Maquinaria'},
     slide_began:'Cómo comenzó', slide_ended:'Cómo terminó',
@@ -702,6 +700,7 @@ const translations = {
     footer_slogan:'Segurança, Serviço e Sustentabilidade',
     footer_rights:'Todos os direitos reservados.',
     footer_privacy:'Política de Privacidade',
+    proj_loading:'Carregando projetos…',
     cat_conveyor:'Transportadores e Manuseio a Granel', cat_concrete:'Usinas de Concreto', cat_fabrication:'Fabricação e Soldagem', cat_motors:'Motores e Bombas', cat_structural:'Sistemas Estruturais', cat_machine:'Oficina Mecânica',
     tags:{'Quarrying':'Mineração','Concrete & Cement':'Concreto e Cimento','Plant Turnarounds':'Paradas de Planta','Commissioning & Startup':'Comissionamento e Startup','Plant Foundation & Infrastructure':'Fundação e Infraestrutura','Plant Foundations & Infrastructure':'Fundações e Infraestrutura','Structural Steelwork':'Estruturas Metálicas','Machinery Installation & Commissioning':'Instalação e Comissionamento de Maquinário'},
     slide_began:'Como começou', slide_ended:'Como terminou',
@@ -720,6 +719,7 @@ const translations = {
     footer_slogan:'Veiligheid, Service & Duurzaamheid',
     footer_rights:'Alle rechten voorbehouden.',
     footer_privacy:'Privacybeleid',
+    proj_loading:'Projecten laden…',
     cat_conveyor:'Transportband & Bulkverwerking', cat_concrete:'Betonplanten', cat_fabrication:'Fabricage & Lassen', cat_motors:'Motoren & Pompen', cat_structural:'Constructieve Systemen', cat_machine:'Machinewerkplaats',
     tags:{'Quarrying':'Steengroeven','Concrete & Cement':'Beton & Cement','Plant Turnarounds':'Plant Shutdowns','Commissioning & Startup':'Inbedrijfstelling','Plant Foundation & Infrastructure':'Fundering & Infrastructuur','Plant Foundations & Infrastructure':'Funderingen & Infrastructuur','Structural Steelwork':'Constructief Staalwerk','Machinery Installation & Commissioning':'Machine-installatie & Inbedrijfstelling'},
     slide_began:'Hoe het begon', slide_ended:'Hoe het eindigde',
@@ -738,6 +738,7 @@ const translations = {
     footer_slogan:'Sécurité, Service & Durabilité',
     footer_rights:'Tous droits réservés.',
     footer_privacy:'Politique de Confidentialité',
+    proj_loading:'Chargement des projets…',
     cat_conveyor:'Convoyeurs & Manutention en Vrac', cat_concrete:'Centrales à Béton', cat_fabrication:'Fabrication & Soudage', cat_motors:'Moteurs & Pompes', cat_structural:'Systèmes Structurels', cat_machine:'Atelier d\'Usinage',
     tags:{'Quarrying':'Carrières','Concrete & Cement':'Béton & Ciment','Plant Turnarounds':'Arrêts de Maintenance','Commissioning & Startup':'Mise en Service','Plant Foundation & Infrastructure':'Fondation & Infrastructure','Plant Foundations & Infrastructure':'Fondations & Infrastructure','Structural Steelwork':'Charpente Métallique','Machinery Installation & Commissioning':'Installation & Mise en Service de Machines'},
     slide_began:'Les débuts', slide_ended:'Le résultat final',
