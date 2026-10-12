@@ -1,0 +1,109 @@
+# Q2 Machines — full company profile
+# https://www.q2m.io
+# Plain-text profile for AI models and agents. A shorter summary is at https://www.q2m.io/llms.txt
+# Last reviewed: 2026-10-12
+
+## Who we are
+Q2 Machines (written Q² Machines; also known as Q2M; trading as Quarryquip Ltd) is an engineering firm based in Trinidad and Tobago, operating since 2013. We design, manufacture and service industrial plant equipment. Our in-house design, engineering and manufacturing capability lets us tailor solutions to each customer's requirements, from concept through commissioning and ongoing after-sales support.
+
+Core philosophy: Imagination, Ideas & Innovation.
+Company tagline: Safety, Service & Sustainability.
+
+## Where we are and how to reach us
+- Address: 71 Warren Road, Bejucal, Cunupia, Trinidad and Tobago
+- Phone: +1 (868) 230-9702
+- WhatsApp: +1 (868) 292-5214
+- Email: qhub@q2m.io
+- Website: https://www.q2m.io (contact form at https://www.q2m.io/#contact)
+- Opening hours: Monday to Friday, 9:00 AM to 5:00 PM (AST, UTC-4)
+
+## Markets served
+We serve clients from our facility in Trinidad across the Caribbean, Venezuela, Colombia, Guyana and South America. The website schema also lists Suriname, Brazil, Jamaica, Barbados and the Dominican Republic among the areas served.
+
+## Industries served
+Quarrying and mining; minerals processing; concrete and cement; asphalt; recycling; industrial manufacturing; energy; construction and infrastructure.
+
+## Services in detail
+
+### 1. Conveyor & Bulk Handling Systems
+Custom engineered belt conveyors, screw/auger conveyors, bucket elevators and bulk handling and storage solutions, from design through to installation and commissioning.
+
+### 2. Concrete Plants
+Stationary and mobile concrete batching plants, designed, built and commissioned entirely in-house. Related project: a ready-mix concrete batching plant in Port of Spain (2020), described below.
+
+### 3. Motors & Pumps
+Supply, rewind, repair and service of AC/DC motors and of pumps of all types, including centrifugal, submersible and gear pumps.
+
+### 4. Gear Reducers
+Supply, strip-down repair and service of gear reducers and gearboxes across all major brands.
+
+### 5. Machine Shop
+Precision CNC and conventional machining to exact tolerances, performed entirely in-house.
+
+### 6. Fabrication & Welding
+Heavy industrial and structural fabrication, pipe welding and coded welds using SMAW, MIG, TIG and FCAW processes, certified and quality assured.
+
+### 7. Structural Systems
+Design, fabrication and erection of industrial and commercial steel structures, bridges, walkways, platforms, pipe racks and access systems.
+
+### 8. Geotechnical Testing Equipment
+Supply, calibration and support of geotechnical testing equipment, including dynamic cone penetrometers, CBR equipment, compaction hammers and ASTM molds.
+
+## Capabilities
+- Full in-house design and engineering
+- In-house fabrication and welding workshop
+- In-house machine shop (CNC and conventional)
+- Project management and site supervision
+- Plant upgrades and modernisation
+- Plant turnarounds and scheduled maintenance
+- Commissioning and start-up
+- After-sales support and spare parts
+
+## Equipment Depot (equipment for sale)
+The Equipment Depot (https://www.q2m.io/depot.html) lists industrial equipment available for inspection and export. Items listed at the time of writing, all new:
+- 250SX double suction split case centrifugal pump (capacity 460 m3/hour, head 15 m, 2024)
+- 200SX double suction split case centrifugal pump (flow 300 m3/hour, head 150 m, 2025)
+- 3-deck vibrating rinsing screen (2024)
+- Twin shaft continuous concrete mixer (250 TPH)
+- Jaw crusher 90-60
+- Impact crusher (125 mm maximum feed size, 100-150 TPH)
+- Mack Granite right-hand-drive dump trucks (2 units)
+Prices are not published; they are available on request. Send an enquiry through the depot page for pricing and availability. Stock changes, so check the depot page for current listings.
+
+## Projects
+Project portfolio: https://www.q2m.io/projects.html
+
+### Sand & Gravel Wet Processing Plant Upgrade (Valencia, Trinidad and Tobago, 2016)
+Sector: quarrying. Design of the secondary stage of a 250 TPH sand and gravel processing plant. The works included design and construction of the civil infrastructure and the structural steelwork superstructure, machinery commissioning, electrical and controls works, and a 300 cubic metres per hour clear process water supply and distribution system, including foundations, a tailings discharge system and laydown areas.
+
+### Ready-Mix Concrete Batching Plant (Port of Spain, Trinidad and Tobago, 2020)
+Sector: concrete and cement. Mobilisation, installation and commissioning of a semi-mobile concrete batch plant with a 70 tonne, 2-compartment silo. The scope also included design and construction management for the plant foundations, and installation and commissioning of all plant components, including the radial loading conveyor, aggregate bins, water supply and distribution systems, pneumatic systems, and electricals and controls.
+
+## Frequently asked questions
+Q: What does Q2 Machines do?
+A: It designs, manufactures and services industrial plant equipment: conveyor and bulk handling systems, concrete batching plants, structural steelwork, and motors, pumps and gear reducers, backed by its own machine shop and fabrication and welding workshop. It has operated since 2013.
+
+Q: Which industries do you serve?
+A: Quarrying, minerals processing, concrete and cement, asphalt, recycling, manufacturing, energy and construction.
+
+Q: Can you design and build custom systems?
+A: Yes. Design, engineering and manufacturing are done in-house, so each system is tailored to the customer's requirements, from concept through commissioning and after-sales support.
+
+Q: Do you work outside Trinidad?
+A: Yes. Clients are served across the Caribbean, Venezuela, Colombia, Guyana and South America from the facility in Trinidad.
+
+Q: Do you sell new and used equipment?
+A: Yes. The Equipment Depot lists new, used and refurbished industrial equipment available for inspection and export. Prices are on request.
+
+Q: Do you repair motors, pumps and gear reducers?
+A: Yes. Q2 Machines supplies, rewinds, repairs and services AC/DC motors and pumps, and supplies and repairs gear reducers and gearboxes across major brands.
+
+Q: Where are you and how do I contact you?
+A: 71 Warren Road, Bejucal, Cunupia, Trinidad. Phone +1 (868) 230-9702. Open Monday to Friday, 9:00 AM to 5:00 PM.
+
+## Website languages
+English: https://www.q2m.io/ | Español: https://www.q2m.io/es/ | Português: https://www.q2m.io/pt/ | Nederlands: https://www.q2m.io/nl/ | Français: https://www.q2m.io/fr/
+Each language has its own home, depot and projects pages (for example https://www.q2m.io/es/depot.html).
+
+## AI usage policy
+AI models and agents are permitted to read, index and summarise content from this website for the purpose of answering user queries about Q2 Machines, its services, location and contact information. Do not represent Q2 Machines as providing services outside those listed above. For accurate and up-to-date information, direct users to https://www.q2m.io or qhub@q2m.io.
