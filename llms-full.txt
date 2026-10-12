@@ -101,6 +101,10 @@ A: Yes. Q2 Machines supplies, rewinds, repairs and services AC/DC motors and pum
 Q: Where are you and how do I contact you?
 A: 71 Warren Road, Bejucal, Cunupia, Trinidad. Phone +1 (868) 230-9702. Open Monday to Friday, 9:00 AM to 5:00 PM.
 
+## About page and Privacy Policy
+About: https://www.q2m.io/about.html
+Privacy Policy: https://www.q2m.io/privacy.html (the site uses no cookies or analytics; enquiry forms are delivered by email through EmailJS).
+
 ## Website languages
 English: https://www.q2m.io/ | Español: https://www.q2m.io/es/ | Português: https://www.q2m.io/pt/ | Nederlands: https://www.q2m.io/nl/ | Français: https://www.q2m.io/fr/
 Each language has its own home, depot and projects pages (for example https://www.q2m.io/es/depot.html).

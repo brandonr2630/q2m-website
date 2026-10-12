@@ -1,0 +1,657 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* Language auto-redirect — runs once per session tab */
+(function() {
+  if (sessionStorage.getItem('q2m-lang-redir')) return;
+  var lang = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().split('-')[0];
+  var dest = { es: '/es/privacy.html', pt: '/pt/privacy.html', nl: '/nl/privacy.html', fr: '/fr/privacy.html' }[lang];
+  if (dest) { sessionStorage.setItem('q2m-lang-redir', '1'); location.replace(dest); }
+})();
+</script>
+<title>Política de Privacidade | Q² Machines</title>
+<meta name="description" content="Como a Q² Machines coleta, usa e protege as informações pessoais enviadas por www.q2m.io. Sem cookies, sem análises e sem rastreadores de publicidade.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Q² Machines — Quarryquip Ltd">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Política de Privacidade | Q² Machines">
+<meta property="og:description" content="Como a Q² Machines coleta, usa e protege as informações pessoais enviadas por www.q2m.io. Sem cookies, sem análises e sem rastreadores de publicidade.">
+<meta property="og:url" content="https://www.q2m.io/pt/privacy.html">
+<meta property="og:site_name" content="Q² Machines">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://www.q2m.io/og_banner.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Q² Machines — Engineering Firm, Trinidad &amp; Caribbean">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Política de Privacidade | Q² Machines">
+<meta name="twitter:description" content="Como a Q² Machines coleta, usa e protege as informações pessoais enviadas por www.q2m.io. Sem cookies, sem análises e sem rastreadores de publicidade.">
+<meta name="twitter:image" content="https://www.q2m.io/og_banner.jpg">
+<link rel="canonical" href="https://www.q2m.io/pt/privacy.html">
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="">
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&amp;family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&amp;family=Barlow:wght@300;400;500;600&amp;family=Share+Tech+Mono&amp;display=swap">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.q2m.io/pt/privacy.html#webpage",
+      "url": "https://www.q2m.io/pt/privacy.html",
+      "name": "Política de Privacidade | Q² Machines",
+      "description": "Como a Q² Machines coleta, usa e protege as informações pessoais enviadas por www.q2m.io. Sem cookies, sem análises e sem rastreadores de publicidade.",
+      "inLanguage": "pt-BR",
+      "isPartOf": {
+        "@id": "https://www.q2m.io/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://www.q2m.io/pt/privacy.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.q2m.io/pt/privacy.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://www.q2m.io/pt/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Política de Privacidade",
+          "item": "https://www.q2m.io/pt/privacy.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --gold: #F5C500;
+  --gold-dark: #C49B00;
+  --gold-dim: rgba(245,197,0,0.12);
+  --gold-line: rgba(245,197,0,0.3);
+  --ink: #0A0A0A;
+  --ink-2: #111111;
+  --ink-3: #1A1A1A;
+  --text: #F0F0F0;
+  --text-2: #A0A0A0;
+  --text-3: #505050;
+  --border: rgba(245,197,0,0.15);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overscroll-behavior-y:none;}
+body{background:var(--ink);color:var(--text);font-family:'Barlow',sans-serif;font-size:15px;overflow-x:hidden;overscroll-behavior-y:none;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--ink-2);}::-webkit-scrollbar-thumb{background:var(--gold-dark);}
+
+/* ── SCROLL TOP ── */
+#scroll-top-btn{position:fixed;bottom:84px;right:24px;z-index:999;width:44px;height:44px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s,background .2s,transform .2s;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
+#scroll-top-btn.visible{opacity:1;pointer-events:auto;}
+#scroll-top-btn:hover{background:var(--gold-dark);transform:translateY(-3px);}
+/* ── WHATSAPP ── */
+#whatsapp-btn{position:fixed;bottom:32px;right:24px;z-index:999;width:44px;height:44px;background:#25D366;color:#fff;border:none;border-radius:2px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.4);transition:transform .2s,background .2s;text-decoration:none;opacity:1;pointer-events:auto;}
+#whatsapp-btn.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+#whatsapp-btn:hover{background:#128C7E;transform:translateY(-3px);}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:flex-end;justify-content:space-between;padding:16px 60px 18px;background:#F4F3EF;border-bottom:2px solid var(--gold);transition:padding .3s;gap:32px;overflow:hidden;}
+nav.scrolled{background:#F4F3EF;box-shadow:0 2px 16px rgba(0,0,0,0.12);padding-top:10px;padding-bottom:10px;}
+nav.scrolled .nav-logo-mark{width:80px;height:80px;}
+nav.scrolled .nav-logo-name{font-size:32px;}
+nav.scrolled .nav-logo-mark,nav.scrolled .nav-logo-name{transition:all .3s;}
+.nav-logo{position:relative;z-index:1;display:flex;align-items:flex-end;gap:0;text-decoration:none;flex-shrink:0;}
+.nav-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;}
+.hamburger{position:relative;z-index:1;}
+.nav-logo-mark{width:150px;height:150px;background:transparent;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s;}
+.nav-logo-mark:hover{transform:rotate(-3deg);}
+.nav-logo-mark img{width:100%;height:100%;object-fit:contain;}
+.nav-logo-img{width:100%;height:100%;mix-blend-mode:multiply;}
+.nav-logo-text-wrap{display:flex;flex-direction:column;gap:10px;justify-content:space-between;align-self:flex-end;height:150px;}
+.nav-logo-name{font-family:'Oswald','Barlow Condensed',sans-serif;font-size:64px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);-webkit-text-stroke:1.5px #000;paint-order:stroke fill;line-height:1;display:block;position:relative;}
+.nav-logo-name sup{font-size:0.65em;vertical-align:top;line-height:1;-webkit-text-stroke:1px #000;position:relative;top:0;}
+.nav-logo-slogan{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#333333;opacity:.85;line-height:1;display:block;align-self:flex-end;margin-top:auto;}
+.nav-links{display:flex;align-items:center;gap:20px;list-style:none;flex-shrink:0;}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#333333;text-decoration:none;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width .2s;}
+.nav-links a:hover{color:var(--gold-dark);}
+.nav-links a:hover::after{width:100%;}
+.nav-links a.active{color:var(--gold-dark);}
+.nav-links a.active::after{width:100%;}
+.nav-cta{background:var(--gold)!important;color:var(--ink)!important;padding:8px 20px;border-radius:2px;font-weight:700!important;}
+.nav-cta::after{display:none!important;}
+.nav-cta:hover{background:var(--ink)!important;color:var(--gold)!important;}
+
+/* ── LANGUAGE FLAGS ── */
+.lang-flags{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.lang-flag{cursor:pointer;border:none;background:none;padding:2px;border-radius:3px;transition:transform .15s,opacity .15s;opacity:0.65;line-height:1;position:relative;display:inline-flex;align-items:center;}
+.lang-flag .fi{width:24px;height:18px;border-radius:2px;display:block;}
+.lang-flag:hover{transform:scale(1.2);opacity:1;}
+.lang-flag.active{opacity:1;outline:2px solid var(--gold-dark);border-radius:3px;}
+.lang-flag[data-abbr]::after{content:attr(data-abbr);position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-family:'Share Tech Mono',monospace;font-size:9px;font-weight:700;color:#333;letter-spacing:1px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s;}
+.lang-flag:hover[data-abbr]::after{opacity:1;}
+.mobile-lang-flags{display:flex;gap:16px;margin-top:8px;}
+.mobile-lang-flags .lang-flag{opacity:0.7;}
+.mobile-lang-flags .lang-flag .fi{width:36px;height:27px;}
+.mobile-lang-flags .lang-flag.active{opacity:1;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;align-self:center;}
+.hamburger span{width:24px;height:2px;background:#333;display:block;transition:all .3s;}
+
+/* ── MOBILE MENU ── */
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.98);z-index:1001;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--text-2);text-decoration:none;transition:color .2s;}
+.mobile-menu a:hover{color:var(--gold);}
+.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--text-2);font-size:28px;cursor:pointer;padding:8px;}
+
+/* ── GOLD DIVIDER ── */
+.gold-divider{height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.4;position:relative;z-index:1;}
+
+/* ── PAGE HERO ── */
+.page-hero{padding:220px 60px 80px;position:relative;overflow:hidden;}
+.page-hero::after{content:'PRIVACY';position:absolute;bottom:-30px;right:-10px;font-family:'Oswald',sans-serif;font-size:clamp(100px,18vw,220px);font-weight:700;letter-spacing:-4px;color:var(--gold);opacity:0.04;line-height:1;pointer-events:none;user-select:none;}
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.section-label::before{content:'';width:30px;height:1px;background:var(--gold);}
+.page-hero h1{font-family:'Oswald',sans-serif;font-size:clamp(44px,7vw,80px);font-weight:700;letter-spacing:-1px;line-height:1.0;text-wrap:balance;margin-bottom:20px;}
+.page-hero h1 span{color:var(--gold);}
+.page-hero p{font-size:17px;color:var(--text-2);max-width:620px;line-height:1.7;}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.3s;}
+
+/* ── CTA SECTION ── */
+.cta-section{background:var(--ink-2);border-top:1px solid var(--border);padding:80px 60px 90px;position:relative;z-index:1;}
+.cta-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.cta-headline{font-family:'Oswald',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:700;letter-spacing:-0.5px;line-height:1.1;text-wrap:balance;margin-bottom:16px;}
+.cta-headline span{color:var(--gold);}
+.cta-sub{font-size:15px;color:var(--text-2);line-height:1.7;max-width:460px;}
+.cta-actions{display:flex;flex-direction:column;gap:16px;align-items:flex-start;}
+.cta-btn{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 32px;border-radius:2px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:10px;}
+.cta-btn-primary{background:var(--gold);color:var(--ink);border:none;}
+.cta-btn-primary:hover{background:var(--gold-dark);}
+.cta-btn-secondary{background:none;color:var(--text-2);border:1px solid var(--text-3);}
+.cta-btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ── FOOTER ── */
+footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;position:relative;z-index:1;overflow:hidden;}
+.footer-inner{max-width:600px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;position:relative;z-index:1;}
+.footer-logo-img{width:80px;height:80px;object-fit:contain;mix-blend-mode:multiply;opacity:0.75;}
+.footer-logo-mark{width:120px;height:120px;background:transparent;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.footer-logo-mark img{width:100%;height:100%;object-fit:contain;}
+.footer-logo-mark svg{width:100%;height:100%;mix-blend-mode:multiply;}
+.footer-name{font-family:'Oswald','Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);line-height:1;}
+.footer-slogan{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#333333;opacity:.8;margin-top:3px;}
+.footer-copy{font-size:12px;color:#555555;font-family:'Share Tech Mono',monospace;}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;justify-content:center;}
+.footer-links a{font-size:12px;color:#333333;text-decoration:none;font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s;}
+.footer-langs { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; align-items:center; font-size:12px; color:#999; }
+.footer-langs a { color:#555555; text-decoration:none; font-family:'Barlow Condensed',sans-serif; letter-spacing:1px; }
+.footer-langs a:hover { color:var(--gold-dark); }
+.footer-links a:hover{color:var(--gold-dark);}
+
+/* ── CONTENT PAGES ── */
+.page-section{padding:72px 60px 96px;position:relative;z-index:1;}
+.page-inner{max-width:860px;margin:0 auto;}
+.content-block{margin-bottom:44px;}
+.content-block h2{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.content-block p{font-size:16px;color:var(--text-2);line-height:1.8;margin-bottom:12px;}
+.content-block a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
+.content-block a:hover{color:var(--gold-dark);}
+.facts-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;margin:16px 0 18px;}
+.facts-list li{position:relative;padding-left:20px;font-size:15px;color:var(--text);line-height:1.5;}
+.facts-list li::before{content:'';position:absolute;left:0;top:.65em;width:8px;height:2px;background:var(--gold);}
+.page-hero p.page-updated{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text-3);margin-top:16px;letter-spacing:1px;}
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){nav{padding:14px 32px;}.page-hero{padding:180px 32px 72px;}.page-section{padding:56px 32px 80px;}.cta-section{padding:64px 32px 72px;}footer{padding:48px 32px 36px;}}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}nav{padding:12px 24px 14px;}.nav-logo-mark{width:80px;height:80px;}.nav-logo-text-wrap{height:80px;gap:4px;}.nav-logo-name{font-size:36px;}.nav-logo-slogan{font-size:12px;letter-spacing:2px;}.page-hero{padding:150px 24px 60px;}.page-section{padding:44px 24px 64px;}.facts-list{grid-template-columns:1fr;}.content-block h2{font-size:22px;}.cta-inner{grid-template-columns:1fr;gap:40px;}.cta-section{padding:52px 24px 64px;}footer{padding:40px 24px 32px;}}
+@media(max-width:480px){.page-hero h1{font-size:40px;}nav{padding:8px 14px 10px;}.nav-logo-mark{width:60px;height:60px;}.nav-logo-name{font-size:26px;}.nav-logo-slogan{font-size:10px;letter-spacing:1.5px;}}
+</style>
+
+<link rel="alternate" hreflang="en" href="https://www.q2m.io/privacy.html">
+<link rel="alternate" hreflang="es" href="https://www.q2m.io/es/privacy.html">
+<link rel="alternate" hreflang="pt-BR" href="https://www.q2m.io/pt/privacy.html">
+<link rel="alternate" hreflang="nl" href="https://www.q2m.io/nl/privacy.html">
+<link rel="alternate" hreflang="fr" href="https://www.q2m.io/fr/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://www.q2m.io/privacy.html"></head>
+<body>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="/pt/" onclick="closeMobileMenu()" data-i18n="nav_home">Início</a>
+  <a href="/pt/#about" onclick="closeMobileMenu()" data-i18n="nav_about">Sobre</a>
+  <a href="/pt/#services" onclick="closeMobileMenu()" data-i18n="nav_services">Serviços</a>
+  <a href="/pt/depot.html" onclick="closeMobileMenu()" data-i18n="nav_depot">Depósito</a>
+  <a href="/pt/projects.html" onclick="closeMobileMenu()" data-i18n="nav_projects">Projetos</a>
+  <a href="/pt/#contact" onclick="closeMobileMenu()" data-i18n="nav_contact">Contato</a>
+  <a href="/pt/#contact" onclick="closeMobileMenu()" data-i18n="nav_cta" style="background:var(--gold);color:var(--ink);padding:14px 32px;border-radius:2px;font-size:20px;margin-top:8px;">Fale Conosco</a>
+  <div class="mobile-lang-flags">
+    <button class="lang-flag" data-lang="en" title="English" data-abbr="EN"><span class="fi fi-tt"></span></button>
+    <button class="lang-flag" data-lang="es" title="Español" data-abbr="ES"><span class="fi fi-es"></span></button>
+    <button class="lang-flag active" data-lang="pt" title="Português" data-abbr="PT"><span class="fi fi-br"></span></button>
+    <button class="lang-flag" data-lang="nl" title="Nederlands" data-abbr="NL"><span class="fi fi-nl"></span></button>
+    <button class="lang-flag" data-lang="fr" title="Français" data-abbr="FR"><span class="fi fi-fr"></span></button>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="/pt/" class="nav-logo">
+    <div class="nav-logo-mark">
+      <img src="/assets/branding/Q2M_Logo.svg" alt="Q2 Machines Logo" class="nav-logo-img">
+    </div>
+  </a>
+  <div class="nav-right">
+    <div class="lang-flags" id="lang-flags">
+      <button class="lang-flag" data-lang="en" title="English" data-abbr="EN"><span class="fi fi-tt"></span></button>
+      <button class="lang-flag" data-lang="es" title="Español" data-abbr="ES"><span class="fi fi-es"></span></button>
+      <button class="lang-flag active" data-lang="pt" title="Português" data-abbr="PT"><span class="fi fi-br"></span></button>
+      <button class="lang-flag" data-lang="nl" title="Nederlands" data-abbr="NL"><span class="fi fi-nl"></span></button>
+      <button class="lang-flag" data-lang="fr" title="Français" data-abbr="FR"><span class="fi fi-fr"></span></button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/pt/" data-i18n="nav_home">Início</a></li>
+      <li><a href="/pt/#about" data-i18n="nav_about">Sobre</a></li>
+      <li><a href="/pt/#services" data-i18n="nav_services">Serviços</a></li>
+      <li><a href="/pt/depot.html" data-i18n="nav_depot">Depósito</a></li>
+      <li><a href="/pt/projects.html" data-i18n="nav_projects">Projetos</a></li>
+      <li><a href="/pt/#contact" data-i18n="nav_contact">Contato</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" onclick="openMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+
+<!-- ── HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label reveal" data-i18n="pv_label">Legal</div>
+    <h1 class="reveal reveal-delay-1" data-i18n-html="pv_title_html">Política de <span>Privacidade</span></h1>
+    <p class="reveal reveal-delay-2" data-i18n="pv_desc">Como a Q² Machines coleta, usa e protege as informações pessoais que você envia por este site.</p>
+    <p class="page-updated reveal reveal-delay-3" data-i18n="pv_updated">Última atualização: 2026-10-12</p>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ── CONTENT ── -->
+<section class="page-section">
+  <div class="page-inner">
+    <div class="content-block reveal">
+      <h2 data-i18n="pv_s1_h">Quem somos</h2>
+      <p data-i18n="pv_s1_p">Este site, www.q2m.io, é operado pela Q² Machines (que opera como Quarryquip Ltd), 71 Warren Road, Bejucal, Cunupia, Trinidad e Tobago.</p>
+    </div>
+    <div class="content-block reveal">
+      <h2 data-i18n="pv_s2_h">O que coletamos</h2>
+      <p data-i18n="pv_s2_p">Somente o que você decide nos enviar pelos formulários de contato: seu nome, e-mail e mensagem e, se você informar, o nome da sua empresa, seu telefone, o serviço ou equipamento sobre o qual está perguntando e como prefere que respondamos. Pedimos que não inclua informações pessoais sensíveis na mensagem.</p>
+    </div>
+    <div class="content-block reveal">
+      <h2 data-i18n="pv_s3_h">Como usamos</h2>
+      <p data-i18n="pv_s3_p">Usamos seus dados somente para responder à sua solicitação, preparar orçamentos e organizar os serviços ou equipamentos solicitados. Não vendemos suas informações e não as usamos para publicidade.</p>
+    </div>
+    <div class="content-block reveal">
+      <h2 data-i18n="pv_s4_h">Como sua solicitação chega até nós</h2>
+      <p data-i18n="pv_s4_p">Quando você envia um formulário, seus dados são entregues por e-mail, por meio do EmailJS (emailjs.com), um serviço de envio de e-mails, à caixa de correio da nossa empresa. Este site não guarda os envios de formulários em um banco de dados.</p>
+    </div>
+    <div class="content-block reveal">
+      <h2 data-i18n="pv_s5_h">Cookies e rastreamento</h2>
+      <p data-i18n="pv_s5_p">Este site não usa cookies, análises nem rastreadores de publicidade. Ele guarda um único valor temporário na sessão do seu navegador para que o redirecionamento automático de idioma ocorra apenas uma vez; ele não contém informações pessoais e é apagado ao fechar a aba.</p>
+    </div>
+    <div class="content-block reveal">
+      <h2 data-i18n="pv_s6_h">Serviços de terceiros</h2>
+      <p data-i18n="pv_s6_p">Para exibir este site, seu navegador carrega fontes do Google Fonts e ícones e scripts da rede de distribuição de conteúdo jsDelivr, de modo que esses provedores recebem seu endereço IP e dados do navegador. Links para Google Maps, WhatsApp, LinkedIn, Facebook e Instagram levam a serviços com políticas de privacidade próprias. Nosso provedor de hospedagem (GreenGeeks) pode manter registros padrão do servidor, como endereços IP e páginas acessadas, por segurança e operação.</p>
+    </div>
+    <div class="content-block reveal">
+      <h2 data-i18n="pv_s7_h">Por quanto tempo guardamos</h2>
+      <p data-i18n="pv_s7_p">Guardamos os e-mails de solicitação pelo tempo necessário para responder e para nossos registros comerciais.</p>
+    </div>
+    <div class="content-block reveal">
+      <h2 data-i18n="pv_s8_h">Suas opções</h2>
+      <p data-i18n="pv_s8_p">Você pode nos perguntar quais informações pessoais mantemos sobre você e pedir que as corrijamos ou excluímos, entrando em contato conosco.</p>
+    </div>
+    <div class="content-block reveal">
+      <h2 data-i18n="pv_s9_h">Alterações nesta política</h2>
+      <p data-i18n="pv_s9_p">Podemos atualizar esta política de tempos em tempos. A data no topo mostra quando ela foi alterada pela última vez.</p>
+    </div>
+    <div class="content-block reveal">
+      <h2 data-i18n="pv_s10_h">Fale conosco</h2>
+      <p data-i18n="pv_s10_p">Para dúvidas sobre esta política ou sobre suas informações, ligue para (868) 230-9702, escreva para 71 Warren Road, Bejucal, Cunupia, Trinidad e Tobago, ou envie um e-mail para</p>
+      <p><a href="#" id="email-link-privacy"></a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo-mark">
+      <img src="/assets/branding/Q2M_Logo.svg" alt="Q2 Machines" class="footer-logo-img">
+    </div>
+    <div class="footer-name">Q<sup>2</sup> Machines</div>
+    <div class="footer-slogan" data-i18n="footer_slogan">Segurança, Serviço e Sustentabilidade</div>
+    <ul class="footer-links">
+      <li><a href="/pt/" data-i18n="nav_home">Início</a></li>
+      <li><a href="/pt/about.html" data-i18n="nav_about">Sobre</a></li>
+      <li><a href="/pt/#services" data-i18n="nav_services">Serviços</a></li>
+      <li><a href="/pt/depot.html" data-i18n="nav_depot">Depósito</a></li>
+      <li><a href="/pt/projects.html" data-i18n="nav_projects">Projetos</a></li>
+      <li><a href="/pt/#contact" data-i18n="nav_contact">Contato</a></li>
+      <li><a href="/pt/privacy.html" data-i18n="footer_privacy">Política de Privacidade</a></li>
+    </ul>
+    <div class="footer-langs" role="navigation" aria-label="Languages"><a href="/privacy.html" lang="en" hreflang="en">English</a>
+      <span aria-hidden="true">·</span>
+      <a href="/es/privacy.html" lang="es" hreflang="es">Español</a>
+      <span aria-hidden="true">·</span>
+      <a href="/pt/privacy.html" lang="pt" hreflang="pt-BR">Português</a>
+      <span aria-hidden="true">·</span>
+      <a href="/nl/privacy.html" lang="nl" hreflang="nl">Nederlands</a>
+      <span aria-hidden="true">·</span>
+      <a href="/fr/privacy.html" lang="fr" hreflang="fr">Français</a></div>
+    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:center;">
+      <a href="tel:+18682309702" style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#555;text-decoration:none;">(868) 230-9702</a>
+    </div>
+    <div class="footer-copy">© <span id="footer-year"></span> Q<sup>2</sup> Machines. <span data-i18n="footer_rights">Todos os direitos reservados.</span></div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:#999;letter-spacing:.5px;font-style:italic;">Gloria Patri, et Filio, et Spiritui Sancto. Amen</div>
+  </div>
+</footer>
+
+<!-- ── WHATSAPP ── -->
+<a id="whatsapp-btn" href="https://wa.me/18682925214" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+</a>
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script>
+// ── NAV ────────────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  document.getElementById('scroll-top-btn').classList.toggle('visible', window.scrollY > 300);
+});
+function openMobileMenu() { document.getElementById('mobile-menu').classList.add('open'); }
+function closeMobileMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
+
+// ── i18n ───────────────────────────────────────────────────
+let currentLang = 'en';
+
+const translations = {
+  "en": {
+    "nav_home": "Home",
+    "nav_about": "About",
+    "nav_services": "Services",
+    "nav_depot": "Depot",
+    "nav_projects": "Projects",
+    "nav_contact": "Contact",
+    "nav_cta": "Tell Us Your Needs",
+    "cta_label": "Work With Us",
+    "cta_title_html": "Have a <span>Project</span><br>in Mind?",
+    "cta_sub": "Tell us what you need to build, fix or deliver. Our team will come back with a plan.",
+    "cta_btn1": "Tell Us Your Needs →",
+    "cta_btn2": "Browse Equipment Depot",
+    "footer_slogan": "Safety, Service & Sustainability",
+    "footer_rights": "All rights reserved.",
+    "footer_privacy": "Privacy Policy",
+    "pv_label": "Legal",
+    "pv_title_html": "Privacy <span>Policy</span>",
+    "pv_desc": "How Q² Machines collects, uses and protects the personal information you send through this website.",
+    "pv_updated": "Last updated: 2026-10-12",
+    "pv_s1_h": "Who we are",
+    "pv_s1_p": "This website, www.q2m.io, is operated by Q² Machines (trading as Quarryquip Ltd), 71 Warren Road, Bejucal, Cunupia, Trinidad and Tobago.",
+    "pv_s2_h": "What we collect",
+    "pv_s2_p": "Only what you choose to send us through the enquiry forms: your name, email address and message, and, if you provide them, your company name, telephone number, the service or equipment item you are asking about, and how you would like us to reply. Please do not include sensitive personal information in your message.",
+    "pv_s3_h": "How we use it",
+    "pv_s3_p": "We use your details only to respond to your enquiry, prepare quotations and arrange the services or equipment you ask about. We do not sell your information and we do not use it for advertising.",
+    "pv_s4_h": "How your enquiry reaches us",
+    "pv_s4_p": "When you send a form, your details are delivered by email through EmailJS (emailjs.com), an email-delivery service, to our company mailbox. This website does not keep form submissions in a database.",
+    "pv_s5_h": "Cookies and tracking",
+    "pv_s5_p": "This website does not use cookies, analytics or advertising trackers. It keeps one temporary value in your browser session so that the automatic language redirect runs only once; it contains no personal information and is cleared when you close the tab.",
+    "pv_s6_h": "Third-party services",
+    "pv_s6_p": "To display this website, your browser loads fonts from Google Fonts and icons and scripts from the jsDelivr content delivery network, so those providers receive your IP address and browser details. Links to Google Maps, WhatsApp, LinkedIn, Facebook and Instagram lead to services with their own privacy policies. Our hosting provider (GreenGeeks) may keep standard server logs, such as IP addresses and pages requested, for security and operation.",
+    "pv_s7_h": "How long we keep it",
+    "pv_s7_p": "We keep enquiry emails for as long as needed to respond and for our business records.",
+    "pv_s8_h": "Your choices",
+    "pv_s8_p": "You may ask us what personal information we hold about you, and ask us to correct or delete it, by contacting us.",
+    "pv_s9_h": "Changes to this policy",
+    "pv_s9_p": "We may update this policy from time to time. The date at the top shows when it was last changed.",
+    "pv_s10_h": "Contact us",
+    "pv_s10_p": "For questions about this policy or your information, call (868) 230-9702, write to 71 Warren Road, Bejucal, Cunupia, Trinidad and Tobago, or email",
+    "bc_page": "Privacy Policy"
+  },
+  "es": {
+    "nav_home": "Inicio",
+    "nav_about": "Nosotros",
+    "nav_services": "Servicios",
+    "nav_depot": "Depósito",
+    "nav_projects": "Proyectos",
+    "nav_contact": "Contacto",
+    "nav_cta": "Cuéntenos su Necesidad",
+    "cta_label": "Trabaje con Nosotros",
+    "cta_title_html": "¿Tiene un <span>Proyecto</span><br>en Mente?",
+    "cta_sub": "Díganos qué necesita construir, reparar o entregar. Nuestro equipo le responderá con un plan.",
+    "cta_btn1": "Cuéntenos sus Necesidades →",
+    "cta_btn2": "Ver Depósito de Equipos",
+    "footer_slogan": "Seguridad, Servicio y Sostenibilidad",
+    "footer_rights": "Todos los derechos reservados.",
+    "footer_privacy": "Política de Privacidad",
+    "pv_label": "Legal",
+    "pv_title_html": "Política de <span>Privacidad</span>",
+    "pv_desc": "Cómo Q² Machines recopila, utiliza y protege la información personal que usted envía a través de este sitio web.",
+    "pv_updated": "Última actualización: 2026-10-12",
+    "pv_s1_h": "Quiénes somos",
+    "pv_s1_p": "Este sitio web, www.q2m.io, es operado por Q² Machines (que opera como Quarryquip Ltd), 71 Warren Road, Bejucal, Cunupia, Trinidad y Tobago.",
+    "pv_s2_h": "Qué recopilamos",
+    "pv_s2_p": "Únicamente lo que usted decide enviarnos mediante los formularios de consulta: su nombre, correo electrónico y mensaje y, si los proporciona, el nombre de su empresa, su número de teléfono, el servicio o equipo sobre el que consulta y la forma en que desea que le respondamos. Le pedimos no incluir información personal sensible en su mensaje.",
+    "pv_s3_h": "Cómo la usamos",
+    "pv_s3_p": "Usamos sus datos únicamente para responder a su consulta, preparar cotizaciones y coordinar los servicios o equipos que solicite. No vendemos su información ni la usamos con fines publicitarios.",
+    "pv_s4_h": "Cómo llega su consulta hasta nosotros",
+    "pv_s4_p": "Cuando envía un formulario, sus datos se entregan por correo electrónico, mediante EmailJS (emailjs.com), un servicio de envío de correo, a nuestro buzón de la empresa. Este sitio web no guarda los envíos de formularios en una base de datos.",
+    "pv_s5_h": "Cookies y seguimiento",
+    "pv_s5_p": "Este sitio web no utiliza cookies, analítica ni rastreadores publicitarios. Guarda un único valor temporal en la sesión de su navegador para que la redirección automática de idioma se ejecute solo una vez; no contiene información personal y se borra al cerrar la pestaña.",
+    "pv_s6_h": "Servicios de terceros",
+    "pv_s6_p": "Para mostrar este sitio web, su navegador carga fuentes de Google Fonts e íconos y scripts de la red de distribución de contenido jsDelivr, por lo que esos proveedores reciben su dirección IP y datos del navegador. Los enlaces a Google Maps, WhatsApp, LinkedIn, Facebook e Instagram llevan a servicios con sus propias políticas de privacidad. Nuestro proveedor de alojamiento (GreenGeeks) puede conservar registros estándar del servidor, como direcciones IP y páginas solicitadas, por motivos de seguridad y funcionamiento.",
+    "pv_s7_h": "Cuánto tiempo la conservamos",
+    "pv_s7_p": "Conservamos los correos de consulta el tiempo necesario para responder y para nuestros registros comerciales.",
+    "pv_s8_h": "Sus opciones",
+    "pv_s8_p": "Puede pedirnos que le informemos qué información personal conservamos sobre usted, y que la corrijamos o eliminemos, contactándonos.",
+    "pv_s9_h": "Cambios en esta política",
+    "pv_s9_p": "Podemos actualizar esta política de vez en cuando. La fecha al inicio indica cuándo se modificó por última vez.",
+    "pv_s10_h": "Contáctenos",
+    "pv_s10_p": "Si tiene preguntas sobre esta política o su información, llame al (868) 230-9702, escriba a 71 Warren Road, Bejucal, Cunupia, Trinidad y Tobago, o envíe un correo a",
+    "bc_page": "Política de Privacidad"
+  },
+  "pt": {
+    "nav_home": "Início",
+    "nav_about": "Sobre",
+    "nav_services": "Serviços",
+    "nav_depot": "Depósito",
+    "nav_projects": "Projetos",
+    "nav_contact": "Contato",
+    "nav_cta": "Fale Conosco",
+    "cta_label": "Trabalhe Conosco",
+    "cta_title_html": "Tem um <span>Projeto</span><br>em Mente?",
+    "cta_sub": "Diga-nos o que precisa construir, reparar ou entregar. Nossa equipe responderá com um plano.",
+    "cta_btn1": "Fale Sobre Suas Necessidades →",
+    "cta_btn2": "Ver Depósito de Equipamentos",
+    "footer_slogan": "Segurança, Serviço e Sustentabilidade",
+    "footer_rights": "Todos os direitos reservados.",
+    "footer_privacy": "Política de Privacidade",
+    "pv_label": "Legal",
+    "pv_title_html": "Política de <span>Privacidade</span>",
+    "pv_desc": "Como a Q² Machines coleta, usa e protege as informações pessoais que você envia por este site.",
+    "pv_updated": "Última atualização: 2026-10-12",
+    "pv_s1_h": "Quem somos",
+    "pv_s1_p": "Este site, www.q2m.io, é operado pela Q² Machines (que opera como Quarryquip Ltd), 71 Warren Road, Bejucal, Cunupia, Trinidad e Tobago.",
+    "pv_s2_h": "O que coletamos",
+    "pv_s2_p": "Somente o que você decide nos enviar pelos formulários de contato: seu nome, e-mail e mensagem e, se você informar, o nome da sua empresa, seu telefone, o serviço ou equipamento sobre o qual está perguntando e como prefere que respondamos. Pedimos que não inclua informações pessoais sensíveis na mensagem.",
+    "pv_s3_h": "Como usamos",
+    "pv_s3_p": "Usamos seus dados somente para responder à sua solicitação, preparar orçamentos e organizar os serviços ou equipamentos solicitados. Não vendemos suas informações e não as usamos para publicidade.",
+    "pv_s4_h": "Como sua solicitação chega até nós",
+    "pv_s4_p": "Quando você envia um formulário, seus dados são entregues por e-mail, por meio do EmailJS (emailjs.com), um serviço de envio de e-mails, à caixa de correio da nossa empresa. Este site não guarda os envios de formulários em um banco de dados.",
+    "pv_s5_h": "Cookies e rastreamento",
+    "pv_s5_p": "Este site não usa cookies, análises nem rastreadores de publicidade. Ele guarda um único valor temporário na sessão do seu navegador para que o redirecionamento automático de idioma ocorra apenas uma vez; ele não contém informações pessoais e é apagado ao fechar a aba.",
+    "pv_s6_h": "Serviços de terceiros",
+    "pv_s6_p": "Para exibir este site, seu navegador carrega fontes do Google Fonts e ícones e scripts da rede de distribuição de conteúdo jsDelivr, de modo que esses provedores recebem seu endereço IP e dados do navegador. Links para Google Maps, WhatsApp, LinkedIn, Facebook e Instagram levam a serviços com políticas de privacidade próprias. Nosso provedor de hospedagem (GreenGeeks) pode manter registros padrão do servidor, como endereços IP e páginas acessadas, por segurança e operação.",
+    "pv_s7_h": "Por quanto tempo guardamos",
+    "pv_s7_p": "Guardamos os e-mails de solicitação pelo tempo necessário para responder e para nossos registros comerciais.",
+    "pv_s8_h": "Suas opções",
+    "pv_s8_p": "Você pode nos perguntar quais informações pessoais mantemos sobre você e pedir que as corrijamos ou excluímos, entrando em contato conosco.",
+    "pv_s9_h": "Alterações nesta política",
+    "pv_s9_p": "Podemos atualizar esta política de tempos em tempos. A data no topo mostra quando ela foi alterada pela última vez.",
+    "pv_s10_h": "Fale conosco",
+    "pv_s10_p": "Para dúvidas sobre esta política ou sobre suas informações, ligue para (868) 230-9702, escreva para 71 Warren Road, Bejucal, Cunupia, Trinidad e Tobago, ou envie um e-mail para",
+    "bc_page": "Política de Privacidade"
+  },
+  "nl": {
+    "nav_home": "Home",
+    "nav_about": "Over Ons",
+    "nav_services": "Diensten",
+    "nav_depot": "Depot",
+    "nav_projects": "Projecten",
+    "nav_contact": "Contact",
+    "nav_cta": "Vertel Ons Uw Behoefte",
+    "cta_label": "Werk Met Ons",
+    "cta_title_html": "Heeft U een <span>Project</span><br>in Gedachten?",
+    "cta_sub": "Vertel ons wat u wilt bouwen, repareren of realiseren. Ons team komt terug met een plan.",
+    "cta_btn1": "Vertel Ons Uw Behoeften →",
+    "cta_btn2": "Uitrustingsdepot Bekijken",
+    "footer_slogan": "Veiligheid, Service & Duurzaamheid",
+    "footer_rights": "Alle rechten voorbehouden.",
+    "footer_privacy": "Privacybeleid",
+    "pv_label": "Juridisch",
+    "pv_title_html": "Privacy<span>beleid</span>",
+    "pv_desc": "Hoe Q² Machines de persoonsgegevens verzamelt, gebruikt en beschermt die u via deze website verstuurt.",
+    "pv_updated": "Laatst bijgewerkt: 2026-10-12",
+    "pv_s1_h": "Wie wij zijn",
+    "pv_s1_p": "Deze website, www.q2m.io, wordt beheerd door Q² Machines (handelend onder de naam Quarryquip Ltd), 71 Warren Road, Bejucal, Cunupia, Trinidad en Tobago.",
+    "pv_s2_h": "Wat wij verzamelen",
+    "pv_s2_p": "Alleen wat u zelf via de aanvraagformulieren naar ons verstuurt: uw naam, e-mailadres en bericht en, als u ze opgeeft, uw bedrijfsnaam, telefoonnummer, de dienst of het apparaat waarover u vraagt en hoe u een antwoord wilt ontvangen. Neem geen gevoelige persoonsgegevens op in uw bericht.",
+    "pv_s3_h": "Hoe wij het gebruiken",
+    "pv_s3_p": "Wij gebruiken uw gegevens uitsluitend om uw aanvraag te beantwoorden, offertes op te stellen en de gevraagde diensten of apparatuur te regelen. Wij verkopen uw gegevens niet en gebruiken ze niet voor reclame.",
+    "pv_s4_h": "Hoe uw aanvraag bij ons komt",
+    "pv_s4_p": "Wanneer u een formulier verstuurt, worden uw gegevens per e-mail bezorgd via EmailJS (emailjs.com), een dienst voor e-mailbezorging, in de bedrijfspostbus. Deze website bewaart formulierinzendingen niet in een database.",
+    "pv_s5_h": "Cookies en tracking",
+    "pv_s5_p": "Deze website gebruikt geen cookies, analyses of advertentietrackers. Er wordt één tijdelijke waarde in uw browsersessie bewaard zodat de automatische taalomleiding maar één keer plaatsvindt; deze bevat geen persoonsgegevens en wordt gewist als u het tabblad sluit.",
+    "pv_s6_h": "Diensten van derden",
+    "pv_s6_p": "Om deze website weer te geven, laadt uw browser lettertypen van Google Fonts en pictogrammen en scripts van het contentdistributienetwerk jsDelivr, waardoor die partijen uw IP-adres en browsergegevens ontvangen. Links naar Google Maps, WhatsApp, LinkedIn, Facebook en Instagram leiden naar diensten met een eigen privacybeleid. Onze hostingprovider (GreenGeeks) kan standaard serverlogboeken bijhouden, zoals IP-adressen en opgevraagde pagina's, voor beveiliging en werking.",
+    "pv_s7_h": "Hoe lang wij het bewaren",
+    "pv_s7_p": "Wij bewaren aanvraagmails zolang dat nodig is om te antwoorden en voor onze bedrijfsadministratie.",
+    "pv_s8_h": "Uw keuzes",
+    "pv_s8_p": "U kunt ons vragen welke persoonsgegevens wij van u hebben en ons vragen deze te corrigeren of te verwijderen door contact met ons op te nemen.",
+    "pv_s9_h": "Wijzigingen in dit beleid",
+    "pv_s9_p": "Wij kunnen dit beleid van tijd tot tijd bijwerken. De datum bovenaan toont wanneer het voor het laatst is gewijzigd.",
+    "pv_s10_h": "Contact",
+    "pv_s10_p": "Voor vragen over dit beleid of uw gegevens kunt u bellen naar (868) 230-9702, schrijven naar 71 Warren Road, Bejucal, Cunupia, Trinidad en Tobago, of mailen naar",
+    "bc_page": "Privacybeleid"
+  },
+  "fr": {
+    "nav_home": "Accueil",
+    "nav_about": "À Propos",
+    "nav_services": "Services",
+    "nav_depot": "Dépôt",
+    "nav_projects": "Projets",
+    "nav_contact": "Contact",
+    "nav_cta": "Dites-nous vos Besoins",
+    "cta_label": "Travaillez Avec Nous",
+    "cta_title_html": "Avez-Vous un <span>Projet</span><br>en Tête ?",
+    "cta_sub": "Dites-nous ce que vous devez construire, réparer ou livrer. Notre équipe reviendra avec un plan.",
+    "cta_btn1": "Dites-nous Vos Besoins →",
+    "cta_btn2": "Parcourir le Dépôt d'Équipements",
+    "footer_slogan": "Sécurité, Service & Durabilité",
+    "footer_rights": "Tous droits réservés.",
+    "footer_privacy": "Politique de Confidentialité",
+    "pv_label": "Mentions légales",
+    "pv_title_html": "Politique de <span>Confidentialité</span>",
+    "pv_desc": "Comment Q² Machines collecte, utilise et protège les informations personnelles que vous envoyez via ce site web.",
+    "pv_updated": "Dernière mise à jour : 2026-10-12",
+    "pv_s1_h": "Qui nous sommes",
+    "pv_s1_p": "Ce site web, www.q2m.io, est exploité par Q² Machines (exerçant sous le nom Quarryquip Ltd), 71 Warren Road, Bejucal, Cunupia, Trinité-et-Tobago.",
+    "pv_s2_h": "Ce que nous collectons",
+    "pv_s2_p": "Uniquement ce que vous choisissez de nous envoyer via les formulaires de demande : votre nom, votre adresse e-mail et votre message et, si vous les fournissez, le nom de votre entreprise, votre numéro de téléphone, le service ou l'équipement concerné et la manière dont vous souhaitez recevoir notre réponse. Merci de ne pas inclure d'informations personnelles sensibles dans votre message.",
+    "pv_s3_h": "Comment nous les utilisons",
+    "pv_s3_p": "Nous utilisons vos coordonnées uniquement pour répondre à votre demande, préparer des devis et organiser les services ou équipements demandés. Nous ne vendons pas vos informations et ne les utilisons pas à des fins publicitaires.",
+    "pv_s4_h": "Comment votre demande nous parvient",
+    "pv_s4_p": "Lorsque vous envoyez un formulaire, vos informations sont transmises par e-mail via EmailJS (emailjs.com), un service d'envoi d'e-mails, vers la boîte de réception de notre entreprise. Ce site web ne conserve pas les envois de formulaires dans une base de données.",
+    "pv_s5_h": "Cookies et suivi",
+    "pv_s5_p": "Ce site web n'utilise ni cookies, ni outils d'analyse, ni traceurs publicitaires. Il conserve une seule valeur temporaire dans la session de votre navigateur afin que la redirection automatique de langue ne s'exécute qu'une fois ; elle ne contient aucune information personnelle et est effacée à la fermeture de l'onglet.",
+    "pv_s6_h": "Services tiers",
+    "pv_s6_p": "Pour afficher ce site, votre navigateur charge des polices depuis Google Fonts ainsi que des icônes et des scripts depuis le réseau de diffusion de contenu jsDelivr ; ces fournisseurs reçoivent donc votre adresse IP et les informations de votre navigateur. Les liens vers Google Maps, WhatsApp, LinkedIn, Facebook et Instagram mènent à des services dotés de leur propre politique de confidentialité. Notre hébergeur (GreenGeeks) peut conserver des journaux de serveur standard, tels que les adresses IP et les pages demandées, pour la sécurité et le fonctionnement.",
+    "pv_s7_h": "Durée de conservation",
+    "pv_s7_p": "Nous conservons les e-mails de demande le temps nécessaire pour répondre et pour nos registres commerciaux.",
+    "pv_s8_h": "Vos choix",
+    "pv_s8_p": "Vous pouvez nous demander quelles informations personnelles nous détenons sur vous, et nous demander de les corriger ou de les supprimer, en nous contactant.",
+    "pv_s9_h": "Modifications de cette politique",
+    "pv_s9_p": "Nous pouvons mettre à jour cette politique de temps à autre. La date en haut indique la dernière modification.",
+    "pv_s10_h": "Nous contacter",
+    "pv_s10_p": "Pour toute question sur cette politique ou vos informations, appelez le (868) 230-9702, écrivez au 71 Warren Road, Bejucal, Cunupia, Trinité-et-Tobago, ou envoyez un e-mail à",
+    "bc_page": "Politique de Confidentialité"
+  }
+};
+
+function applyTranslations(lang) {
+  currentLang = lang;
+  const t = translations[lang] || translations.en;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-flag').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === lang));
+}
+
+document.querySelectorAll('.lang-flag').forEach(btn => {
+  btn.addEventListener('click', () => applyTranslations(btn.getAttribute('data-lang')));
+});
+
+// ── REVEAL ─────────────────────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── FOOTER YEAR ────────────────────────────────────────────
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+// ── CONTACT EMAIL (assembled in the browser, like the rest of the site) ──
+(function() {
+  var el = document.getElementById('email-link-privacy');
+  if (!el) return;
+  var e = 'qhub' + String.fromCharCode(64) + 'q2m' + '.' + 'io';
+  el.href = 'mailto:' + e; el.textContent = e;
+})();
+</script>
+
+
+</body></html>
