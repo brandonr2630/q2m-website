@@ -506,7 +506,7 @@ nav.scrolled .nav-logo-name { transition: all .3s; }
   top: 0; left: 0; width: 4px; height: 100%;
   background: var(--gold);
 }
-.hero-content { position: relative; z-index: 1; max-width: 820px; }
+.hero-content { position: relative; z-index: 1; max-width: 820px; min-width: 0; }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
   font-family: 'Share Tech Mono', monospace;
@@ -1590,7 +1590,7 @@ footer {
       <em data-i18n="hero_title_2">Caribbean &amp; Latin America</em>
     </h1>
     <p class="hero-tagline">
-      <span class="hero-chevrons"><span class="hero-chev">›</span><span class="hero-chev">›</span><span class="hero-chev">›</span></span><span class="hero-tagline-text"><span class="hero-tagline-part" data-i18n="hero_tagline_1">As materials flow,</span>&nbsp;<span class="hero-tagline-part hero-tagline-white" data-i18n="hero_tagline_2">profits grow.</span></span>
+      <span class="hero-chevrons"><span class="hero-chev">›</span><span class="hero-chev">›</span><span class="hero-chev">›</span></span><span class="hero-tagline-text"><span class="hero-tagline-part" data-i18n="hero_tagline_1">As materials flow,</span> <span class="hero-tagline-part hero-tagline-white" data-i18n="hero_tagline_2">profits grow.</span></span>
     </p>
     <p class="hero-desc" data-i18n="hero_desc">
       Lost Time Incidents, unplanned downtime and inefficiency choke production flows, increasing costs and eroding profits. Q&#178; Machines has anchored its services on a bedrock of safety, sustainability and service — providing precision-engineered solutions designed, built and serviced in the region, for the region.
@@ -3221,7 +3221,7 @@ function applyTaglinePulse() {
     let html = '';
     for (const ch of text) {
       if (ch === ' ') {
-        html += '&nbsp;';
+        html += ' ';   // normal space so the tagline can wrap on narrow screens
       } else {
         const safe = ch === '&' ? '&amp;' : ch === '<' ? '&lt;' : ch === '>' ? '&gt;' : ch;
         html += `<span class="hero-letter" style="animation-delay:${delay.toFixed(2)}s">${safe}</span>`;
