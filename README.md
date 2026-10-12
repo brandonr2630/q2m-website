@@ -23,6 +23,7 @@ Marketing, equipment depot and projects site for Q2 Machines Ltd (Trinidad & Tob
 | `scripts/build-lang-pages.js` | Generates `index.html` in each language directory |
 | `scripts/build-depot-langs.js` | Generates `depot.html` in each language directory |
 | `scripts/build-projects-langs.js` | Generates `projects.html` in each language directory |
+| `scripts/update-sitemap-lastmod.js` | Sets each `sitemap.xml` `<lastmod>` to the last git commit date of that URL's source file (today if it has uncommitted changes). Run by `npm run build-all`, or on its own with `npm run update-sitemap` |
 | `scripts/upscale-images.js` | sharp utility: upscales JPG/PNG and converts to WebP |
 | `handoff.md`, `CLAUDE.md` | Working notes for developers and Claude Code (not deployed) |
 
@@ -33,7 +34,7 @@ Marketing, equipment depot and projects site for Q2 Machines Ltd (Trinidad & Tob
 ```bash
 cd scripts
 npm install          # first time only (cheerio, sharp)
-npm run build-all    # runs the three build-*.js scripts
+npm run build-all    # runs the three build-*.js scripts, then refreshes sitemap.xml lastmod dates
 ```
 
 Source files use CRLF line endings. Keep them when editing or scripting changes, or the diff becomes the whole file.
