@@ -560,6 +560,12 @@ nav.scrolled .nav-logo-name { transition: all .3s; }
   30%, 50% { opacity: 1; }
 }
 
+.hero-lead {
+  font-size: 19px; font-weight: 500;
+  color: var(--text); line-height: 1.5;
+  max-width: 560px; margin-bottom: 14px;
+  opacity: 0; animation: fadeUp .6s .45s forwards;
+}
 .hero-desc {
   font-size: 17px; font-weight: 300;
   color: var(--text-2); line-height: 1.7;
@@ -1424,6 +1430,7 @@ footer {
 
   .hero { padding: 120px 20px 60px; }
   .hero-title { font-size: clamp(22px, 7vw, 48px); }
+  .hero-lead { font-size: 17px; }
   .hero-desc { font-size: 15px; }
   .hero-specialisms { gap: 6px; }
   .hero-specialism-tag { font-size: 10px; padding: 3px 8px; }
@@ -1455,6 +1462,7 @@ footer {
   .hero { padding: 100px 16px 48px; }
   .hero-eyebrow { font-size: 10px; }
   .hero-title { font-size: clamp(16px, 7.5vw, 36px); letter-spacing: -0.5px; }
+  .hero-lead { font-size: 16px; }
   .hero-desc { font-size: 14px; line-height: 1.6; }
   .hero-actions { gap: 10px; }
 
@@ -1588,6 +1596,7 @@ footer {
     <p class="hero-tagline">
       <span class="hero-chevrons"><span class="hero-chev">›</span><span class="hero-chev">›</span><span class="hero-chev">›</span></span><span class="hero-tagline-text"><span class="hero-tagline-part" data-i18n="hero_tagline_1">As materials flow,</span> <span class="hero-tagline-part hero-tagline-white" data-i18n="hero_tagline_2">profits grow.</span></span>
     </p>
+    <p class="hero-lead" data-i18n="hero_lead">Trinidad-based engineers who design, manufacture and service industrial plant equipment.</p>
     <p class="hero-desc" data-i18n="hero_desc">
       Lost Time Incidents, unplanned downtime and inefficiency choke production flows, increasing costs and eroding profits. Q&#178; Machines has anchored its services on a bedrock of safety, sustainability and service — providing precision-engineered solutions designed, built and serviced in the region, for the region.
     </p>
@@ -1617,8 +1626,8 @@ footer {
       <span class="hero-specialism-tag" data-i18n="tag_safety">Plant Safety Systems</span>
     </div>
     <div class="hero-actions">
-      <a href="#services" class="btn-primary" data-i18n="hero_btn1">Our Services ↓</a>
-      <a href="#contact" class="btn-secondary" data-i18n="nav_cta">Tell Us Your Needs</a>
+      <a href="#contact" class="btn-primary" data-i18n="nav_cta">Tell Us Your Needs</a>
+      <a href="#services" class="btn-secondary" data-i18n="hero_btn1">Our Services ↓</a>
     </div>
   </div>
 
@@ -2173,8 +2182,8 @@ footer {
           </select>
         </div>
         <div class="form-group reveal reveal-delay-3">
-          <label class="form-label" for="cf-message" data-i18n="lbl_message">Project Description *</label>
-          <textarea id="cf-message" class="form-input" placeholder="Describe your project — scope, specifications, quantities, timeline, or just your idea. We'll take it from there." required></textarea>
+          <label class="form-label" for="cf-message" data-i18n="lbl_message">Project Description</label>
+          <textarea id="cf-message" class="form-input" placeholder="Describe your project — scope, specifications, quantities, timeline, or just your idea. Not sure yet? Just say hello."></textarea>
         </div>
         <div class="form-group reveal reveal-delay-4">
           <label class="form-label" data-i18n="lbl_response">Preferred Response Method</label>
@@ -2299,7 +2308,7 @@ function submitForm(e) {
   const phone   = document.getElementById('cf-phone').value.trim();
   const responseMethod = document.querySelector('input[name="response-method"]:checked')?.value || 'Email';
 
-  if (!name || !email || !message) {
+  if (!name || !email) {
     msgEl.textContent = 'Please fill in all required fields.';
     msgEl.className   = 'form-msg error';
     return;
@@ -2315,7 +2324,7 @@ function submitForm(e) {
     phone:           phone   || '—',
     service:         service || '—',
     response_method: responseMethod,
-    message:         message
+    message:         message || '—'
   };
 
   emailjs.send('service_ekf77uo', 'template_cemd6of', templateParams)
@@ -2582,6 +2591,7 @@ const translations = {
     hero_eyebrow: 'Safety, Service & Sustainability',
     hero_title_1: 'Plant Engineering & Manufacture', hero_title_2: 'Caribbean & Latin America', hero_title_3: '',
     hero_tagline_1: 'As materials flow,', hero_tagline_2: 'profits grow.',
+    hero_lead: 'Trinidad-based engineers who design, manufacture and service industrial plant equipment.',
     hero_desc: 'Lost Time Incidents, unplanned downtime and inefficiency choke production flows, increasing costs and eroding profits. Q² Machines has anchored its services on a bedrock of safety, sustainability and service — providing precision-engineered solutions designed, built and serviced in the region, for the region.',
     scroll: 'Scroll',
     about_label: 'About Us',
@@ -2634,7 +2644,7 @@ const translations = {
     lbl_email: 'Email *', ph_email: 'your-email',
     lbl_phone: 'Phone', ph_phone: '+1 (868) 000-0000',
     lbl_service: 'Service Required', ph_service: 'Select a service...',
-    lbl_message: 'Project Description *', ph_message: 'Describe your project — scope, specifications, quantities, timeline, or just your idea. We\'ll take it from there.',
+    lbl_message: 'Project Description', ph_message: 'Describe your project — scope, specifications, quantities, timeline, or just your idea. Not sure yet? Just say hello.',
     lbl_response: 'Preferred Response Method', opt_email: 'Email', opt_phone: 'Phone',
     btn_submit: 'Submit Enquiry',
     footer_home: 'Home', footer_about: 'About', footer_services: 'Services', footer_contact: 'Contact',
@@ -2701,6 +2711,7 @@ const translations = {
     hero_eyebrow: 'Seguridad, Servicio y Sostenibilidad',
     hero_title_1: 'Ingeniería de Plantas y Manufactura', hero_title_2: 'Caribe y Latinoamérica', hero_title_3: '',
     hero_tagline_1: 'Cuando los materiales fluyen,', hero_tagline_2: 'las ganancias crecen.',
+    hero_lead: 'Ingenieros con sede en Trinidad que diseñan, fabrican y mantienen equipos para plantas industriales.',
     hero_desc: 'Los Incidentes con Tiempo Perdido, el tiempo de inactividad no planificado y la ineficiencia sofocan los flujos de producción, aumentando los costos y erosionando las ganancias. Q² Machines ha anclado sus servicios en una base de seguridad, sostenibilidad y servicio — proporcionando soluciones de ingeniería de precisión diseñadas, construidas y mantenidas en la región, para la región.',
     scroll: 'Desplazar',
     about_label: 'Quiénes Somos',
@@ -2753,7 +2764,7 @@ const translations = {
     lbl_email: 'Correo Electrónico *', ph_email: 'su-correo',
     lbl_phone: 'Teléfono', ph_phone: '+1 (868) 000-0000',
     lbl_service: 'Servicio Requerido', ph_service: 'Seleccione un servicio...',
-    lbl_message: 'Descripción del Proyecto *', ph_message: 'Describa su proyecto — alcance, especificaciones, cantidades, plazo o simplemente su idea. Nosotros nos encargamos del resto.',
+    lbl_message: 'Descripción del Proyecto', ph_message: 'Describa su proyecto — alcance, especificaciones, cantidades, plazo o simplemente su idea. ¿Aún no lo tiene claro? Solo salúdenos.',
     lbl_response: 'Método de Respuesta Preferido', opt_email: 'Correo', opt_phone: 'Teléfono',
     btn_submit: 'Enviar Consulta',
     footer_home: 'Inicio', footer_about: 'Nosotros', footer_services: 'Servicios', footer_contact: 'Contacto',
@@ -2820,6 +2831,7 @@ const translations = {
     hero_eyebrow: 'Segurança, Serviço e Sustentabilidade',
     hero_title_1: 'Engenharia de Plantas e Manufatura', hero_title_2: 'Caribe e América Latina', hero_title_3: '',
     hero_tagline_1: 'Quando os materiais fluem,', hero_tagline_2: 'os lucros crescem.',
+    hero_lead: 'Engenheiros sediados em Trinidad que projetam, fabricam e mantêm equipamentos para plantas industriais.',
     hero_desc: 'Incidentes com Tempo Perdido, inatividade não planejada e ineficiência sufocam os fluxos de produção, aumentando os custos e corroendo os lucros. A Q² Machines ancorou seus serviços em uma base de segurança, sustentabilidade e serviço — fornecendo soluções de engenharia de precisão projetadas, construídas e mantidas na região, para a região.',
     scroll: 'Rolar',
     about_label: 'Sobre Nós',
@@ -2872,7 +2884,7 @@ const translations = {
     lbl_email: 'E-mail *', ph_email: 'seu-email',
     lbl_phone: 'Telefone', ph_phone: '+1 (868) 000-0000',
     lbl_service: 'Serviço Necessário', ph_service: 'Selecione um serviço...',
-    lbl_message: 'Descrição do Projeto *', ph_message: 'Descreva seu projeto — escopo, especificações, quantidades, prazo ou apenas sua ideia. Nós cuidamos do resto.',
+    lbl_message: 'Descrição do Projeto', ph_message: 'Descreva seu projeto — escopo, especificações, quantidades, prazo ou apenas sua ideia. Ainda não tem certeza? Basta dizer olá.',
     lbl_response: 'Método de Resposta Preferido', opt_email: 'E-mail', opt_phone: 'Telefone',
     btn_submit: 'Enviar Consulta',
     footer_home: 'Início', footer_about: 'Sobre', footer_services: 'Serviços', footer_contact: 'Contato',
@@ -2939,6 +2951,7 @@ const translations = {
     hero_eyebrow: 'Veiligheid, Service & Duurzaamheid',
     hero_title_1: 'Techniek & Productie', hero_title_2: 'Caribisch Gebied & Latijns-Amerika', hero_title_3: '',
     hero_tagline_1: 'Wanneer materialen stromen,', hero_tagline_2: 'groeien de winsten.',
+    hero_lead: 'Ingenieurs uit Trinidad die industriële installatieapparatuur ontwerpen, bouwen en onderhouden.',
     hero_desc: 'Verloren-tijdincidenten, ongeplande stilstand en inefficiëntie verstikken de productiestromen, verhogen de kosten en tasten de winst aan. Q² Machines heeft haar diensten verankerd in een fundament van veiligheid, duurzaamheid en service — met precisietechnische oplossingen, ontworpen, gebouwd en onderhouden in de regio, voor de regio.',
     scroll: 'Scrollen',
     about_label: 'Over Ons',
@@ -2991,7 +3004,7 @@ const translations = {
     lbl_email: 'E-mail *', ph_email: 'uw-email',
     lbl_phone: 'Telefoon', ph_phone: '+1 (868) 000-0000',
     lbl_service: 'Vereiste Dienst', ph_service: 'Selecteer een dienst...',
-    lbl_message: 'Projectbeschrijving *', ph_message: 'Beschrijf uw project — omvang, specificaties, hoeveelheden, tijdlijn of gewoon uw idee. Wij zorgen voor de rest.',
+    lbl_message: 'Projectbeschrijving', ph_message: 'Beschrijf uw project — omvang, specificaties, hoeveelheden, tijdlijn of gewoon uw idee. Nog niet zeker? Zeg gewoon hallo.',
     lbl_response: 'Gewenste Reactiemethode', opt_email: 'E-mail', opt_phone: 'Telefoon',
     btn_submit: 'Aanvraag Indienen',
     footer_home: 'Home', footer_about: 'Over Ons', footer_services: 'Diensten', footer_contact: 'Contact',
@@ -3058,6 +3071,7 @@ const translations = {
     hero_eyebrow: 'Sécurité, Service & Durabilité',
     hero_title_1: 'Ingénierie Industrielle & Fabrication', hero_title_2: 'Caraïbes & Amérique Latine', hero_title_3: '',
     hero_tagline_1: 'Quand les matériaux s\'écoulent,', hero_tagline_2: 'les profits croissent.',
+    hero_lead: 'Ingénieurs basés à Trinidad qui conçoivent, fabriquent et entretiennent des équipements pour usines industrielles.',
     hero_desc: 'Les Incidents avec Temps Perdu, les arrêts imprévus et l\'inefficacité étouffent les flux de production, augmentant les coûts et érodant les profits. Q² Machines a ancré ses services sur un socle de sécurité, durabilité et service — en fournissant des solutions d\'ingénierie de précision conçues, construites et entretenues dans la région, pour la région.',
     scroll: 'Défiler',
     about_label: 'À Propos',
@@ -3110,7 +3124,7 @@ const translations = {
     lbl_email: 'Email *', ph_email: 'votre-email',
     lbl_phone: 'Téléphone', ph_phone: '+1 (868) 000-0000',
     lbl_service: 'Service Requis', ph_service: 'Sélectionnez un service...',
-    lbl_message: 'Description du Projet *', ph_message: 'Décrivez votre projet — portée, spécifications, quantités, calendrier ou simplement votre idée. Nous prendrons soin du reste.',
+    lbl_message: 'Description du Projet', ph_message: 'Décrivez votre projet — portée, spécifications, quantités, calendrier ou simplement votre idée. Pas encore sûr ? Dites-nous simplement bonjour.',
     lbl_response: 'Méthode de Réponse Préférée', opt_email: 'Email', opt_phone: 'Téléphone',
     btn_submit: 'Soumettre la Demande',
     footer_home: 'Accueil', footer_about: 'À Propos', footer_services: 'Services', footer_contact: 'Contact',

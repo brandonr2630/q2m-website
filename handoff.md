@@ -95,9 +95,9 @@ Status: design drafted, **not approved, no code**. Branch `feat/products-page` e
 
 ### 5. CRO — homepage (Session 16 audit; none verified done)
 
-- [ ] Hero message clarity — one-line descriptor ("Industrial plant engineering, manufacture & maintenance — Trinidad & the Caribbean").
-- [ ] CTA hierarchy — primary button solid, secondary outlined.
-- [ ] Project Description field — make optional with helper text ("Not sure yet? Just say hello — we'll follow up within 1 business day.").
+- [x] Hero message clarity — one-line lead under the tagline (`hero_lead`: "Trinidad-based engineers who design, manufacture and service industrial plant equipment."), all 5 languages. nl/fr wording needs a native check.
+- [x] CTA hierarchy — "Tell Us Your Needs" is now the solid primary button (first), "Our Services ↓" the outlined secondary. The old primary was the browse action, not the enquiry.
+- [x] Project Description field — now optional (label without `*`, no `required`, handler needs only name + email, empty description is sent as "—"); placeholder ends "Not sure yet? Just say hello." in 5 languages. The depot enquiry form is unchanged.
 - [ ] Social proof above the fold (client logos, pull-quote, or stat row).
 - [ ] "We typically respond within 1 business day" near Submit.
 - [ ] Services carousel → 2×4 icon grid (deferred repeatedly).
