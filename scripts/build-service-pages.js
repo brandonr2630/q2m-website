@@ -51,6 +51,8 @@ function loadTranslations(raw) {
 
 const aboutRaw = fs.readFileSync(path.join(ROOT, 'about.html'), 'utf-8');
 const aboutT   = loadTranslations(aboutRaw);
+// Homepage service-card strings (c3_p1, c4_s2, ...): bullet lists reuse them so pages match the cards
+const indexT   = loadTranslations(fs.readFileSync(path.join(ROOT, 'index.html'), 'utf-8'));
 
 const urlFor = (lang, slug) => `${BASE}/${lang.dir}services/${slug}.html`;
 
@@ -102,40 +104,26 @@ function schemaFor(page, lang, p, url) {
   };
 }
 
-function contentHtml(c, p) {
+function contentHtml(c, p, supply, does) {
   const li = (arr) => arr.map((x) => `        <li>${esc(x)}</li>`).join('\n');
-  const note = p.supplyNoteHtml ? p.supplyNoteHtml : esc(p.supplyNote);
-  return `
+  const note = p.supplyNoteHtml ? p.supplyNoteHtml : (p.supplyNote ? esc(p.supplyNote) : '');
+  const block = (heading, inner) => `
     <div class="content-block reveal">
-      <h2>${esc(c.supplyH)}</h2>
-      <ul class="facts-list">
-${li(p.supply)}
-      </ul>
-      <p>${note}</p>
-    </div>
-    <div class="content-block reveal">
-      <h2>${esc(c.doH)}</h2>
-      <ul class="facts-list">
-${li(p.does)}
-      </ul>
-    </div>
-    <div class="content-block reveal">
-      <h2>${esc(c.houseH)}</h2>
-      <p>${esc(p.house)}</p>
-    </div>
-    <div class="content-block reveal">
-      <h2>${esc(c.projectH)}</h2>
-      <p>${esc(p.project)}</p>
-      <p><a href="/projects.html">${esc(c.projectsLink)}</a></p>
-    </div>
-    <div class="content-block reveal">
-      <h2>${esc(c.faqH)}</h2>
-${p.faq.map(([q, a]) => `      <h3>${esc(q)}</h3>\n      <p>${esc(a)}</p>`).join('\n')}
-    </div>
-  `;
+      <h2>${esc(heading)}</h2>
+${inner}
+    </div>`;
+  const parts = [];
+  parts.push(block(c.supplyH, `      <ul class="facts-list">\n${li(supply)}\n      </ul>` + (note ? `\n      <p>${note}</p>` : '')));
+  parts.push(block(c.doH, `      <ul class="facts-list">\n${li(does)}\n      </ul>`));
+  if (p.house) parts.push(block(c.houseH, `      <p>${esc(p.house)}</p>`));
+  else if (p.where) parts.push(block(c.whereH, `      <p>${esc(p.where)}</p>`));
+  if (p.project) parts.push(block(c.projectH, `      <p>${esc(p.project)}</p>\n      <p><a href="/projects.html">${esc(c.projectsLink)}</a></p>`));
+  parts.push(block(c.faqH, p.faq.map(([q, a]) => `      <h3>${esc(q)}</h3>\n      <p>${esc(a)}</p>`).join('\n')));
+  return parts.join('') + '\n  ';
 }
 
-const FAQ_CSS = `.content-block h3{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;letter-spacing:.5px;color:var(--text);margin:22px 0 8px;}
+const FAQ_CSS = `.page-hero h1{overflow-wrap:break-word;}
+.content-block h3{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;letter-spacing:.5px;color:var(--text);margin:22px 0 8px;}
 `;
 
 const FLAG_SCRIPT = `// ── LANGUAGE FLAGS ────────────────────────────────────────
@@ -211,7 +199,13 @@ function build(page, lang) {
     <h1 class="reveal reveal-delay-1">${p.h1Html}</h1>
     <p class="reveal reveal-delay-2">${esc(p.lead)}</p>
   `);
-  $('.page-inner').html(contentHtml(c, p));
+  const listOf = (keys) => keys.map((k) => {
+    if (indexT[code][k] === undefined) throw new Error(`${page.slug}/${code}: missing homepage string ${k}`);
+    return indexT[code][k];
+  });
+  const supply = p.supply || listOf(page.supplyKeys);
+  const does   = p.does   || listOf(page.doKeys);
+  $('.page-inner').html(contentHtml(c, p, supply, does));
 
   // CTA: enquiry form with the service pre-selected; secondary button to the depot
   $('.cta-btn-primary').attr('href', `/?service=${page.serviceParam}#contact`);
@@ -237,7 +231,7 @@ function build(page, lang) {
       const href = $(el).attr('href');
       if (href === '/') $(el).attr('href', `/${code}/`);
       else if (href.startsWith('/#') || href.startsWith('/?')) $(el).attr('href', `/${code}/${href.slice(1)}`);
-      else if (PAGE_LINKS.has(href)) $(el).attr('href', `/${code}${href}`);
+      else if (PAGE_LINKS.has(href) || href.startsWith('/services/')) $(el).attr('href', `/${code}${href}`);
     });
   }
 

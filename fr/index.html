@@ -1883,7 +1883,7 @@ footer {
       <p class="section-body reveal reveal-delay-2" style="max-width:360px;margin-bottom:0;" data-i18n="svc_body">Du concept à la mise en service — nous concevons, fabriquons et entretenons les systèmes qui font avancer l'industrie.</p>
     </div>
 
-    <p class="svc-pages reveal"><span data-i18n="svcp_label">En savoir plus :</span> <a href="/fr/services/conveyor-systems.html" data-i18n="svcp_conveyors">Systèmes de Convoyage</a> <span aria-hidden="true">·</span> <a href="/fr/services/concrete-plants.html" data-i18n="svcp_concrete">Centrales à Béton</a></p>
+    <p class="svc-pages reveal"><span data-i18n="svcp_label">En savoir plus :</span> <a href="/fr/services/conveyor-systems.html" data-i18n="svcp_conveyors">Systèmes de Convoyage</a> <span aria-hidden="true">·</span> <a href="/fr/services/concrete-plants.html" data-i18n="svcp_concrete">Centrales à Béton</a> <span aria-hidden="true">·</span> <a href="/fr/services/pumps-and-drives.html" data-i18n="svcp_pumps">Pompes et Moteurs</a> <span aria-hidden="true">·</span> <a href="/fr/services/fabrication-and-machining.html" data-i18n="svcp_fab">Fabrication et Usinage</a> <span aria-hidden="true">·</span> <a href="/fr/services/structural-steel.html" data-i18n="svcp_struct">Structures en Acier</a> <span aria-hidden="true">·</span> <a href="/fr/services/geotechnical-equipment.html" data-i18n="svcp_geo">Équipements Géotechniques</a></p>
 
     <!-- ── DESKTOP WHEEL CAROUSEL ── -->
     <div class="arc-stage" id="arc-stage">
@@ -2439,7 +2439,10 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 // ── CONTACT FORM ─────────────────────────────────
 // Enquiry links from the service pages (?service=conveyors|concrete) pre-select the service
 (function () {
-  var map = { conveyors: 'Bulk Material Handling Systems', concrete: 'Concrete Plants' };
+  var map = {
+    conveyors: 'Bulk Material Handling Systems', concrete: 'Concrete Plants', pumps: 'Pumps',
+    fabrication: 'Fabrication & Welding', structural: 'Structural Systems', geotechnical: 'Geotechnical Testing Equipment'
+  };
   try {
     var key = new URLSearchParams(location.search).get('service');
     var sel = document.getElementById('cf-service');
@@ -2788,7 +2791,7 @@ const translations = {
     about_pt4: 'Serving the Quarry, Minerals, Energy, Industrial & Manufacturing sectors',
     about_pt5: 'Regional reach: Caribbean, Venezuela, Colombia, Guyana, Suriname and South America',
     svc_label: 'What We Do', svc_title_1: 'Our', svc_title_2: 'Services',
-    svcp_label: 'Learn more:', svcp_conveyors: 'Conveyor Systems', svcp_concrete: 'Concrete Plants',
+    svcp_label: 'Learn more:', svcp_conveyors: 'Conveyor Systems', svcp_concrete: 'Concrete Plants', svcp_pumps: 'Pumps & Drives', svcp_fab: 'Fabrication & Machining', svcp_struct: 'Structural Steel', svcp_geo: 'Geotechnical Equipment',
     svc_body: 'From concept to commissioning — we design, manufacture and service the systems that keep industry moving.',
     contact_label: 'Get In Touch',
     contact_title_1: 'Tell Us About', contact_title_2: 'Your Project', contact_title_3: 'Needs',
@@ -2909,7 +2912,7 @@ const translations = {
     about_pt4: 'Atendiendo los sectores de Canteras, Minerales, Energía, Industrial y Manufactura',
     about_pt5: 'Alcance regional: Caribe, Venezuela, Colombia, Guyana, Surinam y Suramérica',
     svc_label: 'Lo Que Hacemos', svc_title_1: 'Nuestros', svc_title_2: 'Servicios',
-    svcp_label: 'Más información:', svcp_conveyors: 'Sistemas de Transporte', svcp_concrete: 'Plantas de Concreto',
+    svcp_label: 'Más información:', svcp_conveyors: 'Sistemas de Transporte', svcp_concrete: 'Plantas de Concreto', svcp_pumps: 'Bombas y Motores', svcp_fab: 'Fabricación y Mecanizado', svcp_struct: 'Estructuras de Acero', svcp_geo: 'Equipos Geotécnicos',
     svc_body: 'Del concepto a la puesta en marcha — diseñamos, fabricamos y damos servicio a los sistemas que mantienen la industria en movimiento.',
     contact_label: 'Contáctenos',
     contact_title_1: 'Cuéntenos Sobre', contact_title_2: 'Su Proyecto', contact_title_3: '',
@@ -3030,7 +3033,7 @@ const translations = {
     about_pt4: 'Atendendo os setores de Mineração, Minerais, Energia, Industrial e Manufatura',
     about_pt5: 'Alcance regional: Caribe, Venezuela, Colômbia, Guiana, Suriname e América do Sul',
     svc_label: 'O Que Fazemos', svc_title_1: 'Nossos', svc_title_2: 'Serviços',
-    svcp_label: 'Saiba mais:', svcp_conveyors: 'Sistemas de Transporte', svcp_concrete: 'Usinas de Concreto',
+    svcp_label: 'Saiba mais:', svcp_conveyors: 'Sistemas de Transporte', svcp_concrete: 'Usinas de Concreto', svcp_pumps: 'Bombas e Motores', svcp_fab: 'Fabricação e Usinagem', svcp_struct: 'Estruturas de Aço', svcp_geo: 'Equipamentos Geotécnicos',
     svc_body: 'Do conceito ao comissionamento — projetamos, fabricamos e realizamos a manutenção dos sistemas que mantêm a indústria em movimento.',
     contact_label: 'Entre em Contato',
     contact_title_1: 'Fale Sobre', contact_title_2: 'Seu Projeto', contact_title_3: '',
@@ -3151,7 +3154,7 @@ const translations = {
     about_pt4: 'Bedient de sectoren Steengroeven, Mineralen, Energie, Industrie en Productie',
     about_pt5: 'Regionaal bereik: Caribisch gebied, Venezuela, Colombia, Guyana, Suriname en Zuid-Amerika',
     svc_label: 'Wat Wij Doen', svc_title_1: 'Onze', svc_title_2: 'Diensten',
-    svcp_label: 'Meer informatie:', svcp_conveyors: 'Transportbandsystemen', svcp_concrete: 'Betoncentrales',
+    svcp_label: 'Meer informatie:', svcp_conveyors: 'Transportbandsystemen', svcp_concrete: 'Betoncentrales', svcp_pumps: 'Pompen en Motoren', svcp_fab: 'Fabricage en Bewerking', svcp_struct: 'Staalconstructies', svcp_geo: 'Geotechnische Apparatuur',
     svc_body: 'Van concept tot inbedrijfstelling — wij ontwerpen, vervaardigen en onderhouden de systemen die de industrie draaiende houden.',
     contact_label: 'Neem Contact Op',
     contact_title_1: 'Vertel Ons Over', contact_title_2: 'Uw Project', contact_title_3: '',
@@ -3272,7 +3275,7 @@ const translations = {
     about_pt4: 'Au service des secteurs des Carrières, Minéraux, Énergie, Industrie et Fabrication',
     about_pt5: 'Portée régionale : Caraïbes, Venezuela, Colombie, Guyana, Suriname et Amérique du Sud',
     svc_label: 'Ce Que Nous Faisons', svc_title_1: 'Nos', svc_title_2: 'Services',
-    svcp_label: 'En savoir plus :', svcp_conveyors: 'Systèmes de Convoyage', svcp_concrete: 'Centrales à Béton',
+    svcp_label: 'En savoir plus :', svcp_conveyors: 'Systèmes de Convoyage', svcp_concrete: 'Centrales à Béton', svcp_pumps: 'Pompes et Moteurs', svcp_fab: 'Fabrication et Usinage', svcp_struct: 'Structures en Acier', svcp_geo: 'Équipements Géotechniques',
     svc_body: 'Du concept à la mise en service — nous concevons, fabriquons et entretenons les systèmes qui font avancer l\'industrie.',
     contact_label: 'Contactez-Nous',
     contact_title_1: 'Parlez-Nous de', contact_title_2: 'Votre Projet', contact_title_3: '',
