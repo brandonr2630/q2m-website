@@ -236,6 +236,12 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 .photo-grid{display:grid;gap:14px;margin:22px 0 8px;}
 .photo-grid-3{grid-template-columns:repeat(3,1fr);}
 .photo-grid-4{grid-template-columns:repeat(4,1fr);}
+.content-block a.photo-link{display:block;text-decoration:none;cursor:zoom-in;}
+.lightbox{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;}
+.lightbox[hidden]{display:none;}
+.lightbox img{max-width:100%;max-height:calc(100vh - 110px);width:auto;height:auto;object-fit:contain;cursor:default;}
+.lightbox-cap{font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:.5px;color:var(--text-2);margin-top:14px;text-align:center;}
+.lightbox-close{position:absolute;top:14px;right:18px;width:44px;height:44px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:28px;line-height:1;cursor:pointer;}
 .photo-single{max-width:520px;margin:22px 0 8px;}
 @media(max-width:768px){.photo-grid-3{grid-template-columns:1fr;}.photo-grid-4{grid-template-columns:repeat(2,1fr);}}
 .facts-list-wide{grid-template-columns:1fr;gap:14px;}
@@ -337,9 +343,9 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
         <li data-i18n="ab_mfg7">Apparatuur voor Agrarische Verwerking en Graanhantering</li>
       </ul>
       <div class="photo-grid photo-grid-3">
-        <figure class="photo"><img src="/assets/about/belt-feeder.webp" alt="Vervaardigde bandvoeder met rollenbed, reductor, lagerblokken en hijsogen in de werkplaats van Q² Machines" data-i18n-alt="ab_img_belt_alt" width="1000" height="750" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_belt_cap">Bandvoeder in eigen werkplaats gefabriceerd</figcaption></figure>
-        <figure class="photo"><img src="/assets/about/structural-frame-raw.webp" alt="Gelaste stalen constructie met kruisverbanden en hijsogen in productie bij Q² Machines" data-i18n-alt="ab_img_frame1_alt" width="1000" height="750" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_frame1_cap">Staalconstructie in productie</figcaption></figure>
-        <figure class="photo"><img src="/assets/about/structural-frame-finished.webp" alt="Gelaste stalen constructie met hijsogen op een geschilderd stalen basisframe in de werkplaats van Q² Machines" data-i18n-alt="ab_img_frame2_alt" width="1000" height="750" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_frame2_cap">Constructie op geschilderd basisframe</figcaption></figure>
+        <figure class="photo"><a class="photo-link" href="/assets/about/large/belt-feeder.webp"><img src="/assets/about/belt-feeder.webp" alt="Vervaardigde bandvoeder met rollenbed, reductor, lagerblokken en hijsogen in de werkplaats van Q² Machines" data-i18n-alt="ab_img_belt_alt" width="1000" height="750" loading="lazy" decoding="async"></a><figcaption data-i18n="ab_img_belt_cap">Bandvoeder in eigen werkplaats gefabriceerd</figcaption></figure>
+        <figure class="photo"><a class="photo-link" href="/assets/about/large/structural-frame-raw.webp"><img src="/assets/about/structural-frame-raw.webp" alt="Gelaste stalen constructie met kruisverbanden en hijsogen in productie bij Q² Machines" data-i18n-alt="ab_img_frame1_alt" width="1000" height="750" loading="lazy" decoding="async"></a><figcaption data-i18n="ab_img_frame1_cap">Staalconstructie in productie</figcaption></figure>
+        <figure class="photo"><a class="photo-link" href="/assets/about/large/structural-frame-finished.webp"><img src="/assets/about/structural-frame-finished.webp" alt="Gelaste stalen constructie met hijsogen op een geschilderd stalen basisframe in de werkplaats van Q² Machines" data-i18n-alt="ab_img_frame2_alt" width="1000" height="750" loading="lazy" decoding="async"></a><figcaption data-i18n="ab_img_frame2_cap">Constructie op geschilderd basisframe</figcaption></figure>
       </div>
       <h3 data-i18n="ab_eng_h">Engineeringdiensten</h3>
       <ul class="facts-list">
@@ -349,10 +355,10 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
         <li data-i18n="ab_eng4">Constructie en Lassen</li>
       </ul>
       <div class="photo-grid photo-grid-4">
-        <figure class="photo"><img src="/assets/about/motor-before.webp" alt="Gecorrodeerde driefasige elektromotor met een verroeste meergroefs riemschijf vóór de reparatie" data-i18n-alt="ab_img_motor1_alt" width="900" height="1200" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_motor1_cap">Motorreparatie: voor</figcaption></figure>
-        <figure class="photo"><img src="/assets/about/motor-after.webp" alt="Gerepareerde en blauw gespoten elektromotor met een meergroefs riemschijf op een verstelbare veerbasis" data-i18n-alt="ab_img_motor2_alt" width="900" height="1200" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_motor2_cap">Motorreparatie: na</figcaption></figure>
-        <figure class="photo"><img src="/assets/about/pump-before.webp" alt="Zwaar gecorrodeerde slurrypomp en aandrijfframe vóór de revisie" data-i18n-alt="ab_img_pump1_alt" width="900" height="1200" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_pump1_cap">Slurrypomp-reparatie: voor</figcaption></figure>
-        <figure class="photo"><img src="/assets/about/pump-after.webp" alt="Gereviseerde slurrypomp met opnieuw gespoten behuizing, motor op een gefabriceerd frame en een gele afscherming" data-i18n-alt="ab_img_pump2_alt" width="900" height="1200" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_pump2_cap">Slurrypomp-reparatie: na</figcaption></figure>
+        <figure class="photo"><a class="photo-link" href="/assets/about/large/motor-before.webp"><img src="/assets/about/motor-before.webp" alt="Gecorrodeerde driefasige elektromotor met een verroeste meergroefs riemschijf vóór de reparatie" data-i18n-alt="ab_img_motor1_alt" width="900" height="1200" loading="lazy" decoding="async"></a><figcaption data-i18n="ab_img_motor1_cap">Motorreparatie: voor</figcaption></figure>
+        <figure class="photo"><a class="photo-link" href="/assets/about/large/motor-after.webp"><img src="/assets/about/motor-after.webp" alt="Gerepareerde en blauw gespoten elektromotor met een meergroefs riemschijf op een verstelbare veerbasis" data-i18n-alt="ab_img_motor2_alt" width="900" height="1200" loading="lazy" decoding="async"></a><figcaption data-i18n="ab_img_motor2_cap">Motorreparatie: na</figcaption></figure>
+        <figure class="photo"><a class="photo-link" href="/assets/about/large/pump-before.webp"><img src="/assets/about/pump-before.webp" alt="Zwaar gecorrodeerde slurrypomp en aandrijfframe vóór de revisie" data-i18n-alt="ab_img_pump1_alt" width="900" height="1200" loading="lazy" decoding="async"></a><figcaption data-i18n="ab_img_pump1_cap">Slurrypomp-reparatie: voor</figcaption></figure>
+        <figure class="photo"><a class="photo-link" href="/assets/about/large/pump-after.webp"><img src="/assets/about/pump-after.webp" alt="Gereviseerde slurrypomp met opnieuw gespoten behuizing, motor op een gefabriceerd frame en een gele afscherming" data-i18n-alt="ab_img_pump2_alt" width="900" height="1200" loading="lazy" decoding="async"></a><figcaption data-i18n="ab_img_pump2_cap">Slurrypomp-reparatie: na</figcaption></figure>
       </div>
       <h3 data-i18n="ab_sal_h">Apparatuurverkoop</h3>
       <ul class="facts-list">
@@ -374,7 +380,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
         <li data-i18n-html="ab_ind5_html"><strong>Recycling en Afvalbeheer:</strong> gemeentelijke en particuliere afvalverwerkingsbedrijven die gespecialiseerde sorteer-, transport- en versnipperingsmachines nodig hebben.</li>
         <li data-i18n-html="ab_ind6_html"><strong>Algemene Industriële Productie en Procesinstallaties:</strong> productiebedrijven die precisiebewerking (CNC/conventioneel), motorherwikkeling, installatierevisie en maatwerk constructiefabricage nodig hebben.</li>
       </ul>
-      <figure class="photo photo-single"><img src="/assets/about/slurry-pump-site.webp" alt="Slurrypomp en motor geïnstalleerd naast een zand- en grindverwerkingstrechter bij een natte aggregaatverwerkingsinstallatie" data-i18n-alt="ab_img_site_alt" width="1000" height="750" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_site_cap">Slurrypomp ter plaatse geïnstalleerd</figcaption></figure>
+      <figure class="photo photo-single"><a class="photo-link" href="/assets/about/large/slurry-pump-site.webp"><img src="/assets/about/slurry-pump-site.webp" alt="Slurrypomp en motor geïnstalleerd naast een zand- en grindverwerkingstrechter bij een natte aggregaatverwerkingsinstallatie" data-i18n-alt="ab_img_site_alt" width="1000" height="750" loading="lazy" decoding="async"></a><figcaption data-i18n="ab_img_site_cap">Slurrypomp ter plaatse geïnstalleerd</figcaption></figure>
     </div>
     <div class="content-block reveal">
       <h2 data-i18n="ab_how_h">Hoe wij werken</h2>
@@ -389,7 +395,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
         <li data-i18n="ab_cap7">Inbedrijfstelling en opstart</li>
         <li data-i18n="ab_cap8">Nazorg en reserveonderdelen</li>
       </ul>
-      <figure class="photo photo-single"><img src="/assets/about/cnc-plasma-cutting.webp" alt="CNC-plasmasnijtafel met stalen plaatdelen uit één plaat gesneden bij Q² Machines" data-i18n-alt="ab_img_cnc_alt" width="1000" height="750" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_cnc_cap">CNC-plasmasnijden in eigen werkplaats</figcaption></figure>
+      <figure class="photo photo-single"><a class="photo-link" href="/assets/about/large/cnc-plasma-cutting.webp"><img src="/assets/about/cnc-plasma-cutting.webp" alt="CNC-plasmasnijtafel met stalen plaatdelen uit één plaat gesneden bij Q² Machines" data-i18n-alt="ab_img_cnc_alt" width="1000" height="750" loading="lazy" decoding="async"></a><figcaption data-i18n="ab_img_cnc_cap">CNC-plasmasnijden in eigen werkplaats</figcaption></figure>
     </div>
     <div class="content-block reveal">
       <h2 data-i18n="ab_where_h">Waar wij werken</h2>
@@ -454,6 +460,13 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
   </div>
 </footer>
 
+<!-- ── PHOTO LIGHTBOX ── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" hidden="">
+  <button type="button" class="lightbox-close" data-i18n-aria="ab_lb_close" aria-label="Sluiten">×</button>
+  <img src="" alt="">
+  <p class="lightbox-cap"></p>
+</div>
+
 <!-- ── WHATSAPP ── -->
 <a id="whatsapp-btn" href="https://wa.me/18682925214" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
@@ -499,6 +512,7 @@ const translations = {
     "ab_do_h": "What do we offer?",
     "ab_do_p": "The scope of our business offerings includes Manufacturing, Engineering Services & Equipment Sales.",
     "ab_do_link": "See our services →",
+    "ab_lb_close": "Close",
     "ab_img_belt_alt": "Fabricated belt feeder with roller bed, gearbox, pillow-block bearings and lifting lugs in the Q² Machines workshop",
     "ab_img_belt_cap": "Belt feeder fabricated in-house",
     "ab_img_frame1_alt": "Welded steel structural frame with cross bracing and lifting lugs under fabrication at Q² Machines",
@@ -585,6 +599,7 @@ const translations = {
     "ab_do_h": "¿Qué ofrecemos?",
     "ab_do_p": "El alcance de nuestra oferta comercial incluye Manufactura, Servicios de Ingeniería y Venta de Equipos.",
     "ab_do_link": "Ver nuestros servicios →",
+    "ab_lb_close": "Cerrar",
     "ab_img_belt_alt": "Alimentador de banda fabricado con lecho de rodillos, reductor, chumaceras y orejas de izaje en el taller de Q² Machines",
     "ab_img_belt_cap": "Alimentador de banda fabricado en nuestro taller",
     "ab_img_frame1_alt": "Estructura de acero soldada con arriostramiento cruzado y orejas de izaje en fabricación en Q² Machines",
@@ -671,6 +686,7 @@ const translations = {
     "ab_do_h": "O que oferecemos?",
     "ab_do_p": "O escopo de nossa oferta comercial inclui Fabricação, Serviços de Engenharia e Venda de Equipamentos.",
     "ab_do_link": "Veja nossos serviços →",
+    "ab_lb_close": "Fechar",
     "ab_img_belt_alt": "Alimentador de correia fabricado com leito de rolos, redutor, mancais e olhais de içamento na oficina da Q² Machines",
     "ab_img_belt_cap": "Alimentador de correia fabricado em nossa oficina",
     "ab_img_frame1_alt": "Estrutura de aço soldada com contraventamento cruzado e olhais de içamento em fabricação na Q² Machines",
@@ -757,6 +773,7 @@ const translations = {
     "ab_do_h": "Wat bieden wij aan?",
     "ab_do_p": "Ons aanbod omvat Productie, Engineeringdiensten en Apparatuurverkoop.",
     "ab_do_link": "Bekijk onze diensten →",
+    "ab_lb_close": "Sluiten",
     "ab_img_belt_alt": "Vervaardigde bandvoeder met rollenbed, reductor, lagerblokken en hijsogen in de werkplaats van Q² Machines",
     "ab_img_belt_cap": "Bandvoeder in eigen werkplaats gefabriceerd",
     "ab_img_frame1_alt": "Gelaste stalen constructie met kruisverbanden en hijsogen in productie bij Q² Machines",
@@ -843,6 +860,7 @@ const translations = {
     "ab_do_h": "Que proposons-nous ?",
     "ab_do_p": "Notre offre couvre la Fabrication, les Services d'Ingénierie et la Vente d'Équipements.",
     "ab_do_link": "Voir nos services →",
+    "ab_lb_close": "Fermer",
     "ab_img_belt_alt": "Alimentateur à courroie fabriqué avec lit de rouleaux, réducteur, paliers et anneaux de levage dans l'atelier de Q² Machines",
     "ab_img_belt_cap": "Alimentateur à courroie fabriqué dans notre atelier",
     "ab_img_frame1_alt": "Charpente métallique soudée avec contreventement en croix et anneaux de levage en fabrication chez Q² Machines",
@@ -922,6 +940,10 @@ function applyTranslations(lang) {
     const key = el.getAttribute('data-i18n-alt');
     if (t[key] !== undefined) el.setAttribute('alt', t[key]);
   });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const key = el.getAttribute('data-i18n-aria');
+    if (t[key] !== undefined) el.setAttribute('aria-label', t[key]);
+  });
   document.querySelectorAll('.lang-flag').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === lang));
 }
 
@@ -934,6 +956,33 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── PHOTO LIGHTBOX ─────────────────────────────────────────
+(function () {
+  const box = document.getElementById('lightbox');
+  if (!box) return;
+  const img = box.querySelector('img'), cap = box.querySelector('.lightbox-cap'), closeBtn = box.querySelector('.lightbox-close');
+  let last = null;
+  function open(a) {
+    last = a;
+    const thumb = a.querySelector('img'), fc = a.parentNode.querySelector('figcaption');
+    img.src = a.getAttribute('href');
+    img.alt = thumb ? thumb.alt : '';
+    cap.textContent = fc ? fc.textContent : '';
+    box.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function close() {
+    box.hidden = true;
+    img.removeAttribute('src');
+    document.body.style.overflow = '';
+    if (last) last.focus();
+  }
+  document.querySelectorAll('a.photo-link').forEach(a => a.addEventListener('click', e => { e.preventDefault(); open(a); }));
+  box.addEventListener('click', e => { if (e.target !== img) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !box.hidden) close(); });
+})();
 
 // ── FOOTER YEAR ────────────────────────────────────────────
 document.getElementById('footer-year').textContent = new Date().getFullYear();
