@@ -32,22 +32,22 @@ Custom engineered belt conveyors, screw/auger conveyors, bucket elevators and bu
 Stationary and mobile concrete batching plants, designed, built and commissioned entirely in-house. Details: https://www.q2m.io/services/concrete-plants.html Related project: a ready-mix concrete batching plant in Port of Spain (2020), described below.
 
 ### 3. Motors & Pumps
-Supply, rewind, repair and service of AC/DC motors and of pumps of all types, including centrifugal, submersible and gear pumps.
+Supply, rewind, repair and service of AC/DC motors and of pumps of all types, including centrifugal, submersible and gear pumps. Details: https://www.q2m.io/services/pumps-and-drives.html
 
 ### 4. Gear Reducers
-Supply, strip-down repair and service of gear reducers and gearboxes across all major brands.
+Supply, strip-down repair and service of gear reducers and gearboxes across all major brands. Details: https://www.q2m.io/services/pumps-and-drives.html
 
 ### 5. Machine Shop
-Precision CNC and conventional machining to exact tolerances, performed entirely in-house.
+Precision CNC and conventional machining to exact tolerances, performed entirely in-house. Details: https://www.q2m.io/services/fabrication-and-machining.html
 
 ### 6. Fabrication & Welding
-Heavy industrial and structural fabrication, pipe welding and coded welds using SMAW, MIG, TIG and FCAW processes, certified and quality assured.
+Heavy industrial and structural fabrication, pipe welding and coded welds using SMAW, MIG, TIG and FCAW processes, certified and quality assured. Details: https://www.q2m.io/services/fabrication-and-machining.html
 
 ### 7. Structural Systems
-Design, fabrication and erection of industrial and commercial steel structures, bridges, walkways, platforms, pipe racks and access systems.
+Design, fabrication and erection of industrial and commercial steel structures, bridges, walkways, platforms, pipe racks and access systems. Details: https://www.q2m.io/services/structural-steel.html
 
 ### 8. Geotechnical Testing Equipment
-Supply, calibration and support of geotechnical testing equipment, including dynamic cone penetrometers, CBR equipment, compaction hammers and ASTM molds.
+Supply, calibration and support of geotechnical testing equipment, including dynamic cone penetrometers, CBR equipment, compaction hammers and ASTM molds. Details: https://www.q2m.io/services/geotechnical-equipment.html
 
 ## Capabilities
 - Full in-house design and engineering
@@ -105,6 +105,10 @@ A: 71 Warren Road, Bejucal, Cunupia, Trinidad. Phone +1 (868) 230-9702. Open Mon
 About: https://www.q2m.io/about.html
 Conveyor systems and bulk material handling: https://www.q2m.io/services/conveyor-systems.html
 Concrete batching plants: https://www.q2m.io/services/concrete-plants.html
+Pumps, motors and gear reducers: https://www.q2m.io/services/pumps-and-drives.html
+Fabrication, welding and machine shop: https://www.q2m.io/services/fabrication-and-machining.html
+Structural steel systems: https://www.q2m.io/services/structural-steel.html
+Geotechnical testing equipment: https://www.q2m.io/services/geotechnical-equipment.html
 Privacy Policy: https://www.q2m.io/privacy.html (the site uses no cookies or analytics; enquiry forms are delivered by email through EmailJS).
 
 ## Website languages

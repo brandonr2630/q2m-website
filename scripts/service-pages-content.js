@@ -8,11 +8,11 @@
  */
 
 const COMMON = {
-  en: { label: 'Services', supplyH: 'What we supply', doH: 'What we do', houseH: 'Built in-house', projectH: 'Related project', projectsLink: 'See all projects →', faqH: 'Frequently asked questions' },
-  es: { label: 'Servicios', supplyH: 'Qué suministramos', doH: 'Qué hacemos', houseH: 'Todo en nuestras instalaciones', projectH: 'Proyecto relacionado', projectsLink: 'Ver todos los proyectos →', faqH: 'Preguntas frecuentes' },
-  pt: { label: 'Serviços', supplyH: 'O que fornecemos', doH: 'O que fazemos', houseH: 'Tudo em nossas instalações', projectH: 'Projeto relacionado', projectsLink: 'Ver todos os projetos →', faqH: 'Perguntas frequentes' },
-  nl: { label: 'Diensten', supplyH: 'Wat wij leveren', doH: 'Wat wij doen', houseH: 'Alles in eigen huis', projectH: 'Gerelateerd project', projectsLink: 'Alle projecten bekijken →', faqH: 'Veelgestelde vragen' },
-  fr: { label: 'Services', supplyH: 'Ce que nous fournissons', doH: 'Ce que nous faisons', houseH: 'Tout en interne', projectH: 'Projet associé', projectsLink: 'Voir tous les projets →', faqH: 'Questions fréquentes' },
+  en: { label: 'Services', supplyH: 'What we supply', doH: 'What we do', houseH: 'Built in-house', projectH: 'Related project', projectsLink: 'See all projects →', faqH: 'Frequently asked questions', whereH: 'Where we work' },
+  es: { label: 'Servicios', supplyH: 'Qué suministramos', doH: 'Qué hacemos', houseH: 'Todo en nuestras instalaciones', projectH: 'Proyecto relacionado', projectsLink: 'Ver todos los proyectos →', faqH: 'Preguntas frecuentes', whereH: 'Dónde trabajamos' },
+  pt: { label: 'Serviços', supplyH: 'O que fornecemos', doH: 'O que fazemos', houseH: 'Tudo em nossas instalações', projectH: 'Projeto relacionado', projectsLink: 'Ver todos os projetos →', faqH: 'Perguntas frequentes', whereH: 'Onde atuamos' },
+  nl: { label: 'Diensten', supplyH: 'Wat wij leveren', doH: 'Wat wij doen', houseH: 'Alles in eigen huis', projectH: 'Gerelateerd project', projectsLink: 'Alle projecten bekijken →', faqH: 'Veelgestelde vragen', whereH: 'Waar wij werken' },
+  fr: { label: 'Services', supplyH: 'Ce que nous fournissons', doH: 'Ce que nous faisons', houseH: 'Tout en interne', projectH: 'Projet associé', projectsLink: 'Voir tous les projets →', faqH: 'Questions fréquentes', whereH: 'Où nous travaillons' },
 };
 
 const PAGES = [
@@ -187,5 +187,8 @@ const PAGES = [
     },
   },
 ];
+
+// Pages 3-6 live in service-pages-content-more.js
+PAGES.push(...require('./service-pages-content-more').PAGES);
 
 module.exports = { COMMON, PAGES };
