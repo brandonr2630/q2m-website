@@ -230,6 +230,14 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 .facts-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;margin:16px 0 18px;}
 .facts-list li{position:relative;padding-left:20px;font-size:15px;color:var(--text);line-height:1.5;}
 .content-block h3{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text);margin:26px 0 0;}
+.photo{margin:0;background:var(--ink-2);border:1px solid var(--border);}
+.photo img{display:block;width:100%;height:auto;}
+.photo figcaption{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.5px;color:var(--text-2);padding:8px 10px;}
+.photo-grid{display:grid;gap:14px;margin:22px 0 8px;}
+.photo-grid-3{grid-template-columns:repeat(3,1fr);}
+.photo-grid-4{grid-template-columns:repeat(4,1fr);}
+.photo-single{max-width:520px;margin:22px 0 8px;}
+@media(max-width:768px){.photo-grid-3{grid-template-columns:1fr;}.photo-grid-4{grid-template-columns:repeat(2,1fr);}}
 .facts-list-wide{grid-template-columns:1fr;gap:14px;}
 .facts-list li strong{color:var(--gold);font-weight:600;}
 .facts-list li::before{content:'';position:absolute;left:0;top:.65em;width:8px;height:2px;background:var(--gold);}
@@ -328,6 +336,11 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
         <li data-i18n="ab_mfg6">Installations et Équipements de Recyclage</li>
         <li data-i18n="ab_mfg7">Équipements d'Agrotransformation et de Manutention des Grains</li>
       </ul>
+      <div class="photo-grid photo-grid-3">
+        <figure class="photo"><img src="/assets/about/belt-feeder.webp" alt="Alimentateur à courroie fabriqué avec lit de rouleaux, réducteur, paliers et anneaux de levage dans l'atelier de Q² Machines" data-i18n-alt="ab_img_belt_alt" width="1000" height="750" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_belt_cap">Alimentateur à courroie fabriqué dans notre atelier</figcaption></figure>
+        <figure class="photo"><img src="/assets/about/structural-frame-raw.webp" alt="Charpente métallique soudée avec contreventement en croix et anneaux de levage en fabrication chez Q² Machines" data-i18n-alt="ab_img_frame1_alt" width="1000" height="750" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_frame1_cap">Charpente en cours de fabrication</figcaption></figure>
+        <figure class="photo"><img src="/assets/about/structural-frame-finished.webp" alt="Charpente métallique soudée avec anneaux de levage sur un châssis de base peint dans l'atelier de Q² Machines" data-i18n-alt="ab_img_frame2_alt" width="1000" height="750" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_frame2_cap">Charpente sur son châssis peint</figcaption></figure>
+      </div>
       <h3 data-i18n="ab_eng_h">Services d'Ingénierie</h3>
       <ul class="facts-list">
         <li data-i18n="ab_eng1">Réparation et Entretien d'Usines et de Machines</li>
@@ -335,6 +348,12 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
         <li data-i18n="ab_eng3">Atelier d'Usinage : CNC et Conventionnel</li>
         <li data-i18n="ab_eng4">Fabrication et Soudage</li>
       </ul>
+      <div class="photo-grid photo-grid-4">
+        <figure class="photo"><img src="/assets/about/motor-before.webp" alt="Moteur électrique triphasé corrodé avec une poulie à gorges multiples rouillée avant réparation" data-i18n-alt="ab_img_motor1_alt" width="900" height="1200" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_motor1_cap">Réparation de moteur : avant</figcaption></figure>
+        <figure class="photo"><img src="/assets/about/motor-after.webp" alt="Moteur électrique réparé et repeint en bleu avec une poulie à gorges multiples sur une base réglable à ressort" data-i18n-alt="ab_img_motor2_alt" width="900" height="1200" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_motor2_cap">Réparation de moteur : après</figcaption></figure>
+        <figure class="photo"><img src="/assets/about/pump-before.webp" alt="Pompe à boue et châssis d'entraînement très corrodés avant remise en état" data-i18n-alt="ab_img_pump1_alt" width="900" height="1200" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_pump1_cap">Réparation de pompe à boue : avant</figcaption></figure>
+        <figure class="photo"><img src="/assets/about/pump-after.webp" alt="Pompe à boue remise en état avec corps repeint, moteur sur un châssis fabriqué et un carter de protection jaune" data-i18n-alt="ab_img_pump2_alt" width="900" height="1200" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_pump2_cap">Réparation de pompe à boue : après</figcaption></figure>
+      </div>
       <h3 data-i18n="ab_sal_h">Vente d'Équipements</h3>
       <ul class="facts-list">
         <li data-i18n="ab_sal1">Systèmes de Malaxage de Béton et de Matériaux Cimentaires</li>
@@ -355,6 +374,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
         <li data-i18n-html="ab_ind5_html"><strong>Recyclage et Gestion des Déchets :</strong> installations municipales et privées de traitement des déchets nécessitant des machines spécialisées de tri, de convoyage et de broyage.</li>
         <li data-i18n-html="ab_ind6_html"><strong>Industrie Manufacturière Générale et Usines de Process :</strong> sites de fabrication nécessitant de l'usinage CNC/conventionnel de précision, du rebobinage de moteurs, des révisions d'usine et de la fabrication de charpentes sur mesure.</li>
       </ul>
+      <figure class="photo photo-single"><img src="/assets/about/slurry-pump-site.webp" alt="Pompe à boue et moteur installés à côté d'une trémie de traitement de sable et de gravier dans une installation de traitement humide de granulats" data-i18n-alt="ab_img_site_alt" width="1000" height="750" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_site_cap">Pompe à boue installée sur site</figcaption></figure>
     </div>
     <div class="content-block reveal">
       <h2 data-i18n="ab_how_h">Notre façon de travailler</h2>
@@ -369,6 +389,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
         <li data-i18n="ab_cap7">Mise en service et démarrage</li>
         <li data-i18n="ab_cap8">Support après-vente et pièces de rechange</li>
       </ul>
+      <figure class="photo photo-single"><img src="/assets/about/cnc-plasma-cutting.webp" alt="Table de découpe plasma CNC avec des pièces en tôle d'acier découpées dans une même plaque chez Q² Machines" data-i18n-alt="ab_img_cnc_alt" width="1000" height="750" loading="lazy" decoding="async"><figcaption data-i18n="ab_img_cnc_cap">Découpe plasma CNC dans notre atelier</figcaption></figure>
     </div>
     <div class="content-block reveal">
       <h2 data-i18n="ab_where_h">Où nous travaillons</h2>
@@ -478,6 +499,24 @@ const translations = {
     "ab_do_h": "What do we offer?",
     "ab_do_p": "The scope of our business offerings includes Manufacturing, Engineering Services & Equipment Sales.",
     "ab_do_link": "See our services →",
+    "ab_img_belt_alt": "Fabricated belt feeder with roller bed, gearbox, pillow-block bearings and lifting lugs in the Q² Machines workshop",
+    "ab_img_belt_cap": "Belt feeder fabricated in-house",
+    "ab_img_frame1_alt": "Welded steel structural frame with cross bracing and lifting lugs under fabrication at Q² Machines",
+    "ab_img_frame1_cap": "Structural frame in fabrication",
+    "ab_img_frame2_alt": "Welded steel frame with lifting lugs standing on a painted steel base frame in the Q² Machines workshop",
+    "ab_img_frame2_cap": "Frame on its painted base",
+    "ab_img_motor1_alt": "Corroded three-phase electric motor with a rusted multi-groove sheave before repair",
+    "ab_img_motor1_cap": "Motor repair: before",
+    "ab_img_motor2_alt": "Repaired and repainted blue electric motor with a multi-groove sheave on an adjustable spring base",
+    "ab_img_motor2_cap": "Motor repair: after",
+    "ab_img_pump1_alt": "Heavily corroded slurry pump and drive frame before refurbishment",
+    "ab_img_pump1_cap": "Slurry pump repair: before",
+    "ab_img_pump2_alt": "Refurbished slurry pump with repainted casing, motor on a fabricated base and a yellow guard",
+    "ab_img_pump2_cap": "Slurry pump repair: after",
+    "ab_img_cnc_alt": "CNC plasma cutting table with steel plate parts cut from a single sheet at Q² Machines",
+    "ab_img_cnc_cap": "CNC plasma cutting in-house",
+    "ab_img_site_alt": "Slurry pump and motor installed beside a sand and gravel processing hopper at an aggregate wet-processing plant",
+    "ab_img_site_cap": "Slurry pump installed on site",
     "ab_mfg_h": "Manufacturing",
     "ab_mfg1": "Conveyors & Bulk Handling Systems",
     "ab_mfg2": "Concrete Plants, Weighing & Batching Systems",
@@ -546,6 +585,24 @@ const translations = {
     "ab_do_h": "¿Qué ofrecemos?",
     "ab_do_p": "El alcance de nuestra oferta comercial incluye Manufactura, Servicios de Ingeniería y Venta de Equipos.",
     "ab_do_link": "Ver nuestros servicios →",
+    "ab_img_belt_alt": "Alimentador de banda fabricado con lecho de rodillos, reductor, chumaceras y orejas de izaje en el taller de Q² Machines",
+    "ab_img_belt_cap": "Alimentador de banda fabricado en nuestro taller",
+    "ab_img_frame1_alt": "Estructura de acero soldada con arriostramiento cruzado y orejas de izaje en fabricación en Q² Machines",
+    "ab_img_frame1_cap": "Estructura en fabricación",
+    "ab_img_frame2_alt": "Estructura de acero soldada con orejas de izaje sobre un bastidor base pintado en el taller de Q² Machines",
+    "ab_img_frame2_cap": "Estructura sobre su base pintada",
+    "ab_img_motor1_alt": "Motor eléctrico trifásico corroído con una polea de varias ranuras oxidada antes de la reparación",
+    "ab_img_motor1_cap": "Reparación de motor: antes",
+    "ab_img_motor2_alt": "Motor eléctrico reparado y repintado de azul con una polea de varias ranuras sobre una base ajustable con resorte",
+    "ab_img_motor2_cap": "Reparación de motor: después",
+    "ab_img_pump1_alt": "Bomba de lodos y bastidor de accionamiento muy corroídos antes de la reparación",
+    "ab_img_pump1_cap": "Reparación de bomba de lodos: antes",
+    "ab_img_pump2_alt": "Bomba de lodos reacondicionada con carcasa repintada, motor sobre una base fabricada y una guarda amarilla",
+    "ab_img_pump2_cap": "Reparación de bomba de lodos: después",
+    "ab_img_cnc_alt": "Mesa de corte por plasma CNC con piezas de placa de acero cortadas de una sola lámina en Q² Machines",
+    "ab_img_cnc_cap": "Corte por plasma CNC en nuestro taller",
+    "ab_img_site_alt": "Bomba de lodos y motor instalados junto a una tolva de procesamiento de arena y grava en una planta de procesamiento húmedo de agregados",
+    "ab_img_site_cap": "Bomba de lodos instalada en obra",
     "ab_mfg_h": "Manufactura",
     "ab_mfg1": "Sistemas de Transporte y Manejo de Graneles",
     "ab_mfg2": "Plantas de Concreto, Sistemas de Pesaje y Dosificación",
@@ -614,6 +671,24 @@ const translations = {
     "ab_do_h": "O que oferecemos?",
     "ab_do_p": "O escopo de nossa oferta comercial inclui Fabricação, Serviços de Engenharia e Venda de Equipamentos.",
     "ab_do_link": "Veja nossos serviços →",
+    "ab_img_belt_alt": "Alimentador de correia fabricado com leito de rolos, redutor, mancais e olhais de içamento na oficina da Q² Machines",
+    "ab_img_belt_cap": "Alimentador de correia fabricado em nossa oficina",
+    "ab_img_frame1_alt": "Estrutura de aço soldada com contraventamento cruzado e olhais de içamento em fabricação na Q² Machines",
+    "ab_img_frame1_cap": "Estrutura em fabricação",
+    "ab_img_frame2_alt": "Estrutura de aço soldada com olhais de içamento sobre uma base de aço pintada na oficina da Q² Machines",
+    "ab_img_frame2_cap": "Estrutura sobre a base pintada",
+    "ab_img_motor1_alt": "Motor elétrico trifásico corroído com polia de vários canais enferrujada antes do reparo",
+    "ab_img_motor1_cap": "Reparo de motor: antes",
+    "ab_img_motor2_alt": "Motor elétrico reparado e repintado de azul com polia de vários canais sobre uma base ajustável com mola",
+    "ab_img_motor2_cap": "Reparo de motor: depois",
+    "ab_img_pump1_alt": "Bomba de lama e estrutura de acionamento muito corroídas antes da recuperação",
+    "ab_img_pump1_cap": "Reparo de bomba de lama: antes",
+    "ab_img_pump2_alt": "Bomba de lama recondicionada com carcaça repintada, motor sobre uma base fabricada e proteção amarela",
+    "ab_img_pump2_cap": "Reparo de bomba de lama: depois",
+    "ab_img_cnc_alt": "Mesa de corte a plasma CNC com peças de chapa de aço cortadas de uma única chapa na Q² Machines",
+    "ab_img_cnc_cap": "Corte a plasma CNC em nossa oficina",
+    "ab_img_site_alt": "Bomba de lama e motor instalados ao lado de uma tremonha de processamento de areia e cascalho em uma planta de processamento úmido de agregados",
+    "ab_img_site_cap": "Bomba de lama instalada em campo",
     "ab_mfg_h": "Fabricação",
     "ab_mfg1": "Sistemas de Transporte e Manuseio de Granéis",
     "ab_mfg2": "Usinas de Concreto, Sistemas de Pesagem e Dosagem",
@@ -682,6 +757,24 @@ const translations = {
     "ab_do_h": "Wat bieden wij aan?",
     "ab_do_p": "Ons aanbod omvat Productie, Engineeringdiensten en Apparatuurverkoop.",
     "ab_do_link": "Bekijk onze diensten →",
+    "ab_img_belt_alt": "Vervaardigde bandvoeder met rollenbed, reductor, lagerblokken en hijsogen in de werkplaats van Q² Machines",
+    "ab_img_belt_cap": "Bandvoeder in eigen werkplaats gefabriceerd",
+    "ab_img_frame1_alt": "Gelaste stalen constructie met kruisverbanden en hijsogen in productie bij Q² Machines",
+    "ab_img_frame1_cap": "Staalconstructie in productie",
+    "ab_img_frame2_alt": "Gelaste stalen constructie met hijsogen op een geschilderd stalen basisframe in de werkplaats van Q² Machines",
+    "ab_img_frame2_cap": "Constructie op geschilderd basisframe",
+    "ab_img_motor1_alt": "Gecorrodeerde driefasige elektromotor met een verroeste meergroefs riemschijf vóór de reparatie",
+    "ab_img_motor1_cap": "Motorreparatie: voor",
+    "ab_img_motor2_alt": "Gerepareerde en blauw gespoten elektromotor met een meergroefs riemschijf op een verstelbare veerbasis",
+    "ab_img_motor2_cap": "Motorreparatie: na",
+    "ab_img_pump1_alt": "Zwaar gecorrodeerde slurrypomp en aandrijfframe vóór de revisie",
+    "ab_img_pump1_cap": "Slurrypomp-reparatie: voor",
+    "ab_img_pump2_alt": "Gereviseerde slurrypomp met opnieuw gespoten behuizing, motor op een gefabriceerd frame en een gele afscherming",
+    "ab_img_pump2_cap": "Slurrypomp-reparatie: na",
+    "ab_img_cnc_alt": "CNC-plasmasnijtafel met stalen plaatdelen uit één plaat gesneden bij Q² Machines",
+    "ab_img_cnc_cap": "CNC-plasmasnijden in eigen werkplaats",
+    "ab_img_site_alt": "Slurrypomp en motor geïnstalleerd naast een zand- en grindverwerkingstrechter bij een natte aggregaatverwerkingsinstallatie",
+    "ab_img_site_cap": "Slurrypomp ter plaatse geïnstalleerd",
     "ab_mfg_h": "Productie",
     "ab_mfg1": "Transportband- en Bulkverwerkingssystemen",
     "ab_mfg2": "Betoncentrales, Weeg- en Doseersystemen",
@@ -750,6 +843,24 @@ const translations = {
     "ab_do_h": "Que proposons-nous ?",
     "ab_do_p": "Notre offre couvre la Fabrication, les Services d'Ingénierie et la Vente d'Équipements.",
     "ab_do_link": "Voir nos services →",
+    "ab_img_belt_alt": "Alimentateur à courroie fabriqué avec lit de rouleaux, réducteur, paliers et anneaux de levage dans l'atelier de Q² Machines",
+    "ab_img_belt_cap": "Alimentateur à courroie fabriqué dans notre atelier",
+    "ab_img_frame1_alt": "Charpente métallique soudée avec contreventement en croix et anneaux de levage en fabrication chez Q² Machines",
+    "ab_img_frame1_cap": "Charpente en cours de fabrication",
+    "ab_img_frame2_alt": "Charpente métallique soudée avec anneaux de levage sur un châssis de base peint dans l'atelier de Q² Machines",
+    "ab_img_frame2_cap": "Charpente sur son châssis peint",
+    "ab_img_motor1_alt": "Moteur électrique triphasé corrodé avec une poulie à gorges multiples rouillée avant réparation",
+    "ab_img_motor1_cap": "Réparation de moteur : avant",
+    "ab_img_motor2_alt": "Moteur électrique réparé et repeint en bleu avec une poulie à gorges multiples sur une base réglable à ressort",
+    "ab_img_motor2_cap": "Réparation de moteur : après",
+    "ab_img_pump1_alt": "Pompe à boue et châssis d'entraînement très corrodés avant remise en état",
+    "ab_img_pump1_cap": "Réparation de pompe à boue : avant",
+    "ab_img_pump2_alt": "Pompe à boue remise en état avec corps repeint, moteur sur un châssis fabriqué et un carter de protection jaune",
+    "ab_img_pump2_cap": "Réparation de pompe à boue : après",
+    "ab_img_cnc_alt": "Table de découpe plasma CNC avec des pièces en tôle d'acier découpées dans une même plaque chez Q² Machines",
+    "ab_img_cnc_cap": "Découpe plasma CNC dans notre atelier",
+    "ab_img_site_alt": "Pompe à boue et moteur installés à côté d'une trémie de traitement de sable et de gravier dans une installation de traitement humide de granulats",
+    "ab_img_site_cap": "Pompe à boue installée sur site",
     "ab_mfg_h": "Fabrication",
     "ab_mfg1": "Systèmes de Convoyage et de Manutention de Vrac",
     "ab_mfg2": "Centrales à Béton, Systèmes de Pesage et de Dosage",
@@ -806,6 +917,10 @@ function applyTranslations(lang) {
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
     if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+    const key = el.getAttribute('data-i18n-alt');
+    if (t[key] !== undefined) el.setAttribute('alt', t[key]);
   });
   document.querySelectorAll('.lang-flag').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === lang));
 }

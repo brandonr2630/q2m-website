@@ -8,6 +8,7 @@
  * Page text lives in each source page's `translations` object. Elements use
  *   data-i18n       -> plain text
  *   data-i18n-html  -> HTML (used where a translation contains links or a <span>)
+ *   data-i18n-alt   -> the alt attribute of an <img> (so crawlers see translated alt text)
  * Per-language <title> and meta description live in static-pages-meta.json.
  *
  * Usage:
@@ -92,6 +93,11 @@ for (const page of PAGES) {
     $('[data-i18n-html]').each((_, el) => {
       const key = $(el).attr('data-i18n-html');
       if (t[key] !== undefined) $(el).html(t[key]);
+    });
+
+    $('[data-i18n-alt]').each((_, el) => {
+      const key = $(el).attr('data-i18n-alt');
+      if (t[key] !== undefined) $(el).attr('alt', t[key]);
     });
 
     $('.lang-flag').removeClass('active');
