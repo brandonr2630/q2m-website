@@ -144,6 +144,7 @@ for (const lang of LANGS) {
   $('a[href="/depot.html"]').not('.footer-langs a').attr('href', `/${lang.code}/depot.html`);
   $('a[href="/projects.html"]').not('.footer-langs a').attr('href', `/${lang.code}/projects.html`);
   $('a[href="/about.html"]').not('.footer-langs a').attr('href', `/${lang.code}/about.html`);
+  $('a[href^="/products/"]').not('.footer-langs a').each((_, el) => { $(el).attr('href', `/${lang.code}${$(el).attr('href')}`); });
   $('a[href="/privacy.html"]').not('.footer-langs a').attr('href', `/${lang.code}/privacy.html`);
 
   // Fix relative asset paths for subdirectory (assets/ → /assets/)
