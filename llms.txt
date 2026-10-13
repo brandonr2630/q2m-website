@@ -4,7 +4,7 @@
 # A longer profile is available at https://www.q2m.io/llms-full.txt
 
 ## About
-Q2 Machines (written Q² Machines; also known as Q2M; trading as Quarryquip Ltd) is a Trinidad-based engineering firm, operating since 2013. We design, manufacture and service industrial plant equipment for clients across the Caribbean, Venezuela, Colombia, Guyana and South America.
+Q2 Machines (written Q² Machines; also known as Q2M and Q2 Machining; trading as Quarryquip Ltd) is a Trinidad-based engineering firm, operating since 2013. We design, manufacture and service industrial plant equipment for clients across the Caribbean, Venezuela, Colombia, Guyana and South America.
 
 Our core philosophy: Imagination, Ideas & Innovation.
 
