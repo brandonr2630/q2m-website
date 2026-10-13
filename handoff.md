@@ -117,7 +117,7 @@ Status: design drafted, **not approved, no code**. Branch `feat/products-page` e
 
 - [ ] Contact form uses EmailJS (client-side). Decide whether that is the long-term answer or a server-side backend is wanted.
 - [ ] `pumpcurveshandoff.md` — decide whether to keep, move into `docs/`, or drop.
-- [ ] **About page rework** (`feature/about-rework`): new intro, "Who are we?", "What do we offer?" (3 groups), "Industries we serve"; "What guides us" removed. The es/pt/nl/fr strings are new and need a native check (nl/fr especially). `ab_desc` is now the long intro, so the `<meta>` description and JSON-LD were left on the old summary on purpose.
+- [ ] **About page rework** — merged and deployed 2026-10-13 (#88). New hero intro, "Who are we?", "What do we offer?" (Manufacturing / Engineering Services / Equipment Sales), "Industries we serve"; "What guides us" removed; "Our work" is a one-line lead-in plus projects link. Source copy: `docs/q2_machines_company_profile.md` (untracked). **Still to do:** native check of the new es/pt/nl/fr strings (nl/fr first). `<meta>` description and JSON-LD left on the old summary on purpose (new intro too long for a snippet). `Quarryquip Ltd` now only in `<meta name="author">`. `llms.txt`/`llms-full.txt` still say "Imagination, Ideas & Innovation" — decide whether to keep. Homepage/services hub not reviewed against the new three-group offer wording.
 
 ### 8. Infrastructure & visibility review (2026-10-12)
 
