@@ -6,7 +6,7 @@
  * every page, and the sitemap entries.
  *
  * Usage:  cd scripts && node verify-products.js [nav] [pages] [sitemap] [links]
- * No argument runs all three sections. Exit code 1 if any check fails.
+ * No argument runs all four sections. Exit code 1 if any check fails.
  */
 
 'use strict';
