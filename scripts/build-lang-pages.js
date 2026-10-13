@@ -49,7 +49,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/es/',
     ogLocale:    'es_419',
     title:       'Q² Machines (Q2M) — Ingeniería Industrial | Caribe y Suramérica',
-    description: 'Q² Machines es una empresa de ingeniería especializada en Sistemas Transportadores, Plantas de Concreto y Motores & Bombas — atendiendo industrias de minería, canteras y manufactura en el Caribe, Venezuela, Colombia y Suramérica.',
+    description: "Q² Machines (Q2M) es una empresa de ingeniería de Trinidad que diseña, fabrica y mantiene transportadores, plantas de concreto, bombas y motores.",
   },
   {
     code:        'pt',
@@ -58,7 +58,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/pt/',
     ogLocale:    'pt_BR',
     title:       'Q² Machines (Q2M) — Engenharia Industrial | Caribe e América do Sul',
-    description: 'Q² Machines é uma empresa de engenharia especializada em Sistemas Transportadores, Usinas de Concreto e Motores & Bombas — atendendo indústrias de mineração, pedreiras e manufatura no Caribe, Venezuela, Guiana e América do Sul.',
+    description: "A Q² Machines (Q2M) é uma empresa de engenharia de Trinidad que projeta, fabrica e mantém transportadores, usinas de concreto, bombas e motores.",
   },
   {
     code:        'nl',
@@ -67,7 +67,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/nl/',
     ogLocale:    'nl_NL',
     title:       'Q² Machines (Q2M) — Industriële Techniek, Trinidad en Caribisch Gebied',
-    description: 'Q² Machines is een technisch bedrijf gespecialiseerd in het Ontwerp, de Fabricage en het Onderhoud van Transportbandsystemen, Betonplanten, Motoren en Pompen in het Caribisch Gebied.',
+    description: "Q² Machines (Q2M) is een technisch bedrijf uit Trinidad dat transportbanden, betonplanten, pompen en motoren ontwerpt, fabriceert en onderhoudt.",
   },
   {
     code:        'fr',
@@ -76,7 +76,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/fr/',
     ogLocale:    'fr_FR',
     title:       'Q² Machines (Q2M) — Ingénierie Industrielle, Trinidad et Caraïbes',
-    description: 'Q² Machines est une entreprise d\'ingénierie spécialisée dans la Conception, la Fabrication et la Maintenance de Systèmes de Convoyeurs, Centrales à Béton, Moteurs et Pompes dans les Caraïbes.',
+    description: "Q² Machines (Q2M) est une entreprise d'ingénierie de Trinidad qui conçoit, fabrique et entretient convoyeurs, centrales à béton, pompes et moteurs.",
   },
 ];
 
