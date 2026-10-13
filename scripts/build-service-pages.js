@@ -321,7 +321,7 @@ function build(page, lang) {
       const href = $(el).attr('href');
       if (href === '/') $(el).attr('href', `/${code}/`);
       else if (href.startsWith('/#') || href.startsWith('/?')) $(el).attr('href', `/${code}/${href.slice(1)}`);
-      else if (PAGE_LINKS.has(href) || href.startsWith('/services/')) $(el).attr('href', `/${code}${href}`);
+      else if (PAGE_LINKS.has(href) || href.startsWith('/services/') || href.startsWith('/products/')) $(el).attr('href', `/${code}${href}`);
     });
   }
 

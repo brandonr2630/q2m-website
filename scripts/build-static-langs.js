@@ -38,7 +38,7 @@ const LANGS = [
 ];
 
 // Site pages whose links must stay inside the language directory.
-const PAGE_LINKS = new Set(['/depot.html', '/projects.html', '/about.html', '/privacy.html']);
+const PAGE_LINKS = new Set(['/depot.html', '/projects.html', '/about.html', '/privacy.html', '/products/']);
 
 function loadTranslations(raw, page) {
   const start = raw.indexOf('const translations = {');
