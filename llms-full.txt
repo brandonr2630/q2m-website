@@ -103,6 +103,7 @@ A: 71 Warren Road, Bejucal, Cunupia, Trinidad. Phone +1 (868) 230-9702. Open Mon
 
 ## About page and Privacy Policy
 About: https://www.q2m.io/about.html
+All services: https://www.q2m.io/services/
 Conveyor systems and bulk material handling: https://www.q2m.io/services/conveyor-systems.html
 Concrete batching plants: https://www.q2m.io/services/concrete-plants.html
 Pumps, motors and gear reducers: https://www.q2m.io/services/pumps-and-drives.html
