@@ -117,6 +117,7 @@ Status: design drafted, **not approved, no code**. Branch `feat/products-page` e
 
 - [ ] Contact form uses EmailJS (client-side). Decide whether that is the long-term answer or a server-side backend is wanted.
 - [ ] `pumpcurveshandoff.md` — decide whether to keep, move into `docs/`, or drop.
+- [ ] **About page rework** (`feature/about-rework`): new intro, "Who are we?", "What do we offer?" (3 groups), "Industries we serve"; "What guides us" removed. The es/pt/nl/fr strings are new and need a native check (nl/fr especially). `ab_desc` is now the long intro, so the `<meta>` description and JSON-LD were left on the old summary on purpose.
 
 ### 8. Infrastructure & visibility review (2026-10-12)
 
