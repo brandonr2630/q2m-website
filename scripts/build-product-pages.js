@@ -152,6 +152,7 @@ function hubHtml(code, h) {
         <span class="svc-card-more">${esc(h.more)}</span>
       </a>`).join('');
   return `
+    <div class="content-block reveal"><h2>${esc(h.cardsH)}</h2></div>
     <div class="svc-cards">${cards}
     </div>
     <div class="content-block reveal">
@@ -164,7 +165,7 @@ function hubHtml(code, h) {
 const PRODUCT_CSS = `.page-hero h1{overflow-wrap:break-word;}
 .section-label a{color:inherit;text-decoration:none;}
 .section-label a:hover{text-decoration:underline;text-underline-offset:3px;}
-.content-block h3{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;letter-spacing:.5px;color:var(--text);margin:22px 0 8px;}
+.content-block h3{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;letter-spacing:.5px;color:var(--text);margin:22px 0 8px;text-transform:none;}
 .svc-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:0 0 52px;}
 .svc-card{display:flex;flex-direction:column;gap:10px;padding:24px 26px;background:var(--ink-3);border:1px solid var(--border);border-radius:2px;text-decoration:none;transition:border-color .2s,transform .2s;}
 .svc-card:hover{border-color:var(--gold);transform:translateY(-2px);}
@@ -265,6 +266,7 @@ function build(page, lang) {
   $('.mobile-menu a[href="/about.html"]').removeAttr('style');
   $('a[href="/#services"]').attr('href', '/services/');
   $('.nav-links a[href="/products/"]').addClass('active');
+  $('.mobile-menu a[href="/products/"]').attr('style', 'color:var(--gold);');
 
   // Language flags: current language active, buttons navigate to the same page in each language
   $('.lang-flag').each((_, el) => {

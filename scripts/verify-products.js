@@ -110,6 +110,7 @@ function verifyPage(l, kind) {
     check(!!list && (list.itemListElement || []).length >= 1, `${rel}: missing ItemList`);
     if (list) check((list.itemListElement || [])[0] && list.itemListElement[0].url === pageUrl(l), `${rel}: ItemList should list ${pageUrl(l)}`);
     check($(`a[href="${l.dir ? '/' + l.code : ''}/products/${SLUG}.html"]`).length >= 1, `${rel}: hub must link to the product page`);
+    check($('.page-inner h2').length >= 1, `${rel}: hub needs an h2 before the product cards`);
   } else {
     check(types.includes('WebPage'), `${rel}: missing WebPage`);
     check(types.includes('Brand'), `${rel}: missing Brand`);
