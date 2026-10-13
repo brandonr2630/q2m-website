@@ -62,7 +62,7 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - [ ] **Category pages** — the homepage is one page for 8 services, so nothing targets "conveyor systems Trinidad" or "concrete batching plant Caribbean". Dedicated service pages (conveyors, concrete plants, structural steel, pumps & power transmission) plus the Products page. Needs a design pass first.
 - [ ] **Search Console housekeeping** — confirm the Domain property is verified (DNS TXT) and `sitemap.xml` is submitted and shows 15 discovered URLs.
 - [ ] **Re-pull the Search results export** in ~4 weeks (Performance + Pages) and compare with the baseline above. Most queries are anonymised in exports.
-- [ ] **"Q2 Machining"** (16 impressions, the #1 query) is **not** used as an alternate name or visible text, because it is not a name the business has said it uses. Confirm with the owner.
+- [x] **"Q2 Machining"** (16 impressions, the #1 query): owner confirmed 2026-10-12 it is an acceptable name if it helps searchers find the business. Added as `alternateName` on the `Organization`/`LocalBusiness`/`WebSite` nodes, to the first FAQ answer in all 5 languages (visible + `FAQPage` schema, kept identical) and to the `llms.txt`/`llms-full.txt` intro. It is **not** in titles or headings. Re-check the query in the next Search Console export.
 
 ### 2. Products page (paused mid-design — Session 19)
 
