@@ -157,6 +157,13 @@ for (const lang of LANGS) {
   $('a[href^="/services/"]').not('.footer-langs a').each((_, el) => { $(el).attr('href', `/${lang.code}${$(el).attr('href')}`); });
   $('a[href="/privacy.html"]').not('.footer-langs a').attr('href', `/${lang.code}/privacy.html`);
 
+  // Root-relative asset paths: these pages live in a subdirectory, so "assets/..." would resolve to /es/assets/... (404).
+  // Covers <img src> and the slideshow's data-webp / data-jpg attributes (set as CSS backgrounds by script).
+  const rootRel = (v) => (v && !/^(\/|https?:|data:|#)/.test(v)) ? '/' + v : v;
+  $('img[src]').each((_, el) => { $(el).attr('src', rootRel($(el).attr('src'))); });
+  $('[data-webp]').each((_, el) => { $(el).attr('data-webp', rootRel($(el).attr('data-webp'))); });
+  $('[data-jpg]').each((_, el) => { $(el).attr('data-jpg', rootRel($(el).attr('data-jpg'))); });
+
   // Schema: fix known issues + add WebPage node with inLanguage
   const schemaEl = $('script[type="application/ld+json"]');
   try {
