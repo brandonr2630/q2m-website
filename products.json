@@ -1,0 +1,46 @@
+[
+  {
+    "id": "pump-250sx",
+    "title": "250SX Double Suction Split Case Centrifugal Pump",
+    "title_es": "Bomba Centrífuga Bipartida de Doble Succión 250SX",
+    "title_pt": "Bomba Centrífuga Bipartida de Dupla Sucção 250SX",
+    "title_nl": "Centrifugaalpomp Gespleten Behuizing Dubbele Zuiging 250SX",
+    "title_fr": "Pompe Centrifuge à Corps Divisé Double Aspiration 250SX",
+    "category": "pumps",
+    "specs": [
+      { "label": "Flow",  "value": "460 m³/hr" },
+      { "label": "Head",  "value": "15 m"      },
+      { "label": "Type",  "value": "Split Case" }
+    ],
+    "description": "250SX Double Suction Split Case Centrifugal Pump. Capacity 460 m³/hour; Head 15m; YOM: 2024. Suitable for high-volume, low-head water transfer applications. Available for inspection at our facility in Trinidad.",
+    "description_es": "Bomba Centrífuga Bipartida de Doble Succión 250SX. Caudal: 460 m³/hora; Altura manométrica: 15m; Año de fabricación: 2024. Adecuada para aplicaciones de transferencia de agua de alto volumen y baja altura. Disponible para inspección en nuestras instalaciones en Trinidad.",
+    "description_pt": "Bomba Centrífuga Bipartida de Dupla Sucção 250SX. Vazão: 460 m³/hora; Altura manométrica: 15m; Ano de fabricação: 2024. Adequada para aplicações de transferência de água de alto volume e baixa altura. Disponível para inspeção em nossas instalações em Trinidad.",
+    "description_nl": "Centrifugaalpomp gespleten behuizing dubbele zuiging 250SX. Capaciteit: 460 m³/uur; Opvoerhoogte: 15m; Bouwjaar: 2024. Geschikt voor hoog-volume, lage-druk watertransporttoepassingen. Beschikbaar voor inspectie in Trinidad.",
+    "description_fr": "Pompe centrifuge à corps divisé double aspiration 250SX. Débit : 460 m³/h ; Hauteur manométrique : 15m ; Année de fabrication : 2024. Adaptée aux applications de transfert d'eau à haut débit et faible hauteur. Disponible pour inspection à Trinidad.",
+    "applications": ["Water Transfer", "Irrigation", "Industrial Process", "Quarry"],
+    "photo": "assets/products/250SX-CPump.jpg",
+    "alt": "250SX Double Suction Split Case Centrifugal Pump — 460 m³/hr capacity, 15m head, YOM 2024"
+  },
+  {
+    "id": "pump-200sx",
+    "title": "200SX Double Suction Split Case Centrifugal Pump",
+    "title_es": "Bomba Centrífuga Bipartida de Doble Succión 200SX",
+    "title_pt": "Bomba Centrífuga Bipartida de Dupla Sucção 200SX",
+    "title_nl": "Centrifugaalpomp Gespleten Behuizing Dubbele Zuiging 200SX",
+    "title_fr": "Pompe Centrifuge à Corps Divisé Double Aspiration 200SX",
+    "category": "pumps",
+    "specs": [
+      { "label": "Flow",  "value": "300 m³/hr" },
+      { "label": "Head",  "value": "150 m"     },
+      { "label": "Type",  "value": "Split Case" }
+    ],
+    "description": "200SX Double Suction Split Case Centrifugal Pump. Flow: 300 m³/hour; Head: 150m; YOM: 2025. Suited for medium-flow, high-head applications such as elevated storage, fire suppression and process supply.",
+    "description_es": "Bomba Centrífuga Bipartida de Doble Succión 200SX. Caudal: 300 m³/hora; Altura manométrica: 150m; Año de fabricación: 2025. Adecuada para aplicaciones de caudal medio y alta presión, como almacenamiento elevado, supresión de incendios y suministro de proceso.",
+    "description_pt": "Bomba Centrífuga Bipartida de Dupla Sucção 200SX. Vazão: 300 m³/hora; Altura manométrica: 150m; Ano de fabricação: 2025. Adequada para aplicações de fluxo médio e alta pressão, como armazenamento elevado, combate a incêndios e fornecimento de processo.",
+    "description_nl": "Centrifugaalpomp gespleten behuizing dubbele zuiging 200SX. Capaciteit: 300 m³/uur; Opvoerhoogte: 150m; Bouwjaar: 2025. Geschikt voor middelgroot debiet, hoge-druk toepassingen zoals verhoogde opslag, brandbestrijding en procestoevoer.",
+    "description_fr": "Pompe centrifuge à corps divisé double aspiration 200SX. Débit : 300 m³/h ; Hauteur manométrique : 150m ; Année de fabrication : 2025. Adaptée aux applications à débit moyen et haute pression telles que le stockage en hauteur, la suppression d'incendie et l'alimentation de processus.",
+    "applications": ["Water Supply", "Fire Fighting", "Industrial Process", "Elevated Storage"],
+    "photo": "assets/products/200SX-CPump.jpg",
+    "alt": "200SX Double Suction Split Case Centrifugal Pump — 300 m³/hr flow, 150m head, YOM 2025"
+  }
+]
