@@ -5,7 +5,7 @@
  * Checks the Products section (hub + OCR RP Series page, 5 languages), the Products nav link on
  * every page, and the sitemap entries.
  *
- * Usage:  cd scripts && node verify-products.js [nav] [pages] [sitemap]
+ * Usage:  cd scripts && node verify-products.js [nav] [pages] [sitemap] [links]
  * No argument runs all three sections. Exit code 1 if any check fails.
  */
 
@@ -107,14 +107,14 @@ function verifyPage(l, kind) {
   if (kind === 'hub') {
     check(types.includes('CollectionPage'), `${rel}: missing CollectionPage`);
     const list = graph.find((n) => n['@type'] === 'ItemList');
-    check(!!list && list.itemListElement.length >= 1, `${rel}: missing ItemList`);
-    if (list) check(list.itemListElement[0].url === pageUrl(l), `${rel}: ItemList should list ${pageUrl(l)}`);
+    check(!!list && (list.itemListElement || []).length >= 1, `${rel}: missing ItemList`);
+    if (list) check((list.itemListElement || [])[0] && list.itemListElement[0].url === pageUrl(l), `${rel}: ItemList should list ${pageUrl(l)}`);
     check($(`a[href="${l.dir ? '/' + l.code : ''}/products/${SLUG}.html"]`).length >= 1, `${rel}: hub must link to the product page`);
   } else {
     check(types.includes('WebPage'), `${rel}: missing WebPage`);
     check(types.includes('Brand'), `${rel}: missing Brand`);
     const faq = graph.find((n) => n['@type'] === 'FAQPage');
-    check(!!faq && faq.mainEntity.length >= 3, `${rel}: FAQPage needs at least 3 questions`);
+    check(!!faq && (faq.mainEntity || []).length >= 3, `${rel}: FAQPage needs at least 3 questions`);
     check(/OCR/.test(text), `${rel}: must name OCR`);
     for (const n of ['85', '250', '155']) check(text.includes(n), `${rel}: missing figure ${n}`);
     check($(`.cta-btn-primary[href$="service=reducers#contact"]`).length === 1, `${rel}: CTA must open the home form with service=reducers`);
@@ -138,8 +138,20 @@ function verifySitemap() {
   }
 }
 
+// ── cross-links: the services page for reducers links to the product page ───────────────
+function verifyLinks() {
+  for (const l of LANGS) {
+    const rel = `${l.dir}services/pumps-and-drives.html`;
+    if (!exists(rel)) { check(false, `${rel} is missing`); continue; }
+    const $ = cheerio.load(read(rel));
+    const href = `${l.dir ? '/' + l.code : ''}/products/${SLUG}.html`;
+    check($(`.page-inner a[href="${href}"]`).length === 1, `${rel}: expected exactly one in-content link to ${href}`);
+  }
+}
+
 if (want('nav')) verifyNav();
 if (want('pages')) verifyPages();
 if (want('sitemap')) verifySitemap();
+if (want('links')) verifyLinks();
 console.log(`${checks} checks, ${failures} failed`);
 process.exit(failures ? 1 : 0);

@@ -20,7 +20,7 @@ const PAGES = [
       description: 'Q² Machines supplies, repairs and services pumps, AC motors and gear reducers from Trinidad for industry across the Caribbean and South America.',
       h1Html: 'Pumps, Motors &amp; <span>Gear Reducers</span>',
       lead: 'Q² Machines supplies, repairs and services pumps, AC motors and shaft mounted gear reducers for industrial and commercial applications, from our facility in Trinidad.',
-      supplyNoteHtml: 'Check the <a href="/depot.html">Equipment Depot</a> for pumps currently in stock.',
+      supplyNoteHtml: 'Check the <a href="/depot.html">Equipment Depot</a> for pumps currently in stock. Shaft-mounted gear reducers are available as the <a href="/products/ocr-rp-series-shaft-mounted-gear-reducers.html">OCR RP Series</a>.',
       house: 'Repair and service work is carried out from our facility in Trinidad, where our machine shop and fabrication and welding workshop are also based. We serve clients across the Caribbean, Venezuela, Colombia, Guyana and South America.',
       faq: [
         ['What types of pumps do you supply?', 'We supply centrifugal, submersible, self-priming, slurry and sludge, dredge and progressive cavity pumps, along with pump spare parts and seals.'],
@@ -33,7 +33,7 @@ const PAGES = [
       description: 'Q² Machines suministra, repara y mantiene bombas, motores AC y reductores desde Trinidad para la industria del Caribe y Suramérica.',
       h1Html: 'Bombas, Motores y <span>Reductores</span>',
       lead: 'Q² Machines suministra, repara y mantiene bombas, motores AC y reductores montados en eje para aplicaciones industriales y comerciales, desde nuestras instalaciones en Trinidad.',
-      supplyNoteHtml: 'Consulte el <a href="/depot.html">Depósito de Equipos</a> para ver las bombas disponibles actualmente.',
+      supplyNoteHtml: 'Consulte el <a href="/depot.html">Depósito de Equipos</a> para ver las bombas disponibles actualmente. Los reductores montados en eje están disponibles como la <a href="/products/ocr-rp-series-shaft-mounted-gear-reducers.html">Serie RP de OCR</a>.',
       house: 'Las reparaciones y el servicio se realizan desde nuestras instalaciones en Trinidad, donde también se encuentran nuestro taller de mecanizado y nuestro taller de fabricación y soldadura. Atendemos clientes en el Caribe, Venezuela, Colombia, Guyana y Suramérica.',
       faq: [
         ['¿Qué tipos de bombas suministran?', 'Suministramos bombas centrífugas, sumergibles, autocebantes, para lodos y fangos, de dragado y de cavidad progresiva, además de repuestos y sellos para bombas.'],
@@ -46,7 +46,7 @@ const PAGES = [
       description: 'A Q² Machines fornece, repara e faz a manutenção de bombas, motores AC e redutores a partir de Trinidad para a indústria do Caribe e da América do Sul.',
       h1Html: 'Bombas, Motores e <span>Redutores</span>',
       lead: 'A Q² Machines fornece, repara e faz a manutenção de bombas, motores AC e redutores montados em eixo para aplicações industriais e comerciais, a partir de nossas instalações em Trinidad.',
-      supplyNoteHtml: 'Consulte o <a href="/depot.html">Depósito de Equipamentos</a> para ver as bombas disponíveis no momento.',
+      supplyNoteHtml: 'Consulte o <a href="/depot.html">Depósito de Equipamentos</a> para ver as bombas disponíveis no momento. Os redutores de eixo montado estão disponíveis como a <a href="/products/ocr-rp-series-shaft-mounted-gear-reducers.html">Série RP da OCR</a>.',
       house: 'Os reparos e serviços são realizados a partir de nossas instalações em Trinidad, onde também ficam nossa oficina de usinagem e nossa oficina de fabricação e soldagem. Atendemos clientes no Caribe, na Venezuela, na Colômbia, na Guiana e na América do Sul.',
       faq: [
         ['Que tipos de bombas vocês fornecem?', 'Fornecemos bombas centrífugas, submersíveis, auto-escorvantes, para polpa e lodo, de dragagem e de cavidade progressiva, além de peças de reposição e selos para bombas.'],
@@ -59,7 +59,7 @@ const PAGES = [
       description: 'Q² Machines levert, repareert en onderhoudt pompen, AC-motoren en tandwielreductoren vanuit Trinidad voor de industrie in het Caribisch gebied.',
       h1Html: 'Pompen, Motoren &amp; <span>Reductoren</span>',
       lead: 'Q² Machines levert, repareert en onderhoudt pompen, AC-motoren en asgemonteerde tandwielreductoren voor industriële en commerciële toepassingen, vanuit onze vestiging in Trinidad.',
-      supplyNoteHtml: 'Bekijk het <a href="/depot.html">Uitrustingsdepot</a> voor pompen die momenteel op voorraad zijn.',
+      supplyNoteHtml: 'Bekijk het <a href="/depot.html">Uitrustingsdepot</a> voor pompen die momenteel op voorraad zijn. Opsteekreductoren zijn leverbaar als de <a href="/products/ocr-rp-series-shaft-mounted-gear-reducers.html">OCR RP-serie</a>.',
       house: 'Reparatie- en servicewerk wordt uitgevoerd vanuit onze vestiging in Trinidad, waar ook onze machinewerkplaats en onze constructie- en lasafdeling zijn gevestigd. Wij bedienen klanten in het Caribisch gebied, Venezuela, Colombia, Guyana en Zuid-Amerika.',
       faq: [
         ['Welke soorten pompen leveren jullie?', 'Wij leveren centrifugaalpompen, onderwaterpompen, zelfaanzuigende pompen, slurrie- en modderpompen, baggerpompen en progressieve holteruimtepompen, plus reserveonderdelen en afdichtingen voor pompen.'],
@@ -72,7 +72,7 @@ const PAGES = [
       description: 'Q² Machines fournit, répare et entretient pompes, moteurs AC et réducteurs depuis Trinidad pour l\'industrie des Caraïbes et de l\'Amérique du Sud.',
       h1Html: 'Pompes, Moteurs et <span>Réducteurs</span>',
       lead: 'Q² Machines fournit, répare et entretient des pompes, des moteurs AC et des réducteurs montés sur arbre pour des applications industrielles et commerciales, depuis notre site de Trinidad.',
-      supplyNoteHtml: 'Consultez le <a href="/depot.html">Dépôt d\'Équipements</a> pour les pompes actuellement en stock.',
+      supplyNoteHtml: 'Consultez le <a href="/depot.html">Dépôt d\'Équipements</a> pour les pompes actuellement en stock. Les réducteurs pendulaires sont disponibles sous la forme de la <a href="/products/ocr-rp-series-shaft-mounted-gear-reducers.html">Série RP d\'OCR</a>.',
       house: 'Les réparations et l\'entretien sont réalisés depuis notre site de Trinidad, où se trouvent aussi notre atelier d\'usinage et notre atelier de fabrication et de soudage. Nous servons des clients dans les Caraïbes, au Venezuela, en Colombie, au Guyana et en Amérique du Sud.',
       faq: [
         ['Quels types de pompes fournissez-vous ?', 'Nous fournissons des pompes centrifuges, submersibles, auto-amorçantes, à boues et lisier, de dragage et à cavité progressive, ainsi que des pièces détachées et des joints pour pompes.'],
