@@ -47,7 +47,7 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - Dutch pages rank for generic used-equipment queries (`gebruikte industriële apparatuur` pos 5.9, `verkoop van tweedehands industriële apparatuur` pos 9.1) with no clicks — the translated-page strategy can rank.
 - Mobile position is better than desktop (6.1 vs 13.4); 7 of 9 clicks were mobile.
 
-**Work in progress (not on `master`):** the Products section (hub + OCR RP Series page) is built on branch `feature/products-ocr-reducers` and not yet merged or deployed (Session 21); the old `feat/products-page` draft is superseded and unused (see Open Items §2).
+**No work in progress.** The Products section (hub + OCR RP Series page, PR #92) and the About page rework (#88, #90) shipped 2026-10-13 and are live. The old `feat/products-page` draft is superseded and unused (see Open Items 2).
 
 ---
 
@@ -64,9 +64,9 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - [ ] **Re-pull the Search results export** in ~4 weeks (Performance + Pages) and compare with the baseline above. Most queries are anonymised in exports.
 - [x] **"Q2 Machining"** (16 impressions, the #1 query): owner confirmed 2026-10-12 it is an acceptable name if it helps searchers find the business. Added as `alternateName` on the `Organization`/`LocalBusiness`/`WebSite` nodes, to the first FAQ answer in all 5 languages (visible + `FAQPage` schema, kept identical) and to the `llms.txt`/`llms-full.txt` intro. It is **not** in titles or headings. Re-check the query in the next Search Console export.
 
-### 2. Products section (built 2026-10-13 on branch feature/products-ocr-reducers, not yet merged or deployed, Session 21)
+### 2. Products section (shipped 2026-10-13, PR #92, live; Session 21)
 
-The Products section is built on the branch, not yet merged or deployed, with the OCR RP Series page: hub `/products/` plus one product page, in 5 languages. It is built by `scripts/build-product-pages.js` from `scripts/product-pages-content.js` and checked by `scripts/verify-products.js` (sections `nav|pages|sitemap|links`).
+The Products section is live with the OCR RP Series page: hub `/products/` plus one product page, in 5 languages. It is built by `scripts/build-product-pages.js` from `scripts/product-pages-content.js` and checked by `scripts/verify-products.js` (sections `nav|pages|sitemap|links`).
 
 - **Superseded:** the old `products.html` / `products.json` / `products-mockup.html` draft (branch `feat/products-page`) is unused. `products-mockup.html` can be deleted.
 - **Native check needed:** es/pt/nl/fr copy is new. Check nl and fr first. nl uses "Opsteekreductoren"; pt/nl/fr use "stackers" for the English term.
@@ -75,6 +75,10 @@ The Products section is built on the branch, not yet merged or deployed, with th
 - **Cross-link:** the services page (pumps-and-drives) now links to the product page.
 - **Held back until OCR agrees:** OCR images, tables, logo, and the interchangeability appendix.
 - **Next product line:** concrete mixers (source and relationship still to be confirmed). The nav label "Products" is assumed.
+- **Spec and plan:** `docs/superpowers/specs/2026-10-13-products-ocr-reducers-design.md` and `docs/superpowers/plans/2026-10-13-products-ocr-reducers.md` (merged in #93). The plan predates execution: it lacks Task 6 (services cross-link) and the final-review fixes, and its titles still say "Trinidad & Caribbean". #92 is the source of truth.
+- **Owner decisions still open:** (1) confirm the live service commitments "spares and drawings on request" and "help you select the right size"; (2) OCR agency territory (then restore "Caribbean" in titles); (3) delete `products-mockup.html` and the old draft branch; (4) Dutch depot name differs between pages ("Apparatuurdepot" on the hub, "Uitrustingsdepot" on the services page) — pick one in the native review.
+- **Deliberately not done (final review, deferred):** an `Organization` stub in the product-page JSON-LD (cross-page `@id` references are valid), a visible Home > Products breadcrumb trail (same pattern as the services pages), cosmetic blank lines in `<head>`. `llms.txt` / `llms-full.txt` now list the Products pages.
+- **How to rebuild:** `cd scripts && npm run build-all` (includes `build-product-pages`); `node verify-products.js` must print `0 failed` (678 checks at ship time).
 
 ### 3. Technical SEO / performance
 
@@ -116,7 +120,7 @@ The Products section is built on the branch, not yet merged or deployed, with th
 
 - [ ] Contact form uses EmailJS (client-side). Decide whether that is the long-term answer or a server-side backend is wanted.
 - [ ] `pumpcurveshandoff.md` — decide whether to keep, move into `docs/`, or drop.
-- [ ] **About page rework** — merged and deployed 2026-10-13 (#88). New hero intro, "Who are we?", "What do we offer?" (Manufacturing / Engineering Services / Equipment Sales), "Industries we serve"; "What guides us" removed; "Our work" is a one-line lead-in plus projects link. Source copy: `docs/q2_machines_company_profile.md` (untracked). **Still to do:** native check of the new es/pt/nl/fr strings (nl/fr first). `<meta>` description and JSON-LD left on the old summary on purpose (new intro too long for a snippet). `Quarryquip Ltd` now only in `<meta name="author">`. `llms.txt`/`llms-full.txt` still say "Imagination, Ideas & Innovation" — decide whether to keep. Homepage/services hub not reviewed against the new three-group offer wording. **Photos (feature/about-photos):** 9 shop/site photos from `about-pics/` (untracked originals) processed to WebP in `assets/about/` (900x1200 portrait for before/after pairs, 1000x750 landscape otherwise). Alt text and captions are translated per language via `data-i18n-alt` / `data-i18n` (build-static-langs.js now handles `data-i18n-alt`, so crawlers see translated alt in the static HTML). Not used: `6IN Cylinder Mold-01.jpg` (CAD screenshot), `Hardware.jpg` (people in background), `motor-rep-03.jpg`.
+- [ ] **About page rework** — merged and deployed 2026-10-13 (#88). New hero intro, "Who are we?", "What do we offer?" (Manufacturing / Engineering Services / Equipment Sales), "Industries we serve"; "What guides us" removed; "Our work" is a one-line lead-in plus projects link. Source copy: `docs/q2_machines_company_profile.md` (untracked). **Still to do:** native check of the new es/pt/nl/fr strings (nl/fr first). `<meta>` description and JSON-LD left on the old summary on purpose (new intro too long for a snippet). `Quarryquip Ltd` now only in `<meta name="author">`. `llms.txt`/`llms-full.txt` still say "Imagination, Ideas & Innovation" — decide whether to keep. Homepage/services hub not reviewed against the new three-group offer wording. **Photos (feature/about-photos):** 9 shop/site photos from `about-pics/` (untracked originals) processed to WebP in `assets/about/` (900x1200 portrait for before/after pairs, 1000x750 landscape otherwise). Alt text and captions are translated per language via `data-i18n-alt` / `data-i18n` (build-static-langs.js now handles `data-i18n-alt`, so crawlers see translated alt in the static HTML). Not used: `6IN Cylinder Mold-01.jpg` (CAD screenshot), `Hardware.jpg` (people in background), `motor-rep-03.jpg`. Photos shipped in #90 (click-to-enlarge was tried in #91 and rejected by the owner; closed unmerged).
 
 ### 8. Infrastructure & visibility review (2026-10-12)
 
@@ -216,7 +220,7 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 
 **Date:** 2026-10-13
 
-Added the Products section: hub `/products/` and the OCR RP Series shaft-mounted gear reducers page in 5 languages (10 pages), Products in the nav and footer on all pages, a link from the reducers service page, and 10 new sitemap URLs. Details and open questions are in Open Items §2.
+Added the Products section: hub `/products/` and the OCR RP Series shaft-mounted gear reducers page in 5 languages (10 pages), Products in the nav and footer on all pages, a link from the reducers service page, and 10 new sitemap URLs. Details and open questions are in Open Items §2. Executed with subagent-driven development: Tasks 1–3 in parallel, then 4 and 6 in parallel, then 5; one fix round on the content file (dropped "Caribbean" from titles, tightened claims) and one final-review fix pass (Dutch "belt" wording, `llms*.txt` entries, no-break spaces before units, hub heading, mobile-menu highlight).
 
 ---
 
