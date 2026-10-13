@@ -1,6 +1,6 @@
 # Q2M Website — Handoff
 
-*Last updated: 2026-10-12 · Session 20*
+*Last updated: 2026-10-13 · Session 21*
 
 Sessions 1–19 are condensed into the history table and the lessons below. Per-session detail lives in git history (`git log -- handoff.md`).
 
@@ -64,18 +64,17 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - [ ] **Re-pull the Search results export** in ~4 weeks (Performance + Pages) and compare with the baseline above. Most queries are anonymised in exports.
 - [x] **"Q2 Machining"** (16 impressions, the #1 query): owner confirmed 2026-10-12 it is an acceptable name if it helps searchers find the business. Added as `alternateName` on the `Organization`/`LocalBusiness`/`WebSite` nodes, to the first FAQ answer in all 5 languages (visible + `FAQPage` schema, kept identical) and to the `llms.txt`/`llms-full.txt` intro. It is **not** in titles or headings. Re-check the query in the next Search Console export.
 
-### 2. Products page (decision changed 2026-10-12)
+### 2. Products section (shipped 2026-10-13, Session 21)
 
-**Update:** a separate Products page for everything would overlap the service pages (same searches), so category content now lives on the service pages ("What we supply"). **The Products page is now only for crushers and screens** (owner decision), plus the paused WIP below. Mixers sit on the concrete-plants page.
+The Products section is live in the branch with the OCR RP Series page: hub `/products/` plus one product page, in 5 languages. It is built by `scripts/build-product-pages.js` from `scripts/product-pages-content.js` and checked by `scripts/verify-products.js` (sections `nav|pages|sitemap|links`).
 
-(Original Session 19 notes, still valid for the WIP files:)
-
-Status: design drafted, **not approved, no code**. Branch `feat/products-page` exists; merge/rebase `master` into it first.
-
-- **Existing WIP (untracked, only on disk):** `products.html` (848 lines: SEO head, i18n redirect stub, nav, hero, category cards, EmailJS enquiry form, client-side i18n for 5 languages), `products.json` (2 pump entries), `products-mockup.html` (superseded — delete). Also `pumpcurveshandoff.md` — an unrelated, unstarted "interactive pump curve charts" feature blocked on the user supplying PDF datasheets.
-- **Decisions made:** build on the WIP; pre-render languages via a new `scripts/build-products-langs.js` (add to `build-all`); populate all 5 categories (Conveyors, Concrete, Pumps, Crushers, Fabrication); build the filter bar (strings `prod_filter_*` exist, no handlers yet); crushers/mixer/screen get **TBD spec placeholders** and "supplied by Q² Machines" wording — do **not** reuse the vetted `depot.html` specs (Products = capability catalogue, Depot = specific in-stock units); MK-TRK dump truck excluded.
-- **Design to approve:** extend `products.json`; `ItemList` JSON-LD referencing the existing `Organization` by `@id` — **do not use `Product` + `Offer` unless a real `price` exists** (see Session 20 lesson 7; products are likely price-on-request too); add "Products" to nav/mobile menu/footer on index/depot/projects and the es/pt/nl/fr variants (13 files); add `products.html` + 4 language variants to `sitemap.xml`; fix trust-badge copy "All equipment manufactured to your specification" for supplied/OEM items in 5 languages.
-- **Next steps:** get design sign-off → write spec to `docs/superpowers/specs/2026-07-02-products-page-design.md` → `writing-plans` → implement. The footer language row and the `footer_slogan` / `footer_rights` i18n keys now exist on master; the products page needs the same footer.
+- **Superseded:** the old `products.html` / `products.json` / `products-mockup.html` draft (branch `feat/products-page`) is unused. `products-mockup.html` can be deleted.
+- **Native check needed:** es/pt/nl/fr copy is new. Check nl and fr first. nl uses "Opsteekreductoren"; pt/nl/fr use "stackers" for the English term.
+- **Enquiry flow:** the CTA opens the home contact form with `?service=reducers` rather than embedding a second EmailJS form.
+- **Titles omit "Caribbean" on purpose:** OCR's agency territory is unconfirmed. Restore the word once confirmed.
+- **Cross-link:** the services page (pumps-and-drives) now links to the product page.
+- **Held back until OCR agrees:** OCR images, tables, logo, and the interchangeability appendix.
+- **Next product line:** concrete mixers (source and relationship still to be confirmed). The nav label "Products" is assumed.
 
 ### 3. Technical SEO / performance
 
@@ -210,6 +209,14 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 
 - In-app browser screenshots time out on very long pages; use DOM measurements (bounding rects, computed style) as evidence for layout checks.
 - Search Console exports used: *Performance on Search*, *Performance on Search – Generative AI Features* (impressions only, tiny — not representative), and *Coverage*. Exports end ~2026-10-08/10 due to reporting lag.
+
+---
+
+## Session 21 — Products section (OCR RP Series reducers)
+
+**Date:** 2026-10-13
+
+Added the Products section: hub `/products/` and the OCR RP Series shaft-mounted gear reducers page in 5 languages (10 pages), Products in the nav and footer on all pages, a link from the reducers service page, and 10 new sitemap URLs. Details and open questions are in Open Items §2.
 
 ---
 
