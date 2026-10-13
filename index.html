@@ -1503,10 +1503,6 @@ footer {
 #scroll-top:hover { transform: translateY(-3px); }
 #scroll-top svg { width: 20px; height: 20px; fill: var(--ink); }
 </style>
-<!-- Preload first slide (LCP element) so browser fetches it immediately -->
-<link rel="preload" as="image" href="assets/images/photo1.webp" type="image/webp">
-<link rel="preload" as="image" href="assets/images/photo1.jpg" imagesrcset="assets/images/photo1.jpg">
-
 <!-- EmailJS deferred: loads only when user interacts with the contact form -->
 <script>
 (function() {
@@ -2548,14 +2544,27 @@ function submitForm(e) {
   if (prevBtn) prevBtn.addEventListener('click', () => { clearInterval(timer); prev(); timer = setInterval(next, 5000); });
   if (nextBtn) nextBtn.addEventListener('click', () => { clearInterval(timer); next(); timer = setInterval(next, 5000); });
 
-  // Load first two slides immediately, rest on demand
-  preload(0);
+  // The slideshow sits below the fold: load images and run the timer only while it is near the viewport
+  let visible = false, hovering = false;
+  function syncTimer() {
+    clearInterval(timer);
+    timer = (visible && !hovering) ? setInterval(next, 5000) : null;
+  }
 
-  timer = setInterval(next, 5000);
+  container.parentElement.addEventListener('mouseenter', () => { hovering = true; syncTimer(); });
+  container.parentElement.addEventListener('mouseleave', () => { hovering = false; syncTimer(); });
 
-  // Pause on hover
-  container.parentElement.addEventListener('mouseenter', () => clearInterval(timer));
-  container.parentElement.addEventListener('mouseleave', () => { timer = setInterval(next, 5000); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      visible = entries[entries.length - 1].isIntersecting;
+      if (visible) preload(current);
+      syncTimer();
+    }, { rootMargin: '100px 0px' }).observe(container.parentElement);
+  } else {
+    visible = true;
+    preload(0);
+    syncTimer();
+  }
 })();
 
 
