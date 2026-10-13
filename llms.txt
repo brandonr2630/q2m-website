@@ -79,6 +79,8 @@ https://www.q2m.io/projects.html
 
 ## About page and Privacy Policy
 - About: https://www.q2m.io/about.html
+- Conveyor systems and bulk material handling: https://www.q2m.io/services/conveyor-systems.html
+- Concrete batching plants: https://www.q2m.io/services/concrete-plants.html
 - Privacy Policy: https://www.q2m.io/privacy.html (no cookies, no analytics; enquiry forms are sent by email through EmailJS)
 
 ## Languages
