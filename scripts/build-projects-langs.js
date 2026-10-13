@@ -44,7 +44,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/es/projects.html',
     ogLocale:    'es_419',
     title:       'Proyectos de Ingeniería — Sistemas Transportadores y Plantas de Concreto | Q² Machines',
-    description: 'Proyectos de ingeniería entregados por Q² Machines en el Caribe — sistemas transportadores, plantas de concreto, herrería estructural y puesta en marcha de maquinaria. Con sede en Trinidad y Tobago.',
+    description: "Proyectos de ingeniería de Q² Machines en el Caribe — sistemas transportadores, plantas de concreto, estructuras de acero y puesta en marcha.",
   },
   {
     code:        'pt',
@@ -53,7 +53,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/pt/projects.html',
     ogLocale:    'pt_BR',
     title:       'Projetos de Engenharia — Sistemas de Esteiras e Usinas de Concreto | Q² Machines',
-    description: 'Projetos de engenharia entregues pela Q² Machines no Caribe — sistemas de esteiras, usinas de concreto, estruturas metálicas e comissionamento de maquinário. Sediada em Trinidad e Tobago.',
+    description: "Projetos de engenharia da Q² Machines no Caribe — sistemas de esteiras, usinas de concreto, estruturas metálicas e comissionamento de máquinas.",
   },
   {
     code:        'nl',
@@ -62,7 +62,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/nl/projects.html',
     ogLocale:    'nl_NL',
     title:       'Technische Projecten — Transportbandsystemen & Betonplanten | Q² Machines',
-    description: 'Technische projecten uitgevoerd door Q² Machines in het Caribisch gebied — transportbandsystemen, betonplanten, staalconstructies en inbedrijfstelling van machines. Gevestigd in Trinidad en Tobago.',
+    description: "Technische projecten van Q² Machines in het Caribisch gebied — transportbandsystemen, betonplanten, staalconstructies en inbedrijfstelling.",
   },
   {
     code:        'fr',
@@ -71,7 +71,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/fr/projects.html',
     ogLocale:    'fr_FR',
     title:       "Projets d'Ingénierie — Systèmes Convoyeurs et Centrales à Béton | Q² Machines",
-    description: "Projets d'ingénierie réalisés par Q² Machines dans les Caraïbes — systèmes convoyeurs, centrales à béton, charpentes métalliques et mise en service de machines. Basée à Trinité-et-Tobago.",
+    description: "Projets d'ingénierie de Q² Machines dans les Caraïbes — systèmes convoyeurs, centrales à béton, charpentes métalliques et mise en service.",
   },
 ];
 

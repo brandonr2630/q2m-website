@@ -13,7 +13,7 @@
 })();
 </script>
 <title>Q² Machines (Q2M) — Engineering Firm, Trinidad & Caribbean</title>
-<meta name="description" content="Q² Machines is an engineering firm specialising in the Design, Manufacture & Service of Conveyor Systems, Bulk Handling Systems, Concrete Plants, Motors & Pumps across the Caribbean, South America and Latin America.">
+<meta name="description" content="Q² Machines (Q2M) is a Trinidad-based engineering firm that designs, manufactures and services conveyors, concrete plants, pumps and motors.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Q² Machines — Quarryquip Ltd">
 <meta name="keywords" content="engineering firm Trinidad, conveyor systems Caribbean, bulk handling systems, concrete plants Trinidad, motors pumps Trinidad, fabrication welding, machine shop Trinidad, Quarryquip">
@@ -52,7 +52,7 @@
       "@type": "Organization",
       "@id": "https://www.q2m.io/#organization",
       "name": "Q² Machines",
-      "alternateName": ["Q2M", "Q2 Machines", "Quarryquip Ltd"],
+      "alternateName": ["Q2M", "Q2 Machines", "Q2 Machining", "Quarryquip Ltd"],
       "url": "https://www.q2m.io",
       "logo": "https://www.q2m.io/Q2M_Logo.svg",
       "description": "Q² Machines is a Caribbean-based engineering firm serving the Quarrying, Minerals, Industrial, Energy and Manufacturing sectors. We design and manufacture Conveyor Systems, Bulk Handling & Storage Systems and Concrete Plants — and deliver Project Management, Plant Upgrades, Turnarounds and Maintenance services.",
@@ -104,7 +104,7 @@
       "@id": "https://www.q2m.io/#website",
       "url": "https://www.q2m.io/",
       "name": "Q² Machines",
-      "alternateName": ["Q2M", "Q2 Machines"],
+      "alternateName": ["Q2M", "Q2 Machines", "Q2 Machining"],
       "publisher": {"@id": "https://www.q2m.io/#organization"},
       "inLanguage": ["en", "es", "pt-BR", "nl", "fr"]
     },
@@ -113,7 +113,7 @@
       "@id": "https://www.q2m.io/#faq",
       "inLanguage": "en",
       "mainEntity": [
-        {"@type": "Question", "name": "What does Q² Machines do?", "acceptedAnswer": {"@type": "Answer", "text": "Q² Machines is a Trinidad-based engineering firm, operating since 2013. We design, manufacture and service industrial plant equipment: conveyor and bulk handling systems, concrete batching plants, structural steelwork, and motors, pumps and gear reducers, backed by our own machine shop and fabrication and welding workshop."}},
+        {"@type": "Question", "name": "What does Q² Machines do?", "acceptedAnswer": {"@type": "Answer", "text": "Q² Machines is a Trinidad-based engineering firm, operating since 2013. We design, manufacture and service industrial plant equipment: conveyor and bulk handling systems, concrete batching plants, structural steelwork, and motors, pumps and gear reducers, backed by our own machine shop and fabrication and welding workshop. Also known as Q2M and Q2 Machining."}},
         {"@type": "Question", "name": "Which industries do you serve?", "acceptedAnswer": {"@type": "Answer", "text": "Quarrying, minerals processing, concrete and cement, asphalt, recycling, manufacturing, energy and construction."}},
         {"@type": "Question", "name": "Can you design and build custom systems?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Design, engineering and manufacturing are done in-house, so we tailor each system to your requirements, from concept through commissioning and after-sales support."}},
         {"@type": "Question", "name": "Do you work outside Trinidad?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We serve clients across the Caribbean, Venezuela, Colombia, Guyana and South America from our facility in Trinidad."}},
@@ -126,7 +126,7 @@
       "@type": ["LocalBusiness", "ProfessionalService"],
       "@id": "https://www.q2m.io/#localbusiness",
       "name": "Q² Machines",
-      "alternateName": ["Q2M", "Q2 Machines"],
+      "alternateName": ["Q2M", "Q2 Machines", "Q2 Machining"],
       "image": "https://www.q2m.io/Q2M_Logo.svg",
       "url": "https://www.q2m.io",
       "address": {
@@ -560,6 +560,12 @@ nav.scrolled .nav-logo-name { transition: all .3s; }
   30%, 50% { opacity: 1; }
 }
 
+.hero-lead {
+  font-size: 19px; font-weight: 500;
+  color: var(--text); line-height: 1.5;
+  max-width: 560px; margin-bottom: 14px;
+  opacity: 0; animation: fadeUp .6s .45s forwards;
+}
 .hero-desc {
   font-size: 17px; font-weight: 300;
   color: var(--text-2); line-height: 1.7;
@@ -863,6 +869,8 @@ section { position: relative; z-index: 1; }
   overflow: visible;
   user-select: none;
 }
+.svc-pages { margin: -8px 0 28px; font-size: 14px; color: var(--text-2); }
+.svc-pages a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; margin: 0 4px; }
 .arc-hint {
   position: absolute;
   bottom: -36px; left: 50%;
@@ -1424,6 +1432,7 @@ footer {
 
   .hero { padding: 120px 20px 60px; }
   .hero-title { font-size: clamp(22px, 7vw, 48px); }
+  .hero-lead { font-size: 17px; }
   .hero-desc { font-size: 15px; }
   .hero-specialisms { gap: 6px; }
   .hero-specialism-tag { font-size: 10px; padding: 3px 8px; }
@@ -1455,6 +1464,7 @@ footer {
   .hero { padding: 100px 16px 48px; }
   .hero-eyebrow { font-size: 10px; }
   .hero-title { font-size: clamp(16px, 7.5vw, 36px); letter-spacing: -0.5px; }
+  .hero-lead { font-size: 16px; }
   .hero-desc { font-size: 14px; line-height: 1.6; }
   .hero-actions { gap: 10px; }
 
@@ -1503,10 +1513,6 @@ footer {
 #scroll-top:hover { transform: translateY(-3px); }
 #scroll-top svg { width: 20px; height: 20px; fill: var(--ink); }
 </style>
-<!-- Preload first slide (LCP element) so browser fetches it immediately -->
-<link rel="preload" as="image" href="assets/images/photo1.webp" type="image/webp">
-<link rel="preload" as="image" href="assets/images/photo1.jpg" imagesrcset="assets/images/photo1.jpg">
-
 <!-- EmailJS deferred: loads only when user interacts with the contact form -->
 <script>
 (function() {
@@ -1592,6 +1598,7 @@ footer {
     <p class="hero-tagline">
       <span class="hero-chevrons"><span class="hero-chev">›</span><span class="hero-chev">›</span><span class="hero-chev">›</span></span><span class="hero-tagline-text"><span class="hero-tagline-part" data-i18n="hero_tagline_1">As materials flow,</span> <span class="hero-tagline-part hero-tagline-white" data-i18n="hero_tagline_2">profits grow.</span></span>
     </p>
+    <p class="hero-lead" data-i18n="hero_lead">Trinidad-based engineers who design, manufacture and service industrial plant equipment for the Caribbean and Latin America.</p>
     <p class="hero-desc" data-i18n="hero_desc">
       Lost Time Incidents, unplanned downtime and inefficiency choke production flows, increasing costs and eroding profits. Q&#178; Machines has anchored its services on a bedrock of safety, sustainability and service — providing precision-engineered solutions designed, built and serviced in the region, for the region.
     </p>
@@ -1621,8 +1628,8 @@ footer {
       <span class="hero-specialism-tag" data-i18n="tag_safety">Plant Safety Systems</span>
     </div>
     <div class="hero-actions">
-      <a href="#services" class="btn-primary" data-i18n="hero_btn1">Our Services ↓</a>
-      <a href="#contact" class="btn-secondary" data-i18n="nav_cta">Tell Us Your Needs</a>
+      <a href="#contact" class="btn-primary" data-i18n="nav_cta">Tell Us Your Needs</a>
+      <a href="#services" class="btn-secondary" data-i18n="hero_btn1">Our Services ↓</a>
     </div>
   </div>
 
@@ -1657,26 +1664,26 @@ footer {
         <div class="about-img-frame">
           <div class="slideshow" id="about-slideshow">
             <!-- Slideshow photos: images are lazy-loaded via JS. WebP served to supporting browsers, JPG fallback for others. -->
-            <div class="slide active" data-webp="assets/images/photo1.webp" data-jpg="assets/images/photo1.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo2.webp" data-jpg="assets/images/photo2.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo3.webp" data-jpg="assets/images/photo3.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo4.webp" data-jpg="assets/images/photo4.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo5.webp" data-jpg="assets/images/photo5.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo6.webp" data-jpg="assets/images/photo6.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo7.webp" data-jpg="assets/images/photo7.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo8.webp" data-jpg="assets/images/photo8.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo9.webp" data-jpg="assets/images/photo9.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo10.webp" data-jpg="assets/images/photo10.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo11.webp" data-jpg="assets/images/photo11.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo12.webp" data-jpg="assets/images/photo12.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo13.webp" data-jpg="assets/images/photo13.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo14.webp" data-jpg="assets/images/photo14.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo15.webp" data-jpg="assets/images/photo15.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo16.webp" data-jpg="assets/images/photo16.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo17.webp" data-jpg="assets/images/photo17.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo18.webp" data-jpg="assets/images/photo18.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo19.webp" data-jpg="assets/images/photo19.jpg"></div>
-            <div class="slide" data-webp="assets/images/photo20.webp" data-jpg="assets/images/photo20.jpg"></div>
+            <div class="slide active" data-webp="assets/images/slides/photo1.webp" data-jpg="assets/images/slides/photo1.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo2.webp" data-jpg="assets/images/slides/photo2.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo3.webp" data-jpg="assets/images/slides/photo3.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo4.webp" data-jpg="assets/images/slides/photo4.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo5.webp" data-jpg="assets/images/slides/photo5.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo6.webp" data-jpg="assets/images/slides/photo6.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo7.webp" data-jpg="assets/images/slides/photo7.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo8.webp" data-jpg="assets/images/slides/photo8.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo9.webp" data-jpg="assets/images/slides/photo9.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo10.webp" data-jpg="assets/images/slides/photo10.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo11.webp" data-jpg="assets/images/slides/photo11.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo12.webp" data-jpg="assets/images/slides/photo12.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo13.webp" data-jpg="assets/images/slides/photo13.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo14.webp" data-jpg="assets/images/slides/photo14.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo15.webp" data-jpg="assets/images/slides/photo15.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo16.webp" data-jpg="assets/images/slides/photo16.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo17.webp" data-jpg="assets/images/slides/photo17.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo18.webp" data-jpg="assets/images/slides/photo18.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo19.webp" data-jpg="assets/images/slides/photo19.jpg"></div>
+            <div class="slide" data-webp="assets/images/slides/photo20.webp" data-jpg="assets/images/slides/photo20.jpg"></div>
           </div>
           <button class="slideshow-arrow slideshow-arrow-left" id="slideshow-prev" aria-label="Previous slide">&#8592;</button>
           <button class="slideshow-arrow slideshow-arrow-right" id="slideshow-next" aria-label="Next slide">&#8594;</button>
@@ -1728,6 +1735,8 @@ footer {
         From concept to commissioning — we design, manufacture and service the systems that keep industry moving.
       </p>
     </div>
+
+    <p class="svc-pages reveal"><span data-i18n="svcp_label">Learn more:</span> <a href="/services/conveyor-systems.html" data-i18n="svcp_conveyors">Conveyor Systems</a> <span aria-hidden="true">·</span> <a href="/services/concrete-plants.html" data-i18n="svcp_concrete">Concrete Plants</a> <span aria-hidden="true">·</span> <a href="/services/pumps-and-drives.html" data-i18n="svcp_pumps">Pumps &amp; Drives</a> <span aria-hidden="true">·</span> <a href="/services/fabrication-and-machining.html" data-i18n="svcp_fab">Fabrication &amp; Machining</a> <span aria-hidden="true">·</span> <a href="/services/structural-steel.html" data-i18n="svcp_struct">Structural Steel</a> <span aria-hidden="true">·</span> <a href="/services/geotechnical-equipment.html" data-i18n="svcp_geo">Geotechnical Equipment</a> <span aria-hidden="true">·</span> <a href="/services/" data-i18n="svcp_all">All services →</a></p>
 
     <!-- ── DESKTOP WHEEL CAROUSEL ── -->
     <div class="arc-stage" id="arc-stage">
@@ -2037,7 +2046,7 @@ footer {
     <div class="faq-list">
       <details class="faq-item">
         <summary data-i18n="faq_q1">What does Q² Machines do?</summary>
-        <p class="faq-answer" data-i18n="faq_a1">Q² Machines is a Trinidad-based engineering firm, operating since 2013. We design, manufacture and service industrial plant equipment: conveyor and bulk handling systems, concrete batching plants, structural steelwork, and motors, pumps and gear reducers, backed by our own machine shop and fabrication and welding workshop.</p>
+        <p class="faq-answer" data-i18n="faq_a1">Q² Machines is a Trinidad-based engineering firm, operating since 2013. We design, manufacture and service industrial plant equipment: conveyor and bulk handling systems, concrete batching plants, structural steelwork, and motors, pumps and gear reducers, backed by our own machine shop and fabrication and welding workshop. Also known as Q2M and Q2 Machining.</p>
       </details>
       <details class="faq-item">
         <summary data-i18n="faq_q2">Which industries do you serve?</summary>
@@ -2177,8 +2186,8 @@ footer {
           </select>
         </div>
         <div class="form-group reveal reveal-delay-3">
-          <label class="form-label" for="cf-message" data-i18n="lbl_message">Project Description *</label>
-          <textarea id="cf-message" class="form-input" placeholder="Describe your project — scope, specifications, quantities, timeline, or just your idea. We'll take it from there." required></textarea>
+          <label class="form-label" for="cf-message" data-i18n="lbl_message">Project Description</label>
+          <textarea id="cf-message" class="form-input" placeholder="Describe your project — scope, specifications, quantities, timeline, or just your idea. Not sure yet? Just say hello."></textarea>
         </div>
         <div class="form-group reveal reveal-delay-4">
           <label class="form-label" data-i18n="lbl_response">Preferred Response Method</label>
@@ -2288,6 +2297,19 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 document.getElementById('footer-year').textContent = new Date().getFullYear();
 
 // ── CONTACT FORM ─────────────────────────────────
+// Enquiry links from the service pages (?service=conveyors|concrete) pre-select the service
+(function () {
+  var map = {
+    conveyors: 'Bulk Material Handling Systems', concrete: 'Concrete Plants', pumps: 'Pumps',
+    fabrication: 'Fabrication & Welding', structural: 'Structural Systems', geotechnical: 'Geotechnical Testing Equipment'
+  };
+  try {
+    var key = new URLSearchParams(location.search).get('service');
+    var sel = document.getElementById('cf-service');
+    if (key && map[key] && sel) sel.value = map[key];
+  } catch (e) {}
+})();
+
 function submitForm(e) {
   e.preventDefault();
   const btn   = document.getElementById('form-submit-btn');
@@ -2303,7 +2325,7 @@ function submitForm(e) {
   const phone   = document.getElementById('cf-phone').value.trim();
   const responseMethod = document.querySelector('input[name="response-method"]:checked')?.value || 'Email';
 
-  if (!name || !email || !message) {
+  if (!name || !email) {
     msgEl.textContent = 'Please fill in all required fields.';
     msgEl.className   = 'form-msg error';
     return;
@@ -2319,7 +2341,7 @@ function submitForm(e) {
     phone:           phone   || '—',
     service:         service || '—',
     response_method: responseMethod,
-    message:         message
+    message:         message || '—'
   };
 
   emailjs.send('service_ekf77uo', 'template_cemd6of', templateParams)
@@ -2548,14 +2570,27 @@ function submitForm(e) {
   if (prevBtn) prevBtn.addEventListener('click', () => { clearInterval(timer); prev(); timer = setInterval(next, 5000); });
   if (nextBtn) nextBtn.addEventListener('click', () => { clearInterval(timer); next(); timer = setInterval(next, 5000); });
 
-  // Load first two slides immediately, rest on demand
-  preload(0);
+  // The slideshow sits below the fold: load images and run the timer only while it is near the viewport
+  let visible = false, hovering = false;
+  function syncTimer() {
+    clearInterval(timer);
+    timer = (visible && !hovering) ? setInterval(next, 5000) : null;
+  }
 
-  timer = setInterval(next, 5000);
+  container.parentElement.addEventListener('mouseenter', () => { hovering = true; syncTimer(); });
+  container.parentElement.addEventListener('mouseleave', () => { hovering = false; syncTimer(); });
 
-  // Pause on hover
-  container.parentElement.addEventListener('mouseenter', () => clearInterval(timer));
-  container.parentElement.addEventListener('mouseleave', () => { timer = setInterval(next, 5000); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      visible = entries[entries.length - 1].isIntersecting;
+      if (visible) preload(current);
+      syncTimer();
+    }, { rootMargin: '100px 0px' }).observe(container.parentElement);
+  } else {
+    visible = true;
+    preload(0);
+    syncTimer();
+  }
 })();
 
 
@@ -2573,6 +2608,7 @@ const translations = {
     hero_eyebrow: 'Safety, Service & Sustainability',
     hero_title_1: 'Plant Engineering & Manufacture', hero_title_2: 'Caribbean & Latin America', hero_title_3: '',
     hero_tagline_1: 'As materials flow,', hero_tagline_2: 'profits grow.',
+    hero_lead: 'Trinidad-based engineers who design, manufacture and service industrial plant equipment for the Caribbean and Latin America.',
     hero_desc: 'Lost Time Incidents, unplanned downtime and inefficiency choke production flows, increasing costs and eroding profits. Q² Machines has anchored its services on a bedrock of safety, sustainability and service — providing precision-engineered solutions designed, built and serviced in the region, for the region.',
     scroll: 'Scroll',
     about_label: 'About Us',
@@ -2595,7 +2631,7 @@ const translations = {
     svc_opt9: 'Multiple / Other',
     faq_label: 'Questions', faq_title_1: 'Frequently Asked', faq_title_2: 'Questions',
     faq_q1: 'What does Q² Machines do?',
-    faq_a1: 'Q² Machines is a Trinidad-based engineering firm, operating since 2013. We design, manufacture and service industrial plant equipment: conveyor and bulk handling systems, concrete batching plants, structural steelwork, and motors, pumps and gear reducers, backed by our own machine shop and fabrication and welding workshop.',
+    faq_a1: 'Q² Machines is a Trinidad-based engineering firm, operating since 2013. We design, manufacture and service industrial plant equipment: conveyor and bulk handling systems, concrete batching plants, structural steelwork, and motors, pumps and gear reducers, backed by our own machine shop and fabrication and welding workshop. Also known as Q2M and Q2 Machining.',
     faq_q2: 'Which industries do you serve?',
     faq_a2: 'Quarrying, minerals processing, concrete and cement, asphalt, recycling, manufacturing, energy and construction.',
     faq_q3: 'Can you design and build custom systems?',
@@ -2615,6 +2651,7 @@ const translations = {
     about_pt4: 'Serving the Quarry, Minerals, Energy, Industrial & Manufacturing sectors',
     about_pt5: 'Regional reach: Caribbean, Venezuela, Colombia, Guyana, Suriname and South America',
     svc_label: 'What We Do', svc_title_1: 'Our', svc_title_2: 'Services',
+    svcp_label: 'Learn more:', svcp_conveyors: 'Conveyor Systems', svcp_concrete: 'Concrete Plants', svcp_pumps: 'Pumps & Drives', svcp_fab: 'Fabrication & Machining', svcp_struct: 'Structural Steel', svcp_geo: 'Geotechnical Equipment', svcp_all: 'All services →',
     svc_body: 'From concept to commissioning — we design, manufacture and service the systems that keep industry moving.',
     contact_label: 'Get In Touch',
     contact_title_1: 'Tell Us About', contact_title_2: 'Your Project', contact_title_3: 'Needs',
@@ -2625,7 +2662,7 @@ const translations = {
     lbl_email: 'Email *', ph_email: 'your-email',
     lbl_phone: 'Phone', ph_phone: '+1 (868) 000-0000',
     lbl_service: 'Service Required', ph_service: 'Select a service...',
-    lbl_message: 'Project Description *', ph_message: 'Describe your project — scope, specifications, quantities, timeline, or just your idea. We\'ll take it from there.',
+    lbl_message: 'Project Description', ph_message: 'Describe your project — scope, specifications, quantities, timeline, or just your idea. Not sure yet? Just say hello.',
     lbl_response: 'Preferred Response Method', opt_email: 'Email', opt_phone: 'Phone',
     btn_submit: 'Submit Enquiry',
     footer_home: 'Home', footer_about: 'About', footer_services: 'Services', footer_contact: 'Contact',
@@ -2692,6 +2729,7 @@ const translations = {
     hero_eyebrow: 'Seguridad, Servicio y Sostenibilidad',
     hero_title_1: 'Ingeniería de Plantas y Manufactura', hero_title_2: 'Caribe y Latinoamérica', hero_title_3: '',
     hero_tagline_1: 'Cuando los materiales fluyen,', hero_tagline_2: 'las ganancias crecen.',
+    hero_lead: 'Ingenieros con sede en Trinidad que diseñan, fabrican y mantienen equipos para plantas industriales en el Caribe y Latinoamérica.',
     hero_desc: 'Los Incidentes con Tiempo Perdido, el tiempo de inactividad no planificado y la ineficiencia sofocan los flujos de producción, aumentando los costos y erosionando las ganancias. Q² Machines ha anclado sus servicios en una base de seguridad, sostenibilidad y servicio — proporcionando soluciones de ingeniería de precisión diseñadas, construidas y mantenidas en la región, para la región.',
     scroll: 'Desplazar',
     about_label: 'Quiénes Somos',
@@ -2714,7 +2752,7 @@ const translations = {
     svc_opt9: 'Varios / Otros',
     faq_label: 'Preguntas', faq_title_1: 'Preguntas', faq_title_2: 'Frecuentes',
     faq_q1: '¿A qué se dedica Q² Machines?',
-    faq_a1: 'Q² Machines es una empresa de ingeniería con sede en Trinidad, en operación desde 2013. Diseñamos, fabricamos y damos servicio a equipos para plantas industriales: sistemas de transporte y manejo de materiales a granel, plantas dosificadoras de concreto, estructuras de acero, y motores, bombas y reductores de engranajes, respaldados por nuestro propio taller de mecanizado y de fabricación y soldadura.',
+    faq_a1: 'Q² Machines es una empresa de ingeniería con sede en Trinidad, en operación desde 2013. Diseñamos, fabricamos y damos servicio a equipos para plantas industriales: sistemas de transporte y manejo de materiales a granel, plantas dosificadoras de concreto, estructuras de acero, y motores, bombas y reductores de engranajes, respaldados por nuestro propio taller de mecanizado y de fabricación y soldadura. También se nos conoce como Q2M y Q2 Machining.',
     faq_q2: '¿A qué industrias atienden?',
     faq_a2: 'Canteras, procesamiento de minerales, concreto y cemento, asfalto, reciclaje, manufactura, energía y construcción.',
     faq_q3: '¿Pueden diseñar y construir sistemas a medida?',
@@ -2734,6 +2772,7 @@ const translations = {
     about_pt4: 'Atendiendo los sectores de Canteras, Minerales, Energía, Industrial y Manufactura',
     about_pt5: 'Alcance regional: Caribe, Venezuela, Colombia, Guyana, Surinam y Suramérica',
     svc_label: 'Lo Que Hacemos', svc_title_1: 'Nuestros', svc_title_2: 'Servicios',
+    svcp_label: 'Más información:', svcp_conveyors: 'Sistemas de Transporte', svcp_concrete: 'Plantas de Concreto', svcp_pumps: 'Bombas y Motores', svcp_fab: 'Fabricación y Mecanizado', svcp_struct: 'Estructuras de Acero', svcp_geo: 'Equipos Geotécnicos', svcp_all: 'Todos los servicios →',
     svc_body: 'Del concepto a la puesta en marcha — diseñamos, fabricamos y damos servicio a los sistemas que mantienen la industria en movimiento.',
     contact_label: 'Contáctenos',
     contact_title_1: 'Cuéntenos Sobre', contact_title_2: 'Su Proyecto', contact_title_3: '',
@@ -2744,7 +2783,7 @@ const translations = {
     lbl_email: 'Correo Electrónico *', ph_email: 'su-correo',
     lbl_phone: 'Teléfono', ph_phone: '+1 (868) 000-0000',
     lbl_service: 'Servicio Requerido', ph_service: 'Seleccione un servicio...',
-    lbl_message: 'Descripción del Proyecto *', ph_message: 'Describa su proyecto — alcance, especificaciones, cantidades, plazo o simplemente su idea. Nosotros nos encargamos del resto.',
+    lbl_message: 'Descripción del Proyecto', ph_message: 'Describa su proyecto — alcance, especificaciones, cantidades, plazo o simplemente su idea. ¿Aún no lo tiene claro? Solo salúdenos.',
     lbl_response: 'Método de Respuesta Preferido', opt_email: 'Correo', opt_phone: 'Teléfono',
     btn_submit: 'Enviar Consulta',
     footer_home: 'Inicio', footer_about: 'Nosotros', footer_services: 'Servicios', footer_contact: 'Contacto',
@@ -2811,6 +2850,7 @@ const translations = {
     hero_eyebrow: 'Segurança, Serviço e Sustentabilidade',
     hero_title_1: 'Engenharia de Plantas e Manufatura', hero_title_2: 'Caribe e América Latina', hero_title_3: '',
     hero_tagline_1: 'Quando os materiais fluem,', hero_tagline_2: 'os lucros crescem.',
+    hero_lead: 'Engenheiros sediados em Trinidad que projetam, fabricam e mantêm equipamentos para plantas industriais no Caribe e na América Latina.',
     hero_desc: 'Incidentes com Tempo Perdido, inatividade não planejada e ineficiência sufocam os fluxos de produção, aumentando os custos e corroendo os lucros. A Q² Machines ancorou seus serviços em uma base de segurança, sustentabilidade e serviço — fornecendo soluções de engenharia de precisão projetadas, construídas e mantidas na região, para a região.',
     scroll: 'Rolar',
     about_label: 'Sobre Nós',
@@ -2833,7 +2873,7 @@ const translations = {
     svc_opt9: 'Vários / Outros',
     faq_label: 'Perguntas', faq_title_1: 'Perguntas', faq_title_2: 'Frequentes',
     faq_q1: 'O que a Q² Machines faz?',
-    faq_a1: 'A Q² Machines é uma empresa de engenharia sediada em Trinidad, em operação desde 2013. Projetamos, fabricamos e fazemos a manutenção de equipamentos para plantas industriais: sistemas de transporte e manuseio de granéis, usinas de concreto, estruturas de aço, motores, bombas e redutores de engrenagens, apoiados por nossa própria oficina de usinagem, fabricação e soldagem.',
+    faq_a1: 'A Q² Machines é uma empresa de engenharia sediada em Trinidad, em operação desde 2013. Projetamos, fabricamos e fazemos a manutenção de equipamentos para plantas industriais: sistemas de transporte e manuseio de granéis, usinas de concreto, estruturas de aço, motores, bombas e redutores de engrenagens, apoiados por nossa própria oficina de usinagem, fabricação e soldagem. Também somos conhecidos como Q2M e Q2 Machining.',
     faq_q2: 'Quais setores vocês atendem?',
     faq_a2: 'Pedreiras, processamento de minerais, concreto e cimento, asfalto, reciclagem, manufatura, energia e construção.',
     faq_q3: 'Vocês projetam e constroem sistemas sob medida?',
@@ -2853,6 +2893,7 @@ const translations = {
     about_pt4: 'Atendendo os setores de Mineração, Minerais, Energia, Industrial e Manufatura',
     about_pt5: 'Alcance regional: Caribe, Venezuela, Colômbia, Guiana, Suriname e América do Sul',
     svc_label: 'O Que Fazemos', svc_title_1: 'Nossos', svc_title_2: 'Serviços',
+    svcp_label: 'Saiba mais:', svcp_conveyors: 'Sistemas de Transporte', svcp_concrete: 'Usinas de Concreto', svcp_pumps: 'Bombas e Motores', svcp_fab: 'Fabricação e Usinagem', svcp_struct: 'Estruturas de Aço', svcp_geo: 'Equipamentos Geotécnicos', svcp_all: 'Todos os serviços →',
     svc_body: 'Do conceito ao comissionamento — projetamos, fabricamos e realizamos a manutenção dos sistemas que mantêm a indústria em movimento.',
     contact_label: 'Entre em Contato',
     contact_title_1: 'Fale Sobre', contact_title_2: 'Seu Projeto', contact_title_3: '',
@@ -2863,7 +2904,7 @@ const translations = {
     lbl_email: 'E-mail *', ph_email: 'seu-email',
     lbl_phone: 'Telefone', ph_phone: '+1 (868) 000-0000',
     lbl_service: 'Serviço Necessário', ph_service: 'Selecione um serviço...',
-    lbl_message: 'Descrição do Projeto *', ph_message: 'Descreva seu projeto — escopo, especificações, quantidades, prazo ou apenas sua ideia. Nós cuidamos do resto.',
+    lbl_message: 'Descrição do Projeto', ph_message: 'Descreva seu projeto — escopo, especificações, quantidades, prazo ou apenas sua ideia. Ainda não tem certeza? Basta dizer olá.',
     lbl_response: 'Método de Resposta Preferido', opt_email: 'E-mail', opt_phone: 'Telefone',
     btn_submit: 'Enviar Consulta',
     footer_home: 'Início', footer_about: 'Sobre', footer_services: 'Serviços', footer_contact: 'Contato',
@@ -2930,6 +2971,7 @@ const translations = {
     hero_eyebrow: 'Veiligheid, Service & Duurzaamheid',
     hero_title_1: 'Techniek & Productie', hero_title_2: 'Caribisch Gebied & Latijns-Amerika', hero_title_3: '',
     hero_tagline_1: 'Wanneer materialen stromen,', hero_tagline_2: 'groeien de winsten.',
+    hero_lead: 'Ingenieurs uit Trinidad die industriële installatieapparatuur voor het Caribisch gebied en Latijns-Amerika ontwerpen, bouwen en onderhouden.',
     hero_desc: 'Verloren-tijdincidenten, ongeplande stilstand en inefficiëntie verstikken de productiestromen, verhogen de kosten en tasten de winst aan. Q² Machines heeft haar diensten verankerd in een fundament van veiligheid, duurzaamheid en service — met precisietechnische oplossingen, ontworpen, gebouwd en onderhouden in de regio, voor de regio.',
     scroll: 'Scrollen',
     about_label: 'Over Ons',
@@ -2952,7 +2994,7 @@ const translations = {
     svc_opt9: 'Meerdere / Overig',
     faq_label: 'Vragen', faq_title_1: 'Veelgestelde', faq_title_2: 'Vragen',
     faq_q1: 'Wat doet Q² Machines?',
-    faq_a1: 'Q² Machines is een technisch bedrijf in Trinidad, actief sinds 2013. Wij ontwerpen, fabriceren en onderhouden apparatuur voor industriële installaties: transportband- en bulkverwerkingssystemen, betoncentrales, staalconstructies en motoren, pompen en tandwielreductoren, ondersteund door onze eigen machinewerkplaats en constructie- en lasafdeling.',
+    faq_a1: 'Q² Machines is een technisch bedrijf in Trinidad, actief sinds 2013. Wij ontwerpen, fabriceren en onderhouden apparatuur voor industriële installaties: transportband- en bulkverwerkingssystemen, betoncentrales, staalconstructies en motoren, pompen en tandwielreductoren, ondersteund door onze eigen machinewerkplaats en constructie- en lasafdeling. Ook bekend als Q2M en Q2 Machining.',
     faq_q2: 'Welke sectoren bedienen jullie?',
     faq_a2: 'Steengroeven, mineralenverwerking, beton en cement, asfalt, recycling, maakindustrie, energie en bouw.',
     faq_q3: 'Kunnen jullie maatwerksystemen ontwerpen en bouwen?',
@@ -2972,6 +3014,7 @@ const translations = {
     about_pt4: 'Bedient de sectoren Steengroeven, Mineralen, Energie, Industrie en Productie',
     about_pt5: 'Regionaal bereik: Caribisch gebied, Venezuela, Colombia, Guyana, Suriname en Zuid-Amerika',
     svc_label: 'Wat Wij Doen', svc_title_1: 'Onze', svc_title_2: 'Diensten',
+    svcp_label: 'Meer informatie:', svcp_conveyors: 'Transportbandsystemen', svcp_concrete: 'Betoncentrales', svcp_pumps: 'Pompen en Motoren', svcp_fab: 'Fabricage en Bewerking', svcp_struct: 'Staalconstructies', svcp_geo: 'Geotechnische Apparatuur', svcp_all: 'Alle diensten →',
     svc_body: 'Van concept tot inbedrijfstelling — wij ontwerpen, vervaardigen en onderhouden de systemen die de industrie draaiende houden.',
     contact_label: 'Neem Contact Op',
     contact_title_1: 'Vertel Ons Over', contact_title_2: 'Uw Project', contact_title_3: '',
@@ -2982,7 +3025,7 @@ const translations = {
     lbl_email: 'E-mail *', ph_email: 'uw-email',
     lbl_phone: 'Telefoon', ph_phone: '+1 (868) 000-0000',
     lbl_service: 'Vereiste Dienst', ph_service: 'Selecteer een dienst...',
-    lbl_message: 'Projectbeschrijving *', ph_message: 'Beschrijf uw project — omvang, specificaties, hoeveelheden, tijdlijn of gewoon uw idee. Wij zorgen voor de rest.',
+    lbl_message: 'Projectbeschrijving', ph_message: 'Beschrijf uw project — omvang, specificaties, hoeveelheden, tijdlijn of gewoon uw idee. Nog niet zeker? Zeg gewoon hallo.',
     lbl_response: 'Gewenste Reactiemethode', opt_email: 'E-mail', opt_phone: 'Telefoon',
     btn_submit: 'Aanvraag Indienen',
     footer_home: 'Home', footer_about: 'Over Ons', footer_services: 'Diensten', footer_contact: 'Contact',
@@ -3049,6 +3092,7 @@ const translations = {
     hero_eyebrow: 'Sécurité, Service & Durabilité',
     hero_title_1: 'Ingénierie Industrielle & Fabrication', hero_title_2: 'Caraïbes & Amérique Latine', hero_title_3: '',
     hero_tagline_1: 'Quand les matériaux s\'écoulent,', hero_tagline_2: 'les profits croissent.',
+    hero_lead: 'Ingénieurs basés à Trinidad qui conçoivent, fabriquent et entretiennent des équipements pour usines industrielles aux Caraïbes et en Amérique Latine.',
     hero_desc: 'Les Incidents avec Temps Perdu, les arrêts imprévus et l\'inefficacité étouffent les flux de production, augmentant les coûts et érodant les profits. Q² Machines a ancré ses services sur un socle de sécurité, durabilité et service — en fournissant des solutions d\'ingénierie de précision conçues, construites et entretenues dans la région, pour la région.',
     scroll: 'Défiler',
     about_label: 'À Propos',
@@ -3071,7 +3115,7 @@ const translations = {
     svc_opt9: 'Plusieurs / Autre',
     faq_label: 'Questions', faq_title_1: 'Questions', faq_title_2: 'Fréquentes',
     faq_q1: 'Que fait Q² Machines ?',
-    faq_a1: 'Q² Machines est une entreprise d\'ingénierie basée à Trinidad, en activité depuis 2013. Nous concevons, fabriquons et entretenons des équipements pour installations industrielles : systèmes de convoyage et de manutention de vrac, centrales à béton, charpentes métalliques, moteurs, pompes et réducteurs, appuyés par notre propre atelier d\'usinage, de fabrication et de soudage.',
+    faq_a1: 'Q² Machines est une entreprise d\'ingénierie basée à Trinidad, en activité depuis 2013. Nous concevons, fabriquons et entretenons des équipements pour installations industrielles : systèmes de convoyage et de manutention de vrac, centrales à béton, charpentes métalliques, moteurs, pompes et réducteurs, appuyés par notre propre atelier d\'usinage, de fabrication et de soudage. Aussi connue sous les noms Q2M et Q2 Machining.',
     faq_q2: 'Quels secteurs servez-vous ?',
     faq_a2: 'Carrières, traitement des minéraux, béton et ciment, asphalte, recyclage, industrie manufacturière, énergie et construction.',
     faq_q3: 'Pouvez-vous concevoir et fabriquer des systèmes sur mesure ?',
@@ -3091,6 +3135,7 @@ const translations = {
     about_pt4: 'Au service des secteurs des Carrières, Minéraux, Énergie, Industrie et Fabrication',
     about_pt5: 'Portée régionale : Caraïbes, Venezuela, Colombie, Guyana, Suriname et Amérique du Sud',
     svc_label: 'Ce Que Nous Faisons', svc_title_1: 'Nos', svc_title_2: 'Services',
+    svcp_label: 'En savoir plus :', svcp_conveyors: 'Systèmes de Convoyage', svcp_concrete: 'Centrales à Béton', svcp_pumps: 'Pompes et Moteurs', svcp_fab: 'Fabrication et Usinage', svcp_struct: 'Structures en Acier', svcp_geo: 'Équipements Géotechniques', svcp_all: 'Tous les services →',
     svc_body: 'Du concept à la mise en service — nous concevons, fabriquons et entretenons les systèmes qui font avancer l\'industrie.',
     contact_label: 'Contactez-Nous',
     contact_title_1: 'Parlez-Nous de', contact_title_2: 'Votre Projet', contact_title_3: '',
@@ -3101,7 +3146,7 @@ const translations = {
     lbl_email: 'Email *', ph_email: 'votre-email',
     lbl_phone: 'Téléphone', ph_phone: '+1 (868) 000-0000',
     lbl_service: 'Service Requis', ph_service: 'Sélectionnez un service...',
-    lbl_message: 'Description du Projet *', ph_message: 'Décrivez votre projet — portée, spécifications, quantités, calendrier ou simplement votre idée. Nous prendrons soin du reste.',
+    lbl_message: 'Description du Projet', ph_message: 'Décrivez votre projet — portée, spécifications, quantités, calendrier ou simplement votre idée. Pas encore sûr ? Dites-nous simplement bonjour.',
     lbl_response: 'Méthode de Réponse Préférée', opt_email: 'Email', opt_phone: 'Téléphone',
     btn_submit: 'Soumettre la Demande',
     footer_home: 'Accueil', footer_about: 'À Propos', footer_services: 'Services', footer_contact: 'Contact',

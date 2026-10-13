@@ -47,7 +47,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/es/depot.html',
     ogLocale:    'es_419',
     title:       'Equipos Industriales en Venta — Caribe y Suramérica | Q² Machines',
-    description: 'Equipos industriales nuevos, usados y reacondicionados en venta desde Trinidad — bombas, trituradoras, cribas, mezcladoras y más. Disponibles para compradores en el Caribe, Venezuela, Colombia y Suramérica.',
+    description: "Equipos industriales nuevos, usados y reacondicionados en venta desde Trinidad — bombas, trituradoras, cribas, mezcladoras. Precios a solicitud.",
   },
   {
     code:        'pt',
@@ -56,7 +56,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/pt/depot.html',
     ogLocale:    'pt_BR',
     title:       'Equipamentos Industriais à Venda — Caribe e América do Sul | Q² Machines',
-    description: 'Equipamentos industriais novos, usados e recondicionados à venda desde Trinidad — bombas, britadores, peneiras, misturadoras e mais. Disponíveis para compradores no Caribe, Venezuela, Guiana e América do Sul.',
+    description: "Equipamentos industriais novos, usados e recondicionados à venda desde Trinidad — bombas, britadores, peneiras, misturadoras. Preços sob consulta.",
   },
   {
     code:        'nl',
@@ -65,7 +65,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/nl/depot.html',
     ogLocale:    'nl_NL',
     title:       'Industriële Apparatuur te Koop — Caribisch gebied & Zuid-Amerika | Q² Machines',
-    description: 'Nieuwe, gebruikte en gereviseerde industriële apparatuur te koop vanuit Trinidad — pompen, brekers, zeven, mixers en meer. Beschikbaar voor kopers in het Caribisch gebied, Venezuela, Colombia en Zuid-Amerika.',
+    description: "Nieuwe, gebruikte en gereviseerde industriële apparatuur te koop vanuit Trinidad — pompen, brekers, zeven, mixers. Prijzen op aanvraag.",
   },
   {
     code:        'fr',
@@ -74,7 +74,7 @@ const LANGS = [
     canonical:   'https://www.q2m.io/fr/depot.html',
     ogLocale:    'fr_FR',
     title:       'Équipements Industriels à Vendre — Caraïbes et Amérique du Sud | Q² Machines',
-    description: "Équipements industriels neufs, d'occasion et reconditionnés à vendre depuis Trinidad — pompes, concasseurs, cribles, malaxeurs et plus. Disponibles pour les acheteurs aux Caraïbes, au Venezuela, en Colombie et en Amérique du Sud.",
+    description: "Équipements industriels neufs, d'occasion et reconditionnés à vendre depuis Trinidad — pompes, concasseurs, cribles, malaxeurs. Prix sur demande.",
   },
 ];
 

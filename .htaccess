@@ -13,3 +13,9 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Send a UTF-8 charset with text responses (.txt files were served as text/plain with no charset)
 AddDefaultCharset UTF-8
+
+# Privacy/security headers (optional: skipped silently if mod_headers is unavailable)
+<IfModule mod_headers.c>
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+</IfModule>

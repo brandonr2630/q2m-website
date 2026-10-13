@@ -2,23 +2,23 @@
   "about": {
     "en": {
       "title": "About Q² Machines (Q2M) — Engineering Firm in Trinidad, Since 2013",
-      "description": "Q² Machines is a Trinidad-based engineering firm, operating since 2013, that designs, manufactures and services conveyor systems, concrete plants, motors, pumps and structural steelwork for the Caribbean and South America."
+      "description": "Trinidad-based engineering firm operating since 2013. Q² Machines designs, manufactures and services plant equipment for the Caribbean and South America."
     },
     "es": {
       "title": "Sobre Q² Machines (Q2M) — Empresa de Ingeniería en Trinidad, Desde 2013",
-      "description": "Q² Machines es una empresa de ingeniería con sede en Trinidad, en operación desde 2013, que diseña, fabrica y da servicio a sistemas transportadores, plantas de concreto, motores, bombas y estructuras de acero para el Caribe y Suramérica."
+      "description": "Empresa de ingeniería con sede en Trinidad, activa desde 2013. Q² Machines diseña, fabrica y mantiene equipos de planta para el Caribe y Suramérica."
     },
     "pt": {
       "title": "Sobre a Q² Machines (Q2M) — Empresa de Engenharia em Trinidad, Desde 2013",
-      "description": "A Q² Machines é uma empresa de engenharia sediada em Trinidad, em operação desde 2013, que projeta, fabrica e faz a manutenção de sistemas de transporte, usinas de concreto, motores, bombas e estruturas metálicas para o Caribe e a América do Sul."
+      "description": "Empresa de engenharia sediada em Trinidad, ativa desde 2013. A Q² Machines projeta, fabrica e mantém equipamentos industriais para o Caribe."
     },
     "nl": {
       "title": "Over Q² Machines (Q2M) — Technisch Bedrijf in Trinidad, Sinds 2013",
-      "description": "Q² Machines is een technisch bedrijf uit Trinidad, actief sinds 2013, dat transportbandsystemen, betoncentrales, motoren, pompen en staalconstructies ontwerpt, fabriceert en onderhoudt voor het Caribisch gebied en Zuid-Amerika."
+      "description": "Technisch bedrijf uit Trinidad, actief sinds 2013. Q² Machines ontwerpt, fabriceert en onderhoudt installatieapparatuur voor het Caribisch gebied."
     },
     "fr": {
       "title": "À propos de Q² Machines (Q2M) — Entreprise d'Ingénierie à Trinidad, Depuis 2013",
-      "description": "Q² Machines est une entreprise d'ingénierie basée à Trinidad, en activité depuis 2013, qui conçoit, fabrique et entretient des systèmes convoyeurs, centrales à béton, moteurs, pompes et charpentes métalliques pour les Caraïbes et l'Amérique du Sud."
+      "description": "Entreprise d'ingénierie basée à Trinidad, active depuis 2013. Q² Machines conçoit, fabrique et entretient des équipements industriels pour les Caraïbes."
     }
   },
   "privacy": {
@@ -28,7 +28,7 @@
     },
     "es": {
       "title": "Política de Privacidad | Q² Machines",
-      "description": "Cómo Q² Machines recopila, utiliza y protege la información personal enviada a través de www.q2m.io. Sin cookies, sin analítica y sin rastreadores publicitarios."
+      "description": "Cómo Q² Machines recopila, usa y protege la información personal enviada a través de www.q2m.io. Sin cookies, sin analítica, sin rastreadores."
     },
     "pt": {
       "title": "Política de Privacidade | Q² Machines",
@@ -40,7 +40,7 @@
     },
     "fr": {
       "title": "Politique de Confidentialité | Q² Machines",
-      "description": "Comment Q² Machines collecte, utilise et protège les informations personnelles envoyées via www.q2m.io. Pas de cookies, pas d'analyse, pas de traceurs publicitaires."
+      "description": "Comment Q² Machines collecte, utilise et protège les informations personnelles envoyées via www.q2m.io. Sans cookies, analyse ni traceurs publicitaires."
     }
   }
 }
