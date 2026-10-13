@@ -26,10 +26,10 @@ Quarrying and mining; minerals processing; concrete and cement; asphalt; recycli
 ## Services in detail
 
 ### 1. Conveyor & Bulk Handling Systems
-Custom engineered belt conveyors, screw/auger conveyors, bucket elevators and bulk handling and storage solutions, from design through to installation and commissioning.
+Custom engineered belt conveyors, screw/auger conveyors, bucket elevators and bulk handling and storage solutions, from design through to installation and commissioning. We supply conveying systems for mineral and aggregate processing plants, port loading and unloading facilities, and packaging and package handling facilities. Details: https://www.q2m.io/services/conveyor-systems.html
 
 ### 2. Concrete Plants
-Stationary and mobile concrete batching plants, designed, built and commissioned entirely in-house. Related project: a ready-mix concrete batching plant in Port of Spain (2020), described below.
+Stationary and mobile concrete batching plants, designed, built and commissioned entirely in-house. Details: https://www.q2m.io/services/concrete-plants.html Related project: a ready-mix concrete batching plant in Port of Spain (2020), described below.
 
 ### 3. Motors & Pumps
 Supply, rewind, repair and service of AC/DC motors and of pumps of all types, including centrifugal, submersible and gear pumps.
@@ -103,6 +103,8 @@ A: 71 Warren Road, Bejucal, Cunupia, Trinidad. Phone +1 (868) 230-9702. Open Mon
 
 ## About page and Privacy Policy
 About: https://www.q2m.io/about.html
+Conveyor systems and bulk material handling: https://www.q2m.io/services/conveyor-systems.html
+Concrete batching plants: https://www.q2m.io/services/concrete-plants.html
 Privacy Policy: https://www.q2m.io/privacy.html (the site uses no cookies or analytics; enquiry forms are delivered by email through EmailJS).
 
 ## Website languages
