@@ -1,6 +1,6 @@
 # Q2M Website — Handoff
 
-*Last updated: 2026-10-12 · Session 20*
+*Last updated: 2026-10-13 · Session 21*
 
 Sessions 1–19 are condensed into the history table and the lessons below. Per-session detail lives in git history (`git log -- handoff.md`).
 
@@ -47,7 +47,7 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - Dutch pages rank for generic used-equipment queries (`gebruikte industriële apparatuur` pos 5.9, `verkoop van tweedehands industriële apparatuur` pos 9.1) with no clicks — the translated-page strategy can rank.
 - Mobile position is better than desktop (6.1 vs 13.4); 7 of 9 clicks were mobile.
 
-**Work in progress (not on `master`):** the Products page. Branch `feat/products-page` in the main checkout. It was fast-forwarded to master on 2026-10-12 (through #58) and holds **uncommitted, untracked** WIP — see Open Items §2. It exists only on OneDrive; commit it to the branch before anything risky.
+**Work in progress (not on `master`):** the Products section (hub + OCR RP Series page) is built on branch `feature/products-ocr-reducers` and not yet merged or deployed (Session 21); the old `feat/products-page` draft is superseded and unused (see Open Items §2).
 
 ---
 
@@ -59,23 +59,22 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - [ ] **Follow up in 2–4 weeks:** Search Console → Pages: confirm "Discovered – currently not indexed" drops from 4 (footer language links live since PR #54). Re-inspect the depot pages (Test live URL): the **Product snippets / Merchant listings "7 invalid items"** errors came from the removed `Product`/`Offer` markup (PR #56). Google's *stored* copy still shows them until it recrawls — the live pages are clean (verified: no `Product`/`Offer` in any of the 5 depot pages). If Test live URL still reports errors, something else on the page triggers them.
 - [ ] **Google Business Profile** — the Maps place ("Q2 Machines", linked in the schema `sameAs`) is **already claimed by the business**. Public view on 2026-10-12: category "Machine shop" only, 71 Warren Road, Bejucal, Cunupia, hours close 5 pm, phone (868) 230-9702 (all match the site), 19 photos, **no reviews/rating**, last owner post 2026-04-29, website link is bare `q2m.io`. Owner-only tasks (needs the Google login; cannot be done from the repo): add secondary categories (e.g. conveyor system supplier, industrial equipment supplier, steel fabricator, concrete plant), fill the services list and description, set the website to `https://www.q2m.io`, ask customers for reviews, post updates every few weeks. Site-side address match is done (PR #58).
 - [ ] **Backlinks / directories** — regional trade directories and association listings (e.g. Caribbean Manufacturers Association). Low-authority domain; this is the biggest lever and no code change replaces it.
-- [x] **Service pages (2026-10-12):** six pages x 5 languages live: `/services/conveyor-systems.html`, `concrete-plants.html`, `pumps-and-drives.html` (pumps + motors + gear reducers), `fabrication-and-machining.html` (machine shop + fabrication & welding), `structural-steel.html`, `geotechnical-equipment.html` (+ es/pt/nl/fr). Built by `scripts/build-service-pages.js` from `scripts/service-pages-content.js` (pages 1-2) and `service-pages-content-more.js` (pages 3-6); shell, nav and footer come from `about.html`, language pages have no client-side translation, part of `npm run build-all`. Pages 3-6 take their bullet lists from the homepage service-card strings (`supplyKeys`/`doKeys`, e.g. `c4_p1`), so they match the cards in every language (Title Case; pages 1-2 use sentence case, harmonise later if wanted). Optional page fields: `supplyNote(Html)`, `house` or `where`, `project`. To add a page: add a `PAGES` entry (all 5 languages), its URLs to `sitemap.xml`, a `svcp_*` link on the homepage row, `llms*.txt`, and its `serviceParam` to the `?service=` map in `index.html`. Content uses only site facts (no capacities, standards beyond those already on the site, or client names). nl/fr wording needs a native check. The **`/services/` hub** (`services/index.html`, `/es/services/` etc.) is built by the same script from `scripts/service-hub-content.js`: cards come from the six pages (name = heading, text = meta description) and the "how we work"/"where we work" blocks reuse `about.html` strings, so a new page appears on the hub automatically. Service pages' breadcrumbs are Home > Services > page, the hero label links to the hub, and the nav/footer "Services" link on these pages opens the hub. **Still to do:** the Products page for crushers and screens.
-- [ ] **Search Console housekeeping** — confirm the Domain property is verified (DNS TXT) and `sitemap.xml` is submitted and shows 15 discovered URLs.
+- [x] **Service pages (2026-10-12):** six pages x 5 languages live: `/services/conveyor-systems.html`, `concrete-plants.html`, `pumps-and-drives.html` (pumps + motors + gear reducers), `fabrication-and-machining.html` (machine shop + fabrication & welding), `structural-steel.html`, `geotechnical-equipment.html` (+ es/pt/nl/fr). Built by `scripts/build-service-pages.js` from `scripts/service-pages-content.js` (pages 1-2) and `service-pages-content-more.js` (pages 3-6); shell, nav and footer come from `about.html`, language pages have no client-side translation, part of `npm run build-all`. Pages 3-6 take their bullet lists from the homepage service-card strings (`supplyKeys`/`doKeys`, e.g. `c4_p1`), so they match the cards in every language (Title Case; pages 1-2 use sentence case, harmonise later if wanted). Optional page fields: `supplyNote(Html)`, `house` or `where`, `project`. To add a page: add a `PAGES` entry (all 5 languages), its URLs to `sitemap.xml`, a `svcp_*` link on the homepage row, `llms*.txt`, and its `serviceParam` to the `?service=` map in `index.html`. Content uses only site facts (no capacities, standards beyond those already on the site, or client names). nl/fr wording needs a native check. The **`/services/` hub** (`services/index.html`, `/es/services/` etc.) is built by the same script from `scripts/service-hub-content.js`: cards come from the six pages (name = heading, text = meta description) and the "how we work"/"where we work" blocks reuse `about.html` strings, so a new page appears on the hub automatically. Service pages' breadcrumbs are Home > Services > page, the hero label links to the hub, and the nav/footer "Services" link on these pages opens the hub. **Products pages:** see Open Items §2.
+- [ ] **Search Console housekeeping** — confirm the Domain property is verified (DNS TXT) and `sitemap.xml` is submitted and shows 70 discovered URLs (the sitemap lists 70 URLs; 60 before the Products pages).
 - [ ] **Re-pull the Search results export** in ~4 weeks (Performance + Pages) and compare with the baseline above. Most queries are anonymised in exports.
 - [x] **"Q2 Machining"** (16 impressions, the #1 query): owner confirmed 2026-10-12 it is an acceptable name if it helps searchers find the business. Added as `alternateName` on the `Organization`/`LocalBusiness`/`WebSite` nodes, to the first FAQ answer in all 5 languages (visible + `FAQPage` schema, kept identical) and to the `llms.txt`/`llms-full.txt` intro. It is **not** in titles or headings. Re-check the query in the next Search Console export.
 
-### 2. Products page (decision changed 2026-10-12)
+### 2. Products section (built 2026-10-13 on branch feature/products-ocr-reducers, not yet merged or deployed, Session 21)
 
-**Update:** a separate Products page for everything would overlap the service pages (same searches), so category content now lives on the service pages ("What we supply"). **The Products page is now only for crushers and screens** (owner decision), plus the paused WIP below. Mixers sit on the concrete-plants page.
+The Products section is built on the branch, not yet merged or deployed, with the OCR RP Series page: hub `/products/` plus one product page, in 5 languages. It is built by `scripts/build-product-pages.js` from `scripts/product-pages-content.js` and checked by `scripts/verify-products.js` (sections `nav|pages|sitemap|links`).
 
-(Original Session 19 notes, still valid for the WIP files:)
-
-Status: design drafted, **not approved, no code**. Branch `feat/products-page` exists; merge/rebase `master` into it first.
-
-- **Existing WIP (untracked, only on disk):** `products.html` (848 lines: SEO head, i18n redirect stub, nav, hero, category cards, EmailJS enquiry form, client-side i18n for 5 languages), `products.json` (2 pump entries), `products-mockup.html` (superseded — delete). Also `pumpcurveshandoff.md` — an unrelated, unstarted "interactive pump curve charts" feature blocked on the user supplying PDF datasheets.
-- **Decisions made:** build on the WIP; pre-render languages via a new `scripts/build-products-langs.js` (add to `build-all`); populate all 5 categories (Conveyors, Concrete, Pumps, Crushers, Fabrication); build the filter bar (strings `prod_filter_*` exist, no handlers yet); crushers/mixer/screen get **TBD spec placeholders** and "supplied by Q² Machines" wording — do **not** reuse the vetted `depot.html` specs (Products = capability catalogue, Depot = specific in-stock units); MK-TRK dump truck excluded.
-- **Design to approve:** extend `products.json`; `ItemList` JSON-LD referencing the existing `Organization` by `@id` — **do not use `Product` + `Offer` unless a real `price` exists** (see Session 20 lesson 7; products are likely price-on-request too); add "Products" to nav/mobile menu/footer on index/depot/projects and the es/pt/nl/fr variants (13 files); add `products.html` + 4 language variants to `sitemap.xml`; fix trust-badge copy "All equipment manufactured to your specification" for supplied/OEM items in 5 languages.
-- **Next steps:** get design sign-off → write spec to `docs/superpowers/specs/2026-07-02-products-page-design.md` → `writing-plans` → implement. The footer language row and the `footer_slogan` / `footer_rights` i18n keys now exist on master; the products page needs the same footer.
+- **Superseded:** the old `products.html` / `products.json` / `products-mockup.html` draft (branch `feat/products-page`) is unused. `products-mockup.html` can be deleted.
+- **Native check needed:** es/pt/nl/fr copy is new. Check nl and fr first. nl uses "Opsteekreductoren"; pt/nl/fr use "stackers" for the English term.
+- **Enquiry flow:** the CTA opens the home contact form with `?service=reducers` rather than embedding a second EmailJS form.
+- **Titles omit "Caribbean" on purpose:** OCR's agency territory is unconfirmed. Restore the word once confirmed.
+- **Cross-link:** the services page (pumps-and-drives) now links to the product page.
+- **Held back until OCR agrees:** OCR images, tables, logo, and the interchangeability appendix.
+- **Next product line:** concrete mixers (source and relationship still to be confirmed). The nav label "Products" is assumed.
 
 ### 3. Technical SEO / performance
 
@@ -213,6 +212,14 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 
 ---
 
+## Session 21 — Products section (OCR RP Series reducers)
+
+**Date:** 2026-10-13
+
+Added the Products section: hub `/products/` and the OCR RP Series shaft-mounted gear reducers page in 5 languages (10 pages), Products in the nav and footer on all pages, a link from the reducers service page, and 10 new sitemap URLs. Details and open questions are in Open Items §2.
+
+---
+
 ## Key Lessons (carried forward)
 
 1. **`$('head').append(canonical)` adds a second canonical** (Google uses the first). Replace in place: `$('link[rel="canonical"]').attr('href', url)`. This once kept all language pages out of the index.
@@ -252,6 +259,7 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 | 18 | 2026-06-08 | SEO/AI-search audit: `llms.txt` fixes, 6 AI crawlers in `robots.txt` (PR #52). Remaining audit items are in Open Items §3–4. |
 | 19 | 2026-07-02 | Products page design drafted, paused before approval. |
 | 20 | 2026-10-12 | Search Console diagnosis; footer language links, Q2M brand signals, footer i18n, depot schema fix, lazy EmailJS, non-blocking projects fonts, sitemap lastmod script, README rewrite, address match, homepage FAQ + FAQPage schema, llms.txt/llms-full.txt, UTF-8 charset, About + Privacy pages, menu link, translation leftovers, Dutch wording, hero on phones, privacy wording (PRs #54–#72). |
+| 21 | 2026-10-13 | Products section: hub and OCR RP Series reducers page in 5 languages, Products nav/footer link, services cross-link, 10 sitemap URLs, `build-product-pages.js` and `verify-products.js`. |
 
 ---
 

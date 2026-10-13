@@ -1697,6 +1697,7 @@ footer {
   <button class="mobile-close" onclick="closeMobileMenu()" aria-label="Close menu">✕</button>
   <a href="/fr/about.html" onclick="closeMobileMenu()" data-i18n="nav_about">À Propos</a>
   <a href="#services" onclick="closeMobileMenu()" data-i18n="nav_services">Services</a>
+  <a href="/fr/products/" onclick="closeMobileMenu()" data-i18n="nav_products">Produits</a>
   <a href="/fr/depot.html" onclick="closeMobileMenu()" data-i18n="nav_depot">Dépôt</a>
   <a href="/fr/projects.html" onclick="closeMobileMenu()" data-i18n="nav_projects">Projets</a>
   <a href="#contact" onclick="closeMobileMenu()" data-i18n="nav_contact">Contact</a>
@@ -1729,6 +1730,7 @@ footer {
     <ul class="nav-links">
       <li><a href="/fr/about.html" data-i18n="nav_about">À Propos</a></li>
       <li><a href="#services" data-i18n="nav_services">Services</a></li>
+      <li><a href="/fr/products/" data-i18n="nav_products">Produits</a></li>
       <li><a href="/fr/depot.html" data-i18n="nav_depot">Dépôt</a></li>
       <li><a href="/fr/projects.html" data-i18n="nav_projects">Projets</a></li>
       <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
@@ -2365,6 +2367,7 @@ footer {
     <ul class="footer-links">
       <li><a href="/fr/about.html" data-i18n="footer_about">À Propos</a></li>
       <li><a href="#services" data-i18n="footer_services">Services</a></li>
+      <li><a href="/fr/products/" data-i18n="nav_products">Produits</a></li>
       <li><a href="/fr/depot.html" data-i18n="nav_depot">Dépôt</a></li>
       <li><a href="/fr/projects.html" data-i18n="nav_projects">Projets</a></li>
       <li><a href="#contact" data-i18n="footer_contact">Contact</a></li>
@@ -2440,7 +2443,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 // Enquiry links from the service pages (?service=conveyors|concrete) pre-select the service
 (function () {
   var map = {
-    conveyors: 'Bulk Material Handling Systems', concrete: 'Concrete Plants', pumps: 'Pumps',
+    conveyors: 'Bulk Material Handling Systems', concrete: 'Concrete Plants', pumps: 'Pumps', reducers: 'Motors & Gear Reducers',
     fabrication: 'Fabrication & Welding', structural: 'Structural Systems', geotechnical: 'Geotechnical Testing Equipment'
   };
   try {
@@ -2759,7 +2762,7 @@ const translations = {
     footer_rights: 'All rights reserved.',
     footer_privacy: 'Privacy Policy', form_privacy_pre: 'By sending this form you agree that we may use your details to respond to your enquiry.', form_privacy_link: 'Privacy Policy', about_more: 'Learn more about us →',
     nav_depot: 'Depot', hero_btn1: 'Our Services ↓', arc_hint: 'Use arrows to explore our services', map_btn: 'Get Directions',
-    nav_projects: 'Projects',
+    nav_projects: 'Projects', nav_products: 'Products',
     svc_opt1: 'Bulk Material Handling Systems',
     svc_opt2: 'Concrete Plants',
     svc_opt3: 'Motors & Gear Reducers',
@@ -2880,7 +2883,7 @@ const translations = {
     footer_rights: 'Todos los derechos reservados.',
     footer_privacy: 'Política de Privacidad', form_privacy_pre: 'Al enviar este formulario acepta que usemos sus datos para responder a su consulta.', form_privacy_link: 'Política de Privacidad', about_more: 'Conozca más sobre nosotros →',
     nav_depot: 'Depósito', hero_btn1: 'Nuestros Servicios ↓', arc_hint: 'Use las flechas para explorar nuestros servicios', map_btn: 'Cómo llegar',
-    nav_projects: 'Proyectos',
+    nav_projects: 'Proyectos', nav_products: 'Productos',
     svc_opt1: 'Sistemas de Manejo de Materiales a Granel',
     svc_opt2: 'Plantas de Concreto',
     svc_opt3: 'Motores y Reductores de Engranajes',
@@ -3001,7 +3004,7 @@ const translations = {
     footer_rights: 'Todos os direitos reservados.',
     footer_privacy: 'Política de Privacidade', form_privacy_pre: 'Ao enviar este formulário, você concorda que usemos seus dados para responder à sua solicitação.', form_privacy_link: 'Política de Privacidade', about_more: 'Saiba mais sobre nós →',
     nav_depot: 'Depósito', hero_btn1: 'Nossos Serviços ↓', arc_hint: 'Use as setas para explorar nossos serviços', map_btn: 'Como chegar',
-    nav_projects: 'Projetos',
+    nav_projects: 'Projetos', nav_products: 'Produtos',
     svc_opt1: 'Sistemas de Manuseio de Materiais a Granel',
     svc_opt2: 'Usinas de Concreto',
     svc_opt3: 'Motores e Redutores de Engrenagens',
@@ -3122,7 +3125,7 @@ const translations = {
     footer_rights: 'Alle rechten voorbehouden.',
     footer_privacy: 'Privacybeleid', form_privacy_pre: 'Door dit formulier te versturen gaat u ermee akkoord dat wij uw gegevens gebruiken om uw aanvraag te beantwoorden.', form_privacy_link: 'Privacybeleid', about_more: 'Meer over ons →',
     nav_depot: 'Depot', hero_btn1: 'Onze Diensten ↓', arc_hint: 'Gebruik de pijlen om onze diensten te verkennen', map_btn: 'Routebeschrijving',
-    nav_projects: 'Projecten',
+    nav_projects: 'Projecten', nav_products: 'Producten',
     svc_opt1: 'Bulkmateriaalverwerkingssystemen',
     svc_opt2: 'Betoncentrales',
     svc_opt3: 'Motoren en Tandwielreductoren',
@@ -3243,7 +3246,7 @@ const translations = {
     footer_rights: 'Tous droits réservés.',
     footer_privacy: 'Politique de Confidentialité', form_privacy_pre: 'En envoyant ce formulaire, vous acceptez que nous utilisions vos coordonnées pour répondre à votre demande.', form_privacy_link: 'Politique de Confidentialité', about_more: 'En savoir plus sur nous →',
     nav_depot: 'Dépôt', hero_btn1: 'Nos Services ↓', arc_hint: 'Utilisez les flèches pour explorer nos services', map_btn: 'Itinéraire',
-    nav_projects: 'Projets',
+    nav_projects: 'Projets', nav_products: 'Produits',
     svc_opt1: 'Systèmes de Manutention de Matières en Vrac',
     svc_opt2: 'Centrales à Béton',
     svc_opt3: 'Moteurs et Réducteurs',
