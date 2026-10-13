@@ -1,0 +1,4 @@
+Contact: mailto:qhub@q2m.io
+Expires: 2027-10-12T00:00:00.000Z
+Preferred-Languages: en, es
+Canonical: https://www.q2m.io/.well-known/security.txt
