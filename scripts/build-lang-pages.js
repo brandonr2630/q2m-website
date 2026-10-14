@@ -155,7 +155,6 @@ for (const lang of LANGS) {
   $('a[href="/projects.html"]').not('.footer-langs a').attr('href', `/${lang.code}/projects.html`);
   $('a[href="/about.html"]').not('.footer-langs a').attr('href', `/${lang.code}/about.html`);
   $('a[href^="/services/"]').not('.footer-langs a').each((_, el) => { $(el).attr('href', `/${lang.code}${$(el).attr('href')}`); });
-  $('a[href^="/products/"]').not('.footer-langs a').each((_, el) => { $(el).attr('href', `/${lang.code}${$(el).attr('href')}`); });
   $('a[href="/privacy.html"]').not('.footer-langs a').attr('href', `/${lang.code}/privacy.html`);
 
   // Root-relative asset paths: these pages live in a subdirectory, so "assets/..." would resolve to /es/assets/... (404).
