@@ -1,6 +1,6 @@
 # Q2M Website — Handoff
 
-*Last updated: 2026-10-13 · Session 21*
+*Last updated: 2026-10-14 · Session 22*
 
 Sessions 1–19 are condensed into the history table and the lessons below. Per-session detail lives in git history (`git log -- handoff.md`).
 
@@ -83,7 +83,7 @@ The Products section is live with the OCR RP Series page: hub `/products/` plus 
 ### 3. Technical SEO / performance
 
 - [ ] **Unique `og:image` per page** — depot and projects reuse the homepage `og_banner.jpg`.
-- [ ] **Slideshow photos** — 20 about-section photos are loaded via JS (`data-webp`/`data-jpg`) into CSS backgrounds with no alt text, invisible to image search. Convert to `<img>` with descriptive alt text.
+- [x] **Slideshow photos (2026-10-14, Session 22):** the 20 About slides are now real `<picture><source type="image/webp"><img alt width height>` elements with per-language alt text (`scripts/slide-alts.json`, 5 languages; **nl/fr alts need a native check**, es/pt too ideally). `src`/`srcset` are held in `data-src`/`data-srcset` and set by the slideshow script for the current + next slide only once the section is near the viewport (same behaviour as before: 0 slide requests at the top, photo1+2 on scroll). Native `loading="lazy"` was tried first and **fetched all 20 images at page load** (also with `display:none`), so it was dropped. Trade-off: the raw HTML has no `src` on slides, so image search depends on Google rendering the page; if image-search impressions stay at zero, add `<image:image>` entries to the sitemap. `npm run verify-slides` checks the alts/paths on all 5 pages.
 - [ ] **JS-only inventory** — `/depot.html` loads listings client-side. Use URL Inspection → "View crawled page" to confirm Googlebot sees the listings; if not, add a static fallback. (Projects data is already inline via `window.__PROJECTS__`.)
 - [ ] `og:image:alt` on the generated language pages is still English.
 
@@ -208,6 +208,7 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 21. **A test that fails for the wrong reason proves nothing.** Three times a deliberate-breakage test "passed" because the baseline was already failing, or the pattern did not exist in the copy. Check the failure message names the thing you broke, and that the mutation actually changed the file.
 22. **A flex item with `min-width:auto` can push a whole block off a phone screen.** One long nowrap child sets the minimum width of its flex parent; measure the block's width at 390px and 320px in every language, not only English. Also: an animation script that rewrites spaces as `&nbsp;` stops text from wrapping.
 23. **Do not name the host in legal text** unless the policy has been read: the owner removed "GreenGeeks" from the privacy wording; `README.md`/`CLAUDE.md` still name it as the deployment host.
+24. **`loading="lazy"` is not a gate for off-screen carousel slides.** Chrome fetched all 20 slide images at load although they were clipped by `overflow:hidden`/`translateX(100%)` (and even under `display:none`). If images must stay off the initial load, keep `src`/`srcset` in `data-*` and set them from script; check with a request count at the top of the page.
 
 ### Notes
 
@@ -221,6 +222,14 @@ The owner found the Search Console results poor. Lighthouse/trace runs showed th
 **Date:** 2026-10-13
 
 Added the Products section: hub `/products/` and the OCR RP Series shaft-mounted gear reducers page in 5 languages (10 pages), Products in the nav and footer on all pages, a link from the reducers service page, and 10 new sitemap URLs. Details and open questions are in Open Items §2. Executed with subagent-driven development: Tasks 1–3 in parallel, then 4 and 6 in parallel, then 5; one fix round on the content file (dropped "Caribbean" from titles, tightened claims) and one final-review fix pass (Dutch "belt" wording, `llms*.txt` entries, no-break spaces before units, hub heading, mobile-menu highlight).
+
+---
+
+## Session 22 — Slideshow photos to `<img>` + alt text
+
+**Date:** 2026-10-14
+
+Converted the About slideshow from JS-set CSS backgrounds to `<picture>/<img>` with alt text in en/es/pt/nl/fr (see Open Items §3). `build-lang-pages.js` now sets per-language alts from `slide-alts.json` and makes `data-src`/`data-srcset` root-relative; removed the WebP-detection and background code from the slideshow script; inactive slides are `aria-hidden` (toggled in `goTo()`). Measured before/after at 390 and 1280 px in all 5 languages: About section geometry identical, 0 slide requests at the top, 2 after scrolling to it, 20 slides cycle with no 404s and no console errors.
 
 ---
 
@@ -264,6 +273,7 @@ Added the Products section: hub `/products/` and the OCR RP Series shaft-mounted
 | 19 | 2026-07-02 | Products page design drafted, paused before approval. |
 | 20 | 2026-10-12 | Search Console diagnosis; footer language links, Q2M brand signals, footer i18n, depot schema fix, lazy EmailJS, non-blocking projects fonts, sitemap lastmod script, README rewrite, address match, homepage FAQ + FAQPage schema, llms.txt/llms-full.txt, UTF-8 charset, About + Privacy pages, menu link, translation leftovers, Dutch wording, hero on phones, privacy wording (PRs #54–#72). |
 | 21 | 2026-10-13 | Products section: hub and OCR RP Series reducers page in 5 languages, Products nav/footer link, services cross-link, 10 sitemap URLs, `build-product-pages.js` and `verify-products.js`. |
+| 22 | 2026-10-14 | Slideshow photos to `<img>` + 5-language alt text (`slide-alts.json`, `verify-slides.js`). |
 
 ---
 
