@@ -916,9 +916,9 @@ section { position: relative; z-index: 1; }
   position: absolute; inset: 0;
   transform: translateX(100%);
   transition: transform .6s cubic-bezier(.77,0,.175,1);
-  background-size: cover;
-  background-position: center;
 }
+.slide picture { display: block; width: 100%; height: 100%; }
+.slide img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; color: transparent; }
 .slide::after {
   content: '';
   position: absolute; inset: 0;
@@ -1816,27 +1816,27 @@ footer {
       <div class="about-visual reveal">
         <div class="about-img-frame">
           <div class="slideshow" id="about-slideshow">
-            <!-- Slideshow photos: images are lazy-loaded via JS. WebP served to supporting browsers, JPG fallback for others. -->
-            <div class="slide active" data-webp="/assets/images/slides/photo1.webp" data-jpg="/assets/images/slides/photo1.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo2.webp" data-jpg="/assets/images/slides/photo2.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo3.webp" data-jpg="/assets/images/slides/photo3.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo4.webp" data-jpg="/assets/images/slides/photo4.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo5.webp" data-jpg="/assets/images/slides/photo5.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo6.webp" data-jpg="/assets/images/slides/photo6.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo7.webp" data-jpg="/assets/images/slides/photo7.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo8.webp" data-jpg="/assets/images/slides/photo8.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo9.webp" data-jpg="/assets/images/slides/photo9.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo10.webp" data-jpg="/assets/images/slides/photo10.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo11.webp" data-jpg="/assets/images/slides/photo11.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo12.webp" data-jpg="/assets/images/slides/photo12.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo13.webp" data-jpg="/assets/images/slides/photo13.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo14.webp" data-jpg="/assets/images/slides/photo14.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo15.webp" data-jpg="/assets/images/slides/photo15.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo16.webp" data-jpg="/assets/images/slides/photo16.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo17.webp" data-jpg="/assets/images/slides/photo17.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo18.webp" data-jpg="/assets/images/slides/photo18.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo19.webp" data-jpg="/assets/images/slides/photo19.jpg"></div>
-            <div class="slide" data-webp="/assets/images/slides/photo20.webp" data-jpg="/assets/images/slides/photo20.jpg"></div>
+            <!-- Slideshow photos: real <img> with alt text; the script moves data-src/data-srcset into src/srcset only for slides near the viewport (native loading="lazy" fetched all 20 at page load). WebP via <picture>, JPG fallback. -->
+            <div class="slide active"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo1.webp"><img data-src="/assets/images/slides/photo1.jpg" alt="Vue grand angle d'un convoyeur à bande transportant de la roche concassée dans une carrière" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo2.webp"><img data-src="/assets/images/slides/photo2.jpg" alt="Convoyeur surélevé avec plateforme jaune à garde-corps déversant du granulat sur un stock" width="1280" height="961" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo3.webp"><img data-src="/assets/images/slides/photo3.jpg" alt="Convoyeur d'empilage et convoyeurs d'alimentation au-dessus de stocks de sable orange" width="1280" height="790" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo4.webp"><img data-src="/assets/images/slides/photo4.jpg" alt="Technicien soudant une fabrication en tôle d'acier épaisse dans un atelier" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo5.webp"><img data-src="/assets/images/slides/photo5.jpg" alt="Tôle d'acier découpée au profil avec des formes détourées pour des pièces fabriquées" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo6.webp"><img data-src="/assets/images/slides/photo6.jpg" alt="Deux moteurs électriques bleus avec poulies à courroie sur un bâti de montage à l'atelier" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo7.webp"><img data-src="/assets/images/slides/photo7.jpg" alt="Composants d'entraînement usés et un réducteur à engrenages bleu remis à neuf avec moteur électrique" width="1024" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo8.webp"><img data-src="/assets/images/slides/photo8.jpg" alt="Installation de criblage à charpente en acier avec convoyeurs d'alimentation sur un site de carrière" width="1080" height="608" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo9.webp"><img data-src="/assets/images/slides/photo9.jpg" alt="Tambour d'entraînement de convoyeur revêtu de caoutchouc, avec arbre et paliers, sur un support d'atelier" width="960" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo10.webp"><img data-src="/assets/images/slides/photo10.jpg" alt="Moteur électrique triphasé bleu sur un établi d'atelier" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo11.webp"><img data-src="/assets/images/slides/photo11.jpg" alt="Composant d'entraînement corrodé à côté d'un ensemble d'accouplement à bride peint" width="1024" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo12.webp"><img data-src="/assets/images/slides/photo12.jpg" alt="Section de convoyeur à rouleaux sur un châssis en acier fabriqué" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo13.webp"><img data-src="/assets/images/slides/photo13.jpg" alt="Escaliers d'accès et paliers en acier rouge sur un bâtiment à façade vitrée" width="1280" height="853" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo14.webp"><img data-src="/assets/images/slides/photo14.jpg" alt="Charpente en acier peinte en bleu d'une installation industrielle" width="1280" height="902" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo15.webp"><img data-src="/assets/images/slides/photo15.jpg" alt="Corps de crible en acier fabriqué soulevé par une grue au-dessus d'une remorque rouge" width="528" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo16.webp"><img data-src="/assets/images/slides/photo16.jpg" alt="Plancher de crible et plateforme d'accès dans une usine de traitement, en deux vues" width="1280" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo17.webp"><img data-src="/assets/images/slides/photo17.jpg" alt="Caisson de crible fabriqué en gris avec un revêtement d'usure orange" width="1280" height="720" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo18.webp"><img data-src="/assets/images/slides/photo18.jpg" alt="Châssis de trémie en acier fabriqué sous un palan à chaîne à l'intérieur d'un bâtiment" width="960" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo19.webp"><img data-src="/assets/images/slides/photo19.jpg" alt="Malaxeur industriel avec trappe rouge, moteur électrique et centrale hydraulique, en deux vues" width="1280" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="/assets/images/slides/photo20.webp"><img data-src="/assets/images/slides/photo20.jpg" alt="Silo cylindrique en acier soulevé par une grue à contre-jour du soleil" width="1280" height="1280" decoding="async"></picture></div>
           </div>
           <button class="slideshow-arrow slideshow-arrow-left" id="slideshow-prev" aria-label="Previous slide">←</button>
           <button class="slideshow-arrow slideshow-arrow-right" id="slideshow-next" aria-label="Next slide">→</button>
@@ -2661,32 +2661,6 @@ function submitForm(e) {
   let current  = 0;
   let timer    = null;
 
-  // ── WebP support detection ──
-  const supportsWebP = (function() {
-    const canvas = document.createElement('canvas');
-    canvas.width = canvas.height = 1;
-    return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-  })();
-
-  // ── Lazy image loader: sets background-image only when needed ──
-  function loadSlide(idx) {
-    const slide = slides[idx];
-    if (slide.dataset.loaded) return;
-    const src = supportsWebP ? slide.dataset.webp : slide.dataset.jpg;
-    if (src) {
-      slide.style.backgroundImage = 'url(' + src + ')';
-      slide.style.backgroundSize = 'cover';
-      slide.style.backgroundPosition = 'center';
-      slide.dataset.loaded = '1';
-    }
-  }
-
-  // Preload current + next slide
-  function preload(idx) {
-    loadSlide(idx);
-    loadSlide(((idx + 1) % N));
-  }
-
   // Build dots
   slides.forEach((_, i) => {
     const d = document.createElement('button');
@@ -2696,6 +2670,18 @@ function submitForm(e) {
     dotsEl.appendChild(d);
   });
 
+  // Set src/srcset from the data-* attributes so the image starts loading; current + next slide only
+  function reveal(idx) {
+    const slide = slides[idx % N];
+    if (slide.dataset.loaded) return;
+    slide.dataset.loaded = '1';
+    const source = slide.querySelector('source[data-srcset]');
+    const img = slide.querySelector('img[data-src]');
+    if (source) source.srcset = source.dataset.srcset;
+    if (img) img.src = img.dataset.src;
+  }
+  function preload(idx) { reveal(idx); reveal(idx + 1); }
+
   function goTo(idx) {
     const prev = current;
     slides[prev].classList.remove('active');
@@ -2703,6 +2689,9 @@ function submitForm(e) {
     setTimeout(() => slides[prev].classList.remove('prev'), 700);
     current = ((idx % N) + N) % N;
     preload(current);
+    void slides[current].offsetWidth; // lay out at translateX(100%) before .active so the slide animates in
+    slides[prev].setAttribute('aria-hidden', 'true');
+    slides[current].removeAttribute('aria-hidden');
     slides[current].classList.add('active');
     dotsEl.querySelectorAll('.sdot').forEach((d, i) => d.classList.toggle('active', i === current));
   }
@@ -2713,7 +2702,7 @@ function submitForm(e) {
   if (prevBtn) prevBtn.addEventListener('click', () => { clearInterval(timer); prev(); timer = setInterval(next, 5000); });
   if (nextBtn) nextBtn.addEventListener('click', () => { clearInterval(timer); next(); timer = setInterval(next, 5000); });
 
-  // The slideshow sits below the fold: load images and run the timer only while it is near the viewport
+  // The slideshow sits below the fold: run the timer only while it is near the viewport (images are only given a src near the viewport)
   let visible = false, hovering = false;
   function syncTimer() {
     clearInterval(timer);
@@ -2726,7 +2715,7 @@ function submitForm(e) {
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(entries => {
       visible = entries[entries.length - 1].isIntersecting;
-      if (visible) preload(current);
+    if (visible) preload(current);
       syncTimer();
     }, { rootMargin: '100px 0px' }).observe(container.parentElement);
   } else {

@@ -769,9 +769,9 @@ section { position: relative; z-index: 1; }
   position: absolute; inset: 0;
   transform: translateX(100%);
   transition: transform .6s cubic-bezier(.77,0,.175,1);
-  background-size: cover;
-  background-position: center;
 }
+.slide picture { display: block; width: 100%; height: 100%; }
+.slide img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; color: transparent; }
 .slide::after {
   content: '';
   position: absolute; inset: 0;
@@ -1665,27 +1665,27 @@ footer {
       <div class="about-visual reveal">
         <div class="about-img-frame">
           <div class="slideshow" id="about-slideshow">
-            <!-- Slideshow photos: images are lazy-loaded via JS. WebP served to supporting browsers, JPG fallback for others. -->
-            <div class="slide active" data-webp="assets/images/slides/photo1.webp" data-jpg="assets/images/slides/photo1.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo2.webp" data-jpg="assets/images/slides/photo2.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo3.webp" data-jpg="assets/images/slides/photo3.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo4.webp" data-jpg="assets/images/slides/photo4.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo5.webp" data-jpg="assets/images/slides/photo5.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo6.webp" data-jpg="assets/images/slides/photo6.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo7.webp" data-jpg="assets/images/slides/photo7.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo8.webp" data-jpg="assets/images/slides/photo8.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo9.webp" data-jpg="assets/images/slides/photo9.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo10.webp" data-jpg="assets/images/slides/photo10.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo11.webp" data-jpg="assets/images/slides/photo11.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo12.webp" data-jpg="assets/images/slides/photo12.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo13.webp" data-jpg="assets/images/slides/photo13.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo14.webp" data-jpg="assets/images/slides/photo14.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo15.webp" data-jpg="assets/images/slides/photo15.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo16.webp" data-jpg="assets/images/slides/photo16.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo17.webp" data-jpg="assets/images/slides/photo17.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo18.webp" data-jpg="assets/images/slides/photo18.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo19.webp" data-jpg="assets/images/slides/photo19.jpg"></div>
-            <div class="slide" data-webp="assets/images/slides/photo20.webp" data-jpg="assets/images/slides/photo20.jpg"></div>
+            <!-- Slideshow photos: real <img> with alt text; the script moves data-src/data-srcset into src/srcset only for slides near the viewport (native loading="lazy" fetched all 20 at page load). WebP via <picture>, JPG fallback. -->
+            <div class="slide active"><picture><source type="image/webp" data-srcset="assets/images/slides/photo1.webp"><img data-src="assets/images/slides/photo1.jpg" alt="Wide-angle view of a conveyor belt carrying crushed rock at a quarry" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo2.webp"><img data-src="assets/images/slides/photo2.jpg" alt="Elevated conveyor with a yellow guard-railed platform dropping aggregate onto a stockpile" width="1280" height="961" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo3.webp"><img data-src="assets/images/slides/photo3.jpg" alt="Stacker conveyor and feed conveyors above orange sand stockpiles" width="1280" height="790" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo4.webp"><img data-src="assets/images/slides/photo4.jpg" alt="Technician welding a heavy steel plate fabrication in a workshop" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo5.webp"><img data-src="assets/images/slides/photo5.jpg" alt="Profile-cut steel plate with cut-out shapes for fabricated parts" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo6.webp"><img data-src="assets/images/slides/photo6.jpg" alt="Two blue electric motors with belt pulleys on a mounting base in the workshop" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo7.webp"><img data-src="assets/images/slides/photo7.jpg" alt="Worn drive components and a refurbished blue gear reducer fitted with an electric motor" width="1024" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo8.webp"><img data-src="assets/images/slides/photo8.jpg" alt="Steel-framed screening plant with feed conveyors on a quarry site" width="1080" height="608" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo9.webp"><img data-src="assets/images/slides/photo9.jpg" alt="Rubber-lagged conveyor drive pulley with shaft and bearings on a workshop stand" width="960" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo10.webp"><img data-src="assets/images/slides/photo10.jpg" alt="Blue three-phase electric motor on a workshop bench" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo11.webp"><img data-src="assets/images/slides/photo11.jpg" alt="Corroded drive component beside a painted flanged coupling assembly" width="1024" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo12.webp"><img data-src="assets/images/slides/photo12.jpg" alt="Roller conveyor section on a fabricated steel frame" width="1280" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo13.webp"><img data-src="assets/images/slides/photo13.jpg" alt="Red steel access stairs and landings on a glass-fronted building" width="1280" height="853" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo14.webp"><img data-src="assets/images/slides/photo14.jpg" alt="Blue painted structural steel framework of an industrial plant" width="1280" height="902" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo15.webp"><img data-src="assets/images/slides/photo15.jpg" alt="Fabricated steel screen body being lifted by crane above a red trailer" width="528" height="960" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo16.webp"><img data-src="assets/images/slides/photo16.jpg" alt="Screen deck and access platform at a processing plant, shown in two views" width="1280" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo17.webp"><img data-src="assets/images/slides/photo17.jpg" alt="Grey fabricated screen box with an orange wear liner" width="1280" height="720" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo18.webp"><img data-src="assets/images/slides/photo18.jpg" alt="Fabricated steel hopper frame beneath a chain hoist inside a building" width="960" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo19.webp"><img data-src="assets/images/slides/photo19.jpg" alt="Industrial mixer with a red hatch cover, electric motor and hydraulic unit, shown in two views" width="1280" height="1280" decoding="async"></picture></div>
+            <div class="slide" aria-hidden="true"><picture><source type="image/webp" data-srcset="assets/images/slides/photo20.webp"><img data-src="assets/images/slides/photo20.jpg" alt="Cylindrical steel silo being lifted by crane against the sun" width="1280" height="1280" decoding="async"></picture></div>
           </div>
           <button class="slideshow-arrow slideshow-arrow-left" id="slideshow-prev" aria-label="Previous slide">&#8592;</button>
           <button class="slideshow-arrow slideshow-arrow-right" id="slideshow-next" aria-label="Next slide">&#8594;</button>
@@ -2521,32 +2521,6 @@ function submitForm(e) {
   let current  = 0;
   let timer    = null;
 
-  // ── WebP support detection ──
-  const supportsWebP = (function() {
-    const canvas = document.createElement('canvas');
-    canvas.width = canvas.height = 1;
-    return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-  })();
-
-  // ── Lazy image loader: sets background-image only when needed ──
-  function loadSlide(idx) {
-    const slide = slides[idx];
-    if (slide.dataset.loaded) return;
-    const src = supportsWebP ? slide.dataset.webp : slide.dataset.jpg;
-    if (src) {
-      slide.style.backgroundImage = 'url(' + src + ')';
-      slide.style.backgroundSize = 'cover';
-      slide.style.backgroundPosition = 'center';
-      slide.dataset.loaded = '1';
-    }
-  }
-
-  // Preload current + next slide
-  function preload(idx) {
-    loadSlide(idx);
-    loadSlide(((idx + 1) % N));
-  }
-
   // Build dots
   slides.forEach((_, i) => {
     const d = document.createElement('button');
@@ -2556,6 +2530,18 @@ function submitForm(e) {
     dotsEl.appendChild(d);
   });
 
+  // Set src/srcset from the data-* attributes so the image starts loading; current + next slide only
+  function reveal(idx) {
+    const slide = slides[idx % N];
+    if (slide.dataset.loaded) return;
+    slide.dataset.loaded = '1';
+    const source = slide.querySelector('source[data-srcset]');
+    const img = slide.querySelector('img[data-src]');
+    if (source) source.srcset = source.dataset.srcset;
+    if (img) img.src = img.dataset.src;
+  }
+  function preload(idx) { reveal(idx); reveal(idx + 1); }
+
   function goTo(idx) {
     const prev = current;
     slides[prev].classList.remove('active');
@@ -2563,6 +2549,9 @@ function submitForm(e) {
     setTimeout(() => slides[prev].classList.remove('prev'), 700);
     current = ((idx % N) + N) % N;
     preload(current);
+    void slides[current].offsetWidth; // lay out at translateX(100%) before .active so the slide animates in
+    slides[prev].setAttribute('aria-hidden', 'true');
+    slides[current].removeAttribute('aria-hidden');
     slides[current].classList.add('active');
     dotsEl.querySelectorAll('.sdot').forEach((d, i) => d.classList.toggle('active', i === current));
   }
@@ -2573,7 +2562,7 @@ function submitForm(e) {
   if (prevBtn) prevBtn.addEventListener('click', () => { clearInterval(timer); prev(); timer = setInterval(next, 5000); });
   if (nextBtn) nextBtn.addEventListener('click', () => { clearInterval(timer); next(); timer = setInterval(next, 5000); });
 
-  // The slideshow sits below the fold: load images and run the timer only while it is near the viewport
+  // The slideshow sits below the fold: run the timer only while it is near the viewport (images are only given a src near the viewport)
   let visible = false, hovering = false;
   function syncTimer() {
     clearInterval(timer);
@@ -2586,7 +2575,7 @@ function submitForm(e) {
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(entries => {
       visible = entries[entries.length - 1].isIntersecting;
-      if (visible) preload(current);
+    if (visible) preload(current);
       syncTimer();
     }, { rootMargin: '100px 0px' }).observe(container.parentElement);
   } else {

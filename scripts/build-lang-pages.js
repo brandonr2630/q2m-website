@@ -22,6 +22,7 @@ const path    = require('path');
 const cheerio = require('cheerio');
 
 const ROOT = path.resolve(__dirname, '..');
+const SLIDE_ALTS = JSON.parse(fs.readFileSync(path.join(__dirname, 'slide-alts.json'), 'utf-8'));
 
 // ── 1. Read index.html ────────────────────────────────────────────────
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf-8');
@@ -159,11 +160,20 @@ for (const lang of LANGS) {
   $('a[href="/privacy.html"]').not('.footer-langs a').attr('href', `/${lang.code}/privacy.html`);
 
   // Root-relative asset paths: these pages live in a subdirectory, so "assets/..." would resolve to /es/assets/... (404).
-  // Covers <img src> and the slideshow's data-webp / data-jpg attributes (set as CSS backgrounds by script).
+  // Covers <img src> and the slideshow's <img data-src> / <source data-srcset> (swapped into src/srcset by script when near the viewport).
   const rootRel = (v) => (v && !/^(\/|https?:|data:|#)/.test(v)) ? '/' + v : v;
   $('img[src]').each((_, el) => { $(el).attr('src', rootRel($(el).attr('src'))); });
-  $('[data-webp]').each((_, el) => { $(el).attr('data-webp', rootRel($(el).attr('data-webp'))); });
-  $('[data-jpg]').each((_, el) => { $(el).attr('data-jpg', rootRel($(el).attr('data-jpg'))); });
+  $('img[data-src]').each((_, el) => { $(el).attr('data-src', rootRel($(el).attr('data-src'))); });
+  $('source[data-srcset]').each((_, el) => { $(el).attr('data-srcset', rootRel($(el).attr('data-srcset'))); });
+
+  // Slideshow alt text per language (scripts/slide-alts.json, index = photo number - 1)
+  const slideAlts = SLIDE_ALTS[lang.code];
+  const slideImgs = $('#about-slideshow .slide img');
+  if (!slideAlts || slideAlts.length !== slideImgs.length) {
+    console.error(`ERROR: slide-alts.json has ${slideAlts ? slideAlts.length : 0} ${lang.code} alts for ${slideImgs.length} slides`);
+    process.exit(1);
+  }
+  slideImgs.each((i, el) => { $(el).attr('alt', slideAlts[i]); });
 
   // Schema: fix known issues + add WebPage node with inLanguage
   const schemaEl = $('script[type="application/ld+json"]');
