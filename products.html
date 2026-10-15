@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function() {
+  if (sessionStorage.getItem('q2m-lang-redir')) return;
+  var lang = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().split('-')[0];
+  var dest = { es: '/es/products.html', pt: '/pt/products.html', nl: '/nl/products.html', fr: '/fr/products.html' }[lang];
+  if (dest) { sessionStorage.setItem('q2m-lang-redir', '1'); location.replace(dest); }
+})();
+</script>
+<title>Products — Industrial Equipment & Systems | Q² Machines</title>
+<meta name="description" content="Q² Machines manufactures and supplies industrial equipment and systems for the Quarrying, Minerals, Concrete and Energy sectors across the Caribbean and South America.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Q² Machines — Quarryquip Ltd">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Products — Industrial Equipment & Systems | Q² Machines">
+<meta property="og:description" content="Industrial equipment and systems manufactured and supplied by Q² Machines — conveyors, concrete plants, pumps, crushers and structural fabrication.">
+<meta property="og:url" content="https://www.q2m.io/products.html">
+<meta property="og:site_name" content="Q² Machines">
+<meta property="og:locale" content="en_TT">
+<meta property="og:image" content="https://www.q2m.io/og_banner.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Q² Machines — Industrial Equipment & Systems">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Products — Industrial Equipment & Systems | Q² Machines">
+<meta name="twitter:description" content="Industrial equipment and systems manufactured by Q² Machines for the Caribbean and South America.">
+<meta name="twitter:image" content="https://www.q2m.io/og_banner.jpg">
+<link rel="canonical" href="https://www.q2m.io/products.html" />
+<link rel="alternate" hreflang="en"        href="https://www.q2m.io/products.html">
+<link rel="alternate" hreflang="x-default" href="https://www.q2m.io/products.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap">
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init('UpAaa1434xTFZf_c8');</script>
+<style>
+:root {
+  --gold: #F5C500;
+  --gold-dark: #C49B00;
+  --gold-dim: rgba(245,197,0,0.12);
+  --gold-line: rgba(245,197,0,0.3);
+  --ink: #0A0A0A;
+  --ink-2: #111111;
+  --ink-3: #1A1A1A;
+  --text: #F0F0F0;
+  --text-2: #A0A0A0;
+  --text-3: #505050;
+  --border: rgba(245,197,0,0.15);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overscroll-behavior-y:none;}
+body{background:var(--ink);color:var(--text);font-family:'Barlow',sans-serif;font-size:15px;overflow-x:hidden;overscroll-behavior-y:none;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--ink-2);}::-webkit-scrollbar-thumb{background:var(--gold-dark);}
+
+/* ── SCROLL TOP ── */
+#scroll-top-btn{position:fixed;bottom:84px;right:24px;z-index:999;width:44px;height:44px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s,background .2s,transform .2s;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
+#scroll-top-btn.visible{opacity:1;pointer-events:auto;}
+#scroll-top-btn:hover{background:var(--gold-dark);transform:translateY(-3px);}
+/* ── WHATSAPP ── */
+#whatsapp-btn{position:fixed;bottom:32px;right:24px;z-index:999;width:44px;height:44px;background:#25D366;color:#fff;border:none;border-radius:2px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.4);transition:transform .2s,background .2s;text-decoration:none;}
+#whatsapp-btn:hover{background:#128C7E;transform:translateY(-3px);}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:flex-end;justify-content:space-between;padding:16px 60px 18px;background:#F4F3EF;border-bottom:2px solid var(--gold);transition:padding .3s;gap:32px;overflow:hidden;}
+nav.scrolled{background:#F4F3EF;box-shadow:0 2px 16px rgba(0,0,0,0.12);padding-top:10px;padding-bottom:10px;}
+nav.scrolled .nav-logo-mark{width:80px;height:80px;}
+nav.scrolled .nav-logo-name{font-size:32px;}
+nav.scrolled .nav-logo-text-wrap{height:80px;}
+.nav-logo{position:relative;z-index:1;display:flex;align-items:flex-end;gap:0;text-decoration:none;flex-shrink:0;}
+.nav-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;}
+.nav-logo-mark{width:150px;height:150px;background:transparent;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;}
+.nav-logo-mark:hover{transform:rotate(-3deg);}
+.nav-logo-mark img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;}
+.nav-logo-text-wrap{display:flex;flex-direction:column;gap:10px;justify-content:space-between;align-self:flex-end;height:150px;transition:all .3s;}
+.nav-logo-name{font-family:'Oswald','Barlow Condensed',sans-serif;font-size:64px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);-webkit-text-stroke:1.5px #000;paint-order:stroke fill;line-height:1;display:block;transition:font-size .3s;}
+.nav-logo-name sup{font-size:0.65em;vertical-align:top;line-height:1;-webkit-text-stroke:1px #000;}
+.nav-logo-slogan{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#333333;opacity:.85;line-height:1;display:block;align-self:flex-end;margin-top:auto;}
+.nav-links{display:flex;align-items:center;gap:20px;list-style:none;flex-shrink:0;}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#333333;text-decoration:none;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width .2s;}
+.nav-links a:hover{color:var(--gold-dark);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-links a.active{color:var(--gold-dark);}
+.nav-cta{background:var(--gold)!important;color:var(--ink)!important;padding:8px 20px;border-radius:2px;font-weight:700!important;}
+.nav-cta::after{display:none!important;}
+.nav-cta:hover{background:var(--ink)!important;color:var(--gold)!important;}
+
+/* ── LANGUAGE FLAGS ── */
+.lang-flags{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.lang-flag{cursor:pointer;border:none;background:none;padding:2px;border-radius:3px;transition:transform .15s,opacity .15s;opacity:0.65;line-height:1;position:relative;display:inline-flex;align-items:center;}
+.lang-flag .fi{width:24px;height:18px;border-radius:2px;display:block;}
+.lang-flag:hover{transform:scale(1.2);opacity:1;}
+.lang-flag.active{opacity:1;outline:2px solid var(--gold-dark);border-radius:3px;}
+.lang-flag[data-abbr]::after{content:attr(data-abbr);position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-family:'Share Tech Mono',monospace;font-size:9px;font-weight:700;color:#333;letter-spacing:1px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s;}
+.lang-flag:hover[data-abbr]::after{opacity:1;}
+
+/* ── HAMBURGER / MOBILE MENU ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;align-self:center;}
+.hamburger span{width:24px;height:2px;background:#333;display:block;transition:all .3s;}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.98);z-index:1001;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--text-2);text-decoration:none;transition:color .2s;}
+.mobile-menu a:hover{color:var(--gold);}
+.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--text-2);font-size:28px;cursor:pointer;padding:8px;}
+.mobile-lang-flags{display:flex;gap:16px;margin-top:8px;}
+.mobile-lang-flags .lang-flag{opacity:0.7;}
+.mobile-lang-flags .lang-flag .fi{width:36px;height:27px;}
+.mobile-lang-flags .lang-flag.active{opacity:1;}
+
+/* ── GOLD DIVIDER ── */
+.gold-divider{height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.4;position:relative;z-index:1;}
+
+/* ── PAGE HERO ── */
+.page-hero{padding:220px 60px 80px;position:relative;overflow:hidden;}
+.page-hero::after{content:'PRODUCTS';position:absolute;bottom:-30px;right:-10px;font-family:'Oswald',sans-serif;font-size:clamp(80px,14vw,180px);font-weight:700;letter-spacing:-4px;color:var(--gold);opacity:0.04;line-height:1;pointer-events:none;user-select:none;}
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.section-label::before{content:'';width:30px;height:1px;background:var(--gold);}
+.page-hero h1{font-family:'Oswald',sans-serif;font-size:clamp(44px,7vw,80px);font-weight:700;letter-spacing:-1px;line-height:1.0;text-wrap:balance;margin-bottom:20px;}
+.page-hero h1 span{color:var(--gold);}
+.page-hero p{font-size:17px;color:var(--text-2);max-width:640px;line-height:1.7;}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+
+/* ── PRODUCTS SECTION ── */
+.products-section{padding:72px 60px 80px;position:relative;z-index:1;}
+.products-inner{max-width:1200px;margin:0 auto;}
+.products-intro{font-size:15px;color:var(--text-2);max-width:760px;line-height:1.7;margin-bottom:40px;}
+
+/* ── CATEGORY SECTIONS ── */
+.cat-section{margin-bottom:64px;}
+.cat-section:last-child{margin-bottom:0;}
+.cat-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;}
+.cat-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);white-space:nowrap;display:flex;align-items:center;gap:10px;}
+.cat-title::before{content:'';width:30px;height:1px;background:var(--gold);display:inline-block;}
+.cat-line{flex:1;height:1px;background:var(--border);}
+.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+
+/* ── PRODUCT CARD ── */
+.product-card{background:var(--ink-2);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column;opacity:0;transform:translateY(20px);animation:cardIn .5s forwards;}
+@keyframes cardIn{to{opacity:1;transform:none;}}
+.product-card:hover{transform:translateY(-5px);border-color:var(--gold-line);box-shadow:0 16px 48px rgba(0,0,0,0.5);}
+
+/* Image */
+.product-img-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--ink-3);flex-shrink:0;}
+.product-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+.product-card:hover .product-img-wrap img{transform:scale(1.04);}
+.product-img-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+.product-img-placeholder svg{opacity:0.15;}
+.product-img-placeholder span{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-3);}
+
+/* Body */
+.product-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column;gap:12px;}
+
+/* Category badge */
+.category-badge{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:2px;display:inline-block;align-self:flex-start;}
+.cat-conveyors{background:rgba(245,197,0,0.10);color:var(--gold);border:1px solid rgba(245,197,0,0.25);}
+.cat-concrete{background:rgba(100,181,246,0.10);color:#64B5F6;border:1px solid rgba(100,181,246,0.25);}
+.cat-pumps{background:rgba(129,199,132,0.10);color:#81C784;border:1px solid rgba(129,199,132,0.25);}
+.cat-crushers{background:rgba(255,138,101,0.10);color:#FF8A65;border:1px solid rgba(255,138,101,0.25);}
+.cat-fabrication{background:rgba(186,104,200,0.10);color:#BA68C8;border:1px solid rgba(186,104,200,0.25);}
+
+.product-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;letter-spacing:0.3px;color:var(--text);line-height:1.2;}
+
+/* Spec strip */
+.spec-strip{display:flex;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+.spec-item{flex:1;padding:10px 12px;border-right:1px solid var(--border);background:var(--ink-3);}
+.spec-item:last-child{border-right:none;}
+.spec-label{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:4px;}
+.spec-value{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--text-2);line-height:1.2;}
+
+/* Description */
+.product-desc{font-size:14px;color:var(--text-2);line-height:1.65;flex:1;}
+
+/* Application tags */
+.app-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.app-tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;background:var(--ink-3);border:1px solid var(--text-3);border-radius:2px;color:var(--text-3);}
+
+/* CTA */
+.product-enquire{margin-top:6px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 20px;background:none;border:1px solid var(--gold);color:var(--gold);border-radius:2px;cursor:pointer;transition:all .2s;text-align:center;width:100%;}
+.product-enquire:hover{background:var(--gold);color:var(--ink);}
+
+/* ── STATES ── */
+.state-wrap{grid-column:1/-1;text-align:center;padding:80px 40px;}
+.state-wrap.bordered{border:1px dashed var(--text-3);border-radius:3px;}
+.state-icon{opacity:0.2;margin-bottom:24px;}
+.state-wrap h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;letter-spacing:1px;color:var(--text-2);margin-bottom:12px;}
+.state-wrap p{font-size:14px;color:var(--text-3);line-height:1.6;}
+.state-wrap a{color:var(--gold);text-decoration:none;}
+.state-wrap a:hover{text-decoration:underline;}
+.spinner{width:36px;height:36px;margin:0 auto 24px;border:3px solid var(--text-3);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ── ENQUIRY SECTION ── */
+.enquiry-section{background:var(--ink-2);border-top:1px solid var(--border);padding:80px 60px 90px;position:relative;z-index:1;}
+.enquiry-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.enquiry-headline{font-family:'Oswald',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:700;letter-spacing:-0.5px;line-height:1.1;text-wrap:balance;margin-bottom:16px;}
+.enquiry-headline span{color:var(--gold);}
+.enquiry-sub{font-size:15px;color:var(--text-2);line-height:1.7;max-width:420px;}
+.enquiry-trust{margin-top:28px;display:flex;flex-direction:column;gap:12px;}
+.enquiry-trust-item{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--text-2);line-height:1.4;}
+.enquiry-trust-item svg{flex-shrink:0;color:var(--gold);margin-top:2px;}
+.form-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+.form-group{margin-bottom:16px;}
+.form-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--text-3);display:block;margin-bottom:6px;}
+.form-input{width:100%;padding:12px 14px;background:var(--ink-3);border:1px solid var(--text-3);color:var(--text);font-family:'Barlow',sans-serif;font-size:15px;border-radius:2px;transition:border-color .2s;outline:none;}
+.form-input:focus{border-color:var(--gold);}
+.form-input::placeholder{color:var(--text-3);}
+textarea.form-input{resize:vertical;min-height:120px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-submit{width:100%;padding:15px;background:var(--gold);border:none;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);border-radius:2px;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;}
+.form-submit:hover{background:var(--gold-dark);}
+.form-submit:disabled{opacity:0.6;cursor:not-allowed;}
+.form-msg{margin-top:12px;font-size:13px;text-align:center;min-height:20px;}
+.form-msg.success{color:var(--gold);}
+.form-msg.error{color:#ef5350;}
+.response-note{font-size:12px;color:var(--text-3);text-align:center;margin-top:10px;}
+
+/* ── FOOTER ── */
+footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;position:relative;z-index:1;overflow:hidden;}
+.footer-inner{max-width:600px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;position:relative;z-index:1;}
+.footer-logo-img{width:80px;height:80px;object-fit:contain;mix-blend-mode:multiply;opacity:0.75;}
+.footer-logo-mark{width:120px;height:120px;background:transparent;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.footer-logo-mark img{width:100%;height:100%;object-fit:contain;}
+.footer-name{font-family:'Oswald','Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);line-height:1;}
+.footer-slogan{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#333333;opacity:.8;margin-top:3px;}
+.footer-copy{font-size:12px;color:#555555;font-family:'Share Tech Mono',monospace;}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;justify-content:center;}
+.footer-links a{font-size:12px;color:#333333;text-decoration:none;font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s;}
+.footer-links a:hover{color:var(--gold-dark);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){nav{padding:14px 32px;}.page-hero{padding:180px 32px 72px;}.products-section{padding:56px 32px 72px;}.enquiry-section{padding:64px 32px 72px;}footer{padding:48px 32px 36px;}}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}nav{padding:12px 24px 14px;}.nav-logo-mark{width:80px;height:80px;}.nav-logo-text-wrap{height:80px;gap:4px;}.nav-logo-name{font-size:36px;}.nav-logo-slogan{font-size:12px;letter-spacing:2px;}.page-hero{padding:150px 24px 60px;}.products-section{padding:48px 24px 60px;}.enquiry-inner{grid-template-columns:1fr;gap:40px;}.enquiry-section{padding:52px 24px 64px;}footer{padding:40px 24px 32px;}.form-row{grid-template-columns:1fr;}.spec-strip{flex-wrap:wrap;}.spec-item{flex:1 1 45%;}}
+@media(max-width:480px){.cat-grid{grid-template-columns:1fr;}.page-hero h1{font-size:40px;}nav{padding:8px 14px 10px;}.nav-logo-mark{width:60px;height:60px;}.nav-logo-text-wrap{height:60px;}.nav-logo-name{font-size:26px;}.nav-logo-slogan{font-size:10px;letter-spacing:1.5px;}}
+</style>
+</head>
+<body>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" onclick="document.getElementById('mobile-menu').classList.remove('open')">✕</button>
+  <a href="/" data-i18n="nav_home">Home</a>
+  <a href="/#about" data-i18n="nav_about">About</a>
+  <a href="/#services" data-i18n="nav_services">Services</a>
+  <a href="/depot.html" data-i18n="nav_depot">Depot</a>
+  <a href="/products.html" data-i18n="nav_products" style="color:var(--gold)">Products</a>
+  <a href="/projects.html" data-i18n="nav_projects">Projects</a>
+  <a href="/#contact" data-i18n="nav_contact">Contact</a>
+  <div class="mobile-lang-flags">
+    <button class="lang-flag active" data-lang="en" aria-label="English"><span class="fi fi-gb"></span></button>
+    <button class="lang-flag" data-lang="es" aria-label="Español"><span class="fi fi-es"></span></button>
+    <button class="lang-flag" data-lang="pt" aria-label="Português"><span class="fi fi-br"></span></button>
+    <button class="lang-flag" data-lang="nl" aria-label="Nederlands"><span class="fi fi-nl"></span></button>
+    <button class="lang-flag" data-lang="fr" aria-label="Français"><span class="fi fi-fr"></span></button>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="main-nav">
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">
+      <img src="assets/branding/Q2M_Logo.svg" alt="Q2 Machines" />
+    </div>
+    <div class="nav-logo-text-wrap">
+      <span class="nav-logo-name">Q<sup>2</sup> Machines</span>
+      <span class="nav-logo-slogan">Safety, Service &amp; Sustainability</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <div class="lang-flags">
+      <button class="lang-flag active" data-lang="en" data-abbr="EN" aria-label="English"><span class="fi fi-gb"></span></button>
+      <button class="lang-flag" data-lang="es" data-abbr="ES" aria-label="Español"><span class="fi fi-es"></span></button>
+      <button class="lang-flag" data-lang="pt" data-abbr="PT" aria-label="Português"><span class="fi fi-br"></span></button>
+      <button class="lang-flag" data-lang="nl" data-abbr="NL" aria-label="Nederlands"><span class="fi fi-nl"></span></button>
+      <button class="lang-flag" data-lang="fr" data-abbr="FR" aria-label="Français"><span class="fi fi-fr"></span></button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/" data-i18n="nav_home">Home</a></li>
+      <li><a href="/#about" data-i18n="nav_about">About</a></li>
+      <li><a href="/#services" data-i18n="nav_services">Services</a></li>
+      <li><a href="/depot.html" data-i18n="nav_depot">Depot</a></li>
+      <li><a href="/products.html" data-i18n="nav_products" class="active">Products</a></li>
+      <li><a href="/projects.html" data-i18n="nav_projects">Projects</a></li>
+      <li><a href="/#contact" class="nav-cta" data-i18n="nav_cta">Tell Us Your Needs</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label reveal" data-i18n="prod_label">Product Catalogue</div>
+    <h1 class="reveal reveal-delay-1"><span data-i18n="prod_title_1">Equipment</span> &amp; <span style="color:var(--gold)" data-i18n="prod_title_2">Systems</span></h1>
+    <p class="reveal reveal-delay-2" data-i18n="prod_sub">Q² Machines designs, manufactures and supplies industrial equipment and complete plant systems for the Quarrying, Minerals, Concrete, Energy and Manufacturing sectors. All products are engineered to specification and backed by our full service and spares network.</p>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ── PRODUCTS SECTION ── -->
+<section class="products-section">
+  <div class="products-inner">
+
+    <p class="products-intro reveal" id="products-intro-text" data-i18n="prod_intro">
+      Browse our manufactured product range below. Each item can be built to your specification or supplied from current stock at our Equipment Depot. Contact us for full technical datasheets, site surveys and quotations.
+    </p>
+
+    <div id="products-container">
+      <div class="state-wrap">
+        <div class="spinner"></div>
+        <h3 data-i18n="prod_loading">Loading catalogue…</h3>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ── ENQUIRY SECTION ── -->
+<section class="enquiry-section" id="enquiry">
+  <div class="enquiry-inner">
+    <div>
+      <div class="section-label" data-i18n="prod_enquire_label">Get a Quote</div>
+      <h2 class="enquiry-headline" data-i18n="prod_enquire_headline">Request a <span>Quote</span><br>or Datasheet</h2>
+      <p class="enquiry-sub" data-i18n="prod_enquire_sub">Tell us what you need and we'll come back with full specifications, pricing and lead times — typically within one business day.</p>
+      <div class="enquiry-trust">
+        <div class="enquiry-trust-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="prod_trust_1">All equipment manufactured to your specification</span>
+        </div>
+        <div class="enquiry-trust-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="prod_trust_2">Full spares &amp; service support guaranteed</span>
+        </div>
+        <div class="enquiry-trust-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="prod_trust_3">Export-ready to the Caribbean &amp; South America</span>
+        </div>
+        <div class="enquiry-trust-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="prod_trust_4">We typically respond within 1 business day</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="form-title" data-i18n="prod_form_title">Product Enquiry Form</div>
+      <form id="product-form" onsubmit="submitEnquiry(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="pf-name" data-i18n="lbl_name">Full Name *</label>
+            <input class="form-input" id="pf-name" type="text" placeholder="Your name" data-ph="ph_name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="pf-email" data-i18n="lbl_email">Email *</label>
+            <input class="form-input" id="pf-email" type="email" placeholder="your@email.com" data-ph="ph_email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="pf-phone" data-i18n="lbl_phone">Phone</label>
+            <input class="form-input" id="pf-phone" type="tel" placeholder="+1 (868) 000-0000" data-ph="ph_phone">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="pf-company" data-i18n="lbl_company">Company</label>
+            <input class="form-input" id="pf-company" type="text" placeholder="Company name" data-ph="ph_company">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="pf-product" data-i18n="prod_item_label">Product of Interest</label>
+          <input class="form-input" id="pf-product" type="text" placeholder="e.g. Belt Conveyor System — 150 TPH" data-ph="prod_item_ph">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="pf-message" data-i18n="lbl_message">Message *</label>
+          <textarea class="form-input" id="pf-message" rows="4" placeholder="Describe your application — capacity, material, site conditions, timeline…" data-ph="prod_message_ph" required></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="pf-submit-btn">
+          <span id="pf-submit-text" data-i18n="prod_btn_submit">Send Enquiry</span>
+          <span id="pf-submit-arrow">→</span>
+        </button>
+        <p class="response-note" data-i18n="prod_response_note">We typically respond within 1 business day.</p>
+        <div class="form-msg" id="pf-form-msg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo-mark">
+      <img src="assets/branding/Q2M_Logo.svg" alt="Q2 Machines" class="footer-logo-img" />
+    </div>
+    <div class="footer-name">Q<sup>2</sup> Machines</div>
+    <div class="footer-slogan">Safety, Service &amp; Sustainability</div>
+    <ul class="footer-links">
+      <li><a href="/" data-i18n="nav_home">Home</a></li>
+      <li><a href="/#about" data-i18n="footer_about">About</a></li>
+      <li><a href="/#services" data-i18n="footer_services">Services</a></li>
+      <li><a href="/depot.html" data-i18n="nav_depot">Depot</a></li>
+      <li><a href="/products.html" data-i18n="nav_products">Products</a></li>
+      <li><a href="/projects.html" data-i18n="nav_projects">Projects</a></li>
+      <li><a href="/#contact" data-i18n="footer_contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:center;">
+      <a href="tel:+18682309702" style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#555;text-decoration:none;">(868) 230-9702</a>
+      <span style="color:#ccc;">·</span>
+      <a href="#" id="email-link-footer" style="font-family:'Share Tech Mono',monospace;font-size:12px;color:#555;text-decoration:none;">qhub&#64;q2m&#46;io</a>
+    </div>
+    <div class="footer-copy">© <span id="footer-year"></span> Q<sup>2</sup> Machines. All rights reserved.</div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:#999;letter-spacing:.5px;font-style:italic;">Gloria Patri, et Filio, et Spiritui Sancto. Amen</div>
+  </div>
+</footer>
+
+<!-- ── WHATSAPP / SCROLL TOP ── -->
+<a id="whatsapp-btn" href="https://wa.me/18682925214" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// ── TRANSLATIONS ──────────────────────────────────────────────────────────────
+const translations = {
+  en: {
+    nav_home:'Home', nav_about:'About', nav_services:'Services', nav_depot:'Depot',
+    nav_products:'Products', nav_projects:'Projects', nav_contact:'Contact',
+    nav_cta:'Tell Us Your Needs',
+    footer_about:'About', footer_services:'Services', footer_contact:'Contact',
+    prod_label:'Product Catalogue',
+    prod_title_1:'Equipment', prod_title_2:'Systems',
+    prod_sub:'Q² Machines designs, manufactures and supplies industrial equipment and complete plant systems for the Quarrying, Minerals, Concrete, Energy and Manufacturing sectors. All products are engineered to specification and backed by our full service and spares network.',
+    prod_intro:'Browse our manufactured product range below. Each item can be built to your specification or supplied from current stock at our Equipment Depot. Contact us for full technical datasheets, site surveys and quotations.',
+    prod_filter_label:'Filter:',
+    prod_filter_all:'All Products', prod_filter_conveyors:'Conveyors & Bulk',
+    prod_filter_concrete:'Concrete Plants', prod_filter_pumps:'Pumps & Drives',
+    prod_filter_crushers:'Crushers & Screens', prod_filter_fabrication:'Fabrication',
+    prod_loading:'Loading catalogue…',
+    prod_empty_title:'Catalogue being updated',
+    prod_empty_sub:'We\'re adding detailed product specs now. <a href="/#contact">Contact us</a> for current availability and datasheets.',
+    prod_filter_empty_title:'No products in this category yet',
+    prod_filter_empty_sub:'Check back soon — or <a href="#enquiry">contact us</a> directly.',
+    prod_enquire_label:'Get a Quote',
+    prod_enquire_headline:'Request a <span>Quote</span><br>or Datasheet',
+    prod_enquire_sub:'Tell us what you need and we\'ll come back with full specifications, pricing and lead times — typically within one business day.',
+    prod_trust_1:'All equipment manufactured to your specification',
+    prod_trust_2:'Full spares & service support guaranteed',
+    prod_trust_3:'Export-ready to the Caribbean & South America',
+    prod_trust_4:'We typically respond within 1 business day',
+    prod_form_title:'Product Enquiry Form',
+    lbl_name:'Full Name *', ph_name:'Your name',
+    lbl_email:'Email *', ph_email:'your@email.com',
+    lbl_phone:'Phone', ph_phone:'+1 (868) 000-0000',
+    lbl_company:'Company', ph_company:'Company name',
+    lbl_message:'Message *',
+    prod_item_label:'Product of Interest', prod_item_ph:'e.g. Belt Conveyor System — 150 TPH',
+    prod_message_ph:'Describe your application — capacity, material, site conditions, timeline…',
+    prod_btn_submit:'Send Enquiry',
+    prod_response_note:'We typically respond within 1 business day.',
+    prod_enquire_btn:'Request a Quote →',
+    prod_send_ok:"✓ Enquiry sent — we'll be in touch shortly.",
+    prod_send_fail:'✗ Send failed. Please email qhub@q2m.io directly.',
+    prod_sending:'Sending…', prod_sent:'Sent ✓',
+    cat_conveyors:'Conveyors & Bulk', cat_concrete:'Concrete Plants',
+    cat_pumps:'Pumps & Drives', cat_crushers:'Crushers & Screens',
+    cat_fabrication:'Fabrication',
+  },
+  es: {
+    nav_home:'Inicio', nav_about:'Nosotros', nav_services:'Servicios', nav_depot:'Depósito',
+    nav_products:'Productos', nav_projects:'Proyectos', nav_contact:'Contacto',
+    nav_cta:'Cuéntenos su Necesidad',
+    footer_about:'Nosotros', footer_services:'Servicios', footer_contact:'Contacto',
+    prod_label:'Catálogo de Productos',
+    prod_title_1:'Equipos', prod_title_2:'y Sistemas',
+    prod_sub:'Q² Machines diseña, fabrica y suministra equipos industriales y sistemas de planta completos para los sectores de Canteras, Minerales, Concreto, Energía y Manufactura.',
+    prod_intro:'Explore nuestra gama de productos fabricados. Cada artículo puede construirse según su especificación o suministrarse desde nuestro inventario actual. Contáctenos para fichas técnicas, visitas al sitio y cotizaciones.',
+    prod_filter_label:'Filtrar:',
+    prod_filter_all:'Todos', prod_filter_conveyors:'Transportadores',
+    prod_filter_concrete:'Plantas de Concreto', prod_filter_pumps:'Bombas y Transmisión',
+    prod_filter_crushers:'Trituradoras y Cribas', prod_filter_fabrication:'Fabricación',
+    prod_loading:'Cargando catálogo…',
+    prod_empty_title:'Catálogo en actualización',
+    prod_empty_sub:'Estamos agregando especificaciones detalladas. <a href="/#contact">Contáctenos</a> para disponibilidad actual.',
+    prod_filter_empty_title:'No hay productos en esta categoría aún',
+    prod_filter_empty_sub:'Vuelva pronto o <a href="#enquiry">contáctenos</a> directamente.',
+    prod_enquire_label:'Solicitar Cotización',
+    prod_enquire_headline:'Solicite una <span>Cotización</span><br>o Ficha Técnica',
+    prod_enquire_sub:'Díganos lo que necesita y le responderemos con especificaciones completas, precios y plazos de entrega — normalmente en un día hábil.',
+    prod_trust_1:'Todo el equipo fabricado según su especificación',
+    prod_trust_2:'Soporte completo de repuestos y servicio garantizado',
+    prod_trust_3:'Listo para exportación al Caribe y Suramérica',
+    prod_trust_4:'Normalmente respondemos en 1 día hábil',
+    prod_form_title:'Formulario de Consulta',
+    lbl_name:'Nombre Completo *', ph_name:'Su nombre',
+    lbl_email:'Correo Electrónico *', ph_email:'su@correo.com',
+    lbl_phone:'Teléfono', ph_phone:'+1 (868) 000-0000',
+    lbl_company:'Empresa', ph_company:'Nombre de la empresa',
+    lbl_message:'Mensaje *',
+    prod_item_label:'Producto de Interés', prod_item_ph:'p.ej. Sistema de Cinta Transportadora — 150 TPH',
+    prod_message_ph:'Describa su aplicación — capacidad, material, condiciones del sitio, plazos…',
+    prod_btn_submit:'Enviar Consulta',
+    prod_response_note:'Normalmente respondemos en 1 día hábil.',
+    prod_enquire_btn:'Solicitar Cotización →',
+    prod_send_ok:'✓ Consulta enviada — nos pondremos en contacto pronto.',
+    prod_send_fail:'✗ Error al enviar. Por favor escriba a qhub@q2m.io.',
+    prod_sending:'Enviando…', prod_sent:'Enviado ✓',
+    cat_conveyors:'Transportadores', cat_concrete:'Plantas de Concreto',
+    cat_pumps:'Bombas y Transmisión', cat_crushers:'Trituradoras y Cribas',
+    cat_fabrication:'Fabricación',
+  },
+  pt: {
+    nav_home:'Início', nav_about:'Sobre', nav_services:'Serviços', nav_depot:'Depósito',
+    nav_products:'Produtos', nav_projects:'Projetos', nav_contact:'Contato',
+    nav_cta:'Fale Conosco',
+    footer_about:'Sobre', footer_services:'Serviços', footer_contact:'Contato',
+    prod_label:'Catálogo de Produtos',
+    prod_title_1:'Equipamentos', prod_title_2:'e Sistemas',
+    prod_sub:'A Q² Machines projeta, fabrica e fornece equipamentos industriais e sistemas de planta completos para os setores de Mineração, Concreto, Energia e Manufatura.',
+    prod_intro:'Consulte a nossa gama de produtos fabricados. Cada item pode ser construído à sua especificação ou fornecido do nosso estoque atual. Contacte-nos para fichas técnicas e orçamentos.',
+    prod_filter_label:'Filtrar:',
+    prod_filter_all:'Todos', prod_filter_conveyors:'Transportadores',
+    prod_filter_concrete:'Plantas de Concreto', prod_filter_pumps:'Bombas e Transmissão',
+    prod_filter_crushers:'Britadores e Peneiras', prod_filter_fabrication:'Fabricação',
+    prod_loading:'Carregando catálogo…',
+    prod_empty_title:'Catálogo em atualização',
+    prod_empty_sub:'Estamos adicionando especificações detalhadas. <a href="/#contact">Contacte-nos</a> para disponibilidade atual.',
+    prod_filter_empty_title:'Nenhum produto nesta categoria ainda',
+    prod_filter_empty_sub:'Volte em breve ou <a href="#enquiry">contacte-nos</a> diretamente.',
+    prod_enquire_label:'Solicitar Orçamento',
+    prod_enquire_headline:'Solicite um <span>Orçamento</span><br>ou Ficha Técnica',
+    prod_enquire_sub:'Diga-nos o que precisa e responderemos com especificações completas, preços e prazos de entrega — normalmente em um dia útil.',
+    prod_trust_1:'Todos os equipamentos fabricados à sua especificação',
+    prod_trust_2:'Suporte completo de peças e serviço garantido',
+    prod_trust_3:'Pronto para exportação para o Caribe e América do Sul',
+    prod_trust_4:'Normalmente respondemos em 1 dia útil',
+    prod_form_title:'Formulário de Consulta',
+    lbl_name:'Nome Completo *', ph_name:'Seu nome',
+    lbl_email:'E-mail *', ph_email:'seu@email.com',
+    lbl_phone:'Telefone', ph_phone:'+1 (868) 000-0000',
+    lbl_company:'Empresa', ph_company:'Nome da empresa',
+    lbl_message:'Mensagem *',
+    prod_item_label:'Produto de Interesse', prod_item_ph:'ex. Sistema de Correia Transportadora — 150 TPH',
+    prod_message_ph:'Descreva sua aplicação — capacidade, material, condições do local, prazo…',
+    prod_btn_submit:'Enviar Consulta',
+    prod_response_note:'Normalmente respondemos em 1 dia útil.',
+    prod_enquire_btn:'Solicitar Orçamento →',
+    prod_send_ok:'✓ Consulta enviada — entraremos em contato em breve.',
+    prod_send_fail:'✗ Falha no envio. Por favor, envie um e-mail para qhub@q2m.io.',
+    prod_sending:'Enviando…', prod_sent:'Enviado ✓',
+    cat_conveyors:'Transportadores', cat_concrete:'Plantas de Concreto',
+    cat_pumps:'Bombas e Transmissão', cat_crushers:'Britadores e Peneiras',
+    cat_fabrication:'Fabricação',
+  },
+  nl: {
+    nav_home:'Home', nav_about:'Over Ons', nav_services:'Diensten', nav_depot:'Depot',
+    nav_products:'Producten', nav_projects:'Projecten', nav_contact:'Contact',
+    nav_cta:'Vertel Ons Uw Wensen',
+    footer_about:'Over Ons', footer_services:'Diensten', footer_contact:'Contact',
+    prod_label:'Productcatalogus',
+    prod_title_1:'Apparatuur', prod_title_2:'& Systemen',
+    prod_sub:'Q² Machines ontwerpt, fabriceert en levert industriële apparatuur en complete installaties voor de Winning, Mineralen, Beton, Energie en Productiesectoren.',
+    prod_intro:'Bekijk ons productgamma hieronder. Elk product kan worden gebouwd op uw specificatie of geleverd uit de huidige voorraad. Neem contact op voor datasheets en offertes.',
+    prod_filter_label:'Filter:',
+    prod_filter_all:'Alle Producten', prod_filter_conveyors:'Transporteurs',
+    prod_filter_concrete:'Betoninstallaties', prod_filter_pumps:'Pompen & Aandrijving',
+    prod_filter_crushers:'Brekers & Zeven', prod_filter_fabrication:'Fabricage',
+    prod_loading:'Catalogus laden…',
+    prod_empty_title:'Catalogus wordt bijgewerkt',
+    prod_empty_sub:'We voegen gedetailleerde productspecificaties toe. <a href="/#contact">Neem contact met ons op</a> voor huidige beschikbaarheid.',
+    prod_filter_empty_title:'Nog geen producten in deze categorie',
+    prod_filter_empty_sub:'Kom snel terug of <a href="#enquiry">contacteer ons</a> direct.',
+    prod_enquire_label:'Offerte Aanvragen',
+    prod_enquire_headline:'Vraag een <span>Offerte</span><br>of Datasheet aan',
+    prod_enquire_sub:'Vertel ons wat u nodig heeft en wij reageren met volledige specificaties, prijzen en levertijden — doorgaans binnen één werkdag.',
+    prod_trust_1:'Alle apparatuur gefabriceerd op uw specificatie',
+    prod_trust_2:'Volledige onderdelen- en serviceondersteuning gegarandeerd',
+    prod_trust_3:'Exportklaar voor het Caribisch gebied en Zuid-Amerika',
+    prod_trust_4:'Wij reageren doorgaans binnen 1 werkdag',
+    prod_form_title:'Product Aanvraagformulier',
+    lbl_name:'Volledige Naam *', ph_name:'Uw naam',
+    lbl_email:'E-mail *', ph_email:'uw@email.com',
+    lbl_phone:'Telefoon', ph_phone:'+1 (868) 000-0000',
+    lbl_company:'Bedrijf', ph_company:'Bedrijfsnaam',
+    lbl_message:'Bericht *',
+    prod_item_label:'Product van Interesse', prod_item_ph:'bijv. Bandtransporteur — 150 TPH',
+    prod_message_ph:'Beschrijf uw toepassing — capaciteit, materiaal, terreinomstandigheden, tijdlijn…',
+    prod_btn_submit:'Aanvraag Verzenden',
+    prod_response_note:'Wij reageren doorgaans binnen 1 werkdag.',
+    prod_enquire_btn:'Offerte Aanvragen →',
+    prod_send_ok:'✓ Aanvraag verzonden — we nemen spoedig contact op.',
+    prod_send_fail:'✗ Verzenden mislukt. Stuur een e-mail naar qhub@q2m.io.',
+    prod_sending:'Verzenden…', prod_sent:'Verzonden ✓',
+    cat_conveyors:'Transporteurs', cat_concrete:'Betoninstallaties',
+    cat_pumps:'Pompen & Aandrijving', cat_crushers:'Brekers & Zeven',
+    cat_fabrication:'Fabricage',
+  },
+  fr: {
+    nav_home:'Accueil', nav_about:'À Propos', nav_services:'Services', nav_depot:'Dépôt',
+    nav_products:'Produits', nav_projects:'Projets', nav_contact:'Contact',
+    nav_cta:'Parlez-nous de Votre Projet',
+    footer_about:'À Propos', footer_services:'Services', footer_contact:'Contact',
+    prod_label:'Catalogue Produits',
+    prod_title_1:'Équipements', prod_title_2:'& Systèmes',
+    prod_sub:'Q² Machines conçoit, fabrique et fournit des équipements industriels et des installations complètes pour les secteurs des Carrières, des Minéraux, du Béton, de l\'Énergie et de la Production.',
+    prod_intro:'Parcourez notre gamme de produits fabriqués. Chaque article peut être construit selon vos spécifications ou fourni depuis notre stock actuel. Contactez-nous pour les fiches techniques et les devis.',
+    prod_filter_label:'Filtrer :',
+    prod_filter_all:'Tous les Produits', prod_filter_conveyors:'Convoyeurs',
+    prod_filter_concrete:'Centrales à Béton', prod_filter_pumps:'Pompes & Entraînement',
+    prod_filter_crushers:'Concasseurs & Cribles', prod_filter_fabrication:'Fabrication',
+    prod_loading:'Chargement du catalogue…',
+    prod_empty_title:'Catalogue en cours de mise à jour',
+    prod_empty_sub:'Nous ajoutons des spécifications détaillées. <a href="/#contact">Contactez-nous</a> pour la disponibilité actuelle.',
+    prod_filter_empty_title:'Aucun produit dans cette catégorie pour le moment',
+    prod_filter_empty_sub:'Revenez bientôt ou <a href="#enquiry">contactez-nous</a> directement.',
+    prod_enquire_label:'Demander un Devis',
+    prod_enquire_headline:'Demandez un <span>Devis</span><br>ou une Fiche Technique',
+    prod_enquire_sub:'Dites-nous ce dont vous avez besoin et nous vous répondrons avec les spécifications complètes, les prix et les délais — généralement en un jour ouvrable.',
+    prod_trust_1:'Tous les équipements fabriqués selon vos spécifications',
+    prod_trust_2:'Support complet en pièces détachées et service garanti',
+    prod_trust_3:'Prêt à l\'export vers les Caraïbes et l\'Amérique du Sud',
+    prod_trust_4:'Nous répondons généralement en 1 jour ouvrable',
+    prod_form_title:'Formulaire de Demande Produit',
+    lbl_name:'Nom Complet *', ph_name:'Votre nom',
+    lbl_email:'E-mail *', ph_email:'votre@email.com',
+    lbl_phone:'Téléphone', ph_phone:'+1 (868) 000-0000',
+    lbl_company:'Entreprise', ph_company:"Nom de l'entreprise",
+    lbl_message:'Message *',
+    prod_item_label:'Produit d\'Intérêt', prod_item_ph:'ex. Système de Convoyeur à Bande — 150 TPH',
+    prod_message_ph:'Décrivez votre application — capacité, matériau, conditions du site, délais…',
+    prod_btn_submit:'Envoyer la Demande',
+    prod_response_note:'Nous répondons généralement en 1 jour ouvrable.',
+    prod_enquire_btn:'Demander un Devis →',
+    prod_send_ok:'✓ Demande envoyée — nous vous contacterons sous peu.',
+    prod_send_fail:'✗ Échec de l\'envoi. Veuillez envoyer un e-mail à qhub@q2m.io.',
+    prod_sending:'Envoi…', prod_sent:'Envoyé ✓',
+    cat_conveyors:'Convoyeurs', cat_concrete:'Centrales à Béton',
+    cat_pumps:'Pompes & Entraînement', cat_crushers:'Concasseurs & Cribles',
+    cat_fabrication:'Fabrication',
+  }
+};
+
+let currentLang = 'en';
+let allProducts = [];
+let currentFilter = 'all';
+
+// ── TRANSLATIONS ──────────────────────────────────────────────────────────────
+function applyTranslations(lang) {
+  const t = translations[lang] || translations.en;
+  currentLang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('[data-ph]').forEach(el => {
+    const key = el.getAttribute('data-ph');
+    if (t[key]) el.placeholder = t[key];
+  });
+  document.querySelectorAll('.lang-flag').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+  if (allProducts.length > 0) renderProducts();
+}
+
+document.querySelectorAll('.lang-flag').forEach(btn => {
+  btn.addEventListener('click', () => applyTranslations(btn.getAttribute('data-lang')));
+});
+
+// ── DATA ──────────────────────────────────────────────────────────────────────
+const CATEGORIES = [
+  { key: 'pumps',       i18n: 'cat_pumps'       },
+  { key: 'conveyors',   i18n: 'cat_conveyors'   },
+  { key: 'concrete',    i18n: 'cat_concrete'     },
+  { key: 'crushers',    i18n: 'cat_crushers'     },
+  { key: 'fabrication', i18n: 'cat_fabrication'  },
+];
+
+async function loadProducts() {
+  try {
+    const res = await fetch('/products.json?v=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    allProducts = Array.isArray(data) ? data : [];
+    renderProducts();
+  } catch(e) {
+    document.getElementById('products-container').innerHTML = `
+      <div class="state-wrap bordered">
+        <h3>Unable to load catalogue</h3>
+        <p>Please <a href="/#contact">contact us</a> directly for product information.</p>
+      </div>`;
+  }
+}
+
+function renderProducts() {
+  const t = translations[currentLang] || translations.en;
+  const container = document.getElementById('products-container');
+
+  if (allProducts.length === 0) {
+    container.innerHTML = `
+      <div class="state-wrap bordered">
+        <div class="state-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>${t.prod_empty_title}</h3>
+        <p>${t.prod_empty_sub}</p>
+      </div>`;
+    return;
+  }
+
+  // Group products by category, respecting defined order
+  const grouped = {};
+  CATEGORIES.forEach(c => { grouped[c.key] = []; });
+  allProducts.forEach(p => {
+    if (grouped[p.category]) grouped[p.category].push(p);
+    else grouped[p.category] = [p]; // unknown category — still show it
+  });
+
+  let cardIndex = 0;
+  container.innerHTML = CATEGORIES
+    .filter(c => grouped[c.key] && grouped[c.key].length > 0)
+    .map(c => {
+      const catLabel = t[c.i18n] || c.key;
+      const cards = grouped[c.key].map(p => {
+        const title = p['title_' + currentLang] || p.title;
+        const desc  = p['description_' + currentLang] || p.description;
+
+        const specHtml = Array.isArray(p.specs) && p.specs.length
+          ? `<div class="spec-strip">${p.specs.map(s =>
+              `<div class="spec-item"><span class="spec-label">${s.label}</span><span class="spec-value">${s.value}</span></div>`
+            ).join('')}</div>`
+          : '';
+
+        const tagsHtml = Array.isArray(p.applications) && p.applications.length
+          ? `<div class="app-tags">${p.applications.map(a => `<span class="app-tag">${a}</span>`).join('')}</div>`
+          : '';
+
+        const imgHtml = p.photo
+          ? `<img src="${p.photo}" alt="${p.alt || title}" loading="lazy">`
+          : `<div class="product-img-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>${title}</span></div>`;
+
+        const delay = (cardIndex++ % 4) * 60;
+        return `
+          <div class="product-card" style="animation-delay:${delay}ms">
+            <div class="product-img-wrap">${imgHtml}</div>
+            <div class="product-body">
+              <h3 class="product-title">${title}</h3>
+              ${specHtml}
+              <p class="product-desc">${desc}</p>
+              ${tagsHtml}
+              <button class="product-enquire" onclick="prefillEnquiry('${title.replace(/'/g,"\\'")}')">
+                ${t.prod_enquire_btn}
+              </button>
+            </div>
+          </div>`;
+      }).join('');
+
+      return `
+        <div class="cat-section">
+          <div class="cat-header">
+            <span class="cat-title">${catLabel}</span>
+            <div class="cat-line"></div>
+          </div>
+          <div class="cat-grid">${cards}</div>
+        </div>`;
+    }).join('');
+}
+
+// ── ENQUIRY FORM ──────────────────────────────────────────────────────────────
+function prefillEnquiry(productName) {
+  document.getElementById('pf-product').value = productName;
+  document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => document.getElementById('pf-name').focus(), 600);
+}
+
+async function submitEnquiry(e) {
+  e.preventDefault();
+  const t = translations[currentLang] || translations.en;
+  const btn  = document.getElementById('pf-submit-btn');
+  const txt  = document.getElementById('pf-submit-text');
+  const msg  = document.getElementById('pf-form-msg');
+  btn.disabled = true;
+  txt.textContent = t.prod_sending;
+  msg.textContent = '';
+  msg.className = 'form-msg';
+  try {
+    await emailjs.send('service_q2m', 'template_product_enquiry', {
+      from_name:    document.getElementById('pf-name').value,
+      from_email:   document.getElementById('pf-email').value,
+      phone:        document.getElementById('pf-phone').value,
+      company:      document.getElementById('pf-company').value,
+      product:      document.getElementById('pf-product').value,
+      message:      document.getElementById('pf-message').value,
+    });
+    txt.textContent = t.prod_sent;
+    msg.textContent = t.prod_send_ok;
+    msg.className = 'form-msg success';
+    document.getElementById('product-form').reset();
+  } catch(err) {
+    txt.textContent = t.prod_btn_submit;
+    btn.disabled = false;
+    msg.textContent = t.prod_send_fail;
+    msg.className = 'form-msg error';
+  }
+}
+
+// ── NAV SCROLL ────────────────────────────────────────────────────────────────
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  document.getElementById('scroll-top-btn').classList.toggle('visible', window.scrollY > 400);
+});
+
+// ── REVEAL ────────────────────────────────────────────────────────────────────
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+loadProducts();
+</script>
+</body>
+</html>
