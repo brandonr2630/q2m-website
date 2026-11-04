@@ -41,7 +41,6 @@ const FIRST_ROW = 4; // tiles per row on desktop; the first row loads eagerly
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const attr = (s) => esc(s).replace(/"/g, '&quot;');
-const plain = (html) => cheerio.load(`<div>${html}</div>`)('div').text();
 const asset = (f) => (f.startsWith('/') ? f : `/${f}`);
 
 function loadTranslations(raw) {
@@ -201,7 +200,9 @@ function treeHtml(lang, page) {
     return kids(parent).map((n) => {
       const ch = kids(n.id);
       if (!ch.length) return `${pad}<li>${link(n.id, n.name[code])}</li>`;
-      return `${pad}<li><details${onPath.has(n.id) ? ' open' : ''}><summary>${link(n.id, n.name[code])}</summary>\n${pad}  <ul>\n${level(n.id, depth + 2)}\n${pad}  </ul>\n${pad}</details></li>`;
+      // Branch: the link and the disclosure are siblings, so no link sits inside <summary> (axe nested-interactive).
+      // The summary is a 44 px toggle named after the node; its children list sits below the link.
+      return `${pad}<li class="tree-branch">${link(n.id, n.name[code])}<details${onPath.has(n.id) ? ' open' : ''}><summary class="tree-toggle"><span class="vh">${esc(n.name[code])}</span></summary>\n${pad}  <ul>\n${level(n.id, depth + 2)}\n${pad}  </ul>\n${pad}</details></li>`;
     }).join('\n');
   };
   return `
@@ -225,7 +226,8 @@ function tilesHtml(lang, parent) {
     if (!n.tileImage) return `        <li><a class="tile tile-text" href="${href}">${name}</a></li>`;
     const im = n.tileImage;
     const lazy = i >= FIRST_ROW ? ' loading="lazy"' : '';
-    return `        <li><a class="tile" href="${href}"><span class="tile-img"><img src="${attr(asset(im.file))}" width="${im.w}" height="${im.h}" alt="${attr(im.alt[code])}"${lazy} decoding="async"></span>${name}</a></li>`;
+    // Decorative: the visible name is the link text, so the image takes alt="" (data alt kept for other uses)
+    return `        <li><a class="tile" href="${href}"><span class="tile-img"><img src="${attr(asset(im.file))}" width="${im.w}" height="${im.h}" alt=""${lazy} decoding="async"></span>${name}</a></li>`;
   });
   return `
       <ul class="tiles">
@@ -283,7 +285,15 @@ function familyHtml(lang, page) {
   const p = pageText(page, code);
   const parts = [crumbsHtml(lang, page), `
       <h1>${p.h1Html}</h1>
-      <p class="fam-desc">${esc(p.lead)}</p>`, heroHtml(lang, n)];
+      <p class="fam-desc">${esc(p.lead)}</p>`];
+  // Spec §7: the facts strip is the summary, directly under the description and above the hero
+  if (c) {
+    parts.push(`
+      <section id="facts" class="facts-strip">
+${c.facts.map(([v, l]) => `        <div class="fact"><strong>${esc(v)}</strong><span>${esc(l)}</span></div>`).join('\n')}
+      </section>`);
+  }
+  parts.push(heroHtml(lang, n));
   if (n.specs && n.specs.rows && n.specs.rows.length) {
     // Slot for the spec table and filters (Task 6). Heading only for now.
     parts.push(`
@@ -293,10 +303,6 @@ function familyHtml(lang, page) {
   }
   parts.push(dimsHtml(lang, n));
   if (c) {
-    parts.push(`
-      <section id="facts" class="facts-strip">
-${c.facts.map(([v, l]) => `        <div class="fact"><strong>${esc(v)}</strong><span>${esc(l)}</span></div>`).join('\n')}
-      </section>`);
     parts.push(sec('how', c.howH, `        <p>${esc(c.how)}</p>`));
     parts.push(sec('build', c.buildH, `        <ul class="facts-list">\n${li(c.build)}\n        </ul>\n        <p>${esc(c.buildNote)}</p>`));
     parts.push(sec('apps', c.appH, `        <ul class="facts-list">\n${li(c.apps)}\n        </ul>`));
@@ -362,10 +368,19 @@ const PRODUCTS_CSS = `
 .products-page .cat-tree a{display:inline-block;padding:5px 0;min-height:24px;font-size:14px;line-height:1.35;color:var(--text-2);text-decoration:none;overflow-wrap:break-word;}
 .products-page .cat-tree a:hover,.products-page .cat-tree a:focus-visible{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
 .products-page .cat-tree a[aria-current="page"]{color:var(--gold);font-weight:600;}
-.products-page .cat-tree-root>li>a,.products-page .cat-tree-root>li>details>summary>a{font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:.3px;color:var(--text);}
-.products-page .cat-tree-root>li>a[aria-current="page"],.products-page .cat-tree-root>li>details>summary>a[aria-current="page"]{color:var(--gold);}
+.products-page .cat-tree-root>li>a{font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:.3px;color:var(--text);}
+.products-page .cat-tree-root>li>a[aria-current="page"]{color:var(--gold);}
 .products-page .cat-tree summary{cursor:pointer;}
-.products-page .cat-tree summary::marker{color:var(--text-2);}
+.products-page .cat-tree-head::marker{color:var(--text-2);}
+.products-page .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+.products-page .tree-branch{position:relative;}
+.products-page .tree-branch>a{display:block;padding-right:40px;}
+.products-page .tree-toggle{position:absolute;top:0;right:0;width:36px;height:32px;display:flex;align-items:center;justify-content:center;list-style:none;color:var(--text-2);border-radius:2px;}
+.products-page .tree-toggle::-webkit-details-marker{display:none;}
+.products-page .tree-toggle::before{content:'';width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .2s;}
+.products-page details[open]>.tree-toggle::before{transform:rotate(45deg);}
+.products-page .tree-toggle:hover{color:var(--gold);}
+.products-page .tree-toggle:focus-visible{color:var(--gold);outline:2px solid var(--gold);outline-offset:-2px;}
 .products-page .fam-hero{margin:0 0 40px;background:#fff;border:1px solid var(--border);}
 .products-page .fam-hero img{display:block;width:100%;height:auto;}
 .products-page .dim-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px;}
@@ -389,6 +404,8 @@ const PRODUCTS_CSS = `
 .products-page .cat-tree-box[open] .cat-tree-head{border-bottom:1px solid var(--border);margin-bottom:8px;}
 .products-page .cat-tree-root{padding-bottom:10px;}
 .products-page .cat-tree a{padding:10px 0;min-height:44px;}
+.products-page .tree-branch>a{padding-right:52px;}
+.products-page .tree-toggle{width:44px;height:44px;}
 .products-page .facts-strip{grid-template-columns:repeat(2,1fr);}
 .products-page .fact:last-child{grid-column:1/-1;}
 }
@@ -412,13 +429,31 @@ document.querySelectorAll('.lang-flag').forEach(btn => {
 
 `;
 
+// ── PER-PAGE CONTENT CHECKS (run for all pages before anything is rendered or written) ──
+function checkPage(page, lang) {
+  const code = lang.code;
+  const label = `${page.node ? page.node.id : 'hub'}/${code}`;
+  const p = pageText(page, code);
+  for (const k of ['title', 'description', 'h1Html', 'lead']) {
+    if (typeof p[k] !== 'string' || p[k].trim() === '') throw new Error(`${label}: ${k} missing or empty`);
+  }
+  if (p.description.length > MAX_DESC) throw new Error(`${label}: description is ${p.description.length} characters (max ${MAX_DESC})`);
+  if (page.kind === 'family' && page.node.copy) {
+    const c = page.node.copy[code];
+    for (const k of ['howH', 'how', 'buildH', 'buildNote', 'appH', 'supportH', 'supportHtml', 'faqH']) {
+      if (typeof c[k] !== 'string' || c[k].trim() === '') throw new Error(`${label}: copy.${k} missing or empty`);
+    }
+    for (const k of ['facts', 'build', 'apps', 'faq']) {
+      if (!Array.isArray(c[k]) || !c[k].length) throw new Error(`${label}: copy.${k} missing or empty`);
+    }
+  }
+}
+
 // ── BUILD ONE PAGE ──────────────────────────────────────────
 function build(page, lang) {
   const code = lang.code;
   const t = aboutT[code];
   const p = pageText(page, code);
-  const label = page.node ? page.node.id : 'hub';
-  if (p.description.length > MAX_DESC) throw new Error(`${label}/${code}: description is ${p.description.length} characters (max ${MAX_DESC})`);
 
   const url = absUrl(lang, page);
   const $ = cheerio.load(aboutRaw, { decodeEntities: false });
@@ -541,11 +576,9 @@ function build(page, lang) {
   $('[data-i18n-alt]').removeAttr('data-i18n-alt');
   $('[data-i18n-aria]').removeAttr('data-i18n-aria');
 
+  // Rendered in memory only; main() writes after every page has rendered without error
   const rel = relUrl(lang, page).replace(/^\//, '') + 'index.html';
-  const out = path.join(ROOT, rel);
-  fs.mkdirSync(path.dirname(out), { recursive: true });
-  fs.writeFileSync(out, $.html().replace(/\r?\n/g, '\r\n'), 'utf-8');
-  return rel;
+  return { rel, html: $.html().replace(/\r?\n/g, '\r\n') };
 }
 
 // ── STALE OUTPUT ────────────────────────────────────────────
@@ -585,8 +618,17 @@ function main() {
   visit(null);
   for (const pg of pages) if (pg.node && !nodeById.has(pg.node.id)) throw new Error(`${pg.node.id}: unknown node`);
 
-  const written = [];
-  for (const pg of pages) for (const lang of LANGS) written.push(build(pg, lang));
+  // 1. Per-page content checks for every page and language, 2. render all pages in memory,
+  // 3. only then write and clean up. A late data error therefore never leaves a partial write.
+  for (const pg of pages) for (const lang of LANGS) checkPage(pg, lang);
+  const rendered = [];
+  for (const pg of pages) for (const lang of LANGS) rendered.push(build(pg, lang));
+  for (const r of rendered) {
+    const out = path.join(ROOT, r.rel);
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(out, r.html, 'utf-8');
+  }
+  const written = rendered.map((r) => r.rel);
   const removed = removeStale(written);
   for (const r of written) console.log(`✓  ${r}`);
   for (const r of removed) console.log(`✗  removed stale ${r}`);

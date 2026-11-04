@@ -19,6 +19,9 @@ const ROOT  = path.resolve(__dirname, '..');
 const LANGS = ['en', 'es', 'pt', 'nl', 'fr'];
 const PAGES = ['products/index.html', 'products/gear-reducers/index.html', 'products/gear-reducers/ocr-rp-series/index.html'];
 
+// Spec §7: facts strip directly after the one-line description, above the hero.
+const FAMILY_ORDER = 'crumbs h1 fam-desc #facts fam-hero #specs #dimensions #how #build #apps #support #faq fam-cta';
+
 let failed = 0;
 let passed = 0;
 function check(ok, msg) {
@@ -41,6 +44,23 @@ for (const lang of LANGS) {
     check(tree.is('nav') === false, `${file}: .cat-tree is a <nav> element`);
     const cur = tree.find('[aria-current="page"]').length;
     check(cur === 1, `${file}: expected exactly one aria-current="page" in the tree, found ${cur}`);
+    const linkInSummary = $('summary a').length;
+    check(linkInSummary === 0, `${file}: ${linkInSummary} link(s) inside <summary> (nested-interactive)`);
+    $('a.tile').each((_, el) => {
+      const img = $(el).find('img');
+      if (img.length && $(el).find('.tile-name').text().trim()) {
+        check(img.attr('alt') === '', `${file}: tile image next to a visible name must have alt="" (got "${img.attr('alt')}")`);
+      }
+    });
+    if (rel.includes('ocr-rp-series')) {
+      const order = $('.prod-main').children().map((_, el) => {
+        const id = $(el).attr('id');
+        if (id) return `#${id}`;
+        const cls = ($(el).attr('class') || '').split(/\s+/)[0];
+        return cls || el.tagName;
+      }).get().join(' ');
+      check(order === FAMILY_ORDER, `${file}: family section order is "${order}", expected "${FAMILY_ORDER}"`);
+    }
     if (lang !== 'en') {
       const bad = raw.match(/(^|[^/\w.-])assets\/[^"' )]*/g) || [];
       check(bad.length === 0, `${file}: ${bad.length} assets/ path(s) without a leading slash (${bad.slice(0, 3).join(', ')})`);

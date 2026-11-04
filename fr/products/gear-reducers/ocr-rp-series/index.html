@@ -329,10 +329,19 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 .products-page .cat-tree a{display:inline-block;padding:5px 0;min-height:24px;font-size:14px;line-height:1.35;color:var(--text-2);text-decoration:none;overflow-wrap:break-word;}
 .products-page .cat-tree a:hover,.products-page .cat-tree a:focus-visible{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
 .products-page .cat-tree a[aria-current="page"]{color:var(--gold);font-weight:600;}
-.products-page .cat-tree-root>li>a,.products-page .cat-tree-root>li>details>summary>a{font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:.3px;color:var(--text);}
-.products-page .cat-tree-root>li>a[aria-current="page"],.products-page .cat-tree-root>li>details>summary>a[aria-current="page"]{color:var(--gold);}
+.products-page .cat-tree-root>li>a{font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:.3px;color:var(--text);}
+.products-page .cat-tree-root>li>a[aria-current="page"]{color:var(--gold);}
 .products-page .cat-tree summary{cursor:pointer;}
-.products-page .cat-tree summary::marker{color:var(--text-2);}
+.products-page .cat-tree-head::marker{color:var(--text-2);}
+.products-page .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+.products-page .tree-branch{position:relative;}
+.products-page .tree-branch>a{display:block;padding-right:40px;}
+.products-page .tree-toggle{position:absolute;top:0;right:0;width:36px;height:32px;display:flex;align-items:center;justify-content:center;list-style:none;color:var(--text-2);border-radius:2px;}
+.products-page .tree-toggle::-webkit-details-marker{display:none;}
+.products-page .tree-toggle::before{content:'';width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .2s;}
+.products-page details[open]>.tree-toggle::before{transform:rotate(45deg);}
+.products-page .tree-toggle:hover{color:var(--gold);}
+.products-page .tree-toggle:focus-visible{color:var(--gold);outline:2px solid var(--gold);outline-offset:-2px;}
 .products-page .fam-hero{margin:0 0 40px;background:#fff;border:1px solid var(--border);}
 .products-page .fam-hero img{display:block;width:100%;height:auto;}
 .products-page .dim-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px;}
@@ -356,6 +365,8 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 .products-page .cat-tree-box[open] .cat-tree-head{border-bottom:1px solid var(--border);margin-bottom:8px;}
 .products-page .cat-tree-root{padding-bottom:10px;}
 .products-page .cat-tree a{padding:10px 0;min-height:44px;}
+.products-page .tree-branch>a{padding-right:52px;}
+.products-page .tree-toggle{width:44px;height:44px;}
 .products-page .facts-strip{grid-template-columns:repeat(2,1fr);}
 .products-page .fact:last-child{grid-column:1/-1;}
 }
@@ -428,7 +439,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
           <summary class="cat-tree-head">Catégories</summary>
           <ul class="cat-tree-root">
             <li><a href="/fr/products/">Toutes les catégories</a></li>
-            <li><details open=""><summary><a href="/fr/products/gear-reducers/">Réducteurs</a></summary>
+            <li class="tree-branch"><a href="/fr/products/gear-reducers/">Réducteurs</a><details open=""><summary class="tree-toggle"><span class="vh">Réducteurs</span></summary>
               <ul>
                 <li><a href="/fr/products/gear-reducers/ocr-rp-series/" aria-current="page">Réducteurs Pendulaires OCR Série RP</a></li>
               </ul>
@@ -448,6 +459,13 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
       </div>
       <h1>Réducteurs Pendulaires <span>OCR Série RP</span></h1>
       <p class="fam-desc">Q² Machines est l'agent agréé d'O.C.R. s.r.l., de Modène, en Italie. Les réducteurs pendulaires de la Série RP sont conçus pour les convoyeurs, les convoyeurs à vis, les élévateurs, les malaxeurs et les concasseurs, et sont fournis et soutenus par notre équipe.</p>
+      <section id="facts" class="facts-strip">
+        <div class="fact"><strong>8</strong><span>tailles (de 85 à 250)</span></div>
+        <div class="fact"><strong>0,6–155&nbsp;kW</strong><span>puissance nominale</span></div>
+        <div class="fact"><strong>jusqu'à&nbsp;11 280&nbsp;Nm</strong><span>couple de sortie</span></div>
+        <div class="fact"><strong>0,98</strong><span>rendement, un étage</span></div>
+        <div class="fact"><strong>Modène, Italie</strong><span>fabriqué par OCR</span></div>
+      </section>
       <figure class="fam-hero">
         <picture><source type="image/webp" srcset="/assets/products/ocr-rp/hero.webp"><img src="/assets/products/ocr-rp/hero.jpg" width="1200" height="674" alt="Réducteur pendulaire OCR Série RP" decoding="async"></picture>
       </figure>
@@ -466,13 +484,6 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
           <figure><img src="/assets/products/ocr-rp/dim-210.webp" width="1400" height="838" alt="Plan dimensionnel du réducteur pendulaire OCR RP 210" loading="lazy" decoding="async"><figcaption>RP 210 · Poids : 188 kg</figcaption></figure>
           <figure><img src="/assets/products/ocr-rp/dim-250.webp" width="1400" height="837" alt="Plan dimensionnel du réducteur pendulaire OCR RP 250" loading="lazy" decoding="async"><figcaption>RP 250 · Poids : 315 kg</figcaption></figure>
         </div>
-      </section>
-      <section id="facts" class="facts-strip">
-        <div class="fact"><strong>8</strong><span>tailles (de 85 à 250)</span></div>
-        <div class="fact"><strong>0,6–155&nbsp;kW</strong><span>puissance nominale</span></div>
-        <div class="fact"><strong>jusqu'à&nbsp;11 280&nbsp;Nm</strong><span>couple de sortie</span></div>
-        <div class="fact"><strong>0,98</strong><span>rendement, un étage</span></div>
-        <div class="fact"><strong>Modène, Italie</strong><span>fabriqué par OCR</span></div>
       </section>
       <section id="how" class="content-block">
         <h2>Comment fonctionne un réducteur pendulaire</h2>
