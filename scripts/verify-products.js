@@ -194,6 +194,11 @@ for (const lang of LANGS) {
     const desk = $(`.nav-links a[href="${hub}"]`).length;
     const mob = $(`.mobile-menu a[href="${hub}"]`).length;
     const foot = $(`.footer-links a[href="${hub}"]`).length;
+    // Fix round 1: the full-screen menu must scroll when its links are taller than the screen (320x568)
+    const css = $('style').map((_, el) => $(el).html()).get().join('\n');
+    const menuRule = (css.match(/\.mobile-menu\s*\{[^}]*\}/) || [''])[0].replace(/\s+/g, ' ');
+    check(/inset: ?0/.test(menuRule) && /overflow-y: ?auto/.test(menuRule) && /justify-content: ?safe center/.test(menuRule),
+      `${file}: .mobile-menu rule must have inset:0, overflow-y:auto and justify-content:safe center (got "${menuRule.slice(0, 170)}")`);
     check(desk === 1, `${file}: desktop nav has ${desk} link(s) to ${hub} (expected 1)`);
     check(mob === 1, `${file}: mobile menu has ${mob} link(s) to ${hub} (expected 1)`);
     check(foot === 1, `${file}: footer has ${foot} link(s) to ${hub} (expected 1)`);
