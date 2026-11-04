@@ -12,6 +12,11 @@
  * five products/ trees are deleted. The page shell (head, CSS, nav, footer, CTA, scripts) is cloned from
  * about.html, like build-service-pages.js. Text is baked per language (no client-side translation).
  *
+ * It also owns one generated block in each of sitemap.xml (<!-- products:start --> ... <!-- products:end -->,
+ * one <url> per published page x language; lastmod is refreshed afterwards by update-sitemap-lastmod.js),
+ * llms.txt and llms-full.txt ("# products:start" ... "# products:end" lines, English). Edit the data,
+ * not the blocks. Files are only rewritten when their bytes change; each file keeps its line endings.
+ *
  * Usage:  cd scripts && node build-product-pages.js
  */
 
@@ -719,41 +724,170 @@ function removeStale(written) {
   return removed;
 }
 
-function main() {
-  T.validate(NODES); // a data error aborts the build before anything is written
-  checkImages();
+// ── PAGE LIST (hub, then categories and families depth-first in tree order) ──
+// Takes the node list as a parameter so verify-products.js can run it on the data plus an
+// in-memory unpublished fixture node and prove the fixture never reaches a page, sitemap or llms line.
+function pageList(nodes) {
+  const pub = T.published(nodes);
+  const pn = nodes.filter((n) => pub.has(n.id));
   const pages = [{ kind: 'hub', node: null }];
   const visit = (parent) => {
-    for (const n of kids(parent)) {
-      const ch = kids(n.id);
+    for (const n of T.childrenOf(pn, parent)) {
+      const ch = T.childrenOf(pn, n.id);
       if (ch.length) { pages.push({ kind: 'category', node: n }); visit(n.id); }
       else if (isFamily(n)) pages.push({ kind: 'family', node: n });
       else throw new Error(`${n.id}: published leaf without family content`);
     }
   };
   visit(null);
+  return { pages, pn };
+}
+
+// ── GENERATED BLOCKS IN sitemap.xml, llms.txt, llms-full.txt (spec §10) ──
+// Each file holds one delimited block, regenerated from the published set; everything outside the
+// block is left byte for byte. Markers: XML comments in sitemap.xml; "# products:start" /
+// "# products:end" lines in the llms files (their own comment-line convention, as in their header).
+const MARK = {
+  sitemap: { start: '<!-- products:start -->', end: '<!-- products:end -->', indent: '  ' },
+  llms: { start: '# products:start', end: '# products:end', indent: '' },
+};
+// Same changefreq as every neighbouring entry; priorities as the removed Products entries had them
+// (hub 0.7, pages below it 0.6, the same in every language).
+const SITEMAP_PRIORITY = { hub: '0.7', category: '0.6', family: '0.6' };
+
+function todayLocal() { // same rule as update-sitemap-lastmod.js
+  const d = new Date();
+  const p = (x) => String(x).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
+// Lines of the sitemap block. lastmod: kept from the current file for a URL already listed (the dates
+// belong to update-sitemap-lastmod.js, which runs after this script in build-all), else today.
+function sitemapLines(nodes, lastmods, today) {
+  const { pages, pn } = pageList(nodes);
+  const i = MARK.sitemap.indent;
+  const out = [i + MARK.sitemap.start];
+  for (const pg of pages) {
+    for (const l of LANGS) {
+      const loc = BASE + T.nodeUrl(pn, pg.node ? pg.node.id : null, l.code);
+      out.push(`${i}<url>`, `${i}  <loc>${loc}</loc>`, `${i}  <lastmod>${lastmods.get(loc) || today}</lastmod>`,
+        `${i}  <changefreq>monthly</changefreq>`, `${i}  <priority>${SITEMAP_PRIORITY[pg.kind]}</priority>`, `${i}</url>`);
+    }
+  }
+  out.push(i + MARK.sitemap.end);
+  return out;
+}
+
+// English entries for the llms files (the files are written in English): hub, categories, families.
+function llmsEntries(nodes) {
+  const { pages, pn } = pageList(nodes);
+  return pages.map((pg) => ({
+    id: pg.node ? pg.node.id : null,
+    name: pg.node ? pg.node.name.en : UI.products.en,
+    url: BASE + T.nodeUrl(pn, pg.node ? pg.node.id : null, 'en'),
+    desc: pg.node ? pg.node.description.en : HUB.en.description,
+    depth: pg.node ? T.pathTo(pn, pg.node.id).length : 0,
+  }));
+}
+
+function llmsLines(nodes, full) {
+  const es = llmsEntries(nodes);
+  const body = [];
+  es.forEach((e, k) => {
+    if (!full) { body.push(`${'  '.repeat(e.depth)}- ${e.name}: ${e.url} (${e.desc})`); return; }
+    if (k) body.push('');
+    body.push(`${e.name}: ${e.url}`, e.desc);
+  });
+  return [MARK.llms.start, '## Products', ...body, MARK.llms.end];
+}
+
+const count = (s, sub) => s.split(sub).length - 1;
+
+function eolOf(raw, file) {
+  const crlf = count(raw, '\r\n');
+  const lf = count(raw, '\n');
+  if (crlf && crlf !== lf) throw new Error(`${file}: mixed line endings (${crlf} CRLF, ${lf - crlf} LF)`);
+  return crlf ? '\r\n' : '\n';
+}
+
+// Replaces the block between the markers (whole lines), or, on the first run, inserts it before the
+// anchor line (followed by `gap` blank lines). Throws if a marker or the anchor is not found exactly once.
+function spliceBlock(raw, file, mark, lines, anchor, gap) {
+  const eol = eolOf(raw, file);
+  const block = lines.join(eol);
+  const ns = count(raw, mark.start);
+  const ne = count(raw, mark.end);
+  if (ns !== ne || ns > 1) throw new Error(`${file}: expected 0 or 1 "${mark.start}" / "${mark.end}" pair, found ${ns} / ${ne}`);
+  if (ns === 1) {
+    const s = raw.lastIndexOf('\n', raw.indexOf(mark.start)) + 1;
+    const e = raw.indexOf(mark.end) + mark.end.length;
+    if (e < s) throw new Error(`${file}: "${mark.end}" comes before "${mark.start}"`);
+    return raw.slice(0, s) + block + raw.slice(e);
+  }
+  const quoted = anchor.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp('^' + quoted + '\\r?$', 'gm');
+  const hits = raw.match(re) || [];
+  if (hits.length !== 1) throw new Error(`${file}: anchor line "${anchor}" found ${hits.length} times (expected 1)`);
+  const at = raw.search(re);
+  return raw.slice(0, at) + block + eol.repeat(1 + gap) + raw.slice(at);
+}
+
+function blockFiles(nodes) {
+  const read = (f) => fs.readFileSync(path.join(ROOT, f), 'utf-8');
+  const sm = read('sitemap.xml');
+  const lastmods = new Map();
+  for (const m of sm.matchAll(/<url>[\s\S]*?<loc>\s*([^<]*?)\s*<\/loc>[\s\S]*?<lastmod>\s*([^<]*?)\s*<\/lastmod>[\s\S]*?<\/url>/g)) lastmods.set(m[1], m[2]);
+  return [
+    { rel: 'sitemap.xml', before: sm, html: spliceBlock(sm, 'sitemap.xml', MARK.sitemap, sitemapLines(nodes, lastmods, todayLocal()), '</urlset>', 0) },
+    { rel: 'llms.txt', before: read('llms.txt'), html: spliceBlock(read('llms.txt'), 'llms.txt', MARK.llms, llmsLines(nodes, false), '## About page and Privacy Policy', 1) },
+    { rel: 'llms-full.txt', before: read('llms-full.txt'), html: spliceBlock(read('llms-full.txt'), 'llms-full.txt', MARK.llms, llmsLines(nodes, true), '## About page and Privacy Policy', 1) },
+  ];
+}
+
+// Writes only when the bytes differ, so a no-op build leaves every file (and its mtime) alone.
+function writeIfChanged(rel, content) {
+  const out = path.join(ROOT, rel);
+  if (fs.existsSync(out) && fs.readFileSync(out, 'utf-8') === content) return false;
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, content, 'utf-8');
+  return true;
+}
+
+function main() {
+  T.validate(NODES); // a data error aborts the build before anything is written
+  checkImages();
+  const { pages } = pageList(NODES);
   for (const pg of pages) if (pg.node && !nodeById.has(pg.node.id)) throw new Error(`${pg.node.id}: unknown node`);
 
-  // 1. Per-page content checks for every page and language, 2. render all pages in memory,
+  // 1. Per-page content checks for every page and language, 2. render all pages and blocks in memory,
   // 3. only then write and clean up. A late data error therefore never leaves a partial write.
   for (const pg of pages) for (const lang of LANGS) checkPage(pg, lang);
   const rendered = [];
   for (const pg of pages) for (const lang of LANGS) rendered.push(build(pg, lang));
+  const blocks = blockFiles(NODES);
+  let changed = 0;
   for (const r of rendered) {
-    const out = path.join(ROOT, r.rel);
-    fs.mkdirSync(path.dirname(out), { recursive: true });
-    fs.writeFileSync(out, r.html, 'utf-8');
+    const w = writeIfChanged(r.rel, r.html);
+    if (w) changed++;
+    console.log(`${w ? '✓ ' : '= '} ${r.rel}`);
+  }
+  for (const b of blocks) {
+    const w = writeIfChanged(b.rel, b.html);
+    console.log(`${w ? '✓ ' : '= '} ${b.rel} (products block${w ? ' updated' : ' unchanged'})`);
   }
   const written = rendered.map((r) => r.rel);
   const removed = removeStale(written);
-  for (const r of written) console.log(`✓  ${r}`);
   for (const r of removed) console.log(`✗  removed stale ${r}`);
-  console.log(`Done: ${written.length} pages (${pages.length} × ${LANGS.length} languages).`);
+  console.log(`Done: ${written.length} pages (${pages.length} × ${LANGS.length} languages), ${changed} rewritten, ${written.length - changed} unchanged.`);
 }
 
-try {
-  main();
-} catch (err) {
-  console.error(`build-product-pages: ${err.message}`);
-  process.exit(1);
+module.exports = { pageList, sitemapLines, llmsEntries, llmsLines, spliceBlock, MARK, BASE, LANGS, PRODUCTS_CSS };
+
+if (require.main === module) {
+  try {
+    main();
+  } catch (err) {
+    console.error(`build-product-pages: ${err.message}`);
+    process.exit(1);
+  }
 }
