@@ -278,6 +278,74 @@ ${figs.join('\n')}
       </section>`;
 }
 
+// ── SPEC TABLE (spec §7.1) ──────────────────────────────────
+// Full table in the static HTML. Each row carries data-* equal to its visible cells; units live in
+// the headers only. The filter UI is built by products-filters.js: in the rail on desktop, in
+// .spec-filter-slot on phones. On these pages the Categories tree moves into #specs (spec revision).
+const hasRows = (n) => !!(n && n.specs && n.specs.rows && n.specs.rows.length);
+const colLabel = (c, code) => UI[`col_${c.key}`][code];
+const quoteHref = (n, r) => `/?service=${n.serviceParam}&item=${encodeURIComponent(r.id)}#contact`;
+
+function specsHtml(lang, page) {
+  const code = lang.code;
+  const n = page.node;
+  const cols = n.specs.columns;
+  const capId = `spec-cap-${n.id}`;
+  const head = cols.map((c) => {
+    const unit = c.unit ? ` <span class="unit">(${esc(c.unit)})</span>` : '';
+    const cls = c.key === 'model' ? 'col-model' : 'num';
+    return `<th scope="col" class="${cls}"><span class="col-name">${esc(colLabel(c, code))}</span>${unit}</th>`;
+  }).join('');
+  const body = n.specs.rows.map((r) => {
+    const data = cols.filter((c) => c.key !== 'model').map((c) => ` data-${c.key}="${attr(r[c.key])}"`).join('');
+    const cells = cols.map((c) => (c.key === 'model'
+      ? `<th scope="row">${esc(r.model)}</th>`
+      : `<td class="num">${esc(r[c.key])}</td>`)).join('');
+    return `            <tr id="${attr(r.id)}"${data}>${cells}<td class="quote"><a href="${attr(quoteHref(n, r))}">${esc(UI.request_quote[code])}</a></td></tr>`;
+  }).join('\n');
+  return `
+      <section id="specs" class="content-block">
+        <h2>${esc(UI.specs_heading[code])}</h2>
+        <div class="spec-cats">${treeHtml(lang, page)}
+        </div>
+        <div class="spec-filter-slot"></div>
+        <div class="spec-scroll" tabindex="0" role="region" aria-labelledby="${capId}">
+          <table class="spec-table">
+            <caption id="${capId}"><span class="cap-title">${esc(n.name[code])}: ${esc(UI.specs_heading[code])}</span> <span class="cap-note">${esc(UI.spec_caption[code])}</span></caption>
+            <thead><tr>${head}<th scope="col" class="col-quote"><span class="vh">${esc(UI.request_quote[code])}</span></th></tr></thead>
+            <tbody>
+${body}
+            </tbody>
+          </table>
+        </div>
+      </section>`;
+}
+
+// Inline filter definitions and strings (spec §7.2, §9): read by products-filters.js, no extra request.
+function filterDefs(lang, n) {
+  const code = lang.code;
+  const rows = n.specs.rows;
+  const columns = n.specs.columns.filter((c) => c.filter).map((c) => {
+    const d = { key: c.key, type: c.filter === 'select' ? 'enum' : 'range', label: colLabel(c, code), unit: c.unit || null };
+    if (d.type === 'enum') d.options = [...new Set(rows.map((r) => String(r[c.key])))];
+    else {
+      const v = rows.map((r) => Number(r[c.key]));
+      if (v.some((x) => !Number.isFinite(x))) throw new Error(`${n.id}: column ${c.key} has a non-numeric value`);
+      d.min = Math.min(...v);
+      d.max = Math.max(...v);
+    }
+    return d;
+  });
+  const strings = {
+    models: UI.filter_models[code], all: UI.filter_all[code], clear: UI.filter_clear[code], count: UI.filter_count[code],
+    none: UI.filter_none[code], min: UI.filter_min[code], max: UI.filter_max[code], active: UI.filter_active[code],
+  };
+  return JSON.stringify({ columns, strings }).replace(/</g, '\\u003c');
+}
+
+const FILTERS_JS = fs.readFileSync(path.join(__dirname, 'products-filters.js'), 'utf-8').replace(/\r\n/g, '\n').trim();
+if (/<\/script/i.test(FILTERS_JS)) throw new Error('products-filters.js must not contain "</script"');
+
 function familyHtml(lang, page) {
   const code = lang.code;
   const n = page.node;
@@ -294,13 +362,7 @@ ${c.facts.map(([v, l]) => `        <div class="fact"><strong>${esc(v)}</strong><
       </section>`);
   }
   parts.push(heroHtml(lang, n));
-  if (n.specs && n.specs.rows && n.specs.rows.length) {
-    // Slot for the spec table and filters (Task 6). Heading only for now.
-    parts.push(`
-      <section id="specs" class="content-block">
-        <h2>${esc(UI.specs_heading[code])}</h2>
-      </section>`);
-  }
+  if (hasRows(n)) parts.push(specsHtml(lang, page));
   parts.push(dimsHtml(lang, n));
   if (c) {
     parts.push(sec('how', c.howH, `        <p>${esc(c.how)}</p>`));
@@ -394,11 +456,53 @@ const PRODUCTS_CSS = `
 .products-page .fact span{font-size:13px;color:var(--text-2);line-height:1.4;}
 .products-page .fam-cta{margin:8px 0 0;}
 .products-page .fam-cta .cta-btn{display:inline-block;}
+.products-page .spec-cats{margin:0 0 12px;}
+.products-page .spec-cats .cat-tree-box{border:1px solid var(--border);background:var(--ink-3);padding:4px 14px;}
+.products-page .spec-cats .cat-tree-head{border-bottom:none;margin:0;padding:12px 0;min-height:44px;}
+.products-page .spec-cats .cat-tree-box[open] .cat-tree-head{border-bottom:1px solid var(--border);margin-bottom:8px;}
+.products-page .spec-cats .cat-tree-root{padding-bottom:10px;}
+.products-page .filters{border:1px solid var(--border);background:var(--ink-3);padding:4px 14px;}
+.products-page .filters>summary{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);cursor:pointer;padding:12px 0;min-height:44px;}
+.products-page .filters[open]>summary{border-bottom:1px solid var(--border);margin-bottom:12px;}
+.products-page .filters>summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.products-page .filters-n{font-family:'Barlow Condensed',sans-serif;font-weight:400;letter-spacing:.5px;text-transform:none;color:var(--gold);margin-left:4px;}
+.products-page .filters-body{padding-bottom:14px;}
+.products-page .f-field,.products-page .f-range{margin:0 0 14px;padding:0;border:0;min-width:0;}
+.products-page .f-field>label,.products-page .f-range>legend{display:block;padding:0;margin:0 0 6px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:.5px;color:var(--text);}
+.products-page .f-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+.products-page .f-pair label{display:block;font-size:13px;color:var(--text-2);margin:0 0 4px;}
+.products-page .filters select,.products-page .filters input{display:block;width:100%;min-height:44px;padding:8px 10px;background:var(--ink);color:var(--text);border:1px solid var(--border);border-radius:2px;font:inherit;font-size:15px;font-variant-numeric:tabular-nums;}
+.products-page .filters input::placeholder{color:var(--text-2);opacity:1;}
+.products-page .filters select:focus-visible,.products-page .filters input:focus-visible{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold);}
+.products-page .filters .filters-count{font-size:15px;line-height:1.4;color:var(--gold);margin:0 0 10px;min-height:1.4em;font-variant-numeric:tabular-nums;}
+.products-page .filters-clear{min-height:44px;padding:8px 14px;background:transparent;border:1px solid var(--gold);border-radius:2px;color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;}
+.products-page .filters-clear:hover:not(:disabled){background:var(--gold-dim);}
+.products-page .filters-clear:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.products-page .filters-clear:disabled{border-color:var(--border);color:var(--text-2);cursor:default;}
+.products-page .spec-scroll{overflow:auto;max-height:75vh;border:1px solid var(--border);background:var(--ink);}
+.products-page .spec-scroll:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.products-page .spec-table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;font-variant-numeric:tabular-nums;}
+.products-page .spec-table caption{caption-side:top;text-align:left;padding:12px;background:var(--ink);}
+.products-page .cap-title{display:block;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:.5px;color:var(--text);}
+.products-page .cap-note{display:block;font-size:14px;line-height:1.5;color:var(--text-2);}
+.products-page .spec-table th,.products-page .spec-table td{padding:8px 12px;border-bottom:1px solid var(--border);white-space:nowrap;text-align:left;color:var(--text);font-weight:400;}
+.products-page .spec-table thead th{position:sticky;top:0;z-index:2;background:var(--ink-3);vertical-align:bottom;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.25;}
+.products-page .spec-table .unit{text-transform:none;color:var(--text-2);}
+.products-page .spec-table .num{text-align:right;}
+.products-page .spec-table tbody th{position:sticky;left:0;z-index:1;background:var(--ink);font-weight:600;}
+.products-page .spec-table thead th.col-model{left:0;z-index:3;}
+.products-page .spec-table tbody tr:hover>*{background:linear-gradient(var(--gold-dim),var(--gold-dim)),var(--ink);}
+.products-page .spec-table .quote a{display:inline-block;padding:2px 0;}
+.products-page .spec-none td{white-space:normal;padding:16px 12px;}
+.products-page .spec-none .filters-clear{margin-left:8px;}
 @media(max-width:1024px){.products-page.page-section{padding-top:170px;}}
 @media(max-width:899px){
 .products-page .prod-layout{grid-template-columns:minmax(0,1fr);gap:0;}
 .products-page .prod-rail{position:static;max-height:none;overflow:visible;order:2;margin-bottom:24px;}
 .products-page .prod-main{order:3;}
+.products-page .prod-rail:empty{display:none;}
+.products-page .spec-filter-slot .filters{margin:0 0 12px;}
+.products-page .spec-scroll{max-height:70vh;}
 .products-page .cat-tree-box{border:1px solid var(--border);background:var(--ink-3);padding:4px 14px;}
 .products-page .cat-tree-head{border-bottom:none;margin:0;padding:12px 0;min-height:44px;}
 .products-page .cat-tree-box[open] .cat-tree-head{border-bottom:1px solid var(--border);margin-bottom:8px;}
@@ -421,9 +525,9 @@ document.querySelectorAll('.lang-flag').forEach(btn => {
   });
 });
 
-// ── PRODUCTS TREE: open the categories disclosure on desktop ──
+// ── PRODUCTS TREE: open the categories disclosure on desktop (rail only; closed above a spec table) ──
 (function () {
-  var box = document.querySelector('.cat-tree-box');
+  var box = document.querySelector('.prod-rail .cat-tree-box');
   if (box && window.matchMedia && window.matchMedia('(min-width: 900px)').matches) box.open = true;
 })();
 
@@ -512,10 +616,13 @@ function build(page, lang) {
   hero.next('.gold-divider').remove();
   hero.remove();
   const main = page.kind === 'family' ? familyHtml(lang, page) : listingHtml(lang, page);
+  // Family with rows: the rail is left empty for the filters (the tree sits in #specs); otherwise the tree.
+  const withTable = page.kind === 'family' && hasRows(page.node);
+  const rail = withTable ? '<div class="prod-rail"></div>' : `<div class="prod-rail">${treeHtml(lang, page)}
+    </div>`;
   content.replaceWith(`<main class="page-section products-page">
   <div class="prod-layout">
-    <div class="prod-rail">${treeHtml(lang, page)}
-    </div>
+    ${rail}
     <div class="prod-main">${main}
     </div>
   </div>
@@ -570,6 +677,15 @@ function build(page, lang) {
     patched++;
   });
   if (patched !== 1) throw new Error(`about.html: expected one script with the i18n and REVEAL markers, found ${patched}`);
+
+  // Spec-table filters: definitions + strings as inline JSON, then the client script, at the end of <body>
+  if (withTable) {
+    $('body').append(`<script type="application/json" id="filter-defs">${filterDefs(lang, page.node)}</script>
+<script>
+${FILTERS_JS}
+</script>
+`);
+  }
 
   $('[data-i18n]').removeAttr('data-i18n');
   $('[data-i18n-html]').removeAttr('data-i18n-html');

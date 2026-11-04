@@ -332,11 +332,53 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 .products-page .fact span{font-size:13px;color:var(--text-2);line-height:1.4;}
 .products-page .fam-cta{margin:8px 0 0;}
 .products-page .fam-cta .cta-btn{display:inline-block;}
+.products-page .spec-cats{margin:0 0 12px;}
+.products-page .spec-cats .cat-tree-box{border:1px solid var(--border);background:var(--ink-3);padding:4px 14px;}
+.products-page .spec-cats .cat-tree-head{border-bottom:none;margin:0;padding:12px 0;min-height:44px;}
+.products-page .spec-cats .cat-tree-box[open] .cat-tree-head{border-bottom:1px solid var(--border);margin-bottom:8px;}
+.products-page .spec-cats .cat-tree-root{padding-bottom:10px;}
+.products-page .filters{border:1px solid var(--border);background:var(--ink-3);padding:4px 14px;}
+.products-page .filters>summary{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);cursor:pointer;padding:12px 0;min-height:44px;}
+.products-page .filters[open]>summary{border-bottom:1px solid var(--border);margin-bottom:12px;}
+.products-page .filters>summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.products-page .filters-n{font-family:'Barlow Condensed',sans-serif;font-weight:400;letter-spacing:.5px;text-transform:none;color:var(--gold);margin-left:4px;}
+.products-page .filters-body{padding-bottom:14px;}
+.products-page .f-field,.products-page .f-range{margin:0 0 14px;padding:0;border:0;min-width:0;}
+.products-page .f-field>label,.products-page .f-range>legend{display:block;padding:0;margin:0 0 6px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:.5px;color:var(--text);}
+.products-page .f-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+.products-page .f-pair label{display:block;font-size:13px;color:var(--text-2);margin:0 0 4px;}
+.products-page .filters select,.products-page .filters input{display:block;width:100%;min-height:44px;padding:8px 10px;background:var(--ink);color:var(--text);border:1px solid var(--border);border-radius:2px;font:inherit;font-size:15px;font-variant-numeric:tabular-nums;}
+.products-page .filters input::placeholder{color:var(--text-2);opacity:1;}
+.products-page .filters select:focus-visible,.products-page .filters input:focus-visible{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold);}
+.products-page .filters .filters-count{font-size:15px;line-height:1.4;color:var(--gold);margin:0 0 10px;min-height:1.4em;font-variant-numeric:tabular-nums;}
+.products-page .filters-clear{min-height:44px;padding:8px 14px;background:transparent;border:1px solid var(--gold);border-radius:2px;color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;}
+.products-page .filters-clear:hover:not(:disabled){background:var(--gold-dim);}
+.products-page .filters-clear:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.products-page .filters-clear:disabled{border-color:var(--border);color:var(--text-2);cursor:default;}
+.products-page .spec-scroll{overflow:auto;max-height:75vh;border:1px solid var(--border);background:var(--ink);}
+.products-page .spec-scroll:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.products-page .spec-table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;font-variant-numeric:tabular-nums;}
+.products-page .spec-table caption{caption-side:top;text-align:left;padding:12px;background:var(--ink);}
+.products-page .cap-title{display:block;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:.5px;color:var(--text);}
+.products-page .cap-note{display:block;font-size:14px;line-height:1.5;color:var(--text-2);}
+.products-page .spec-table th,.products-page .spec-table td{padding:8px 12px;border-bottom:1px solid var(--border);white-space:nowrap;text-align:left;color:var(--text);font-weight:400;}
+.products-page .spec-table thead th{position:sticky;top:0;z-index:2;background:var(--ink-3);vertical-align:bottom;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.25;}
+.products-page .spec-table .unit{text-transform:none;color:var(--text-2);}
+.products-page .spec-table .num{text-align:right;}
+.products-page .spec-table tbody th{position:sticky;left:0;z-index:1;background:var(--ink);font-weight:600;}
+.products-page .spec-table thead th.col-model{left:0;z-index:3;}
+.products-page .spec-table tbody tr:hover>*{background:linear-gradient(var(--gold-dim),var(--gold-dim)),var(--ink);}
+.products-page .spec-table .quote a{display:inline-block;padding:2px 0;}
+.products-page .spec-none td{white-space:normal;padding:16px 12px;}
+.products-page .spec-none .filters-clear{margin-left:8px;}
 @media(max-width:1024px){.products-page.page-section{padding-top:170px;}}
 @media(max-width:899px){
 .products-page .prod-layout{grid-template-columns:minmax(0,1fr);gap:0;}
 .products-page .prod-rail{position:static;max-height:none;overflow:visible;order:2;margin-bottom:24px;}
 .products-page .prod-main{order:3;}
+.products-page .prod-rail:empty{display:none;}
+.products-page .spec-filter-slot .filters{margin:0 0 12px;}
+.products-page .spec-scroll{max-height:70vh;}
 .products-page .cat-tree-box{border:1px solid var(--border);background:var(--ink-3);padding:4px 14px;}
 .products-page .cat-tree-head{border-bottom:none;margin:0;padding:12px 0;min-height:44px;}
 .products-page .cat-tree-box[open] .cat-tree-head{border-bottom:1px solid var(--border);margin-bottom:8px;}
@@ -515,9 +557,9 @@ document.querySelectorAll('.lang-flag').forEach(btn => {
   });
 });
 
-// ── PRODUCTS TREE: open the categories disclosure on desktop ──
+// ── PRODUCTS TREE: open the categories disclosure on desktop (rail only; closed above a spec table) ──
 (function () {
-  var box = document.querySelector('.cat-tree-box');
+  var box = document.querySelector('.prod-rail .cat-tree-box');
   if (box && window.matchMedia && window.matchMedia('(min-width: 900px)').matches) box.open = true;
 })();
 

@@ -68,9 +68,11 @@ for (const n of NODES) {
 // UI keys
 const UI_KEYS = ['products', 'all_categories', 'categories', 'crumb_home', 'request_quote', 'filter_models', 'filter_all',
   'filter_clear', 'filter_count', 'filter_none', 'col_model', 'col_size', 'col_ratio', 'col_n2', 'col_n1', 'col_kw',
-  'col_torque', 'spec_caption', 'dims_heading', 'dims_weight', 'quote_prefill', 'enquire_cta', 'brand_link'];
+  'col_torque', 'spec_caption', 'dims_heading', 'dims_weight', 'quote_prefill', 'enquire_cta', 'brand_link',
+  'filter_min', 'filter_max', 'filter_active'];
 for (const k of UI_KEYS) langs5(UI[k], `UI.${k}`);
 for (const l of T.LANG_CODES) {
+  assert.ok(UI.filter_active[l].includes('{n}'), `filter_active ${l}`);
   assert.ok(UI.filter_count[l].includes('{n}') && UI.filter_count[l].includes('{total}'), `filter_count ${l}`);
   assert.ok(UI.dims_weight[l].includes('{kg}'), `dims_weight ${l}`);
   assert.ok(UI.quote_prefill[l].includes('{model}'), `quote_prefill ${l}`);
