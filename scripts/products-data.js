@@ -35,6 +35,10 @@ const UI = {
     nl: 'Vermogenstabel. De cataloguswaarden gaan uit van een bedrijfsfactor van 1. Neem contact met ons op om het juiste model voor uw toepassing te bevestigen.',
     fr: 'Tableau des performances. Les valeurs du catalogue supposent un facteur de service de 1. Contactez-nous pour confirmer le modèle adapté à votre service.',
   },
+  // new for Task 5: aria-label of the breadcrumb region
+  crumbs_label: { en: 'Breadcrumb', es: 'Ruta de navegación', pt: 'Trilha de navegação', nl: 'Kruimelpad', fr: "Fil d'Ariane" },
+  // new for Task 5: heading of the spec-table section (#specs)
+  specs_heading: { en: 'Specifications', es: 'Especificaciones', pt: 'Especificações', nl: 'Specificaties', fr: 'Caractéristiques techniques' },
   dims_heading: { en: 'Dimension drawings', es: 'Planos dimensionales', pt: 'Desenhos dimensionais', nl: 'Maattekeningen', fr: 'Plans dimensionnels' },
   dims_weight: { en: 'Weight: {kg} kg', es: 'Peso: {kg} kg', pt: 'Peso: {kg} kg', nl: 'Gewicht: {kg} kg', fr: 'Poids : {kg} kg' },
   quote_prefill: { en: 'Enquiry about {model}: ', es: 'Consulta sobre {model}: ', pt: 'Consulta sobre {model}: ', nl: 'Aanvraag over {model}: ', fr: 'Demande concernant {model} : ' },
