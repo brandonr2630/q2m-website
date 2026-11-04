@@ -4,6 +4,17 @@ Date: 2026-10-14 · Status: **draft for owner review** · Repo: `brandonr2630/q2
 
 Supersedes the "one hub + one page per line" structure in `2026-10-13-products-ocr-reducers-design.md` (§3-4, §8 "no filters or search"). Everything else in that spec (own wording, no OCR logo/photos/tables until permitted, no prices, no `Product`/`Offer` schema, authorised-agent wording) still holds.
 
+**Revision 2026-11-04 (owner, in chat).** The owner confirmed the McMaster-Carr structure as three levels: (1) a grid of image tiles, one per category; (2) a category page with the tree on the left and tiles for the types inside it; (3) a family page with spec filters on the left and a spec table whose rows each have a quote button. The owner has **no product details yet**, so launch content is whatever already has verified copy (the OCR RP Series page) and every other category stays hidden by the populated-only rule (§3.2). This revision changes **hub and category pages from text rows to image tiles** (§3.4, §5); nothing else in the spec changes.
+
+**Builder-check calls (2026-11-04, my decisions, owner can overrule):**
+
+- **Tile grid shows direct children only**, subcategories and families mixed, in `order`. A family may sit directly under the hub. The "three clicks" criterion (§1) applies to the launch tree, not to deeper trees later.
+- **Tile images are a separate field** (`tileImage`, optional, per node) from the family `images` strip. Tile images need no OCR permission if they are Q² photos or neutral artwork; OCR photos stay out until permitted (§13). **Owner decisions 2026-11-04:** the §14 [DECISION] defaults are approved for now; OCR supplied the catalogue and photos and confirmed permission (Q² is OCR's agent; contact details on the page are Q²'s own, with a link to OCR's website); stages 1 and 3 are planned together. Photos chosen by the owner: `IMMAGINE-RP85.jpg` is the tile image for both Gear Reducers (hub) and OCR RP Series (category), `P1101652.jpg.jpeg` is the family-page hero. The 8 dimension drawings are shown **as images** (cropped from catalogue pp. 13-16, not read into data), one per size, with alt text and the weight in page text. No OCR oil-maker names on the page.
+- **Family page, desktop:** left rail shows the **filters** when the family has rows; the tree collapses into a "Categories" disclosure above the table. With no rows, the rail shows the tree as on other pages. Model column is sticky; the quote button is the last column.
+- **Slideshow merge is done** (PR #95 is in master), so the `index.html` edit in stage 3 is no longer blocked.
+- **Search placement, theme, quote prefill, decimals and sorting** take the **[DECISION]** defaults in §14 unless the owner says otherwise; the owner has not answered them yet.
+- **Stage 3 table:** built against a fixture and the proposed columns until the owner supplies the real xlsx/csv.
+
 Items marked **[ASSUMPTION]** were not stated by the owner and need a yes/no. Items marked **[DECISION]** are proposals made here with a reason; the owner can overrule them. Section 14 lists the open questions.
 
 ## 1. Goal and understanding
@@ -63,14 +74,14 @@ A category with exactly one published child still gets its own page (it is a bre
 - Directory-style matches the existing hub (`/products/`) and the planned breadcrumbs, and keeps the URL stable if a family later gets child pages.
 - Reason against a flat scheme (`/products/<slug>.html`, what exists now): it cannot express the tree, so breadcrumbs, the tree highlight and a "section" URL would all be fake. Reason for it: zero migration.
 
-**Existing OCR URLs.** `/products/ocr-rp-series-shaft-mounted-gear-reducers.html` and its 4 language copies shipped on 2026-10-13, so they may be indexed (Search Console has not been checked for them). Plan: **301 each old URL to its new directory URL** with `RedirectMatch 301` lines in `.htaccess`, update every internal link, the sitemap, hreflang sets and `llms*.txt` to the new URLs, and keep the redirects permanently. Reason: the old page was live about one day, so little ranking is at stake, and a 301 transfers what exists. `.htaccess` is site-wide and a syntax error 500s everything (handoff lesson 11), so the change is small, inside the existing file, and verified live with `curl -I` on the 5 old URLs (expect 301 and the right `Location`), on the 5 new URLs (expect 200), and on `/`, `/depot.html`, `/about.html` (unchanged). If the owner would rather avoid touching `.htaccess`, the fallback is to keep the old filename as the canonical URL of that one family, at the cost of an inconsistent scheme. Fallback is not recommended.
+**Existing OCR URLs: SUPERSEDED 2026-11-04.** The Products section was removed on 2026-10-14 (PR #96); the old OCR URLs now return 404 and there is nothing to redirect. **No `.htaccess` change, no 301s, no redirect verification.** `.htaccess` stays untouched, which removes the main risk in §13 and the redirect task from stage 1. Everything below in this paragraph is kept as history only. `/products/ocr-rp-series-shaft-mounted-gear-reducers.html` and its 4 language copies shipped on 2026-10-13, so they may be indexed (Search Console has not been checked for them). Plan: **301 each old URL to its new directory URL** with `RedirectMatch 301` lines in `.htaccess`, update every internal link, the sitemap, hreflang sets and `llms*.txt` to the new URLs, and keep the redirects permanently. Reason: the old page was live about one day, so little ranking is at stake, and a 301 transfers what exists. `.htaccess` is site-wide and a syntax error 500s everything (handoff lesson 11), so the change is small, inside the existing file, and verified live with `curl -I` on the 5 old URLs (expect 301 and the right `Location`), on the 5 new URLs (expect 200), and on `/`, `/depot.html`, `/about.html` (unchanged). If the owner would rather avoid touching `.htaccess`, the fallback is to keep the old filename as the canonical URL of that one family, at the cost of an inconsistent scheme. Fallback is not recommended.
 
 ### 3.4 Pages generated
 
 | Page type | URL example | Content |
 |-----------|-------------|---------|
-| Hub | `/products/` | Search box, tree, list of top-level categories (name, one line, count of families beneath). |
-| Category | `/products/gear-reducers/` | Search box, tree (expanded to here), breadcrumb, intro, list of children (name, one line, image thumb if any). |
+| Hub | `/products/` | Search box, "All Categories" heading, **tile grid** of top-level categories (image, name; one-line description as tile caption or tooltip). Tree on the left on desktop. |
+| Category | `/products/gear-reducers/` | Search box, tree (expanded to here), breadcrumb, intro, **tile grid** of children (image, name). |
 | Family | `/products/gear-reducers/ocr-rp-series/` | Breadcrumb, H1, one-line description, image strip, spec table with filters, existing copy sections, FAQ, CTA. |
 
 Every page exists in 5 languages with a full hreflang set and `x-default`.
@@ -141,7 +152,7 @@ The owner will send the OCR table as `.xlsx` or `.csv`. A new script `scripts/im
 
 Applies `frontend-design` and `ui-ux-pro-max` guidance, bounded by the site's existing shell.
 
-**Principle: a catalogue, not a brochure.** McMaster-Carr's value is density, scannability and speed. We borrow: text-first lists, fixed-width left tree, tables as the main content, almost no decoration, instant feedback. We do not copy its layout or look (own wording and design; the owner's brand is dark with gold).
+**Principle: a catalogue, not a brochure.** McMaster-Carr's value is density, scannability and speed. We borrow: image-tile category grids, fixed-width left tree, tables as the main content, almost no decoration, instant feedback. We do not copy its layout or look (own wording and design; the owner's brand is dark with gold).
 
 **Tokens.** Use the existing page tokens (`--ink`, `--ink-2`, `--ink-3`, `--text`, `--text-2`, `--gold`, `--border`). No new palette.
 
@@ -154,7 +165,8 @@ Applies `frontend-design` and `ui-ux-pro-max` guidance, bounded by the site's ex
 
 - Desktop (≥ 900 px): two columns. Left rail 240 px (tree), content fills the rest, max line width unchanged from the rest of the site. The rail is sticky under the fixed nav so the tree stays reachable while scrolling a long table.
 - Tablet/phone (< 900 px): the tree becomes a "Categories" disclosure (`<details>`) above the list, closed by default except on the hub where it is open. Search box stays visible above it.
-- Lists of children: single-column, one row per child: name (link), one-line description, small chevron. Row height ≥ 44 px on touch (target size), 36-40 px on desktop pointers. 1 px `--border` between rows. No cards, no hover lift, no `reveal` entrance animations on catalogue pages (the existing `.svc-card` card pattern and its transform are not used here).
+- Children of hub and category pages (revised 2026-11-04): a **plain tile grid**, as on McMaster-Carr's category pages. Each tile is one link: a square image area on top (fixed aspect ratio, `width`/`height` set, no layout shift) and the name below. Grid is 4 columns on desktop, 3 on tablet, 2 on phones (`repeat(auto-fill, minmax(150px, 1fr))`); tile hit area ≥ 44 px. 1 px `--border` around each tile, gold border on hover/focus. **[DECISION]** A node with no image shows a text-only tile (name on `--ink-3`), never a placeholder icon or stock image; images are added to the data file when supplied. No hover lift, no `reveal` entrance animations (the `.svc-card` pattern is not used).
+- The **text-row list is kept** only inside the search results panel and the left tree.
 - Typography: existing Oswald for H1/H2 and the tree top level, Barlow Condensed for table headers, `font-variant-numeric: tabular-nums` on all numeric cells (the facts strip already does). Table cell text 14-15 px, header 12-13 px uppercase with letter-spacing, same scale as the rest of the site.
 - Tables: zebra off; 1 px row rules; numeric columns right-aligned; units in the header (`kW`, `Nm`) not repeated per cell; hover highlights the row (background `--gold-dim`); sticky header row inside the scroll container; sticky first (model) column on phones.
 - Motion: none except the existing focus and hover colour transitions; `prefers-reduced-motion` respected (nothing to remove).
