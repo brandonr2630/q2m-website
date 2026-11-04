@@ -378,6 +378,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
   <a href="/" onclick="closeMobileMenu()" data-i18n="nav_home">Home</a>
   <a href="/about.html" onclick="closeMobileMenu()" data-i18n="nav_about">About</a>
   <a href="/#services" onclick="closeMobileMenu()" data-i18n="nav_services">Services</a>
+  <a href="/products/" onclick="closeMobileMenu()" data-i18n="nav_products">Products</a>
   <a href="/depot.html" onclick="closeMobileMenu()" data-i18n="nav_depot">Depot</a>
   <a href="/projects.html" onclick="closeMobileMenu()" style="color:var(--gold);" data-i18n="nav_projects">Projects</a>
   <a href="/#contact" onclick="closeMobileMenu()" data-i18n="nav_contact">Contact</a>
@@ -410,6 +411,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
       <li><a href="/" data-i18n="nav_home">Home</a></li>
       <li><a href="/about.html" data-i18n="nav_about">About</a></li>
       <li><a href="/#services" data-i18n="nav_services">Services</a></li>
+      <li><a href="/products/" data-i18n="nav_products">Products</a></li>
       <li><a href="/depot.html" data-i18n="nav_depot">Depot</a></li>
       <li><a href="/projects.html" class="active" data-i18n="nav_projects">Projects</a></li>
       <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
@@ -486,6 +488,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
       <li><a href="/" data-i18n="nav_home">Home</a></li>
       <li><a href="/about.html" data-i18n="nav_about">About</a></li>
       <li><a href="/#services" data-i18n="nav_services">Services</a></li>
+      <li><a href="/products/" data-i18n="nav_products">Products</a></li>
       <li><a href="/depot.html" data-i18n="nav_depot">Depot</a></li>
       <li><a href="/projects.html" data-i18n="nav_projects">Projects</a></li>
       <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
@@ -607,7 +610,7 @@ let currentLang = 'en';
 
 const translations = {
   en: {
-    nav_home:'Home', nav_about:'About', nav_services:'Services', nav_depot:'Depot', nav_projects:'Projects', nav_contact:'Contact', nav_cta:'Tell Us Your Needs',
+    nav_home:'Home', nav_about:'About', nav_services:'Services', nav_depot:'Depot', nav_projects:'Projects', nav_products:'Products', nav_contact:'Contact', nav_cta:'Tell Us Your Needs',
     proj_label:'Our Work', proj_title_html:'Engineering <span>Projects</span>',
     proj_desc:'Delivered across the Caribbean — from conveyor systems and concrete plants to precision fabrication, motors and pumps. Every project is engineered, built and commissioned in-house.',
     proj_intro:'Q² Machines has delivered engineering projects across Trinidad, Guyana, and the wider Caribbean — conveyor systems for quarrying and bulk handling, concrete batching plants, structural fabrication, and motor and pump installations. Every project is engineered, built and commissioned in-house from our facility in Trinidad.',
@@ -626,7 +629,7 @@ const translations = {
     slide_began:'How it began', slide_ended:'How it ended',
   },
   es: {
-    nav_home:'Inicio', nav_about:'Nosotros', nav_services:'Servicios', nav_depot:'Depósito', nav_projects:'Proyectos', nav_contact:'Contacto', nav_cta:'Cuéntenos su Necesidad',
+    nav_home:'Inicio', nav_about:'Nosotros', nav_services:'Servicios', nav_depot:'Depósito', nav_projects:'Proyectos', nav_products:'Productos', nav_contact:'Contacto', nav_cta:'Cuéntenos su Necesidad',
     proj_label:'Nuestro Trabajo', proj_title_html:'Proyectos de <span>Ingeniería</span>',
     proj_desc:'Entregados en todo el Caribe — desde sistemas de cinta transportadora y plantas de concreto hasta fabricación de precisión, motores y bombas. Cada proyecto es diseñado, construido y puesto en marcha internamente.',
     proj_intro:'Q² Machines ha entregado proyectos de ingeniería en Trinidad, Guyana y el Caribe en general — sistemas transportadores para canteras y manejo a granel, plantas dosificadoras de concreto, fabricación estructural e instalaciones de motores y bombas. Cada proyecto es diseñado, construido y puesto en marcha internamente desde nuestras instalaciones en Trinidad.',
@@ -645,7 +648,7 @@ const translations = {
     slide_began:'Cómo comenzó', slide_ended:'Cómo terminó',
   },
   pt: {
-    nav_home:'Início', nav_about:'Sobre', nav_services:'Serviços', nav_depot:'Depósito', nav_projects:'Projetos', nav_contact:'Contato', nav_cta:'Fale Conosco',
+    nav_home:'Início', nav_about:'Sobre', nav_services:'Serviços', nav_depot:'Depósito', nav_projects:'Projetos', nav_products:'Produtos', nav_contact:'Contato', nav_cta:'Fale Conosco',
     proj_label:'Nosso Trabalho', proj_title_html:'Projetos de <span>Engenharia</span>',
     proj_desc:'Entregues em todo o Caribe — de sistemas de correias transportadoras e usinas de concreto à fabricação de precisão, motores e bombas. Cada projeto é projetado, construído e comissionado internamente.',
     proj_intro:'A Q² Machines entregou projetos de engenharia em Trinidad, Guiana e no Caribe em geral — sistemas de esteiras para mineração e manuseio a granel, usinas de concreto, fabricação estrutural e instalações de motores e bombas. Cada projeto é projetado, construído e comissionado internamente a partir das nossas instalações em Trinidad.',
@@ -664,7 +667,7 @@ const translations = {
     slide_began:'Como começou', slide_ended:'Como terminou',
   },
   nl: {
-    nav_home:'Home', nav_about:'Over Ons', nav_services:'Diensten', nav_depot:'Depot', nav_projects:'Projecten', nav_contact:'Contact', nav_cta:'Vertel Ons Uw Behoefte',
+    nav_home:'Home', nav_about:'Over Ons', nav_services:'Diensten', nav_depot:'Depot', nav_projects:'Projecten', nav_products:'Producten', nav_contact:'Contact', nav_cta:'Vertel Ons Uw Behoefte',
     proj_label:'Ons Werk', proj_title_html:'Technische <span>Projecten</span>',
     proj_desc:'Gerealiseerd door het Caribisch gebied — van transportbandsystemen en betonplanten tot precisie fabricage, motoren en pompen. Elk project wordt intern ontworpen, gebouwd en in bedrijf gesteld.',
     proj_intro:'Q² Machines heeft technische projecten uitgevoerd in Trinidad, Guyana en het bredere Caribisch gebied — transportbandsystemen voor groeven en bulkverwerking, betoncentra, staalconstructies en motor- en pompinstallaties. Elk project wordt intern ontworpen, gebouwd en in bedrijf gesteld vanuit onze vestiging in Trinidad.',
@@ -683,7 +686,7 @@ const translations = {
     slide_began:'Hoe het begon', slide_ended:'Hoe het eindigde',
   },
   fr: {
-    nav_home:'Accueil', nav_about:'À Propos', nav_services:'Services', nav_depot:'Dépôt', nav_projects:'Projets', nav_contact:'Contact', nav_cta:'Dites-nous vos Besoins',
+    nav_home:'Accueil', nav_about:'À Propos', nav_services:'Services', nav_depot:'Dépôt', nav_projects:'Projets', nav_products:'Produits', nav_contact:'Contact', nav_cta:'Dites-nous vos Besoins',
     proj_label:'Notre Travail', proj_title_html:'Projets <span>d\'Ingénierie</span>',
     proj_desc:'Réalisés à travers les Caraïbes — des systèmes de convoyeurs et centrales à béton à la fabrication de précision, moteurs et pompes. Chaque projet est conçu, construit et mis en service en interne.',
     proj_intro:"Q² Machines a réalisé des projets d'ingénierie à Trinité, au Guyana et dans l'ensemble des Caraïbes — systèmes convoyeurs pour carrières et manutention en vrac, centrales à béton, fabrication structurelle et installations de moteurs et pompes. Chaque projet est conçu, construit et mis en service en interne depuis notre site à Trinité.",

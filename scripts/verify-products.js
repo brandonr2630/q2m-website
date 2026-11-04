@@ -163,5 +163,77 @@ if (fs.existsSync(hubFile)) {
   check(tiles.first().attr('href') === '/products/gear-reducers/', `products/index.html: tile href is ${tiles.first().attr('href')}, expected /products/gear-reducers/`);
 }
 
+// ── NAV (Task 7, spec §9) ───────────────────────────────────
+// Every site page links to the Products hub from the desktop nav, the mobile menu and the footer
+// (language-prefixed on language pages); Products is the active nav item only on Products pages;
+// nav_products exists in every translations block; index.html has the quote_prefill template.
+function evalTranslations(raw, file) {
+  const s = raw.indexOf('const translations = {');
+  if (s === -1) return null;
+  // The object closes at the first line that is exactly "};" after the start
+  const m = /\r?\n\};/.exec(raw.slice(s));
+  if (!m) return null;
+  try {
+    // Repo-owned source files only, the same eval the build scripts use (build-lang-pages.js)
+    // eslint-disable-next-line no-eval
+    return eval(`(${raw.slice(s + 'const translations = '.length, s + m.index + m[0].length - 1)})`);
+  } catch (e) { check(false, `${file}: translations object does not evaluate (${e.message})`); return null; }
+}
+const SITE_PAGES = ['index.html', 'about.html', 'depot.html', 'projects.html', 'privacy.html']
+  .concat(fs.readdirSync(path.join(ROOT, 'services')).filter((f) => f.endsWith('.html')).map((f) => `services/${f}`));
+for (const lang of LANGS) {
+  const prefix = lang === 'en' ? '' : `/${lang}`;
+  const hub = `${prefix}/products/`;
+  const pages = SITE_PAGES.map((rel) => ({ file: (lang === 'en' ? '' : `${lang}/`) + rel, isProduct: false }))
+    .concat([{ file: hub.replace(/^\//, '') + 'index.html', isProduct: true }])
+    .concat(PN.map((n) => ({ file: T.nodeUrl(PN, n.id, lang).replace(/^\//, '') + 'index.html', isProduct: true })));
+  for (const { file, isProduct } of pages) {
+    const abs = path.join(ROOT, file);
+    if (!fs.existsSync(abs)) { check(false, `${file}: missing (nav check)`); continue; }
+    const $ = cheerio.load(fs.readFileSync(abs, 'utf-8'));
+    const desk = $(`.nav-links a[href="${hub}"]`).length;
+    const mob = $(`.mobile-menu a[href="${hub}"]`).length;
+    const foot = $(`.footer-links a[href="${hub}"]`).length;
+    check(desk === 1, `${file}: desktop nav has ${desk} link(s) to ${hub} (expected 1)`);
+    check(mob === 1, `${file}: mobile menu has ${mob} link(s) to ${hub} (expected 1)`);
+    check(foot === 1, `${file}: footer has ${foot} link(s) to ${hub} (expected 1)`);
+    const unprefixed = lang === 'en' ? 0 : $('a[href^="/products/"]').not('.footer-langs a').length;
+    check(unprefixed === 0, `${file}: ${unprefixed} link(s) to /products/ without the /${lang} prefix`);
+    const label = $(`.nav-links a[href="${hub}"]`).text().trim();
+    if (desk === 1 && lang !== 'en') check(label !== 'Products', `${file}: Products nav label is English on a ${lang} page`);
+    const activeProducts = $(`.nav-links a.active[href="${hub}"]`).length;
+    const activeAll = $('.nav-links a.active').length;
+    const isGold = (el) => /(^|;)\s*color:\s*var\(--gold\)/.test($(el).attr('style') || '');
+    const mobGold = $(`.mobile-menu a[href="${hub}"]`).toArray().some(isGold);
+    if (isProduct) {
+      check(activeProducts === 1 && activeAll === 1, `${file}: Products must be the only active nav item (products active ${activeProducts}, active items ${activeAll})`);
+      check(mobGold, `${file}: Products not highlighted in the mobile menu on a Products page`);
+      const otherGold = $('.mobile-menu a').filter((_, el) => $(el).attr('href') !== hub && isGold(el)).length;
+      check(otherGold === 0, `${file}: ${otherGold} other mobile-menu item(s) highlighted on a Products page`);
+    } else {
+      check(activeProducts === 0, `${file}: Products is the active nav item on a non-Products page`);
+      check(!mobGold, `${file}: Products highlighted in the mobile menu on a non-Products page`);
+    }
+  }
+}
+for (const rel of ['index.html', 'about.html', 'depot.html', 'projects.html', 'privacy.html']) {
+  const t = evalTranslations(fs.readFileSync(path.join(ROOT, rel), 'utf-8'), rel);
+  check(!!t, `${rel}: translations object not found`);
+  if (!t) continue;
+  for (const lang of LANGS) {
+    check(!!(t[lang] && typeof t[lang].nav_products === 'string' && t[lang].nav_products.trim()), `${rel}: translations.${lang}.nav_products missing`);
+    if (rel === 'index.html') {
+      const q = t[lang] && t[lang].quote_prefill;
+      check(typeof q === 'string' && q.includes('{model}'), `${rel}: translations.${lang}.quote_prefill missing or without {model}`);
+      check(q === UI.quote_prefill[lang], `${rel}: translations.${lang}.quote_prefill "${q}" differs from UI.quote_prefill.${lang}`);
+    }
+  }
+}
+{
+  const home = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf-8');
+  check(/reducers:\s*'Motors & Gear Reducers'/.test(home), 'index.html: ?service= map has no reducers entry');
+  check(home.includes('^[A-Za-z0-9 ._/-]{1,60}$'), 'index.html: ?item= validation pattern missing');
+}
+
 console.log(`${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);
