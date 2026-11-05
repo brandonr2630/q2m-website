@@ -1,6 +1,6 @@
 # Q2M Website — Handoff
 
-*Last updated: 2026-10-14 · Session 22*
+*Last updated: 2026-11-05 · Session 23*
 
 Sessions 1–19 are condensed into the history table and the lessons below. Per-session detail lives in git history (`git log -- handoff.md`).
 
@@ -47,7 +47,7 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - Dutch pages rank for generic used-equipment queries (`gebruikte industriële apparatuur` pos 5.9, `verkoop van tweedehands industriële apparatuur` pos 9.1) with no clicks — the translated-page strategy can rank.
 - Mobile position is better than desktop (6.1 vs 13.4); 7 of 9 clicks were mobile.
 
-**No work in progress** apart from the pending Products redesign (see Open Items 2). The About page rework (#88, #90) shipped 2026-10-13. The Products section (PR #92) was **removed 2026-10-14** (Session 22): the live site has no Products pages, nav link or footer link.
+**Work in progress:** the redesigned Products catalogue (Session 23) is complete and verified locally on branch `feat/products-structure`, **not pushed** (owner: no push yet). See Open Items 2. The About page rework (#88, #90) shipped 2026-10-13. The old Products section (PR #92) was removed 2026-10-14 (Session 22); until the branch is merged the live site has no Products pages, nav link or footer link.
 
 ---
 
@@ -64,16 +64,65 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - [ ] **Re-pull the Search results export** in ~4 weeks (Performance + Pages) and compare with the baseline above. Most queries are anonymised in exports.
 - [x] **"Q2 Machining"** (16 impressions, the #1 query): owner confirmed 2026-10-12 it is an acceptable name if it helps searchers find the business. Added as `alternateName` on the `Organization`/`LocalBusiness`/`WebSite` nodes, to the first FAQ answer in all 5 languages (visible + `FAQPage` schema, kept identical) and to the `llms.txt`/`llms-full.txt` intro. It is **not** in titles or headings. Re-check the query in the next Search Console export.
 
-### 2. Products section removed 2026-10-14 (clean-sheet redesign pending)
+### 2. Products catalogue (Session 23, branch `feat/products-structure`, not pushed)
 
-The owner decided to redesign Products from scratch (McMaster-Carr style) and had the existing section taken out completely. It is **not** in the site any more; it is recoverable from git history (PR #92, merge commit `ec06314`; any commit before the Session 22 merge has it).
+The old section (PR #92) was removed 2026-10-14 and replaced by a clean-sheet catalogue (spec `docs/superpowers/specs/2026-10-14-products-catalogue-design.md`, plan `docs/superpowers/plans/2026-11-04-products-catalogue-stage-1-3.md`). Stages 1-3 are built; search (stage 2 of the spec's roadmap) is not.
 
-- **Removed:** `products/` and `es|pt|nl|fr/products/` (hub + OCR RP Series reducers page, 10 pages); `scripts/build-product-pages.js`, `product-pages-content.js`, `verify-products.js` and their `package.json` entries (`build-product-pages`, `verify-products`, and the step in `build-all`); the Products nav item (desktop, mobile menu) and footer link, and the `nav_products` key in all 5 languages, on every source and generated page; the `/products/` link rules in the build scripts; the OCR RP cross-link sentence on the pumps-and-drives service page (5 languages); the `reducers` entry in the `?service=` map in `index.html`; the 10 sitemap URLs (70 to 60); the Products sections of `llms.txt` and `llms-full.txt`.
-- **Kept on purpose:** the contact-form option "Motors & Gear Reducers" (`svc_opt3`); the homepage service-card "Products" tags (`lbl_products`, `flip_back_products`, a different meaning); `assets/products/` (depot photos, used by `listings.json` and the depot schema); `docs/` (history). `.htaccess` was **not** touched.
-- **Removed URLs return 404** (the noindex `404.html`), no redirect: the pages were live about a day, there is no ranking to preserve, and a redirect to a page that will not exist would mislead users and crawlers. Search Console may list the 10 URLs as "Not found (404)" for a while; that is expected (the Removals tool can hurry it). If the redesign reuses `/products/`, nothing needs undoing.
-- **Superseded:** `docs/superpowers/specs/2026-10-13-products-ocr-reducers-design.md` and `docs/superpowers/plans/2026-10-13-products-ocr-reducers.md` (left in place as history). The old `products.html` / `products.json` / `products-mockup.html` draft on branch `feat/products-page` is also unused.
-- **Pending redesign:** a catalogue spec lives on branch `docs/products-catalogue-spec`. The owner said the redesign needs a clean-sheet design, so that spec's migration/301 plan is moot. Next step is a new brainstorming cycle, then a separate PR.
-- **Facts to reuse in the redesign (from history, not in the site):** OCR RP Series 8 sizes (85 to 250), 0.6 to 155 kW, up to 11,280 Nm; Q² Machines is the authorised agent for O.C.R. s.r.l. (Modena, Italy); agency territory and some service commitments were still unconfirmed with the owner, so re-check before publishing. Next product line discussed: concrete mixers.
+**What exists (5 languages each, 15 pages):**
+
+- Three levels: hub `/products/` (tile grid of top-level categories), category `/products/gear-reducers/` (breadcrumb, intro, tile grid of children), family `/products/gear-reducers/ocr-rp-series/`. Same URLs under `/es/ /pt/ /nl/ /fr/`.
+- A Categories tree in a 240 px left rail on desktop (on family pages with a table the tree sits in `#specs` and the rail holds the filters); stacked above the content on phones.
+- OCR RP Series family page: summary, facts strip, hero image, a **280-row rating table** (model, size, ratio, n2, n1, kW, torque; sticky header and sticky model column), client-side filters (size select; ratio, kW and torque min/max; Clear; state kept in the URL, other query params preserved), 8 dimension drawings (`#dimensions`), the migrated OCR copy (how it works, build, applications, support, FAQ with matching `FAQPage` schema), CTA.
+- Every row has a **Request quote** link `/<lang>/?service=reducers&item=<row id>#contact`: the home page selects "Motors & Gear Reducers" and starts the message with `quote_prefill` (`Enquiry about RP85-3.64-110: `). Nothing is submitted.
+- Products nav item (desktop + mobile menu) and footer link on every page; `nav_products` key in all 5 languages.
+- `sitemap.xml` has a generated block between `<!-- products:start -->` and `<!-- products:end -->` (15 URLs, sitemap total 75). `llms.txt` and `llms-full.txt` have a generated block between `# products:start` and `# products:end`. Both are rewritten by `build-product-pages.js`; do not hand-edit inside the markers.
+- No `Product`/`Offer` schema (prices are on request); `BreadcrumbList`, `FAQPage` where there is a FAQ.
+
+**Where things live (`scripts/`):**
+
+| File | Role |
+|------|------|
+| `products-data.js` | All content: `UI` strings (5 languages), `HUB`, `NODES` (tree nodes: categories and families, copy, images, spec columns, brand link) |
+| `products-tree.js` | Tree helpers and validation (ids, parents, URLs, published nodes) |
+| `products-data/ocr-rp-rating.csv` | Source rating table (long format: table, source_page, size, ratio, quantity, unit, value) |
+| `products-data/ocr-rp-rows.js` | Generated rows (do not edit by hand) |
+| `import-spec-table.js` | CSV → rows module |
+| `build-product-images.js` | Builds `assets/products/ocr-rp/` (tile, hero, `dim-<size>.webp`) from the source folder; run by hand |
+| `build-product-pages.js` | Generates the 15 pages, the sitemap and llms blocks; part of `npm run build-all` |
+| `products-filters.js` | Client filter script, inlined into family pages at build time (no extra request) |
+| `verify-products.js` | Offline checks (structure, table, nav, tree, breadcrumbs, i18n, sitemap, llms, tracking, contrast, assets); must report `0 failed` |
+| `test-*.js` | Unit tests for the data, tree, importer and filters (`node test-products-data.js` etc.) |
+
+`assets/ocr/` is the OCR source material (catalogue PDF, `pics/`, `dims/`), kept in the main checkout only. It is **git-ignored and not deployed**; `build-product-images.js` reads it from `OCR_SRC` (default `Z:/09-DevPro/projects/q2m-website/assets/ocr`). Only the generated images in `assets/products/ocr-rp/` are committed.
+
+**How to add a model (row):** add its rating lines to `products-data/ocr-rp-rating.csv`, re-import (below), then `cd scripts && npm run build-all && node verify-products.js`.
+
+**How to import a new table:** `cd scripts && npm run import-table -- products-data/<file>.csv products-data/<file>-rows.js`, then `require` the new module as the family node's `specs.rows` in `products-data.js`.
+
+**How to add a product line (category or family):** add the node to `NODES` in `products-data.js` (names, intro/copy in all 5 languages, parent, tile image; for a family also spec columns and rows), add its images under `assets/products/<line>/`, then `npm run build-all` and `node verify-products.js`. Pages, tree, tiles, sitemap and llms blocks follow from the data; the validator refuses a node with missing languages or an unknown parent.
+
+**Single/double reduction:** the rating table has **no stage column**. The source CSV distinguishes `rating_single_stage` and `rating_double_stage` blocks, but that grouping from the extraction is unverified, so rows and columns carry no stage label. The migrated OCR copy keeps the catalogue statement that efficiency is about 0.98 single-stage and 0.96 double-stage.
+
+**Verified locally (Session 23):** layout at 1280/390/320 px in en/nl/fr, filters by keyboard, quote links in en/nl/fr, Lighthouse mobile (numbers in the Session 23 entry). Not yet verified live (needs the push and deploy).
+
+**OWNER TODO (Products):**
+
+- [ ] Confirm the OCR website URL `https://www.ocr-riduttori.com` (`brand.url` in `scripts/products-data.js`, marked "owner to confirm").
+- [ ] Native review of nl and fr (and es, pt) strings: the `UI` keys in `scripts/products-data.js` (`products`, `all_categories`, `categories`, `crumb_home`, `request_quote`, `filter_models`, `filter_all`, `filter_clear`, `filter_count`, `filter_none`, `filter_min`, `filter_max`, `filter_active`, `col_*`, `spec_caption`, `crumbs_label`, `specs_heading`, `dims_heading`, `dims_weight`, `enquire_cta`, `brand_link`), the `HUB` and category texts, `nav_products` and `quote_prefill` in `index.html` translations. Terms to check in particular: **gear reducer**, **shaft-mounted**, **torque arm**, **rated power**.
+- [ ] After merge and deploy: Search Console → URL Inspection → Request indexing for the 5 hubs, the category and the family pages; resubmit `sitemap.xml` (75 URLs).
+- [ ] Search across the catalogue (spec stage 2) is **not built**.
+- [ ] Before merging, fix the quote-link scroll (found Session 23): on `/?service=reducers&item=…#contact` the page does not end at the contact form (measured: form top 1450-2300 px below the viewport top after load, vs 0 px for `?service=pumps#contact`). Cause: `msg.setSelectionRange()` in `prefillQuoteMessage()` in `index.html` stops Chrome's fragment scroll; with that call stubbed out the page lands on the form. The prefill itself works.
+
+**Pre-existing issues found during the build (not Products code):**
+
+- `index.html` ends without `</body></html>` and has an unterminated `<!-- Scroll ` comment (same on `origin/master`).
+- The hamburger button is partly off-screen at 320 px (measured 310-342 px on a 320 px viewport on depot and Products pages), so the menu cannot be opened on 320 px phones.
+- Some image paths 404 on the language projects pages.
+- The language auto-redirect drops `?service=&item=` on the first view of an English URL for non-English browsers (language pages' own quote links are already prefixed, so the normal path is unaffected).
+- Footer contrast fails Lighthouse on every page (`.footer-name` #c49b00 on #f4f3ef 2.35:1; the "Gloria Patri" line #999 on #f4f3ef 2.56:1); this is why Accessibility is 96-97, not 100.
+- `llms.txt` fails Lighthouse's agentic `llms-txt` audit (several `#` comment lines at the top instead of one Markdown H1).
+- Web-font swap shifts layout on load (CLS 0.17 on the home page locally under the same throttling; see Session 23).
+- Git on the Z: drive can read stale file sizes: run `git update-index --really-refresh` before `git add`.
 
 ### 3. Technical SEO / performance
 
@@ -230,6 +279,33 @@ Converted the About slideshow from JS-set CSS backgrounds to `<picture>/<img>` w
 **Date:** 2026-10-14
 
 Removed the Products section (see Open Items 2) in one PR on `chore/remove-products`: sources and generators edited first, then `npm run build-all` regenerated every language page, so the diff shows only the removed Products links, keys and pages. Sitemap is back to **60 URLs**. Verified with scripted gates (files gone, no Products strings in any html/xml/txt/js outside `docs/` and this file, sitemap and llms clean, every internal link resolves, i18n keys equal across 5 languages, `build-all` idempotent) written before editing and shown failing on master, then layout checks in a browser at 1280, 390 and 320 px in all 5 languages.
+
+---
+
+## Session 23 — Products catalogue (stages 1-3)
+
+**Date:** 2026-11-05 · Branch `feat/products-structure` (local only, not pushed)
+
+Built the clean-sheet Products catalogue (see Open Items 2) with subagent-driven development, Tasks 1-9 plus one fix wave; per-task briefs and reports are in `.superpowers/sdd/2026-11-04-products-catalogue-stage-1-3/`. `node verify-products.js` reports 0 failed.
+
+Browser checks (local Node static server; in-app browser, explicit viewport sizes; DOM measurements, not screenshots):
+
+- 1280, 390 and 320 px, en/nl/fr, hub + category + family (27 page views): page `scrollWidth` equals the viewport everywhere; no element outside the viewport except the shell hamburger at 320 px (310-342 px, pre-existing). Rail 240 px at 1280 on all 9 pages. Tiles at least 206 px tall. Table: 280 rows; after scrolling the table to its right end at 390 and 320 px the model cell stays at the scroller's left edge (25 px vs 24 px) and is the element hit at that point.
+- Keyboard only: en at 390 px (filters in the phone disclosure) and fr at 1280 px (rail): Tab order summary → size → ratio min/max → kW min/max → torque min/max → Clear; Enter opens and Space closes the disclosure; arrow key sets size, typing sets a minimum, URL updates; Clear (Space) and the in-table Clear (Enter, shown at 0 matches) reset all fields, show 280 rows and move focus to the size select.
+- Quote links clicked in en (RP85-3.64-110), nl (RP250-9.87-71), fr (RP150-11.3-35.5): land on `/`, `/nl/`, `/fr/` with the service select set to "Motors & Gear Reducers" and the message prefilled in that language. Not submitted. Scroll position bug: see OWNER TODO in Open Items 2.
+- No console errors; 0 responses with status ≥ 400 (resource timing and server log); third-party origins only `fonts.googleapis.com`, `fonts.gstatic.com`, `cdn.jsdelivr.net` (shell).
+
+Lighthouse (Chrome DevTools MCP `lighthouse_audit`, mobile, navigation, local server; this tool excludes the Performance category):
+
+| Page | Accessibility | Best Practices | SEO |
+|------|---|---|---|
+| `/products/` | 96 | 100 | 100 |
+| `/products/gear-reducers/` | 96 | 100 | 100 |
+| `/products/gear-reducers/ocr-rp-series/` | 97 | 100 | 100 |
+
+The only failing accessibility audit is the shell footer contrast (pre-existing, every page).
+
+Performance traces (DevTools, 412×823 mobile, Fast 3G, 4× CPU, cache disabled, local server without compression): LCP hub 1.26 s, category 1.41 s, family 1.53 s; CLS 0.01, 0.00, 0.07. The family-page shift is the web-font swap (Oswald, Barlow, Barlow Condensed from Google Fonts) moving `#specs`, the hero and the facts. The home page under the same local conditions measured LCP 7.5 s and CLS 0.17, so these local numbers are not comparable with the live baseline (home 1.1 s); re-measure live after deploy.
 
 ---
 

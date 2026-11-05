@@ -12,6 +12,7 @@ Static HTML/CSS/JS site. No build system or bundler — files are deployed as-is
 - **`listings.json`** — equipment data consumed by `depot.html`
 - **`assets/`** — branding and images
 - **`archives/`** — old versions; never edit, never deploy
+- **`products/`** (+ `es|pt|nl|fr/products/`) — **generated** Products catalogue (hub, category, family pages with spec table, filters, dimension drawings, quote links). Content lives in `scripts/products-data.js` (tree helpers `products-tree.js`, rows imported from CSV by `import-spec-table.js`, client filters `products-filters.js`); `scripts/build-product-pages.js` writes the pages and the sitemap/llms Products blocks. After a change: `cd scripts && npm run build-all && node verify-products.js` (0 failed). See `handoff.md` Open Items 2.
 
 ## Deployment
 
