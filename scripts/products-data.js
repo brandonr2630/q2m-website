@@ -129,7 +129,6 @@ const NODES = [
     order: 10,
     live: true,
     serviceParam: 'reducers',
-    // owner to confirm URL
     brand: { name: 'O.C.R. Riduttori', url: 'https://www.ocr-riduttori.com' },
     name: {
     "en": "OCR RP Series Shaft-Mounted Gear Reducers",

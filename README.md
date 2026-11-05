@@ -32,7 +32,7 @@ Marketing, equipment depot and projects site for Q2 Machines Ltd (Trinidad & Tob
 | `scripts/verify-products.js` | Offline checks for the Products pages; must report 0 failed |
 | `scripts/update-sitemap-lastmod.js` | Sets each `sitemap.xml` `<lastmod>` to the last git commit date of that URL's source file (today if it has uncommitted changes). Run by `npm run build-all`, or on its own with `npm run update-sitemap` |
 | `scripts/upscale-images.js` | sharp utility: upscales JPG/PNG and converts to WebP |
-| `handoff.md`, `CLAUDE.md` | Working notes for developers and Claude Code (not deployed) |
+| `handoff.md`, `CLAUDE.md`, `docs/` | Working notes, specs and plans for developers and Claude Code (not deployed) |
 
 ## Language pages are generated
 
@@ -52,7 +52,7 @@ Source files use CRLF line endings. Keep them when editing or scripting changes,
 
 - **Manual full redeploy:** Actions -> Deploy to cPanel -> Run workflow.
 - **GitHub secrets read by the shared workflow** (passed via `secrets: inherit`): `SSH_PRIVATE_KEY`, `SSH_HOST`, `SSH_PORT` (defaults to 22 if unset), `CPANEL_USER` (used as the SSH user).
-- **Not deployed:** the `scripts/` directory, server.js, convert-webp.js, any implementation-guide.html under `assets/projects/` (the `exclude_extra` pattern in the repo workflow), plus `.github/`, .cpanel.yml, `handoff.md` and `CLAUDE.md` (built into the shared workflow).
+- **Not deployed:** the `scripts/` directory, server.js, convert-webp.js, any implementation-guide.html under `assets/projects/`, the `docs/` directory (the `exclude_extra` pattern in the repo workflow), plus `.github/`, .cpanel.yml, `handoff.md` and `CLAUDE.md` (built into the shared workflow).
 
 ## Adding a project
 
