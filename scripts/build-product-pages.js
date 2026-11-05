@@ -272,14 +272,25 @@ function dimsHtml(lang, n) {
     const row = rows.find((r) => String(r.size) === String(d.size));
     const model = row ? row.model : String(d.size);
     const cap = `${model} · ${UI.dims_weight[code].replace('{kg}', d.weightKg)}`;
-    return `          <figure><img src="${attr(asset(d.file))}" width="${d.w}" height="${d.h}" alt="${attr(d.alt[code])}" loading="lazy" decoding="async"><figcaption>${esc(cap)}</figcaption></figure>`;
+    return `          <figure><button type="button" class="dim-open" aria-label="${attr(UI.dims_enlarge[code] + ': ' + model)}"><img src="${attr(asset(d.file))}" width="${d.w}" height="${d.h}" alt="${attr(d.alt[code])}" loading="lazy" decoding="async"></button><figcaption>${esc(cap)}</figcaption></figure>`;
   });
+  // Click-to-enlarge: one native <dialog> shared by all drawings (Esc closes; the browser traps and restores focus).
   return `
       <section id="dimensions" class="content-block">
         <h2>${esc(UI.dims_heading[code])}</h2>
         <div class="dim-grid">
 ${figs.join('\n')}
         </div>
+        <dialog class="dim-lightbox" aria-label="${attr(UI.dims_heading[code])}">
+          <button type="button" class="dim-lb-close" aria-label="${attr(UI.lb_close[code])}">&times;</button>
+          <button type="button" class="dim-lb-prev" aria-label="${attr(UI.lb_prev[code])}">&lsaquo;</button>
+          <button type="button" class="dim-lb-next" aria-label="${attr(UI.lb_next[code])}">&rsaquo;</button>
+          <img alt="">
+          <p class="dim-lb-cap"></p>
+        </dialog>
+        <script>
+${DIM_LIGHTBOX_JS}
+        </script>
       </section>`;
 }
 
@@ -349,6 +360,9 @@ function filterDefs(lang, n) {
   };
   return JSON.stringify({ columns, strings }).replace(/</g, '\\u003c');
 }
+
+const DIM_LIGHTBOX_JS = fs.readFileSync(path.join(__dirname, 'products-lightbox.js'), 'utf-8').replace(/\r\n/g, '\n').trim();
+if (/<\/script/i.test(DIM_LIGHTBOX_JS)) throw new Error('products-lightbox.js must not contain "</script"');
 
 const FILTERS_JS = fs.readFileSync(path.join(__dirname, 'products-filters.js'), 'utf-8').replace(/\r\n/g, '\n').trim();
 if (/<\/script/i.test(FILTERS_JS)) throw new Error('products-filters.js must not contain "</script"');
@@ -455,6 +469,21 @@ const PRODUCTS_CSS = `
 .products-page .dim-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px;}
 .products-page .dim-grid figure{margin:0;background:#fff;border:1px solid var(--border);}
 .products-page .dim-grid img{display:block;width:100%;height:auto;}
+.products-page .dim-open{display:block;width:100%;padding:0;border:0;background:#fff;cursor:zoom-in;position:relative;}
+.products-page .dim-open::after{content:'+';position:absolute;right:8px;bottom:8px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.65);color:#fff;font:700 20px/28px 'Barlow Condensed',sans-serif;text-align:center;pointer-events:none;}
+.products-page .dim-open:hover::after,.products-page .dim-open:focus-visible::after{background:var(--gold);color:#000;}
+.products-page .dim-open:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.products-page .dim-lightbox{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;overflow:hidden;}
+.products-page .dim-lightbox::backdrop{background:rgba(0,0,0,.92);}
+.products-page .dim-lightbox[open]{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:56px 64px 20px;box-sizing:border-box;}
+.products-page .dim-lightbox img{background:#fff;max-width:100%;max-height:calc(100vh - 130px);width:auto;height:auto;object-fit:contain;}
+.products-page .dim-lb-cap{margin:0;color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:.5px;text-align:center;}
+.products-page .dim-lightbox button{position:absolute;background:rgba(0,0,0,.5);border:1px solid var(--text-3);color:var(--text);cursor:pointer;line-height:1;width:44px;height:44px;font-size:30px;border-radius:2px;display:flex;align-items:center;justify-content:center;}
+.products-page .dim-lightbox button:hover,.products-page .dim-lightbox button:focus-visible{border-color:var(--gold);color:var(--gold);}
+.products-page .dim-lb-close{top:12px;right:12px;}
+.products-page .dim-lb-prev{left:10px;top:50%;transform:translateY(-50%);}
+.products-page .dim-lb-next{right:10px;top:50%;transform:translateY(-50%);}
+@media(max-width:600px){.products-page .dim-lightbox[open]{display:block;overflow:auto;padding:56px 0 72px;}.products-page .dim-lightbox img{display:block;max-width:none;max-height:none;width:960px;}.products-page .dim-lb-cap{position:sticky;left:0;width:100vw;box-sizing:border-box;padding:12px 8px 0;}.products-page .dim-lb-close,.products-page .dim-lb-prev,.products-page .dim-lb-next{position:fixed;}.products-page .dim-lb-prev,.products-page .dim-lb-next{top:auto;bottom:12px;transform:none;}}
 .products-page .dim-grid figcaption{background:var(--ink-3);font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.5px;color:var(--text);padding:8px 12px;font-variant-numeric:tabular-nums;}
 .products-page .content-block h3{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;letter-spacing:.5px;color:var(--text);margin:22px 0 8px;text-transform:none;}
 .products-page .facts-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-top:2px solid var(--gold);margin:0 0 48px;}
