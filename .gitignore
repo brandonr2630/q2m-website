@@ -17,3 +17,6 @@ Desktop.ini
 .vscode/
 *.code-workspace
 .idea/
+
+# Source catalogue material (not committed)
+assets/ocr/

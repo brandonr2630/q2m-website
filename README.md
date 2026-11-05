@@ -23,9 +23,16 @@ Marketing, equipment depot and projects site for Q2 Machines Ltd (Trinidad & Tob
 | `scripts/build-lang-pages.js` | Generates `index.html` in each language directory |
 | `scripts/build-depot-langs.js` | Generates `depot.html` in each language directory |
 | `scripts/build-projects-langs.js` | Generates `projects.html` in each language directory |
+| `products/`, `{es,pt,nl,fr}/products/` | **Generated** Products catalogue pages. Never hand-edit |
+| `scripts/products-data.js`, `scripts/products-tree.js` | Products content (5 languages) and tree helpers/validation |
+| `scripts/build-product-pages.js` | Generates the Products pages and the Products blocks in `sitemap.xml` and `llms*.txt`. Part of `npm run build-all` |
+| `scripts/products-filters.js` | Spec-table filter script, inlined into family pages by the build |
+| `scripts/import-spec-table.js` | Converts a rating CSV (`scripts/products-data/*.csv`) into a rows module: `npm run import-table -- <csv> <out.js>` |
+| `scripts/build-product-images.js` | Builds `assets/products/ocr-rp/` images from the git-ignored OCR source folder (run by hand) |
+| `scripts/verify-products.js` | Offline checks for the Products pages; must report 0 failed |
 | `scripts/update-sitemap-lastmod.js` | Sets each `sitemap.xml` `<lastmod>` to the last git commit date of that URL's source file (today if it has uncommitted changes). Run by `npm run build-all`, or on its own with `npm run update-sitemap` |
 | `scripts/upscale-images.js` | sharp utility: upscales JPG/PNG and converts to WebP |
-| `handoff.md`, `CLAUDE.md` | Working notes for developers and Claude Code (not deployed) |
+| `handoff.md`, `CLAUDE.md`, `docs/` | Working notes, specs and plans for developers and Claude Code (not deployed) |
 
 ## Language pages are generated
 
@@ -34,7 +41,7 @@ Marketing, equipment depot and projects site for Q2 Machines Ltd (Trinidad & Tob
 ```bash
 cd scripts
 npm install          # first time only (cheerio, sharp)
-npm run build-all    # runs the three build-*.js scripts, then refreshes sitemap.xml lastmod dates
+npm run build-all    # runs the build-*.js scripts (language, static, service and Products pages), then refreshes sitemap.xml lastmod dates
 ```
 
 Source files use CRLF line endings. Keep them when editing or scripting changes, or the diff becomes the whole file.
@@ -45,7 +52,7 @@ Source files use CRLF line endings. Keep them when editing or scripting changes,
 
 - **Manual full redeploy:** Actions -> Deploy to cPanel -> Run workflow.
 - **GitHub secrets read by the shared workflow** (passed via `secrets: inherit`): `SSH_PRIVATE_KEY`, `SSH_HOST`, `SSH_PORT` (defaults to 22 if unset), `CPANEL_USER` (used as the SSH user).
-- **Not deployed:** the `scripts/` directory, server.js, convert-webp.js, any implementation-guide.html under `assets/projects/` (the `exclude_extra` pattern in the repo workflow), plus `.github/`, .cpanel.yml, `handoff.md` and `CLAUDE.md` (built into the shared workflow).
+- **Not deployed:** the `scripts/` directory, server.js, convert-webp.js, any implementation-guide.html under `assets/projects/`, the `docs/` directory (the `exclude_extra` pattern in the repo workflow), plus `.github/`, .cpanel.yml, `handoff.md` and `CLAUDE.md` (built into the shared workflow).
 
 ## Adding a project
 

@@ -101,6 +101,18 @@ A: Yes. Q2 Machines supplies, rewinds, repairs and services AC/DC motors and pum
 Q: Where are you and how do I contact you?
 A: 71 Warren Road, Bejucal, Cunupia, Trinidad. Phone +1 (868) 230-9702. Open Monday to Friday, 9:00 AM to 5:00 PM.
 
+# products:start
+## Products
+Products: https://www.q2m.io/products/
+Industrial equipment supplied by Q² Machines from manufacturers it represents, backed by repair, fabrication and commissioning in Trinidad.
+
+Gear Reducers: https://www.q2m.io/products/gear-reducers/
+Shaft-mounted gear reducers supplied by Q² Machines from Trinidad, backed by our repair and servicing capability.
+
+OCR RP Series Shaft-Mounted Gear Reducers: https://www.q2m.io/products/gear-reducers/ocr-rp-series/
+Q² Machines is the authorised agent for OCR RP Series shaft-mounted gear reducers: 8 sizes, 0.6–155 kW, up to 11,280 Nm. Supplied from Trinidad.
+# products:end
+
 ## About page and Privacy Policy
 About: https://www.q2m.io/about.html
 All services: https://www.q2m.io/services/
