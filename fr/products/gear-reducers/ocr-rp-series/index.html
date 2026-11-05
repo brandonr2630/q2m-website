@@ -387,6 +387,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 .products-page .spec-table th,.products-page .spec-table td{padding:8px 12px;border-bottom:1px solid var(--border);white-space:nowrap;text-align:left;color:var(--text);font-weight:400;}
 .products-page .spec-table thead th{position:sticky;top:0;z-index:2;background:var(--ink-3);vertical-align:bottom;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.25;}
 .products-page .spec-table .unit{text-transform:none;color:var(--text-2);}
+.products-page .spec-table .sym{text-transform:none;}
 .products-page .spec-table .num{text-align:right;}
 .products-page .spec-table tbody th{position:sticky;left:0;z-index:1;background:var(--ink);font-weight:600;}
 .products-page .spec-table thead th.col-model{left:0;z-index:3;}
@@ -497,7 +498,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
         <div class="fact"><strong>Modène, Italie</strong><span>fabriqué par OCR</span></div>
       </section>
       <figure class="fam-hero">
-        <picture><source type="image/webp" srcset="/assets/products/ocr-rp/hero.webp"><img src="/assets/products/ocr-rp/hero.jpg" width="1200" height="674" alt="Réducteur pendulaire OCR Série RP" decoding="async"></picture>
+        <picture><source type="image/webp" srcset="/assets/products/ocr-rp/hero.webp"><img src="/assets/products/ocr-rp/hero.jpg" width="1200" height="674" alt="Réducteur pendulaire OCR Série RP bleu posé sur un établi d'atelier, montrant l'arbre de sortie creux et l'arbre d'entrée protégé" decoding="async"></picture>
       </figure>
       <section id="specs" class="content-block">
         <h2>Caractéristiques techniques</h2>
@@ -520,7 +521,7 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
         <div class="spec-scroll" tabindex="0" role="region" aria-labelledby="spec-cap-ocr-rp-series">
           <table class="spec-table">
             <caption id="spec-cap-ocr-rp-series"><span class="cap-title">Réducteurs Pendulaires OCR Série RP: Caractéristiques techniques</span> <span class="cap-note">Tableau des performances. Les valeurs du catalogue supposent un facteur de service de 1. Contactez-nous pour confirmer le modèle adapté à votre service.</span></caption>
-            <thead><tr><th scope="col" class="col-model"><span class="col-name">Modèle</span></th><th scope="col" class="num"><span class="col-name">Taille</span></th><th scope="col" class="num"><span class="col-name">Rapport</span></th><th scope="col" class="num"><span class="col-name">Vitesse de sortie n2</span> <span class="unit">(rpm)</span></th><th scope="col" class="num"><span class="col-name">Vitesse d'entrée n1</span> <span class="unit">(rpm)</span></th><th scope="col" class="num"><span class="col-name">Puissance</span> <span class="unit">(kW)</span></th><th scope="col" class="num"><span class="col-name">Couple de sortie</span> <span class="unit">(Nm)</span></th><th scope="col" class="col-quote"><span class="vh">Demander un devis</span></th></tr></thead>
+            <thead><tr><th scope="col" class="col-model"><span class="col-name">Modèle</span></th><th scope="col" class="num"><span class="col-name">Taille</span></th><th scope="col" class="num"><span class="col-name">Rapport</span></th><th scope="col" class="num"><span class="col-name">Vitesse de sortie <span class="sym">n2</span></span> <span class="unit">(rpm)</span></th><th scope="col" class="num"><span class="col-name">Vitesse d'entrée <span class="sym">n1</span></span> <span class="unit">(rpm)</span></th><th scope="col" class="num"><span class="col-name">Puissance</span> <span class="unit">(kW)</span></th><th scope="col" class="num"><span class="col-name">Couple de sortie</span> <span class="unit">(Nm)</span></th><th scope="col" class="col-quote"><span class="vh">Demander un devis</span></th></tr></thead>
             <tbody>
             <tr id="RP85-3.64-355" data-size="85" data-ratio="3.64" data-n2="355" data-n1="1292" data-kw="5.95" data-torque="160"><th scope="row">RP 85</th><td class="num">85</td><td class="num">3.64</td><td class="num">355</td><td class="num">1292</td><td class="num">5.95</td><td class="num">160</td><td class="quote"><a href="/fr/?service=reducers&amp;item=RP85-3.64-355#contact">Demander un devis</a></td></tr>
             <tr id="RP85-3.64-280" data-size="85" data-ratio="3.64" data-n2="280" data-n1="1019" data-kw="5.13" data-torque="175"><th scope="row">RP 85</th><td class="num">85</td><td class="num">3.64</td><td class="num">280</td><td class="num">1019</td><td class="num">5.13</td><td class="num">175</td><td class="quote"><a href="/fr/?service=reducers&amp;item=RP85-3.64-280#contact">Demander un devis</a></td></tr>
@@ -959,16 +960,15 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 
 <script type="application/json" id="filter-defs">{"columns":[{"key":"size","type":"enum","label":"Taille","unit":null,"options":["85","105","125","150","165","180","210","250"]},{"key":"ratio","type":"range","label":"Rapport","unit":null,"min":3.21,"max":25.3},{"key":"kw","type":"range","label":"Puissance","unit":"kW","min":0.6,"max":155},{"key":"torque","type":"range","label":"Couple de sortie","unit":"Nm","min":160,"max":11280}],"strings":{"models":"Filtrer les modèles","all":"Tous","clear":"Effacer les filtres","count":"{n} modèles sur {total} affichés","none":"Aucun modèle ne correspond à ces filtres.","min":"Min.","max":"Max.","active":"actifs : {n}"}}</script>
 <script>
-/* Products spec-table filters. Inlined at the end of <body> on family pages by build-product-pages.js.
-   Reads column definitions and strings from the inline JSON block script#filter-defs.
-   Pure helpers are exported for Node tests (test-products-filters.js); no globals in the browser. */
+/* Products spec-table filters, inlined on family pages by build-product-pages.js; reads script#filter-defs.
+   Pure helpers are exported for Node tests (test-products-filters*.js); no browser globals. */
 (function () {
   'use strict';
   var NUM = /^-?(\d+(\.\d*)?|\.\d+)$/;
   function num(s) { s = String(s == null ? '' : s).trim(); return NUM.test(s) ? Number(s) : null; }
   function fill(s, o) { return s.replace(/\{(\w+)\}/g, function (m, k) { return o[k] != null ? o[k] : m; }); }
   function dec(s) { try { return decodeURIComponent(s.replace(/\+/g, ' ')); } catch (e) { return null; } }
-  // Query string -> state { size: '105', 'kw-min': 5 }; unknown keys, bad numbers and unknown values are dropped.
+  // Query -> state { size: '105', 'kw-min': 5 }; unknown keys, bad numbers and values dropped.
   function parseQuery(search, cols) {
     var q = {}, st = {};
     String(search || '').replace(/^\?/, '').split('&').forEach(function (p) {
@@ -990,7 +990,15 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
     });
     return out.length ? '?' + out.join('&') : '';
   }
-  // get(key) returns the row's data-* string. Min > max simply matches nothing.
+  // search with its filter params replaced by q; others (utm_* etc.) kept in order.
+  function withQuery(search, q, cols) {
+    var own = {};
+    cols.forEach(function (c) { own[c.key] = own[c.key + '-min'] = own[c.key + '-max'] = 1; });
+    var keep = String(search || '').replace(/^\?/, '').split('&').filter(function (p) { return p && !own[dec(p.split('=')[0])]; });
+    if (q) keep.push(q.slice(1));
+    return keep.length ? '?' + keep.join('&') : '';
+  }
+  // get(key) gives the row's data-* string. Min > max matches nothing.
   function matches(get, st, cols) {
     return cols.every(function (c) {
       if (c.type === 'enum') return st[c.key] == null || get(c.key) === st[c.key];
@@ -1003,7 +1011,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
   function activeCount(st, cols) {
     return cols.filter(function (c) { return st[c.key] != null || st[c.key + '-min'] != null || st[c.key + '-max'] != null; }).length;
   }
-  var api = { num: num, fill: fill, parseQuery: parseQuery, toQuery: toQuery, matches: matches, activeCount: activeCount };
+  var api = { num: num, fill: fill, parseQuery: parseQuery, toQuery: toQuery, withQuery: withQuery, matches: matches, activeCount: activeCount };
   if (typeof module !== 'undefined' && module.exports) { module.exports = api; return; }
 
   function init() {
@@ -1056,23 +1064,24 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
       none.hidden = n > 0;
       clear.disabled = !a;
       badge.textContent = a ? fill(S.active, { n: a }) : '';
-      history.replaceState(null, '', location.pathname + toQuery(st, cols) + location.hash);
+      var q = toQuery(st, cols); // URL rewritten only on change
+      if (q !== last) { last = q; history.replaceState(history.state, '', location.pathname + withQuery(location.search, q, cols) + location.hash); }
       clearTimeout(timer);
       var say = function () { count.textContent = fill(S.count, { n: n, total: total }); };
       if (now) say(); else timer = setTimeout(say, 300);
     }
-    function reset() { for (var k in inputs) inputs[k].value = ''; apply({}); inputs[cols[0].key + (cols[0].type === 'enum' ? '' : '-min')].focus(); }
+    function reset() { for (var k in inputs) inputs[k].value = ''; apply({}); box.open = true; inputs[cols[0].key + (cols[0].type === 'enum' ? '' : '-min')].focus(); }
     body.addEventListener('input', function () { apply(read()); });
     body.addEventListener('change', function () { apply(read()); });
     clear.addEventListener('click', reset); clear2.addEventListener('click', reset);
 
-    // Desktop (>= 900 px): filters in the left rail, open. Phones: a closed disclosure above the table.
+    // Desktop (>= 900 px): open, in the rail. Phones: closed disclosure above the table.
     var rail = document.querySelector('.prod-rail'), slot = document.querySelector('.spec-filter-slot');
     var mq = window.matchMedia('(min-width: 900px)');
     function place() { (mq.matches && rail ? rail : slot).appendChild(box); if (mq.matches) box.open = true; }
     if (mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place);
 
-    var st = parseQuery(location.search, cols);
+    var st = parseQuery(location.search, cols), last = toQuery(st, cols);
     for (var k in st) inputs[k].value = st[k];
     if (activeCount(st, cols)) box.open = true;
     place();

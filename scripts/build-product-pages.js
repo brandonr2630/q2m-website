@@ -299,7 +299,9 @@ function specsHtml(lang, page) {
   const head = cols.map((c) => {
     const unit = c.unit ? ` <span class="unit">(${esc(c.unit)})</span>` : '';
     const cls = c.key === 'model' ? 'col-model' : 'num';
-    return `<th scope="col" class="${cls}"><span class="col-name">${esc(colLabel(c, code))}</span>${unit}</th>`;
+    // Speed symbols n2 / n1 keep their case (.sym is excluded from the header's uppercase)
+    const name = esc(colLabel(c, code)).replace(/(^|\s)(n[12])$/, '$1<span class="sym">$2</span>');
+    return `<th scope="col" class="${cls}"><span class="col-name">${name}</span>${unit}</th>`;
   }).join('');
   const body = n.specs.rows.map((r) => {
     const data = cols.filter((c) => c.key !== 'model').map((c) => ` data-${c.key}="${attr(r[c.key])}"`).join('');
@@ -493,6 +495,7 @@ const PRODUCTS_CSS = `
 .products-page .spec-table th,.products-page .spec-table td{padding:8px 12px;border-bottom:1px solid var(--border);white-space:nowrap;text-align:left;color:var(--text);font-weight:400;}
 .products-page .spec-table thead th{position:sticky;top:0;z-index:2;background:var(--ink-3);vertical-align:bottom;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.25;}
 .products-page .spec-table .unit{text-transform:none;color:var(--text-2);}
+.products-page .spec-table .sym{text-transform:none;}
 .products-page .spec-table .num{text-align:right;}
 .products-page .spec-table tbody th{position:sticky;left:0;z-index:1;background:var(--ink);font-weight:600;}
 .products-page .spec-table thead th.col-model{left:0;z-index:3;}

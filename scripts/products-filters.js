@@ -1,13 +1,12 @@
-/* Products spec-table filters. Inlined at the end of <body> on family pages by build-product-pages.js.
-   Reads column definitions and strings from the inline JSON block script#filter-defs.
-   Pure helpers are exported for Node tests (test-products-filters.js); no globals in the browser. */
+/* Products spec-table filters, inlined on family pages by build-product-pages.js; reads script#filter-defs.
+   Pure helpers are exported for Node tests (test-products-filters*.js); no browser globals. */
 (function () {
   'use strict';
   var NUM = /^-?(\d+(\.\d*)?|\.\d+)$/;
   function num(s) { s = String(s == null ? '' : s).trim(); return NUM.test(s) ? Number(s) : null; }
   function fill(s, o) { return s.replace(/\{(\w+)\}/g, function (m, k) { return o[k] != null ? o[k] : m; }); }
   function dec(s) { try { return decodeURIComponent(s.replace(/\+/g, ' ')); } catch (e) { return null; } }
-  // Query string -> state { size: '105', 'kw-min': 5 }; unknown keys, bad numbers and unknown values are dropped.
+  // Query -> state { size: '105', 'kw-min': 5 }; unknown keys, bad numbers and values dropped.
   function parseQuery(search, cols) {
     var q = {}, st = {};
     String(search || '').replace(/^\?/, '').split('&').forEach(function (p) {
@@ -29,7 +28,15 @@
     });
     return out.length ? '?' + out.join('&') : '';
   }
-  // get(key) returns the row's data-* string. Min > max simply matches nothing.
+  // search with its filter params replaced by q; others (utm_* etc.) kept in order.
+  function withQuery(search, q, cols) {
+    var own = {};
+    cols.forEach(function (c) { own[c.key] = own[c.key + '-min'] = own[c.key + '-max'] = 1; });
+    var keep = String(search || '').replace(/^\?/, '').split('&').filter(function (p) { return p && !own[dec(p.split('=')[0])]; });
+    if (q) keep.push(q.slice(1));
+    return keep.length ? '?' + keep.join('&') : '';
+  }
+  // get(key) gives the row's data-* string. Min > max matches nothing.
   function matches(get, st, cols) {
     return cols.every(function (c) {
       if (c.type === 'enum') return st[c.key] == null || get(c.key) === st[c.key];
@@ -42,7 +49,7 @@
   function activeCount(st, cols) {
     return cols.filter(function (c) { return st[c.key] != null || st[c.key + '-min'] != null || st[c.key + '-max'] != null; }).length;
   }
-  var api = { num: num, fill: fill, parseQuery: parseQuery, toQuery: toQuery, matches: matches, activeCount: activeCount };
+  var api = { num: num, fill: fill, parseQuery: parseQuery, toQuery: toQuery, withQuery: withQuery, matches: matches, activeCount: activeCount };
   if (typeof module !== 'undefined' && module.exports) { module.exports = api; return; }
 
   function init() {
@@ -95,23 +102,24 @@
       none.hidden = n > 0;
       clear.disabled = !a;
       badge.textContent = a ? fill(S.active, { n: a }) : '';
-      history.replaceState(null, '', location.pathname + toQuery(st, cols) + location.hash);
+      var q = toQuery(st, cols); // URL rewritten only on change
+      if (q !== last) { last = q; history.replaceState(history.state, '', location.pathname + withQuery(location.search, q, cols) + location.hash); }
       clearTimeout(timer);
       var say = function () { count.textContent = fill(S.count, { n: n, total: total }); };
       if (now) say(); else timer = setTimeout(say, 300);
     }
-    function reset() { for (var k in inputs) inputs[k].value = ''; apply({}); inputs[cols[0].key + (cols[0].type === 'enum' ? '' : '-min')].focus(); }
+    function reset() { for (var k in inputs) inputs[k].value = ''; apply({}); box.open = true; inputs[cols[0].key + (cols[0].type === 'enum' ? '' : '-min')].focus(); }
     body.addEventListener('input', function () { apply(read()); });
     body.addEventListener('change', function () { apply(read()); });
     clear.addEventListener('click', reset); clear2.addEventListener('click', reset);
 
-    // Desktop (>= 900 px): filters in the left rail, open. Phones: a closed disclosure above the table.
+    // Desktop (>= 900 px): open, in the rail. Phones: closed disclosure above the table.
     var rail = document.querySelector('.prod-rail'), slot = document.querySelector('.spec-filter-slot');
     var mq = window.matchMedia('(min-width: 900px)');
     function place() { (mq.matches && rail ? rail : slot).appendChild(box); if (mq.matches) box.open = true; }
     if (mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place);
 
-    var st = parseQuery(location.search, cols);
+    var st = parseQuery(location.search, cols), last = toQuery(st, cols);
     for (var k in st) inputs[k].value = st[k];
     if (activeCount(st, cols)) box.open = true;
     place();

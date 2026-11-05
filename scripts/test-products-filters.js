@@ -97,6 +97,13 @@ t('toQuery is in column order and round-trips', () => {
   assert.deepStrictEqual(F.parseQuery(q, COLS), { size: '105', 'ratio-min': 3.64, 'kw-max': 10 });
   assert.strictEqual(F.toQuery(F.parseQuery(q, COLS), COLS), q);
 });
+t('withQuery replaces filter params and keeps the others in order', () => {
+  assert.strictEqual(F.withQuery('?utm_source=x&size=105&kw-min=3&ref=2', '?size=125', COLS), '?utm_source=x&ref=2&size=125');
+  assert.strictEqual(F.withQuery('?utm_source=x&size=105', '', COLS), '?utm_source=x');
+  assert.strictEqual(F.withQuery('?size=105', '', COLS), '');
+  assert.strictEqual(F.withQuery('', '?kw-max=10', COLS), '?kw-max=10');
+  assert.strictEqual(F.withQuery('?a=%E0%A4%A&kw%2Dmin=2', '', COLS), '?a=%E0%A4%A');
+});
 t('fill replaces {n} and {total}', () => {
   assert.strictEqual(F.fill('Showing {n} of {total} models', { n: 35, total: 280 }), 'Showing 35 of 280 models');
 });

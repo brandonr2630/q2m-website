@@ -116,7 +116,17 @@ for (const fam of PN.filter((n) => n.specs && n.specs.rows && n.specs.rows.lengt
       check(got === want, `${file}: header ${i + 1} is "${got}", expected "${want}"`);
       const unit = heads.eq(i).find('.unit').text().trim();
       check(unit === (c.unit ? `(${c.unit})` : ''), `${file}: header ${c.key} unit "${unit}", expected "${c.unit ? `(${c.unit})` : ''}"`);
+      // Fix wave C4: the speed symbols n2 / n1 are not uppercased with the rest of the header
+      if (c.key === 'n2' || c.key === 'n1') {
+        const sym = heads.eq(i).find('.col-name .sym');
+        check(sym.length === 1 && sym.text() === c.key, `${file}: header ${c.key} needs its symbol in <span class="sym">${c.key}</span> (found ${sym.length})`);
+      }
     });
+    {
+      const css = $('style').map((_, el) => $(el).html()).get().join('\n');
+      check(/\.spec-table thead th\{[^}]*text-transform:uppercase/.test(css), `${file}: spec-table headers are no longer uppercase`);
+      check(/\.spec-table \.sym\{[^}]*text-transform:none/.test(css), `${file}: no ".spec-table .sym{text-transform:none}" rule (n2/n1 would render as N2/N1)`);
+    }
     const trs = table.find('tbody tr');
     check(trs.length === rows.length, `${file}: ${trs.length} table rows, data has ${rows.length}`);
     const prefix = lang === 'en' ? '' : `/${lang}`;
