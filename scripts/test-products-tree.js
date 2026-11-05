@@ -16,7 +16,7 @@ function fixture() {
 }
 
 function throwsWith(nodes, id, label) {
-  assert.throws(() => T.validate(nodes), (e) => e instanceof Error && e.message.includes(id), label);
+  assert.throws(() => T.validate(nodes), (e) => e instanceof Error && !(e instanceof TypeError) && e.message.startsWith(`${id}:`), label);
 }
 
 assert.deepStrictEqual(T.LANG_CODES, ['en', 'es', 'pt', 'nl', 'fr']);
@@ -41,6 +41,8 @@ assert.deepStrictEqual(T.pathTo(n, 'ocr-rp-series').map((x) => x.id), ['gear-red
 assert.strictEqual(T.nodeUrl(n, 'ocr-rp-series', 'es'), '/es/products/gear-reducers/ocr-rp-series/');
 assert.strictEqual(T.nodeUrl(n, null, 'en'), '/products/');
 assert.strictEqual(T.nodeUrl(n, 'gear-reducers', 'en'), '/products/gear-reducers/');
+assert.strictEqual(T.nodeUrl(n, undefined, 'nl'), '/nl/products/');
+assert.throws(() => T.nodeUrl(n, 'no-such-node', 'en'), (e) => e instanceof Error && e.message.includes('no-such-node'), 'unknown id must throw');
 
 // validate ok
 T.validate(fixture());
@@ -68,5 +70,37 @@ throwsWith(n, 'conveyors', 'bad slug');
 
 n = fixture(); n[1].specs.rows[0].bogus = 1;
 throwsWith(n, 'ocr-rp-series', 'row key not in columns');
+
+// `id` is accepted as a row key although it is not a declared column
+n = fixture();
+assert.ok(!n[1].specs.columns.includes('id') && n[1].specs.rows.every((r) => 'id' in r));
+n[1].specs.rows.push({ id: 'b', model: 'RP2' });
+assert.doesNotThrow(() => T.validate(n));
+
+// category intro: 5 non-empty languages
+n = fixture(); delete n[0].intro.fr;
+throwsWith(n, 'gear-reducers', 'missing fr intro');
+n = fixture(); n[3].intro.nl = '  ';
+throwsWith(n, 'conveyors', 'blank nl intro');
+n = fixture(); delete n[3].intro;
+throwsWith(n, 'conveyors', 'category without intro');
+
+// tileImage.alt: 5 non-empty languages when a tile image is present
+n = fixture(); n[1].tileImage = { file: 't.webp', alt: L('Tile') };
+T.validate(n);
+delete n[1].tileImage.alt.pt;
+throwsWith(n, 'ocr-rp-series', 'missing pt tile alt');
+n = fixture(); n[1].tileImage = { file: 't.webp' };
+throwsWith(n, 'ocr-rp-series', 'tile image without alt');
+
+// malformed specs and rows give "<id>: <field>: <reason>", not a TypeError
+n = fixture(); n[1].specs.rows.push(null);
+throwsWith(n, 'ocr-rp-series', 'null row');
+n = fixture(); n[1].specs.rows[0] = 'RP1';
+throwsWith(n, 'ocr-rp-series', 'string row');
+n = fixture(); n[1].specs = 'table';
+throwsWith(n, 'ocr-rp-series', 'specs not an object');
+n = fixture(); n[1].specs = [];
+throwsWith(n, 'ocr-rp-series', 'specs is an array');
 
 console.log('all tree tests passed');

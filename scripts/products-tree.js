@@ -50,7 +50,14 @@ function validate(nodes, opts) {
     if (typeof n.order !== 'number' || Number.isNaN(n.order)) fail(n, 'order', 'must be a number');
     checkLangs(n, 'name', n.name);
     checkLangs(n, 'description', n.description, MAX_DESC);
-    if (n.specs) {
+    // A category (no specs, not live, no migrated copy) needs its one-paragraph intro (spec §5).
+    if (n.intro !== undefined || (n.specs === undefined && !n.live && !n.copy)) checkLangs(n, 'intro', n.intro);
+    if (n.tileImage !== undefined) {
+      if (!n.tileImage || typeof n.tileImage !== 'object') fail(n, 'tileImage', 'must be an object');
+      checkLangs(n, 'tileImage.alt', n.tileImage.alt);
+    }
+    if (n.specs !== undefined && n.specs !== null) {
+      if (typeof n.specs !== 'object' || Array.isArray(n.specs)) fail(n, 'specs', 'must be an object');
       const cols = n.specs.columns;
       const rows = n.specs.rows;
       if (!Array.isArray(cols)) fail(n, 'specs.columns', 'must be an array');
@@ -58,6 +65,7 @@ function validate(nodes, opts) {
       const allowed = new Set(['id']);
       for (const c of cols) allowed.add(typeof c === 'string' ? c : c && c.key);
       rows.forEach((row, i) => {
+        if (!row || typeof row !== 'object' || Array.isArray(row)) fail(n, `specs.rows[${i}]`, 'must be an object');
         for (const k of Object.keys(row)) {
           if (!allowed.has(k)) fail(n, `specs.rows[${i}].${k}`, 'key is not a declared column');
         }
@@ -101,6 +109,7 @@ function pathTo(nodes, id) {
 
 function nodeUrl(nodes, id, lang) {
   const prefix = lang === 'en' ? '' : `/${lang}`;
+  if (id != null && !nodes.some((n) => n.id === id)) throw new Error(`${id}: id: unknown node (nodeUrl)`);
   const slugs = id == null ? [] : pathTo(nodes, id).map((n) => n.slug);
   return `${prefix}/products/${slugs.map((s) => `${s}/`).join('')}`;
 }
