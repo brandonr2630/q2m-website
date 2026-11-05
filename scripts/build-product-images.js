@@ -12,7 +12,10 @@ const SIZES = [85, 105, 125, 150, 165, 180, 210, 250];
 const jobs = [
   {
     name: 'tile', src: 'pics/IMMAGINE-RP85.jpg', jpg: true,
-    make: (s) => s.resize(600, 600, { fit: 'contain', background: '#ffffff' }).flatten({ background: '#ffffff' })
+    // trim the source's white margin so the product fills the tile, then keep a 22px frame
+    make: (s) => s.flatten({ background: '#ffffff' }).trim({ background: '#ffffff', threshold: 12 })
+      .resize(556, 556, { fit: 'contain', background: '#ffffff' })
+      .extend({ top: 22, bottom: 22, left: 22, right: 22, background: '#ffffff' })
   },
   {
     name: 'hero', src: 'pics/P1101652.jpg.jpeg', jpg: true,
