@@ -267,6 +267,18 @@ for (const rel of ['index.html', 'about.html', 'depot.html', 'projects.html', 'p
   check(/reducers:\s*'Motors & Gear Reducers'/.test(home), 'index.html: ?service= map has no reducers entry');
   check(home.includes('^[A-Za-z0-9 ._/-]{1,60}$'), 'index.html: ?item= validation pattern missing');
 }
+// Fix round 2: the prefill must not move the scroll position away from #contact (setSelectionRange on
+// an unfocused textarea scrolled the page 1450-2300 px short of the form), so no caret/focus/scroll calls.
+for (const file of LANGS.map((l) => (l === 'en' ? '' : `${l}/`) + 'index.html')) {
+  const raw = fs.readFileSync(path.join(ROOT, file), 'utf-8');
+  const s = raw.indexOf('function prefillQuoteMessage(');
+  check(s !== -1, `${file}: prefillQuoteMessage() not found`);
+  if (s === -1) continue;
+  const body = raw.slice(s, raw.indexOf('\n}', s) + 2);
+  const bad = body.match(/setSelectionRange|selectionStart|selectionEnd|\.focus\(|scrollIntoView|scrollTo\(|\.select\(/g) || [];
+  check(bad.length === 0, `${file}: prefillQuoteMessage() calls ${bad.join(', ')} (moves the page away from #contact)`);
+  check(/msg\.value = tpl\.replace\('\{model\}', function \(\) \{ return item; \}\)/.test(body), `${file}: prefillQuoteMessage() no longer sets the value text-only with the $-safe replacer`);
+}
 
 // ════════════════════════════════════════════════════════════
 // Task 8 sections (spec §10, §11.1). Expected sets come from the data through the build's own

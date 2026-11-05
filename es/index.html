@@ -2460,6 +2460,8 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 // ?item=<model id>: if the message is still empty, start it with the translated template.
 // The id is validated and inserted as text (textarea value); nothing is submitted. This function only
 // sets the message: the service <select> is set from ?service= by the contact-form IIFE above.
+// No caret, focus or scroll call here: setSelectionRange on the unfocused textarea scrolled the page away
+// from #contact; setting .value already leaves the caret at the end for a user who tabs into the field.
 function prefillQuoteMessage() {
   try {
     var item = new URLSearchParams(location.search).get('item');
@@ -2469,7 +2471,6 @@ function prefillQuoteMessage() {
     var lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
     var tpl = (translations[lang] || translations.en).quote_prefill || translations.en.quote_prefill;
     msg.value = tpl.replace('{model}', function () { return item; });
-    msg.setSelectionRange(msg.value.length, msg.value.length);
   } catch (e) {}
 }
 
