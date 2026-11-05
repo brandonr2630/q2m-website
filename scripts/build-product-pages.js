@@ -407,7 +407,7 @@ const ctaHref = (page) => (page.kind === 'family' && page.node.serviceParam ? `/
 // Scoped under .products-page. Text colours use --text / --text-2 only (never --text-3).
 const PRODUCTS_CSS = `
 .products-page.page-section{padding-top:200px;}
-.products-page .prod-layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:48px;align-items:start;}
+.products-page .prod-layout{max-width:1680px;margin:0;display:grid;grid-template-columns:240px minmax(0,1fr);gap:48px;align-items:start;}
 .products-page .prod-rail{position:sticky;top:130px;max-height:calc(100vh - 150px);overflow-y:auto;}
 .products-page .prod-main{min-width:0;max-width:900px;}
 .products-page .crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px;padding:0;font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:.5px;color:var(--text-2);}
