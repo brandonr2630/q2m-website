@@ -2,11 +2,14 @@
 const assert = require('node:assert');
 const fs = require('node:fs');
 const path = require('node:path');
+const cheerio = require('cheerio');
 const T = require('./products-tree.js');
 const { UI, NODES, HUB } = require('./products-data.js');
 
 const ROOT = path.join(__dirname, '..');
-const FACTS = 'C:/Users/brand/AppData/Local/Temp/claude/92ed5f8a592859d9/7c650761-cd96-46c4-852d-7831d3e4c839/scratchpad/ocr/technical-facts.md';
+// OCR catalogue extraction (Task 4). Lives outside the repo; override with FACTS_FILE.
+const FACTS = process.env.FACTS_FILE ||
+  'C:/Users/brand/AppData/Local/Temp/claude/92ed5f8a592859d9/7c650761-cd96-46c4-852d-7831d3e4c839/scratchpad/ocr/technical-facts.md';
 
 // tree validates
 assert.doesNotThrow(() => T.validate(NODES));
@@ -94,7 +97,25 @@ for (const w of ['Agip', 'Shell', 'Mobil', 'Castrol', 'Danfoss']) {
   assert.ok(!new RegExp(w, 'i').test(dump), `banned word ${w}`);
 }
 
+// family hero alt describes the hero photo itself (not the generic tile alt), in 5 languages,
+// and every built family page uses it
+const hero = family.images[0];
+langs5(hero.alt, `${family.id}.images[0].alt`);
+for (const l of T.LANG_CODES) {
+  assert.notStrictEqual(hero.alt[l], family.tileImage.alt[l], `hero alt ${l} is the tile alt`);
+  const rel = T.nodeUrl(NODES, family.id, l).replace(/^\//, '') + 'index.html';
+  const $ = cheerio.load(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
+  const got = $('.fam-hero img').attr('alt');
+  assert.strictEqual(got, hero.alt[l], `${rel}: hero img alt "${got}"`);
+}
+
 // numbers in English facts, build, note and FAQ appear in the extraction or the rows
+// (skipped, with a message, when the extraction file is not on this machine)
+if (!fs.existsSync(FACTS)) {
+  console.log(`test-products-data: SKIPPED the facts cross-check: ${FACTS} not found (set FACTS_FILE to run it)`);
+  console.log('test-products-data: all other assertions passed');
+  process.exit(0);
+}
 const factsMd = fs.readFileSync(FACTS, 'utf8');
 const rowsText = JSON.stringify(family.specs.rows);
 const en = family.copy.en;

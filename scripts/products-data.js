@@ -62,6 +62,15 @@ const tileAlt = {
   fr: 'Réducteur pendulaire OCR Série RP', // native review
 };
 
+// Family hero (P1101652): describes only what the photo shows.
+const heroAlt = {
+  en: 'Blue OCR RP Series shaft-mounted gear reducer on a workshop bench, showing the hollow output shaft and the capped input shaft',
+  es: 'Reductor montado en eje OCR Serie RP de color azul sobre un banco de taller, con el eje de salida hueco y el eje de entrada protegido',
+  pt: 'Redutor de eixo montado OCR Série RP azul sobre uma bancada de oficina, mostrando o eixo de saída oco e o eixo de entrada protegido',
+  nl: 'Blauwe OCR RP-serie opsteekreductor op een werkbank, met de holle uitgaande as en de afgedekte ingaande as', // native review
+  fr: "Réducteur pendulaire OCR Série RP bleu posé sur un établi d'atelier, montrant l'arbre de sortie creux et l'arbre d'entrée protégé", // native review
+};
+
 function dimAlt(size) {
   return {
     en: `OCR RP ${size} shaft-mounted gear reducer dimensions drawing`,
@@ -143,7 +152,7 @@ const NODES = [
         jpg: 'assets/products/ocr-rp/hero.jpg',
         w: 1200,
         h: 674,
-        alt: tileAlt,
+        alt: heroAlt,
       },
     ],
     dimensions: DIMS.map(([size, weightKg, w, h]) => ({
