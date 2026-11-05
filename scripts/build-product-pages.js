@@ -827,6 +827,12 @@ function spliceBlock(raw, file, mark, lines, anchor, gap) {
     if (e < s) throw new Error(`${file}: "${mark.end}" comes before "${mark.start}"`);
     return raw.slice(0, s) + block + raw.slice(e);
   }
+  // No markers: refuse to add a second Products block next to existing (hand-edited) Products content.
+  const stray = raw.split(/\r?\n/).filter((l) => /q2m\.io\/(?:[a-z]{2}\/)?products\/|^## Products\s*$/.test(l));
+  if (stray.length) {
+    throw new Error(`${file}: no "${mark.start}" / "${mark.end}" markers but ${stray.length} Products line(s) already present ` +
+      `(first: "${stray[0].trim().slice(0, 80)}"); restore the markers around them or remove them, then rebuild`);
+  }
   const quoted = anchor.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const re = new RegExp('^' + quoted + '\\r?$', 'gm');
   const hits = raw.match(re) || [];

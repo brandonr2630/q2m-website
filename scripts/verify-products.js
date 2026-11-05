@@ -223,6 +223,10 @@ for (const lang of LANGS) {
     const menuRule = (css.match(/\.mobile-menu\s*\{[^}]*\}/) || [''])[0].replace(/\s+/g, ' ');
     check(/inset: ?0/.test(menuRule) && /overflow-y: ?auto/.test(menuRule) && /justify-content: ?safe center/.test(menuRule),
       `${file}: .mobile-menu rule must have inset:0, overflow-y:auto and justify-content:safe center (got "${menuRule.slice(0, 170)}")`);
+    // Fix wave D1: the close button must not scroll away with the (scrollable) menu
+    const closeRule = (css.match(/\.mobile-close\s*\{[^}]*\}/) || [''])[0].replace(/\s+/g, ' ');
+    check(/position: ?fixed/.test(closeRule) && /top: ?20px/.test(closeRule) && /right: ?24px/.test(closeRule),
+      `${file}: .mobile-close rule must have position:fixed; top:20px; right:24px (got "${closeRule.slice(0, 120)}")`);
     check(desk === 1, `${file}: desktop nav has ${desk} link(s) to ${hub} (expected 1)`);
     check(mob === 1, `${file}: mobile menu has ${mob} link(s) to ${hub} (expected 1)`);
     check(foot === 1, `${file}: footer has ${foot} link(s) to ${hub} (expected 1)`);
@@ -529,6 +533,28 @@ for (const [rel, full] of [['llms.txt', false], ['llms-full.txt', true]]) {
   if (block.length) {
     const regen = B.spliceBlock(txt, rel, B.MARK.llms, B.llmsLines(NODES, full), '## About page and Privacy Policy', 1);
     check(regen === txt, `${rel}: products block is stale (differs from what build-product-pages.js generates); run npm run build-all`);
+  }
+}
+
+// Fix wave D2: spliceBlock with BOTH markers gone must fail loudly when the file already has
+// Products URLs/lines (no second block), and still insert into a file that has none.
+{
+  const cases = [
+    ['sitemap.xml', B.MARK.sitemap, '</urlset>', 0, (l) => /\/products\//.test(l)],
+    ['llms.txt', B.MARK.llms, '## About page and Privacy Policy', 1, (l) => /\/products\/|^## Products/.test(l)],
+  ];
+  for (const [rel, mark, anchor, gap, isProd] of cases) {
+    const raw = readRoot(rel) || '';
+    const noMarks = raw.split('\n').filter((l) => !l.includes(mark.start) && !l.includes(mark.end)).join('\n');
+    let err = '';
+    try { B.spliceBlock(noMarks, rel, mark, ['NEW BLOCK'], anchor, gap); } catch (e) { err = e.message; }
+    check(err.startsWith(`${rel}:`) && /Products/.test(err), `${rel}: spliceBlock without markers but with Products content must throw (got ${err ? `"${err}"` : 'no error'})`);
+    let s = raw.indexOf(mark.start); s = raw.lastIndexOf('\n', s) + 1;
+    const e = raw.indexOf(mark.end) + mark.end.length;
+    const clean = (raw.slice(0, s) + raw.slice(e)).split('\n').filter((l) => !isProd(l)).join('\n');
+    let out = null;
+    try { out = B.spliceBlock(clean, rel, mark, ['NEW BLOCK'], anchor, gap); } catch (x) { out = x.message; }
+    check(typeof out === 'string' && out.split('NEW BLOCK').length === 2, `${rel}: spliceBlock into a file with no block and no Products content must insert once (got ${String(out).slice(0, 80)})`);
   }
 }
 

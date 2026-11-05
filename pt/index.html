@@ -630,7 +630,7 @@ nav.scrolled .nav-logo-name { transition: all .3s; }
 }
 .mobile-menu a:hover { color: var(--gold); }
 .mobile-close {
-  position: absolute; top: 20px; right: 24px;
+  position: fixed; top: 20px; right: 24px; z-index: 1;
   background: none; border: none;
   color: var(--text-2); font-size: 28px; cursor: pointer; padding: 8px;
 }
@@ -2458,7 +2458,8 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 })();
 
 // ?item=<model id>: if the message is still empty, start it with the translated template.
-// The id is validated and inserted as text (textarea value); nothing is submitted, no hidden field is set.
+// The id is validated and inserted as text (textarea value); nothing is submitted. This function only
+// sets the message: the service <select> is set from ?service= by the contact-form IIFE above.
 function prefillQuoteMessage() {
   try {
     var item = new URLSearchParams(location.search).get('item');
