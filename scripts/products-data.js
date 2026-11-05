@@ -46,6 +46,10 @@ const UI = {
   filter_active: { en: 'active: {n}', es: 'activos: {n}', pt: 'ativos: {n}', nl: 'actief: {n}', fr: 'actifs : {n}' }, // native review (nl, fr)
   dims_heading: { en: 'Dimension drawings', es: 'Planos dimensionales', pt: 'Desenhos dimensionais', nl: 'Maattekeningen', fr: 'Plans dimensionnels' },
   dims_weight: { en: 'Weight: {kg} kg', es: 'Peso: {kg} kg', pt: 'Peso: {kg} kg', nl: 'Gewicht: {kg} kg', fr: 'Poids : {kg} kg' },
+  dims_enlarge: { en: 'Enlarge drawing', es: 'Ampliar plano', pt: 'Ampliar desenho', nl: 'Tekening vergroten', fr: 'Agrandir le plan' }, // native review (nl, fr)
+  lb_close: { en: 'Close', es: 'Cerrar', pt: 'Fechar', nl: 'Sluiten', fr: 'Fermer' },
+  lb_prev: { en: 'Previous drawing', es: 'Plano anterior', pt: 'Desenho anterior', nl: 'Vorige tekening', fr: 'Plan précédent' }, // native review (nl, fr)
+  lb_next: { en: 'Next drawing', es: 'Plano siguiente', pt: 'Desenho seguinte', nl: 'Volgende tekening', fr: 'Plan suivant' }, // native review (nl, fr)
   quote_prefill: { en: 'Enquiry about {model}: ', es: 'Consulta sobre {model}: ', pt: 'Consulta sobre {model}: ', nl: 'Aanvraag over {model}: ', fr: 'Demande concernant {model} : ' },
   enquire_cta: { en: 'Enquire about this model', es: 'Consultar sobre este modelo', pt: 'Consultar sobre este modelo', nl: 'Informeer naar dit model', fr: 'Se renseigner sur ce modèle' },
   brand_link: { en: 'Visit the manufacturer', es: 'Visite al fabricante', pt: 'Visite o fabricante', nl: 'Bezoek de fabrikant', fr: 'Visiter le fabricant' },
