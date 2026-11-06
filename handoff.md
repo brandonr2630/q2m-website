@@ -1,6 +1,6 @@
 # Q2M Website — Handoff
 
-*Last updated: 2026-11-05 · Session 23*
+*Last updated: 2026-11-06 · Session 24*
 
 Sessions 1–19 are condensed into the history table and the lessons below. Per-session detail lives in git history (`git log -- handoff.md`).
 
@@ -47,7 +47,7 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - Dutch pages rank for generic used-equipment queries (`gebruikte industriële apparatuur` pos 5.9, `verkoop van tweedehands industriële apparatuur` pos 9.1) with no clicks — the translated-page strategy can rank.
 - Mobile position is better than desktop (6.1 vs 13.4); 7 of 9 clicks were mobile.
 
-**Work in progress:** the redesigned Products catalogue (Session 23) is complete and verified locally on branch `feat/products-structure`, **not pushed** (owner: no push yet). See Open Items 2. The About page rework (#88, #90) shipped 2026-10-13. The old Products section (PR #92) was removed 2026-10-14 (Session 22); until the branch is merged the live site has no Products pages, nav link or footer link.
+**Work in progress:** the redesigned Products catalogue is **merged to `master` and deployed** (PR #97 on 2026-11-05, polish PRs #98-#102 the same day; Sessions 23-24). See Open Items 2. The About page rework (#88, #90) shipped 2026-10-13. The old Products section (PR #92) was removed 2026-10-14 (Session 22); the new catalogue replaced it, so the live site has Products pages, a nav link and a footer link again.
 
 ---
 
@@ -64,7 +64,7 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - [ ] **Re-pull the Search results export** in ~4 weeks (Performance + Pages) and compare with the baseline above. Most queries are anonymised in exports.
 - [x] **"Q2 Machining"** (16 impressions, the #1 query): owner confirmed 2026-10-12 it is an acceptable name if it helps searchers find the business. Added as `alternateName` on the `Organization`/`LocalBusiness`/`WebSite` nodes, to the first FAQ answer in all 5 languages (visible + `FAQPage` schema, kept identical) and to the `llms.txt`/`llms-full.txt` intro. It is **not** in titles or headings. Re-check the query in the next Search Console export.
 
-### 2. Products catalogue (Session 23, branch `feat/products-structure`, not pushed)
+### 2. Products catalogue (Sessions 23-24, merged to `master` 2026-11-05)
 
 The old section (PR #92) was removed 2026-10-14 and replaced by a clean-sheet catalogue (spec `docs/superpowers/specs/2026-10-14-products-catalogue-design.md`, plan `docs/superpowers/plans/2026-11-04-products-catalogue-stage-1-3.md`). Stages 1-3 are built; search (stage 2 of the spec's roadmap) is not.
 
@@ -72,7 +72,7 @@ The old section (PR #92) was removed 2026-10-14 and replaced by a clean-sheet ca
 
 - Three levels: hub `/products/` (tile grid of top-level categories), category `/products/gear-reducers/` (breadcrumb, intro, tile grid of children), family `/products/gear-reducers/ocr-rp-series/`. Same URLs under `/es/ /pt/ /nl/ /fr/`.
 - A Categories tree in a 240 px left rail on desktop (on family pages with a table the tree sits in `#specs` and the rail holds the filters); stacked above the content on phones.
-- OCR RP Series family page: summary, facts strip, hero image, a **280-row rating table** (model, size, ratio, n2, n1, kW, torque; sticky header and sticky model column), client-side filters (size select; ratio, kW and torque min/max; Clear; state kept in the URL, other query params preserved), 8 dimension drawings (`#dimensions`), the migrated OCR copy (how it works, build, applications, support, FAQ with matching `FAQPage` schema), CTA.
+- OCR RP Series family page: summary, facts strip, hero image, a **280-row rating table** (model, size, ratio, n2, n1, kW, torque; sticky header and sticky model column), client-side filters (size select; ratio, kW and torque min/max; Clear; state kept in the URL, other query params preserved), 8 dimension drawings (`#dimensions`), each opening in a click-to-enlarge lightbox (Session 24), the migrated OCR copy (how it works, build, applications, support, FAQ with matching `FAQPage` schema), CTA.
 - Every row has a **Request quote** link `/<lang>/?service=reducers&item=<row id>#contact`: the home page selects "Motors & Gear Reducers" and starts the message with `quote_prefill` (`Enquiry about RP85-3.64-110: `). Nothing is submitted.
 - Products nav item (desktop + mobile menu) and footer link on every page; `nav_products` key in all 5 languages.
 - `sitemap.xml` has a generated block between `<!-- products:start -->` and `<!-- products:end -->` (15 URLs, sitemap total 75). `llms.txt` and `llms-full.txt` have a generated block between `# products:start` and `# products:end`. Both are rewritten by `build-product-pages.js`; do not hand-edit inside the markers.
@@ -90,6 +90,7 @@ The old section (PR #92) was removed 2026-10-14 and replaced by a clean-sheet ca
 | `build-product-images.js` | Builds `assets/products/ocr-rp/` (tile, hero, `dim-<size>.webp`) from the source folder; run by hand |
 | `build-product-pages.js` | Generates the 15 pages, the sitemap and llms blocks; part of `npm run build-all` |
 | `products-filters.js` | Client filter script, inlined into family pages at build time (no extra request) |
+| `products-lightbox.js` | Click-to-enlarge script for the dimension drawings, inlined into family pages at build time (native `<dialog>`, prev/next, arrow keys, Esc/backdrop/× to close) |
 | `verify-products.js` | Offline checks (structure, table, nav, tree, breadcrumbs, i18n, sitemap, llms, tracking, contrast, assets); must report `0 failed` |
 | `test-*.js` | Unit tests for the data, tree, importer and filters (`node test-products-data.js` etc.) |
 
@@ -103,10 +104,11 @@ The old section (PR #92) was removed 2026-10-14 and replaced by a clean-sheet ca
 
 **Single/double reduction:** the rating table has **no stage column**. The source CSV distinguishes `rating_single_stage` and `rating_double_stage` blocks, but that grouping from the extraction is unverified, so rows and columns carry no stage label. The migrated OCR copy keeps the catalogue statement that efficiency is about 0.98 single-stage and 0.96 double-stage.
 
-**Verified locally (Session 23):** layout at 1280/390/320 px in en/nl/fr, filters by keyboard, quote links in en/nl/fr, Lighthouse mobile (numbers in the Session 23 entry). Not yet verified live (needs the push and deploy).
+**Verified locally (Sessions 23-24; merged 2026-11-05, live check still to do):** layout at 1280/390/320 px in en/nl/fr, filters by keyboard, quote links in en/nl/fr, Lighthouse mobile (numbers in the Session 23 entry). Not yet verified on the live site.
 
 **OWNER TODO (Products):**
 
+- [ ] Native review (nl, fr) of the Session 24 lightbox strings in `scripts/products-data.js`: `dims_enlarge`, `lb_prev`, `lb_next` (`lb_close` is plain). Same review as the list below.
 - [ ] Native review of nl and fr (and es, pt) strings: the `UI` keys in `scripts/products-data.js` (`products`, `all_categories`, `categories`, `crumb_home`, `request_quote`, `filter_models`, `filter_all`, `filter_clear`, `filter_count`, `filter_none`, `filter_min`, `filter_max`, `filter_active`, `col_*`, `spec_caption`, `crumbs_label`, `specs_heading`, `dims_heading`, `dims_weight`, `enquire_cta`, `brand_link`), the `HUB` and category texts, `nav_products` and `quote_prefill` in `index.html` translations. Terms to check in particular: **gear reducer**, **shaft-mounted**, **torque arm**, **rated power**.
 - [ ] After merge and deploy: Search Console → URL Inspection → Request indexing for the 5 hubs, the category and the family pages; resubmit `sitemap.xml` (75 URLs).
 - [ ] Search across the catalogue (spec stage 2) is **not built**.
@@ -306,6 +308,21 @@ Lighthouse (Chrome DevTools MCP `lighthouse_audit`, mobile, navigation, local se
 The only failing accessibility audit is the shell footer contrast (pre-existing, every page).
 
 Performance traces (DevTools, 412×823 mobile, Fast 3G, 4× CPU, cache disabled, local server without compression): LCP hub 1.26 s, category 1.41 s, family 1.53 s; CLS 0.01, 0.00, 0.07. The family-page shift is the web-font swap (Oswald, Barlow, Barlow Condensed from Google Fonts) moving `#specs`, the hero and the facts. The home page under the same local conditions measured LCP 7.5 s and CLS 0.17, so these local numbers are not comparable with the live baseline (home 1.1 s); re-measure live after deploy.
+
+---
+
+## Session 24 — Click-to-enlarge dimension drawings
+
+**Date:** 2026-11-05 · Branch `feat/products-drawing-lightbox`, merged as PR #102 (`33da8c6`)
+
+Visitors can click a drawing in `#dimensions` on the OCR RP family page (all 5 languages) to enlarge it and read the dimensions.
+
+- One native `<dialog class="dim-lightbox">` per page, shared by all 8 drawings. Each drawing is wrapped in a `<button class="dim-open">` with a zoom cursor and a "+" badge; aria-label is `dims_enlarge` + model.
+- Controls: prev/next buttons, Left/Right arrow keys, Esc, backdrop click, × button. The dialog image is the same 1400 px WebP (no extra asset); `src` is cleared on close.
+- Phones (max-width 600 px): the drawing opens at 960 px wide and pans sideways inside the dialog (fixed close/prev/next buttons, sticky caption); at 375 px the plain fit-to-width image was too small to read.
+- Source: `scripts/products-lightbox.js` (inlined by `build-product-pages.js` as `DIM_LIGHTBOX_JS`, like the filters script), CSS in the generator, strings `dims_enlarge`, `lb_close`, `lb_prev`, `lb_next` in `products-data.js` (all 5 languages; added to the `UI_KEYS` test). The hub and category pages changed only because the CSS block is shared.
+- Checked: `node test-products-data.js` passes, `node verify-products.js` 1606 passed / 0 failed. In the browser pane (local static server): open, next, prev, close at 1280 px and 375 px; no horizontal page scroll. Not checked: live site after deploy, keyboard-only focus order and Safari/iOS (`<dialog>` is supported in current browsers; the script does nothing if `showModal` is missing, so drawings simply stay non-clickable there).
+- Process notes: the first worktree was cut from the stale `feat/products-page` (Oct 13) by mistake; the live Products work is on `master`. Always branch from `origin/master`. In a hidden browser pane `innerWidth` can read 0 and collapse `100vw`; set an explicit viewport (`resize_window`) before measuring layout.
 
 ---
 
