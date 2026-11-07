@@ -30,7 +30,7 @@ const LANGS = ['en', 'es', 'pt', 'nl', 'fr'];
 const PAGES = ['products/index.html', 'products/gear-reducers/index.html', 'products/gear-reducers/ocr-rp-series/index.html'];
 
 // Spec §7: facts strip directly after the one-line description, above the hero.
-const FAMILY_ORDER = 'crumbs h1 fam-desc #facts fam-hero #specs #dimensions #how #build #apps #support #faq fam-cta';
+const FAMILY_ORDER = 'crumbs h1 fam-desc #facts fam-hero #specs #how #build #apps #support #faq fam-cta';
 
 let failed = 0;
 let passed = 0;
@@ -148,9 +148,17 @@ for (const fam of PN.filter((n) => n.specs && n.specs.rows && n.specs.rows.lengt
         if (c.type === 'number' && !/^-?\d+(\.\d+)?$/.test(cell)) bad.push(`${r.id}: ${c.key} cell "${cell}" is not a plain point-decimal number`);
       });
       const a = cells.last().find('a');
-      const href = `${prefix}/?service=${fam.serviceParam}&item=${r.id}#contact`;
-      if (a.attr('href') !== href) bad.push(`${r.id}: quote href "${a.attr('href')}", expected "${href}"`);
-      if (a.text().trim() !== UI.request_quote[lang]) bad.push(`${r.id}: quote label "${a.text().trim()}"`);
+      if (fam.datasheet) {
+        const href = '/' + fam.datasheet.replace('{size}', r.size).replace('{lang}', lang === 'en' ? '' : '-' + lang);
+        if (a.attr('href') !== href) bad.push(`${r.id}: data sheet href "${a.attr('href')}", expected "${href}"`);
+        if (a.attr('download') === undefined) bad.push(`${r.id}: data sheet link has no download attribute`);
+        if (!fs.existsSync(path.join(ROOT, href.slice(1)))) bad.push(`${r.id}: data sheet file missing ${href}`);
+        if (!a.text().trim().startsWith(UI.datasheet_download[lang])) bad.push(`${r.id}: data sheet label "${a.text().trim()}"`);
+      } else {
+        const href = `${prefix}/?service=${fam.serviceParam}&item=${r.id}#contact`;
+        if (a.attr('href') !== href) bad.push(`${r.id}: quote href "${a.attr('href')}", expected "${href}"`);
+        if (a.text().trim() !== UI.request_quote[lang]) bad.push(`${r.id}: quote label "${a.text().trim()}"`);
+      }
     });
     check(bad.length === 0, `${file}: ${bad.length} table problem(s): ${bad.slice(0, 5).join('; ')}`);
     // Filters: definitions inline, translated; no filter markup in the static HTML; script inlined once

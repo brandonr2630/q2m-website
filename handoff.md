@@ -72,7 +72,7 @@ The old section (PR #92) was removed 2026-10-14 and replaced by a clean-sheet ca
 
 - Three levels: hub `/products/` (tile grid of top-level categories), category `/products/gear-reducers/` (breadcrumb, intro, tile grid of children), family `/products/gear-reducers/ocr-rp-series/`. Same URLs under `/es/ /pt/ /nl/ /fr/`.
 - A Categories tree in a 240 px left rail on desktop (on family pages with a table the tree sits in `#specs` and the rail holds the filters); stacked above the content on phones.
-- OCR RP Series family page: summary, facts strip, hero image, a **280-row rating table** (model, size, ratio, n2, n1, kW, torque; sticky header and sticky model column), client-side filters (size select; ratio, kW and torque min/max; Clear; state kept in the URL, other query params preserved), 8 dimension drawings (`#dimensions`), each opening in a click-to-enlarge lightbox (Session 24), the migrated OCR copy (how it works, build, applications, support, FAQ with matching `FAQPage` schema), CTA.
+- OCR RP Series family page: summary, facts strip, hero image, a **280-row rating table** (model, size, ratio, n2, n1, kW, torque; sticky header and sticky model column), client-side filters (size select; ratio, kW and torque min/max; Clear; state kept in the URL, other query params preserved), a "Download data sheet" link per model row, pointing at the language-matched PDF in `assets/products/ocr-rp/datasheets/` (the PDFs are the dimension source; the on-page drawings and lightbox were removed 2026-11-07), the migrated OCR copy (how it works, build, applications, support, FAQ with matching `FAQPage` schema), CTA.
 - Every row has a **Request quote** link `/<lang>/?service=reducers&item=<row id>#contact`: the home page selects "Motors & Gear Reducers" and starts the message with `quote_prefill` (`Enquiry about RP85-3.64-110: `). Nothing is submitted.
 - Products nav item (desktop + mobile menu) and footer link on every page; `nav_products` key in all 5 languages.
 - `sitemap.xml` has a generated block between `<!-- products:start -->` and `<!-- products:end -->` (15 URLs, sitemap total 75). `llms.txt` and `llms-full.txt` have a generated block between `# products:start` and `# products:end`. Both are rewritten by `build-product-pages.js`; do not hand-edit inside the markers.
@@ -87,10 +87,9 @@ The old section (PR #92) was removed 2026-10-14 and replaced by a clean-sheet ca
 | `products-data/ocr-rp-rating.csv` | Source rating table (long format: table, source_page, size, ratio, quantity, unit, value) |
 | `products-data/ocr-rp-rows.js` | Generated rows (do not edit by hand) |
 | `import-spec-table.js` | CSV → rows module |
-| `build-product-images.js` | Builds `assets/products/ocr-rp/` (tile, hero, `dim-<size>.webp`) from the source folder; run by hand |
+| `build-product-images.js` | Builds `assets/products/ocr-rp/` (tile, hero) from the source folder; run by hand |
 | `build-product-pages.js` | Generates the 15 pages, the sitemap and llms blocks; part of `npm run build-all` |
 | `products-filters.js` | Client filter script, inlined into family pages at build time (no extra request) |
-| `products-lightbox.js` | Click-to-enlarge script for the dimension drawings, inlined into family pages at build time (native `<dialog>`, prev/next, arrow keys, Esc/backdrop/× to close) |
 | `verify-products.js` | Offline checks (structure, table, nav, tree, breadcrumbs, i18n, sitemap, llms, tracking, contrast, assets); must report `0 failed` |
 | `test-*.js` | Unit tests for the data, tree, importer and filters (`node test-products-data.js` etc.) |
 
@@ -108,7 +107,6 @@ The old section (PR #92) was removed 2026-10-14 and replaced by a clean-sheet ca
 
 **OWNER TODO (Products):**
 
-- [ ] Native review (nl, fr) of the Session 24 lightbox strings in `scripts/products-data.js`: `dims_enlarge`, `lb_prev`, `lb_next` (`lb_close` is plain). Same review as the list below.
 - [ ] Native review of nl and fr (and es, pt) strings: the `UI` keys in `scripts/products-data.js` (`products`, `all_categories`, `categories`, `crumb_home`, `request_quote`, `filter_models`, `filter_all`, `filter_clear`, `filter_count`, `filter_none`, `filter_min`, `filter_max`, `filter_active`, `col_*`, `spec_caption`, `crumbs_label`, `specs_heading`, `dims_heading`, `dims_weight`, `enquire_cta`, `brand_link`), the `HUB` and category texts, `nav_products` and `quote_prefill` in `index.html` translations. Terms to check in particular: **gear reducer**, **shaft-mounted**, **torque arm**, **rated power**.
 - [ ] After merge and deploy: Search Console → URL Inspection → Request indexing for the 5 hubs, the category and the family pages; resubmit `sitemap.xml` (75 URLs).
 - [ ] Search across the catalogue (spec stage 2) is **not built**.
@@ -377,3 +375,9 @@ Visitors can click a drawing in `#dimensions` on the OCR RP family page (all 5 l
 - **Deploy workflow:** `.github/workflows/deploy.yml` → `brandonr2630/projects/.github/workflows/deploy.yml@master`
 - **Build scripts:** `scripts/build-lang-pages.js`, `build-depot-langs.js`, `build-projects-langs.js` (`npm run build-all`); `scripts/update-sitemap-lastmod.js` (sitemap dates, also run by `build-all`); `scripts/upscale-images.js` only upscales/converts to `-upscaled.webp` — it does **not** watermark (the Session 7/12 watermarking was done with an ad-hoc `sharp` script that was never committed)
 - **Project board:** https://github.com/users/brandonr2630/projects/1
+
+## Data sheets (2026-11-07)
+
+- 40 PDFs (8 RP sizes x en/es/pt/nl/fr) built by `scripts/build-datasheets.py` from `scripts/products-data/ocr-rp-options.json`, `scripts/datasheet_strings.py` and crops from `scripts/extract-catalogue-diagrams.py`. Rebuild with `python scripts/build-datasheets.py [lang ...]`.
+- OCR gave consent to reuse the catalogue material. The on-page dimension drawings, lightbox script, `dim-*.webp` and related UI strings were removed; the PDF is the source of truth.
+- Still open: native review of nl/fr sheet text (`datasheet_strings.py`) and `datasheet_download` label.
