@@ -118,11 +118,11 @@ const NODES = [
       fr: "Réducteurs pendulaires fournis par Q² Machines depuis Trinidad, avec l'appui de nos capacités de réparation et d'entretien.", // native review
     },
     intro: {
-      en: 'Q² Machines is the authorised agent for O.C.R. s.r.l. of Modena, Italy. The OCR RP Series shaft-mounted reducers are built for conveyors, screw conveyors, elevators, mixers and crushers, and are supplied and supported by our team.',
-      es: 'Q² Machines es el agente autorizado de O.C.R. s.r.l., de Módena, Italia. Los reductores montados en eje OCR Serie RP están pensados para transportadores, transportadores de tornillo, elevadores, mezcladoras y trituradoras, y los suministra y respalda nuestro equipo.',
-      pt: 'A Q² Machines é a agente autorizada da O.C.R. s.r.l., de Módena, Itália. Os redutores de eixo montado OCR Série RP são projetados para transportadores, transportadores helicoidais, elevadores, misturadores e britadores, e são fornecidos e apoiados pela nossa equipe.',
-      nl: 'Q² Machines is de erkende agent van O.C.R. s.r.l. uit Modena, Italië. De opsteekreductoren van de OCR RP-serie zijn gebouwd voor transporteurs, schroeftransporteurs, elevators, mengers en brekers en worden door ons team geleverd en ondersteund.', // native review
-      fr: "Q² Machines est l'agent agréé d'O.C.R. s.r.l., de Modène, en Italie. Les réducteurs pendulaires OCR Série RP sont conçus pour les convoyeurs, les convoyeurs à vis, les élévateurs, les malaxeurs et les concasseurs, et sont fournis et soutenus par notre équipe.", // native review
+      en: 'Shaft-mounted gear reducers are the workhorses of industrial power transmission. They mount directly onto the driven machine’s shaft through a hollow bore, with a torque arm to maintain the gear reducer in a stable position during operation. With no foot mounting or base plate needed, they install quickly and easily. They are widely used on conveyors, bucket elevators, mixers, fine and coarse material washers and similar equipment. Q² Machines supplies, services and supports OCR shaft-mounted gear reducers from Modena, Italy.',
+      es: 'Los reductores montados en eje son los caballos de batalla de la transmisión de potencia industrial. Se montan directamente sobre el eje de la máquina accionada mediante un orificio hueco, con un brazo de reacción que mantiene el reductor en una posición estable durante el funcionamiento. Al no requerir patas de fijación ni bancada, se instalan de forma rápida y sencilla. Se utilizan ampliamente en transportadores, elevadores de cangilones, mezcladoras, lavadoras de materiales finos y gruesos y equipos similares. Q² Machines suministra, mantiene y respalda reductores montados en eje OCR de Módena, Italia.',
+      pt: 'Os redutores de eixo montado são os cavalos de batalha da transmissão de potência industrial. Montam-se diretamente no eixo da máquina acionada por meio de um furo oco, com um braço de reação que mantém o redutor em posição estável durante a operação. Como não precisam de fixação por pés nem de base, são instalados de forma rápida e simples. São muito utilizados em transportadores, elevadores de caçambas, misturadores, lavadores de materiais finos e grossos e equipamentos semelhantes. A Q² Machines fornece, faz a manutenção e dá suporte a redutores de eixo montado OCR de Módena, Itália.',
+      nl: 'Opsteekreductoren zijn de werkpaarden van de industriële krachtoverbrenging. Ze worden met een holle boring direct op de as van de aangedreven machine geplaatst, met een reactiearm die de reductor tijdens het bedrijf in een stabiele positie houdt. Omdat er geen voetbevestiging of basisplaat nodig is, zijn ze snel en eenvoudig te installeren. Ze worden veel gebruikt op transporteurs, emmerelevators, mengers, wassers voor fijn en grof materiaal en vergelijkbare apparatuur. Q² Machines levert, onderhoudt en ondersteunt OCR-opsteekreductoren uit Modena, Italië.', // native review
+      fr: "Les réducteurs pendulaires sont les piliers de la transmission de puissance industrielle. Ils se montent directement sur l’arbre de la machine entraînée par un alésage creux, avec un bras de réaction qui maintient le réducteur dans une position stable pendant le fonctionnement. Sans pattes de fixation ni châssis, ils s’installent rapidement et facilement. Ils sont largement utilisés sur les convoyeurs, les élévateurs à godets, les malaxeurs, les laveurs de matériaux fins et grossiers et les équipements similaires. Q² Machines fournit, entretient et soutient les réducteurs pendulaires OCR de Modène, en Italie.", // native review
     },
     tileImage: { file: TILE, w: 600, h: 600, alt: tileAlt },
   },
@@ -185,7 +185,7 @@ const NODES = [
       "title": "OCR RP Series Shaft-Mounted Gear Reducers — Trinidad | Q² Machines",
       "description": "Q² Machines is the authorised agent for OCR RP Series shaft-mounted gear reducers: 8 sizes, 0.6–155 kW, up to 11,280 Nm. Supplied from Trinidad.",
       "h1Html": "OCR RP Series <span>Shaft-Mounted Gear Reducers</span>",
-      "lead": "Q² Machines is the authorised agent for O.C.R. s.r.l. of Modena, Italy. The RP Series shaft-mounted reducers are built for conveyors, screw conveyors, elevators, mixers and crushers, and are supplied and supported by our team.",
+      "lead": "The RP Series shaft-mounted reducers are built for conveyors, screw conveyors, elevators, mixers and crushers, and are supplied and supported by our team.",
       "facts": [
         [
           "8",
@@ -253,7 +253,7 @@ const NODES = [
       "title": "Reductores Montados en Eje OCR Serie RP — Trinidad | Q² Machines",
       "description": "Q² Machines es el agente autorizado de los reductores montados en eje OCR Serie RP: 8 tamaños, 0,6–155 kW, hasta 11.280 Nm. Suministro desde Trinidad.",
       "h1Html": "Reductores Montados en Eje <span>OCR Serie RP</span>",
-      "lead": "Q² Machines es el agente autorizado de O.C.R. s.r.l., de Módena, Italia. Los reductores montados en eje de la Serie RP están pensados para transportadores, transportadores de tornillo, elevadores, mezcladoras y trituradoras, y los suministra y respalda nuestro equipo.",
+      "lead": "Los reductores montados en eje de la Serie RP están pensados para transportadores, transportadores de tornillo, elevadores, mezcladoras y trituradoras, y los suministra y respalda nuestro equipo.",
       "facts": [
         [
           "8",
@@ -321,7 +321,7 @@ const NODES = [
       "title": "Redutores de Eixo Montado OCR Série RP — Trinidad | Q² Machines",
       "description": "A Q² Machines é a agente autorizada dos redutores de eixo montado OCR Série RP: 8 tamanhos, 0,6–155 kW, até 11.280 Nm. Fornecimento a partir de Trinidad.",
       "h1Html": "Redutores de Eixo Montado <span>OCR Série RP</span>",
-      "lead": "A Q² Machines é a agente autorizada da O.C.R. s.r.l., de Módena, Itália. Os redutores de eixo montado da Série RP são projetados para transportadores, transportadores helicoidais, elevadores, misturadores e britadores, e são fornecidos e apoiados pela nossa equipe.",
+      "lead": "Os redutores de eixo montado da Série RP são projetados para transportadores, transportadores helicoidais, elevadores, misturadores e britadores, e são fornecidos e apoiados pela nossa equipe.",
       "facts": [
         [
           "8",
@@ -389,7 +389,7 @@ const NODES = [
       "title": "OCR RP-serie Opsteekreductoren — Trinidad | Q² Machines",
       "description": "Q² Machines is de erkende agent voor OCR RP-serie opsteekreductoren: 8 maten, 0,6–155 kW, tot 11.280 Nm. Geleverd vanuit Trinidad.",
       "h1Html": "OCR RP-serie <span>Opsteekreductoren</span>",
-      "lead": "Q² Machines is de erkende agent van O.C.R. s.r.l. uit Modena, Italië. De opsteekreductoren van de RP-serie zijn gebouwd voor transporteurs, schroeftransporteurs, elevators, mengers en brekers en worden door ons team geleverd en ondersteund.",
+      "lead": "De opsteekreductoren van de RP-serie zijn gebouwd voor transporteurs, schroeftransporteurs, elevators, mengers en brekers en worden door ons team geleverd en ondersteund.",
       "facts": [
         [
           "8",
@@ -457,7 +457,7 @@ const NODES = [
       "title": "Réducteurs Pendulaires OCR Série RP — Trinidad | Q² Machines",
       "description": "Q² Machines est l'agent agréé des réducteurs pendulaires OCR Série RP : 8 tailles, 0,6–155 kW, jusqu'à 11 280 Nm. Fourniture depuis Trinidad.",
       "h1Html": "Réducteurs Pendulaires <span>OCR Série RP</span>",
-      "lead": "Q² Machines est l'agent agréé d'O.C.R. s.r.l., de Modène, en Italie. Les réducteurs pendulaires de la Série RP sont conçus pour les convoyeurs, les convoyeurs à vis, les élévateurs, les malaxeurs et les concasseurs, et sont fournis et soutenus par notre équipe.",
+      "lead": "Les réducteurs pendulaires de la Série RP sont conçus pour les convoyeurs, les convoyeurs à vis, les élévateurs, les malaxeurs et les concasseurs, et sont fournis et soutenus par notre équipe.",
       "facts": [
         [
           "8",
