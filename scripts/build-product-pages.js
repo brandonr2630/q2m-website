@@ -272,7 +272,9 @@ function dimsHtml(lang, n) {
     const row = rows.find((r) => String(r.size) === String(d.size));
     const model = row ? row.model : String(d.size);
     const cap = `${model} · ${UI.dims_weight[code].replace('{kg}', d.weightKg)}`;
-    return `          <figure><button type="button" class="dim-open" aria-label="${attr(UI.dims_enlarge[code] + ': ' + model)}"><img src="${attr(asset(d.file))}" width="${d.w}" height="${d.h}" alt="${attr(d.alt[code])}" loading="lazy" decoding="async"></button><figcaption>${esc(cap)}</figcaption></figure>`;
+    const dsHref = datasheetHref(n, d.size, code);
+    const dsLink = dsHref ? ` · <a href="${attr(dsHref)}" download>${esc(UI.datasheet_download[code])}</a>` : '';
+    return `          <figure><button type="button" class="dim-open" aria-label="${attr(UI.dims_enlarge[code] + ': ' + model)}"><img src="${attr(asset(d.file))}" width="${d.w}" height="${d.h}" alt="${attr(d.alt[code])}" loading="lazy" decoding="async"></button><figcaption>${esc(cap)}${dsLink}</figcaption></figure>`;
   });
   // Click-to-enlarge: one native <dialog> shared by all drawings (Esc closes; the browser traps and restores focus).
   return `
@@ -300,7 +302,14 @@ ${DIM_LIGHTBOX_JS}
 // .spec-filter-slot on phones. On these pages the Categories tree moves into #specs (spec revision).
 const hasRows = (n) => !!(n && n.specs && n.specs.rows && n.specs.rows.length);
 const colLabel = (c, code) => UI[`col_${c.key}`][code];
+const datasheetHref = (n, size, code) => (n.datasheet ? asset(n.datasheet.replace('{size}', size).replace('{lang}', code === 'en' ? '' : `-${code}`)) : null);
 const quoteHref = (n, r) => `/?service=${n.serviceParam}&item=${encodeURIComponent(r.id)}#contact`;
+
+function rowLink(n, r, code) {
+  const ds = datasheetHref(n, r.size, code);
+  if (ds) return `<a href="${attr(ds)}" download>${esc(UI.datasheet_download[code])}<span class="vh"> ${esc(r.model)}</span></a>`;
+  return `<a href="${attr(quoteHref(n, r))}">${esc(UI.request_quote[code])}</a>`;
+}
 
 function specsHtml(lang, page) {
   const code = lang.code;
@@ -319,7 +328,7 @@ function specsHtml(lang, page) {
     const cells = cols.map((c) => (c.key === 'model'
       ? `<th scope="row">${esc(r.model)}</th>`
       : `<td class="num">${esc(r[c.key])}</td>`)).join('');
-    return `            <tr id="${attr(r.id)}"${data}>${cells}<td class="quote"><a href="${attr(quoteHref(n, r))}">${esc(UI.request_quote[code])}</a></td></tr>`;
+    return `            <tr id="${attr(r.id)}"${data}>${cells}<td class="quote">${rowLink(n, r, code)}</td></tr>`;
   }).join('\n');
   return `
       <section id="specs" class="content-block">
@@ -330,7 +339,7 @@ function specsHtml(lang, page) {
         <div class="spec-scroll" tabindex="0" role="region" aria-labelledby="${capId}">
           <table class="spec-table">
             <caption id="${capId}"><span class="cap-title">${esc(n.name[code])}: ${esc(UI.specs_heading[code])}</span> <span class="cap-note">${esc(UI.spec_caption[code])}</span></caption>
-            <thead><tr>${head}<th scope="col" class="col-quote"><span class="vh">${esc(UI.request_quote[code])}</span></th></tr></thead>
+            <thead><tr>${head}<th scope="col" class="col-quote"><span class="vh">${esc((n.datasheet ? UI.datasheet_download : UI.request_quote)[code])}</span></th></tr></thead>
             <tbody>
 ${body}
             </tbody>

@@ -16,6 +16,7 @@ const UI = {
   categories: { en: 'Categories', es: 'Categorías', pt: 'Categorias', nl: 'Categorieën', fr: 'Catégories' },
   crumb_home: { en: 'Home', es: 'Inicio', pt: 'Início', nl: 'Home', fr: 'Accueil' },
   request_quote: { en: 'Request a quote', es: 'Solicitar cotización', pt: 'Solicitar orçamento', nl: 'Offerte aanvragen', fr: 'Demander un devis' },
+  datasheet_download: { en: 'Download data sheet', es: 'Descargar ficha técnica', pt: 'Baixar ficha técnica', nl: 'Datasheet downloaden', fr: 'Télécharger la fiche technique' }, // native review (nl, fr)
   filter_models: { en: 'Filter models', es: 'Filtrar modelos', pt: 'Filtrar modelos', nl: 'Modellen filteren', fr: 'Filtrer les modèles' },
   filter_all: { en: 'All', es: 'Todos', pt: 'Todos', nl: 'Alle', fr: 'Tous' },
   filter_clear: { en: 'Clear filters', es: 'Borrar filtros', pt: 'Limpar filtros', nl: 'Filters wissen', fr: 'Effacer les filtres' },
@@ -158,6 +159,7 @@ const NODES = [
         alt: heroAlt,
       },
     ],
+    datasheet: 'assets/products/ocr-rp/datasheets/Q2M-OCR-RP-{size}-data-sheet{lang}.pdf',
     dimensions: DIMS.map(([size, weightKg, w, h]) => ({
       size,
       file: `assets/products/ocr-rp/dim-${size}.webp`,
