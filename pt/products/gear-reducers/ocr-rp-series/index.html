@@ -344,25 +344,6 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 .products-page .tree-toggle:focus-visible{color:var(--gold);outline:2px solid var(--gold);outline-offset:-2px;}
 .products-page .fam-hero{margin:0 0 40px;background:#fff;border:1px solid var(--border);}
 .products-page .fam-hero img{display:block;width:100%;height:auto;}
-.products-page .dim-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px;}
-.products-page .dim-grid figure{margin:0;background:#fff;border:1px solid var(--border);}
-.products-page .dim-grid img{display:block;width:100%;height:auto;}
-.products-page .dim-open{display:block;width:100%;padding:0;border:0;background:#fff;cursor:zoom-in;position:relative;}
-.products-page .dim-open::after{content:'+';position:absolute;right:8px;bottom:8px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.65);color:#fff;font:700 20px/28px 'Barlow Condensed',sans-serif;text-align:center;pointer-events:none;}
-.products-page .dim-open:hover::after,.products-page .dim-open:focus-visible::after{background:var(--gold);color:#000;}
-.products-page .dim-open:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
-.products-page .dim-lightbox{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;overflow:hidden;}
-.products-page .dim-lightbox::backdrop{background:rgba(0,0,0,.92);}
-.products-page .dim-lightbox[open]{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:56px 64px 20px;box-sizing:border-box;}
-.products-page .dim-lightbox img{background:#fff;max-width:100%;max-height:calc(100vh - 130px);width:auto;height:auto;object-fit:contain;}
-.products-page .dim-lb-cap{margin:0;color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:.5px;text-align:center;}
-.products-page .dim-lightbox button{position:absolute;background:rgba(0,0,0,.5);border:1px solid var(--text-3);color:var(--text);cursor:pointer;line-height:1;width:44px;height:44px;font-size:30px;border-radius:2px;display:flex;align-items:center;justify-content:center;}
-.products-page .dim-lightbox button:hover,.products-page .dim-lightbox button:focus-visible{border-color:var(--gold);color:var(--gold);}
-.products-page .dim-lb-close{top:12px;right:12px;}
-.products-page .dim-lb-prev{left:10px;top:50%;transform:translateY(-50%);}
-.products-page .dim-lb-next{right:10px;top:50%;transform:translateY(-50%);}
-@media(max-width:600px){.products-page .dim-lightbox[open]{display:block;overflow:auto;padding:56px 0 72px;}.products-page .dim-lightbox img{display:block;max-width:none;max-height:none;width:960px;}.products-page .dim-lb-cap{position:sticky;left:0;width:100vw;box-sizing:border-box;padding:12px 8px 0;}.products-page .dim-lb-close,.products-page .dim-lb-prev,.products-page .dim-lb-next{position:fixed;}.products-page .dim-lb-prev,.products-page .dim-lb-next{top:auto;bottom:12px;transform:none;}}
-.products-page .dim-grid figcaption{background:var(--ink-3);font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.5px;color:var(--text);padding:8px 12px;font-variant-numeric:tabular-nums;}
 .products-page .content-block h3{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;letter-spacing:.5px;color:var(--text);margin:22px 0 8px;text-transform:none;}
 .products-page .facts-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-top:2px solid var(--gold);margin:0 0 48px;}
 .products-page .fact{background:var(--ink-3);padding:18px 14px;display:flex;flex-direction:column;gap:6px;min-width:0;}
@@ -429,7 +410,6 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 .products-page .fact:last-child{grid-column:1/-1;}
 }
 @media(max-width:768px){.products-page.page-section{padding-top:140px;}}
-@media(max-width:600px){.products-page .dim-grid{grid-template-columns:minmax(0,1fr);}}
 </style>
 </head>
 <body>
@@ -821,66 +801,6 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
             </tbody>
           </table>
         </div>
-      </section>
-      <section id="dimensions" class="content-block">
-        <h2>Desenhos dimensionais</h2>
-        <div class="dim-grid">
-          <figure><button type="button" class="dim-open" aria-label="Ampliar desenho: RP 85"><img src="/assets/products/ocr-rp/dim-85.webp" width="1400" height="838" alt="Desenho dimensional do redutor de eixo montado OCR RP 85" loading="lazy" decoding="async"></button><figcaption>RP 85 · Peso: 18 kg · <a href="/assets/products/ocr-rp/datasheets/Q2M-OCR-RP-85-data-sheet-pt.pdf" download="">Baixar ficha técnica</a></figcaption></figure>
-          <figure><button type="button" class="dim-open" aria-label="Ampliar desenho: RP 105"><img src="/assets/products/ocr-rp/dim-105.webp" width="1400" height="836" alt="Desenho dimensional do redutor de eixo montado OCR RP 105" loading="lazy" decoding="async"></button><figcaption>RP 105 · Peso: 27 kg · <a href="/assets/products/ocr-rp/datasheets/Q2M-OCR-RP-105-data-sheet-pt.pdf" download="">Baixar ficha técnica</a></figcaption></figure>
-          <figure><button type="button" class="dim-open" aria-label="Ampliar desenho: RP 125"><img src="/assets/products/ocr-rp/dim-125.webp" width="1400" height="838" alt="Desenho dimensional do redutor de eixo montado OCR RP 125" loading="lazy" decoding="async"></button><figcaption>RP 125 · Peso: 41 kg · <a href="/assets/products/ocr-rp/datasheets/Q2M-OCR-RP-125-data-sheet-pt.pdf" download="">Baixar ficha técnica</a></figcaption></figure>
-          <figure><button type="button" class="dim-open" aria-label="Ampliar desenho: RP 150"><img src="/assets/products/ocr-rp/dim-150.webp" width="1400" height="836" alt="Desenho dimensional do redutor de eixo montado OCR RP 150" loading="lazy" decoding="async"></button><figcaption>RP 150 · Peso: 62 kg · <a href="/assets/products/ocr-rp/datasheets/Q2M-OCR-RP-150-data-sheet-pt.pdf" download="">Baixar ficha técnica</a></figcaption></figure>
-          <figure><button type="button" class="dim-open" aria-label="Ampliar desenho: RP 165"><img src="/assets/products/ocr-rp/dim-165.webp" width="1400" height="836" alt="Desenho dimensional do redutor de eixo montado OCR RP 165" loading="lazy" decoding="async"></button><figcaption>RP 165 · Peso: 87 kg · <a href="/assets/products/ocr-rp/datasheets/Q2M-OCR-RP-165-data-sheet-pt.pdf" download="">Baixar ficha técnica</a></figcaption></figure>
-          <figure><button type="button" class="dim-open" aria-label="Ampliar desenho: RP 180"><img src="/assets/products/ocr-rp/dim-180.webp" width="1400" height="839" alt="Desenho dimensional do redutor de eixo montado OCR RP 180" loading="lazy" decoding="async"></button><figcaption>RP 180 · Peso: 107 kg · <a href="/assets/products/ocr-rp/datasheets/Q2M-OCR-RP-180-data-sheet-pt.pdf" download="">Baixar ficha técnica</a></figcaption></figure>
-          <figure><button type="button" class="dim-open" aria-label="Ampliar desenho: RP 210"><img src="/assets/products/ocr-rp/dim-210.webp" width="1400" height="838" alt="Desenho dimensional do redutor de eixo montado OCR RP 210" loading="lazy" decoding="async"></button><figcaption>RP 210 · Peso: 188 kg · <a href="/assets/products/ocr-rp/datasheets/Q2M-OCR-RP-210-data-sheet-pt.pdf" download="">Baixar ficha técnica</a></figcaption></figure>
-          <figure><button type="button" class="dim-open" aria-label="Ampliar desenho: RP 250"><img src="/assets/products/ocr-rp/dim-250.webp" width="1400" height="837" alt="Desenho dimensional do redutor de eixo montado OCR RP 250" loading="lazy" decoding="async"></button><figcaption>RP 250 · Peso: 315 kg · <a href="/assets/products/ocr-rp/datasheets/Q2M-OCR-RP-250-data-sheet-pt.pdf" download="">Baixar ficha técnica</a></figcaption></figure>
-        </div>
-        <dialog class="dim-lightbox" aria-label="Desenhos dimensionais">
-          <button type="button" class="dim-lb-close" aria-label="Fechar">×</button>
-          <button type="button" class="dim-lb-prev" aria-label="Desenho anterior">‹</button>
-          <button type="button" class="dim-lb-next" aria-label="Desenho seguinte">›</button>
-          <img alt="">
-          <p class="dim-lb-cap"></p>
-        </dialog>
-        <script>
-// Click-to-enlarge for the dimension drawings. Inlined into family pages by build-product-pages.js.
-// One native <dialog>: Esc closes, focus is trapped and restored by the browser. No dependencies.
-(function () {
-  var grid = document.querySelector('.dim-grid');
-  var dlg = document.querySelector('.dim-lightbox');
-  if (!grid || !dlg || typeof dlg.showModal !== 'function') return;
-  var big = dlg.querySelector('img');
-  var cap = dlg.querySelector('.dim-lb-cap');
-  var figs = Array.prototype.slice.call(grid.querySelectorAll('figure'));
-  var cur = 0;
-
-  function show(i) {
-    cur = (i + figs.length) % figs.length;
-    var f = figs[cur];
-    var img = f.querySelector('img');
-    big.src = img.currentSrc || img.src;
-    big.alt = img.alt;
-    cap.textContent = f.querySelector('figcaption').textContent;
-  }
-  function open(i) {
-    show(i);
-    if (!dlg.open) dlg.showModal();
-  }
-
-  figs.forEach(function (f, i) {
-    f.querySelector('.dim-open').addEventListener('click', function () { open(i); });
-  });
-  dlg.querySelector('.dim-lb-close').addEventListener('click', function () { dlg.close(); });
-  dlg.querySelector('.dim-lb-prev').addEventListener('click', function () { show(cur - 1); });
-  dlg.querySelector('.dim-lb-next').addEventListener('click', function () { show(cur + 1); });
-  // Click on the backdrop (the dialog element itself, outside its content box) closes.
-  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
-  dlg.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft') show(cur - 1);
-    else if (e.key === 'ArrowRight') show(cur + 1);
-  });
-  dlg.addEventListener('close', function () { big.removeAttribute('src'); });
-})();
-        </script>
       </section>
       <section id="how" class="content-block">
         <h2>Como funciona um redutor de eixo montado</h2>

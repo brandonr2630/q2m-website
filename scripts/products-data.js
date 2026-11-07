@@ -45,12 +45,6 @@ const UI = {
   filter_min: { en: 'Min', es: 'Mín.', pt: 'Mín.', nl: 'Min.', fr: 'Min.' }, // native review (nl, fr)
   filter_max: { en: 'Max', es: 'Máx.', pt: 'Máx.', nl: 'Max.', fr: 'Max.' }, // native review (nl, fr)
   filter_active: { en: 'active: {n}', es: 'activos: {n}', pt: 'ativos: {n}', nl: 'actief: {n}', fr: 'actifs : {n}' }, // native review (nl, fr)
-  dims_heading: { en: 'Dimension drawings', es: 'Planos dimensionales', pt: 'Desenhos dimensionais', nl: 'Maattekeningen', fr: 'Plans dimensionnels' },
-  dims_weight: { en: 'Weight: {kg} kg', es: 'Peso: {kg} kg', pt: 'Peso: {kg} kg', nl: 'Gewicht: {kg} kg', fr: 'Poids : {kg} kg' },
-  dims_enlarge: { en: 'Enlarge drawing', es: 'Ampliar plano', pt: 'Ampliar desenho', nl: 'Tekening vergroten', fr: 'Agrandir le plan' }, // native review (nl, fr)
-  lb_close: { en: 'Close', es: 'Cerrar', pt: 'Fechar', nl: 'Sluiten', fr: 'Fermer' },
-  lb_prev: { en: 'Previous drawing', es: 'Plano anterior', pt: 'Desenho anterior', nl: 'Vorige tekening', fr: 'Plan précédent' }, // native review (nl, fr)
-  lb_next: { en: 'Next drawing', es: 'Plano siguiente', pt: 'Desenho seguinte', nl: 'Volgende tekening', fr: 'Plan suivant' }, // native review (nl, fr)
   quote_prefill: { en: 'Enquiry about {model}: ', es: 'Consulta sobre {model}: ', pt: 'Consulta sobre {model}: ', nl: 'Aanvraag over {model}: ', fr: 'Demande concernant {model} : ' },
   enquire_cta: { en: 'Enquire about this model', es: 'Consultar sobre este modelo', pt: 'Consultar sobre este modelo', nl: 'Informeer naar dit model', fr: 'Se renseigner sur ce modèle' },
   brand_link: { en: 'Visit the manufacturer', es: 'Visite al fabricante', pt: 'Visite o fabricante', nl: 'Bezoek de fabrikant', fr: 'Visiter le fabricant' },
@@ -75,28 +69,6 @@ const heroAlt = {
   nl: 'Blauwe OCR RP-serie opsteekreductor op een werkbank, met de holle uitgaande as en de afgedekte ingaande as', // native review
   fr: "Réducteur pendulaire OCR Série RP bleu posé sur un établi d'atelier, montrant l'arbre de sortie creux et l'arbre d'entrée protégé", // native review
 };
-
-function dimAlt(size) {
-  return {
-    en: `OCR RP ${size} shaft-mounted gear reducer dimensions drawing`,
-    es: `Plano dimensional del reductor montado en eje OCR RP ${size}`,
-    pt: `Desenho dimensional do redutor de eixo montado OCR RP ${size}`,
-    nl: `Maattekening van de OCR RP ${size} opsteekreductor`, // native review
-    fr: `Plan dimensionnel du réducteur pendulaire OCR RP ${size}`, // native review
-  };
-}
-
-// [size, weightKg, width px, height px] (pixel sizes read from the files)
-const DIMS = [
-  [85, 18, 1400, 838],
-  [105, 27, 1400, 836],
-  [125, 41, 1400, 838],
-  [150, 62, 1400, 836],
-  [165, 87, 1400, 836],
-  [180, 107, 1400, 839],
-  [210, 188, 1400, 838],
-  [250, 315, 1400, 837],
-];
 
 const NODES = [
   {
@@ -160,14 +132,6 @@ const NODES = [
       },
     ],
     datasheet: 'assets/products/ocr-rp/datasheets/Q2M-OCR-RP-{size}-data-sheet{lang}.pdf',
-    dimensions: DIMS.map(([size, weightKg, w, h]) => ({
-      size,
-      file: `assets/products/ocr-rp/dim-${size}.webp`,
-      w,
-      h,
-      weightKg,
-      alt: dimAlt(size),
-    })),
     specs: {
       columns: [
         { key: 'model', type: 'text', sticky: true },

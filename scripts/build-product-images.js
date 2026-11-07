@@ -7,7 +7,6 @@ const sharp = require('sharp');
 
 const SRC = process.env.OCR_SRC || 'Z:/09-DevPro/projects/q2m-website/assets/ocr';
 const OUT = path.join(__dirname, '..', 'assets', 'products', 'ocr-rp');
-const SIZES = [85, 105, 125, 150, 165, 180, 210, 250];
 
 const jobs = [
   {
@@ -21,10 +20,6 @@ const jobs = [
     name: 'hero', src: 'pics/P1101652.jpg.jpeg', jpg: true,
     make: (s) => s.rotate().resize({ width: 1200, withoutEnlargement: true })
   },
-  ...SIZES.map((n) => ({
-    name: 'dim-' + n, src: 'dims/ocr-rp' + n + '-dimensions.png', jpg: false,
-    make: (s) => s.resize({ width: 1400, withoutEnlargement: true })
-  }))
 ];
 
 (async () => {

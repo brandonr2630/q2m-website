@@ -27,7 +27,7 @@ assert.strictEqual(category.order, 10);
 // rows
 assert.strictEqual(family.specs.rows.length, 280);
 
-// dimension weights vs CSV (read independently)
+// rating CSV carries 8 sizes (read independently)
 const csv = fs.readFileSync(path.join(__dirname, 'products-data', 'ocr-rp-rating.csv'), 'utf8').trim().split(/\r?\n/);
 const weights = {};
 for (const line of csv) {
@@ -35,11 +35,6 @@ for (const line of csv) {
   if (c[4] === 'weight_kg') weights[c[2]] = Number(c[6]);
 }
 assert.strictEqual(Object.keys(weights).length, 8);
-assert.strictEqual(family.dimensions.length, 8);
-for (const d of family.dimensions) {
-  assert.strictEqual(d.weightKg, weights[String(d.size)], `weight for size ${d.size}`);
-  assert.ok(d.w > 0 && d.h > 0, `dim ${d.size} w/h`);
-}
 
 // referenced image files exist
 function checkFile(f) {
@@ -48,7 +43,6 @@ function checkFile(f) {
 for (const n of NODES) {
   if (n.tileImage) checkFile(n.tileImage.file);
   for (const im of n.images || []) { checkFile(im.file); if (im.jpg) checkFile(im.jpg); }
-  for (const d of n.dimensions || []) checkFile(d.file);
 }
 assert.strictEqual(category.tileImage.file, 'assets/products/ocr-rp/tile.webp');
 
@@ -63,7 +57,6 @@ for (const n of NODES) {
   if (isCategory) langs5(n.intro, `${n.id}.intro`);
   if (n.tileImage) langs5(n.tileImage.alt, `${n.id}.tileImage.alt`);
   (n.images || []).forEach((im, i) => langs5(im.alt, `${n.id}.images[${i}].alt`));
-  (n.dimensions || []).forEach((d) => langs5(d.alt, `${n.id}.dim.${d.size}.alt`));
   langs5(n.name, `${n.id}.name`);
   langs5(n.description, `${n.id}.description`);
 }
@@ -71,13 +64,12 @@ for (const n of NODES) {
 // UI keys
 const UI_KEYS = ['products', 'all_categories', 'categories', 'crumb_home', 'request_quote', 'datasheet_download', 'filter_models', 'filter_all',
   'filter_clear', 'filter_count', 'filter_none', 'col_model', 'col_size', 'col_ratio', 'col_n2', 'col_n1', 'col_kw',
-  'col_torque', 'spec_caption', 'dims_heading', 'dims_weight', 'dims_enlarge', 'lb_close', 'lb_prev', 'lb_next', 'quote_prefill', 'enquire_cta', 'brand_link',
+  'col_torque', 'spec_caption', 'quote_prefill', 'enquire_cta', 'brand_link',
   'filter_min', 'filter_max', 'filter_active'];
 for (const k of UI_KEYS) langs5(UI[k], `UI.${k}`);
 for (const l of T.LANG_CODES) {
   assert.ok(UI.filter_active[l].includes('{n}'), `filter_active ${l}`);
   assert.ok(UI.filter_count[l].includes('{n}') && UI.filter_count[l].includes('{total}'), `filter_count ${l}`);
-  assert.ok(UI.dims_weight[l].includes('{kg}'), `dims_weight ${l}`);
   assert.ok(UI.quote_prefill[l].includes('{model}'), `quote_prefill ${l}`);
 }
 

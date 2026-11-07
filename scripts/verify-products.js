@@ -30,7 +30,7 @@ const LANGS = ['en', 'es', 'pt', 'nl', 'fr'];
 const PAGES = ['products/index.html', 'products/gear-reducers/index.html', 'products/gear-reducers/ocr-rp-series/index.html'];
 
 // Spec §7: facts strip directly after the one-line description, above the hero.
-const FAMILY_ORDER = 'crumbs h1 fam-desc #facts fam-hero #specs #dimensions #how #build #apps #support #faq fam-cta';
+const FAMILY_ORDER = 'crumbs h1 fam-desc #facts fam-hero #specs #how #build #apps #support #faq fam-cta';
 
 let failed = 0;
 let passed = 0;
