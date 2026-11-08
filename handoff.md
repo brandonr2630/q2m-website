@@ -394,3 +394,9 @@ Visitors could click a drawing in `#dimensions` on the OCR RP family page (all 5
 - **Deploy workflow:** `.github/workflows/deploy.yml` → `brandonr2630/projects/.github/workflows/deploy.yml@master`
 - **Build scripts:** `scripts/build-lang-pages.js`, `build-depot-langs.js`, `build-projects-langs.js` (`npm run build-all`); `scripts/update-sitemap-lastmod.js` (sitemap dates, also run by `build-all`); `scripts/upscale-images.js` only upscales/converts to `-upscaled.webp` — it does **not** watermark (the Session 7/12 watermarking was done with an ad-hoc `sharp` script that was never committed)
 - **Project board:** https://github.com/users/brandonr2630/projects/1
+
+## Gear Reducers category intro (2026-11-08)
+
+- The `/products/gear-reducers/` page (5 languages) now carries the owner's narrative: intro, two paragraphs, an interactive 3D two-stage helical gearbox (12:1 = 3:1 x 4:1), the reduction-ratio worked example and the sizing checklist, then the family tiles. Copy and figure strings live in `scripts/products-gear-intro.js` (`NARRATIVE`, `GEARBOX`; `intro` in `products-data.js` is `NARRATIVE.<lang>.p1`); the figure script is `scripts/products-gearbox.js` (inlined by `build-product-pages.js`, only on pages whose node has `narrative`).
+- three.js r128 and OrbitControls are self-hosted in `assets/vendor/three/` (MIT, `LICENSE` alongside) and loaded only when the figure nears the viewport; the figure is hidden until its script runs, and shows a message if WebGL fails. No explode view; labels are six short chips (three shafts, two stages, oil sump), stage chips hidden under 600 px.
+- es/pt/nl/fr narrative and figure strings are my translations: native review needed. The previous category intro paragraph (shaft-mounted, OCR supply from Modena) is no longer on the page. Not checked: Safari/iOS, low-end phones (WebGL load).
