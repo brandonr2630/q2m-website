@@ -22,6 +22,7 @@ const UI = {
   filter_clear: { en: 'Clear filters', es: 'Borrar filtros', pt: 'Limpar filtros', nl: 'Filters wissen', fr: 'Effacer les filtres' },
   filter_count: { en: 'Showing {n} of {total} models', es: 'Mostrando {n} de {total} modelos', pt: 'Mostrando {n} de {total} modelos', nl: '{n} van {total} modellen getoond', fr: '{n} modèles sur {total} affichés' },
   filter_none: { en: 'No models match these filters.', es: 'Ningún modelo coincide con estos filtros.', pt: 'Nenhum modelo corresponde a estes filtros.', nl: 'Geen modellen voldoen aan deze filters.', fr: 'Aucun modèle ne correspond à ces filtres.' },
+  col_datasheet: { en: 'Product Data Sheet', es: 'Ficha técnica del producto', pt: 'Ficha técnica do produto', nl: 'Productdatasheet', fr: 'Fiche technique du produit' }, // native review
   col_model: { en: 'Model', es: 'Modelo', pt: 'Modelo', nl: 'Model', fr: 'Modèle' },
   col_size: { en: 'Size', es: 'Tamaño', pt: 'Tamanho', nl: 'Maat', fr: 'Taille' },
   col_ratio: { en: 'Ratio', es: 'Relación', pt: 'Relação', nl: 'Overbrenging', fr: 'Rapport' },

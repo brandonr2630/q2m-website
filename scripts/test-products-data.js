@@ -63,7 +63,7 @@ for (const n of NODES) {
 
 // UI keys
 const UI_KEYS = ['products', 'all_categories', 'categories', 'crumb_home', 'request_quote', 'datasheet_download', 'filter_models', 'filter_all',
-  'filter_clear', 'filter_count', 'filter_none', 'col_model', 'col_size', 'col_ratio', 'col_n2', 'col_n1', 'col_kw',
+  'filter_clear', 'filter_count', 'filter_none', 'col_datasheet', 'col_model', 'col_size', 'col_ratio', 'col_n2', 'col_n1', 'col_kw',
   'col_torque', 'spec_caption', 'quote_prefill', 'enquire_cta', 'brand_link',
   'filter_min', 'filter_max', 'filter_active'];
 for (const k of UI_KEYS) langs5(UI[k], `UI.${k}`);

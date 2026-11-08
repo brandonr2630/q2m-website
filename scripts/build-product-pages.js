@@ -269,11 +269,12 @@ ${figs.join('\n')}
 const hasRows = (n) => !!(n && n.specs && n.specs.rows && n.specs.rows.length);
 const colLabel = (c, code) => UI[`col_${c.key}`][code];
 const datasheetHref = (n, size, code) => (n.datasheet ? asset(n.datasheet.replace('{size}', size).replace('{lang}', code === 'en' ? '' : `-${code}`)) : null);
+const DS_ICON = '/assets/products/icons/pdf-datasheet.webp';
 const quoteHref = (n, r) => `/?service=${n.serviceParam}&item=${encodeURIComponent(r.id)}#contact`;
 
 function rowLink(n, r, code) {
   const ds = datasheetHref(n, r.size, code);
-  if (ds) return `<a href="${attr(ds)}" download>${esc(UI.datasheet_download[code])}<span class="vh"> ${esc(r.model)}</span></a>`;
+  if (ds) return `<a class="ds-link" href="${attr(ds)}" download title="${attr(UI.datasheet_download[code])}"><img src="${DS_ICON}" width="28" height="28" alt="" loading="lazy" decoding="async"><span class="vh">${esc(UI.datasheet_download[code])} ${esc(r.model)}</span></a>`;
   return `<a href="${attr(quoteHref(n, r))}">${esc(UI.request_quote[code])}</a>`;
 }
 
@@ -305,7 +306,9 @@ function specsHtml(lang, page) {
         <div class="spec-scroll" tabindex="0" role="region" aria-labelledby="${capId}">
           <table class="spec-table">
             <caption id="${capId}"><span class="cap-title">${esc(n.name[code])}: ${esc(UI.specs_heading[code])}</span> <span class="cap-note">${esc(UI.spec_caption[code])}</span></caption>
-            <thead><tr>${head}<th scope="col" class="col-quote"><span class="vh">${esc((n.datasheet ? UI.datasheet_download : UI.request_quote)[code])}</span></th></tr></thead>
+            <thead><tr>${head}${n.datasheet
+              ? `<th scope="col" class="col-quote col-ds"><span class="col-name">${esc(UI.col_datasheet[code])}</span></th>`
+              : `<th scope="col" class="col-quote"><span class="vh">${esc(UI.request_quote[code])}</span></th>`}</tr></thead>
             <tbody>
 ${body}
             </tbody>
@@ -482,6 +485,10 @@ const PRODUCTS_CSS = `
 .products-page .spec-table thead th.col-model{left:0;z-index:3;}
 .products-page .spec-table tbody tr:hover>*{background:linear-gradient(var(--gold-dim),var(--gold-dim)),var(--ink);}
 .products-page .spec-table .quote a{display:inline-block;padding:2px 0;}
+.products-page .spec-table .col-ds,.products-page .spec-table td.quote:has(.ds-link){text-align:center;}
+.products-page .spec-table .ds-link{display:inline-flex;padding:3px;background:#fff;border-radius:6px;line-height:0;outline-offset:2px;}
+.products-page .spec-table .ds-link:hover,.products-page .spec-table .ds-link:focus-visible{box-shadow:0 0 0 2px var(--gold);}
+.products-page .spec-table .ds-link img{display:block;width:28px;height:28px;}
 .products-page .spec-none td{white-space:normal;padding:16px 12px;}
 .products-page .spec-none .filters-clear{margin-left:8px;}
 @media(max-width:1024px){.products-page.page-section{padding-top:170px;}}
