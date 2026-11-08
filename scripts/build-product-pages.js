@@ -412,14 +412,19 @@ function narrativeHtml(code, nar) {
 function listingHtml(lang, page) {
   const code = lang.code;
   const p = pageText(page, code);
-  const parts = [crumbsHtml(lang, page), `
-      <h1>${p.h1Html}</h1>
-      <p class="cat-intro">${esc(p.lead)}</p>`];
+  const parts = [crumbsHtml(lang, page)];
   const nar = page.node && page.node.narrative && page.node.narrative[code];
+  // Gear Reducers: the product tiles come first, above the heading and narrative
+  if (nar) parts.push(`
+      <div class="tiles-first">${tilesHtml(lang, nodeId(page))}
+      </div>`);
+  parts.push(`
+      <h1>${p.h1Html}</h1>
+      <p class="cat-intro">${esc(p.lead)}</p>`);
   if (nar) parts.push(narrativeHtml(code, nar));
   if (page.kind === 'hub') parts.push(`
       <h2 class="tiles-head">${esc(UI.all_categories[code])}</h2>`);
-  parts.push(tilesHtml(lang, nodeId(page)));
+  if (!nar) parts.push(tilesHtml(lang, nodeId(page)));
   if (page.kind === 'hub') parts.push(`
       <div class="cat-note">
         <p>${esc(HUB[code].moreLine)}</p>
@@ -456,6 +461,7 @@ const PRODUCTS_CSS = `
 .products-page .tile:hover .tile-name,.products-page .tile:focus-visible .tile-name{color:var(--gold);}
 .products-page .tile-text{justify-content:center;min-height:120px;}
 .products-page .cat-narr{margin:0 0 18px;}
+.products-page .tiles-first{margin:0 0 36px;}
 .products-page .cat-ratio,.products-page .cat-sizing{max-width:720px;}
 .products-page .cat-ratio h2,.products-page .cat-sizing h2{margin-top:36px;}
 .products-page .callout{border-left:3px solid var(--gold);background:var(--ink-3);padding:16px 20px;margin:0 0 20px;}
