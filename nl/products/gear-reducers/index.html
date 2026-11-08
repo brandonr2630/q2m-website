@@ -302,19 +302,13 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 .products-page .gbx{margin:28px 0 36px;padding:12px;background:var(--ink-3);border:1px solid var(--border);border-radius:2px;max-width:860px;}
 .products-page .gbx[hidden]{display:none;}
 .products-page .gbx-stage{position:relative;height:440px;overflow:hidden;border:1px solid var(--border);background:radial-gradient(ellipse at 50% 35%,#2a3036,#0d0f11);touch-action:pan-y;}
-.products-page .gbx-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;}
-.products-page .gbx-stage canvas:active{cursor:grabbing;}
-.products-page .gbx-hint{position:absolute;right:10px;bottom:8px;font-size:12px;color:var(--text-2);pointer-events:none;}
+.products-page .gbx-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
 .products-page .gbx-nogl{display:none;position:absolute;inset:0;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-2);font-size:15px;}
 .products-page .gbx-stage.nogl .gbx-nogl{display:flex;}
-.products-page .gbx-stage.nogl canvas,.products-page .gbx-stage.nogl .gbx-hint{display:none;}
+.products-page .gbx-stage.nogl canvas{display:none;}
 .products-page .gbx-lbl{position:absolute;left:0;top:0;pointer-events:none;white-space:nowrap;will-change:transform;opacity:0;background:rgba(13,15,17,.82);color:var(--text);border:1px solid var(--border);padding:2px 8px;font:600 13px/1.3 'Barlow Condensed',sans-serif;letter-spacing:.5px;}
 .products-page .gbx-lbl.on{opacity:1;}
 .products-page .gbx-lbl.gbx-stage-lbl{border-color:var(--gold);color:var(--gold);}
-.products-page .gbx-ctrls{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-top:12px;font-size:14px;color:var(--text);}
-.products-page .gbx-ctrls button{font:inherit;color:var(--text);background:var(--ink);border:1px solid var(--border);border-radius:2px;padding:6px 14px;min-height:36px;cursor:pointer;}
-.products-page .gbx-ctrls button:hover,.products-page .gbx-ctrls button:focus-visible{border-color:var(--gold);color:var(--gold);}
-.products-page .gbx-ctrls label{display:flex;align-items:center;gap:6px;cursor:pointer;}
 .products-page .gbx figcaption{font-size:14px;color:var(--text-2);line-height:1.5;margin-top:10px;}
 @media (max-width:600px){.products-page .gbx-stage{height:340px;}.products-page .gbx-lbl{font-size:12px;padding:1px 6px;}.products-page .gbx-lbl.gbx-stage-lbl{display:none;}}
 .products-page .cat-note p{font-size:15px;color:var(--text-2);line-height:1.7;margin:0 0 8px;}
@@ -507,15 +501,10 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
       <p class="cat-intro cat-narr">Snelheid en koppel wegen tegen elkaar op: verlaag de snelheid tot een tiende en het koppel op de uitgaande as wordt tien keer zo groot, min de verliezen. Deze koppelvermenigvuldiging is ook een van de factoren bij het kiezen van een reductor voor een bepaalde toepassing.</p>
       <p class="cat-intro cat-narr">Tandwielreductoren gebruiken een stelsel van in elkaar grijpende tandwielen van verschillende grootte om het toerental te verlagen en het koppel te verhogen. Een klein tandwiel (rondsel) dat een groter tandwiel aandrijft, laat dit langzamer en met meer koppel draaien. Hogere overbrengingsverhoudingen worden bereikt door trappen te stapelen, en de verhoudingen van de trappen vermenigvuldigen zich: een trap van 3:1 gevolgd door een trap van 4:1 geeft 12:1. Een reductor heeft doorgaans een ingaande en een uitgaande as. De motor wordt gekoppeld aan de ingaande as, terwijl het aan te drijven onderdeel wordt gekoppeld aan de uitgang van de reductor. De ingaande as wordt meestal de ‘snellopende as’ genoemd. De uitgang is ofwel een massieve as die met een koppeling aan de aangedreven machine is verbonden, ofwel een holle boring die over de as van de machine zelf schuift. De opsteekuitvoering met holle boring wordt veel gebruikt bij aandrijvingen van bandtransporteurs, waar een reactiearm de behuizing tegen draaien behoedt. Wanneer motor en reductor als één eenheid worden geleverd, spreekt men van een motorreductor.</p>
       <figure class="gbx" id="gbx" hidden="">
-        <div class="gbx-stage" role="img" aria-label="Interactieve 3D-doorsnede van een tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal: ingaande, tussen- en uitgaande as in een behuizing met oliesump.">
-          <canvas></canvas><div class="gbx-nogl">Dit 3D-model heeft WebGL nodig, dat in deze browser niet beschikbaar is.</div><div class="gbx-hint">Sleep om te draaien</div>
+        <div class="gbx-stage" role="img" aria-label="Geanimeerde 3D-doorsnede van een tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal: ingaande, tussen- en uitgaande as in een behuizing met oliesump.">
+          <canvas></canvas><div class="gbx-nogl">Dit 3D-model heeft WebGL nodig, dat in deze browser niet beschikbaar is.</div>
         </div>
-        <div class="gbx-ctrls">
-          <button type="button" data-act="run">Pauze</button>
-          <label><input type="checkbox" data-act="cut" checked=""> Doorsnede</label>
-          <button type="button" data-act="reset">Weergave herstellen</button>
-        </div>
-        <figcaption>Tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal (3:1 × 4:1). Sleep om rond te kijken.</figcaption>
+        <figcaption>Tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal (3:1 × 4:1).</figcaption>
       </figure>
       <section class="content-block cat-ratio">
         <h2>De reductieverhouding kiezen</h2>
@@ -631,9 +620,9 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 </script>
 
 
-<script type="application/json" id="gbx-data">{"s":{"aria":"Interactieve 3D-doorsnede van een tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal: ingaande, tussen- en uitgaande as in een behuizing met oliesump.","hint":"Sleep om te draaien","pause":"Pauze","run":"Hervat","cutaway":"Doorsnede","reset":"Weergave herstellen","nogl":"Dit 3D-model heeft WebGL nodig, dat in deze browser niet beschikbaar is.","caption":"Tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal (3:1 × 4:1). Sleep om rond te kijken.","lIn":"Ingaande as · 1.750 rpm","lMid":"Tussenas","lOut":"Uitgaande as · 146 rpm","lS1":"Trap 1 · 3:1","lS2":"Trap 2 · 4:1","lSump":"Oliesump"}}</script>
+<script type="application/json" id="gbx-data">{"s":{"aria":"Geanimeerde 3D-doorsnede van een tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal: ingaande, tussen- en uitgaande as in een behuizing met oliesump.","nogl":"Dit 3D-model heeft WebGL nodig, dat in deze browser niet beschikbaar is.","caption":"Tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal (3:1 × 4:1).","lIn":"Ingaande as · 1.750 rpm","lMid":"Tussenas","lOut":"Uitgaande as · 146 rpm","lS1":"Trap 1 · 3:1","lS2":"Trap 2 · 4:1","lSump":"Oliesump"}}</script>
 <script>
-/* Gear Reducers category page: interactive 3D cutaway of a two-stage helical gearbox (12:1 = 3:1 x 4:1).
+/* Gear Reducers category page: animated 3D cutaway of a two-stage helical gearbox (12:1 = 3:1 x 4:1).
    Inlined at the end of the page by build-product-pages.js. three.js is self-hosted and loaded only when the
    figure is about to scroll into view, so the page itself stays light. Strings come from #gbx-data. */
 (function () {
@@ -655,9 +644,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
   function start() {
     if (started) return;
     started = true;
-    loadScript('/assets/vendor/three/three.min.js', function () {
-      loadScript('/assets/vendor/three/OrbitControls.js', build, noGl);
-    }, noGl);
+    loadScript('/assets/vendor/three/three.min.js', build, noGl);
   }
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
@@ -670,7 +657,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 
   function build() {
     var T = window.THREE;
-    if (!T || !T.OrbitControls) return noGl();
+    if (!T) return noGl();
     var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ---------- helpers ---------- */
@@ -734,7 +721,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
       return grp;
     }
 
-    /* ---------- renderer, camera, controls, labels, loop ---------- */
+    /* ---------- renderer, camera, labels, loop ---------- */
     var canvas = stage.querySelector('canvas'), renderer;
     try { renderer = new T.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); } catch (e) { return noGl(); }
     renderer.outputEncoding = T.sRGBEncoding;
@@ -744,12 +731,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
     var camera = new T.PerspectiveCamera(32, 1.8, 0.5, 700);
     var home = new T.Vector3(21, 46, 38), target = new T.Vector3(15, 0, 0);
     camera.position.copy(home);
-    var controls = new T.OrbitControls(camera, canvas);
-    controls.target.copy(target);
-    controls.enableZoom = false; controls.enablePan = false;
-    controls.enableDamping = true; controls.dampingFactor = 0.08;
-    controls.maxPolarAngle = Math.PI * 0.6;
-    controls.update();
+    camera.lookAt(target);
 
     scene.add(new T.HemisphereLight(0xffffff, 0x8b97a5, 0.85));
     var key = new T.DirectionalLight(0xffffff, 0.95); key.position.set(30, 60, 40); scene.add(key);
@@ -779,8 +761,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 
     /* ---------- two-stage helical gearbox ---------- */
     var rig = new T.Group(); scene.add(rig);
-    var clip = new T.Plane(new T.Vector3(0, -1, 0), 0);
-    var clipMats = [];
+    var clip = new T.Plane(new T.Vector3(0, -1, 0), 0);   // fixed cutaway: housing clipped at the mid-plane
     var z1 = 14, z2 = 42, m1 = 0.36, z3 = 12, z4 = 48, m2 = 0.4;
     var X0 = 0, X1 = (z1 + z2) / 2 * m1, X2 = X1 + (z3 + z4) / 2 * m2;       // shaft x-positions
     var ZA = -2.6, ZB = 2.6, HX = 15, hw = 39.5, hh = 23, hd = 11.6;          // gear z-positions, housing
@@ -812,7 +793,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
     put(rig, new T.LineSegments(new T.EdgesGeometry(hGeo), eMat), HX, 0, 0);
     var feetM = mat(0x6d7b89);
     [HX - 15, HX + 15].forEach(function (fx) { put(rig, box(6, 1.2, hd + 5, feetM), fx, -hh / 2 - 0.6, 0); });
-    var brM = mat(0x5a6773, { clippingPlanes: [clip] }); clipMats.push(brM);
+    var brM = mat(0x5a6773, { clippingPlanes: [clip] });;
     rod(rig, 'y', 0.8, hh / 2, hh / 2 + 1.6, brM, HX + 10, 0, 24);
     rod(rig, 'y', 1.1, hh / 2 + 1.6, hh / 2 + 2.1, brM, HX + 10, 0, 24);
     rod(rig, 'y', 0.7, -hh / 2 - 0.5, -hh / 2, mat(0x2a323b), HX - 8, 3, 20);
@@ -827,19 +808,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
     addLabel(D.s.lS2, anchor(rig, X1 + (X2 - X1) * 0.3, 11.5, ZB), 'gbx-stage-lbl');
     addLabel(D.s.lSump, anchor(rig, HX + hw / 2 - 6, -hh / 2 + 2, hd / 2), 'gbx-sump');
 
-    // controls
-    var running = !reduceMotion;
-    var runBtn = fig.querySelector('[data-act=run]'), cutBox = fig.querySelector('[data-act=cut]'), resetBtn = fig.querySelector('[data-act=reset]');
-    function syncRun() { runBtn.textContent = running ? D.s.pause : D.s.run; }
-    runBtn.addEventListener('click', function () { running = !running; syncRun(); });
-    resetBtn.addEventListener('click', function () { camera.position.copy(home); controls.target.copy(target); controls.update(); });
-    function setCut(on) {
-      var cp = on ? [clip] : [];
-      hMat.clippingPlanes = cp; eMat.clippingPlanes = cp; hMat.needsUpdate = true; eMat.needsUpdate = true;
-      clipMats.forEach(function (m) { m.clippingPlanes = cp; m.needsUpdate = true; });
-    }
-    cutBox.addEventListener('change', function () { setCut(cutBox.checked); });
-    setCut(cutBox.checked); syncRun();
+    var running = !reduceMotion;   // reduced motion: show a still frame
 
     // kinematics: the gear phase is set so teeth enter the gaps of the mating gear
     var th = 0, W = 2.2;
@@ -856,7 +825,6 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
       var dt = Math.min(clock.getDelta(), 0.05);
       if (!visible || document.hidden) return;
       if (running) { th += W * dt; pose(th); }
-      controls.update();
       scene.updateMatrixWorld();
       for (var j = 0; j < labels.length; j++) {
         var L = labels[j]; L.obj.getWorldPosition(L.v); L.v.project(camera);

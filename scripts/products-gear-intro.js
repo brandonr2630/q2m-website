@@ -107,46 +107,41 @@ const NARRATIVE = {
   },
 };
 
-// Strings for the 3D figure (interactive cutaway of a two-stage helical reducer, 12:1 = 3:1 x 4:1).
+// Strings for the 3D figure (animated cutaway of a two-stage helical reducer, 12:1 = 3:1 x 4:1).
 // lIn / lOut carry the speeds of the worked example (1,750 rpm in, 146 rpm out).
 const GEARBOX = {
   en: {
-    aria: 'Interactive 3D cutaway of a two-stage helical gear reducer, 12:1 overall: input shaft, intermediate shaft and output shaft inside a housing with an oil sump.',
-    hint: 'Drag to rotate', pause: 'Pause', run: 'Run', cutaway: 'Cutaway', reset: 'Reset view',
+    aria: 'Animated 3D cutaway of a two-stage helical gear reducer, 12:1 overall: input shaft, intermediate shaft and output shaft inside a housing with an oil sump.',
     nogl: 'This 3D model needs WebGL, which is not available in this browser.',
-    caption: 'Two-stage helical gear reducer, 12:1 overall (3:1 × 4:1). Drag to look around.',
+    caption: 'Two-stage helical gear reducer, 12:1 overall (3:1 × 4:1).',
     lIn: 'Input shaft · 1,750 rpm', lMid: 'Intermediate shaft', lOut: 'Output shaft · 146 rpm',
     lS1: 'Stage 1 · 3:1', lS2: 'Stage 2 · 4:1', lSump: 'Oil sump',
   },
   es: {
-    aria: 'Corte 3D interactivo de un reductor helicoidal de dos etapas, 12:1 en total: eje de entrada, eje intermedio y eje de salida dentro de una carcasa con depósito de aceite.',
-    hint: 'Arrastre para girar', pause: 'Pausa', run: 'Reanudar', cutaway: 'Corte', reset: 'Restablecer vista',
+    aria: 'Corte 3D animado de un reductor helicoidal de dos etapas, 12:1 en total: eje de entrada, eje intermedio y eje de salida dentro de una carcasa con depósito de aceite.',
     nogl: 'Este modelo 3D necesita WebGL, que no está disponible en este navegador.',
-    caption: 'Reductor helicoidal de dos etapas, 12:1 en total (3:1 × 4:1). Arrastre para ver alrededor.',
+    caption: 'Reductor helicoidal de dos etapas, 12:1 en total (3:1 × 4:1).',
     lIn: 'Eje de entrada · 1.750 rpm', lMid: 'Eje intermedio', lOut: 'Eje de salida · 146 rpm',
     lS1: 'Etapa 1 · 3:1', lS2: 'Etapa 2 · 4:1', lSump: 'Cárter de aceite',
   },
   pt: {
-    aria: 'Corte 3D interativo de um redutor helicoidal de dois estágios, 12:1 no total: eixo de entrada, eixo intermediário e eixo de saída dentro de uma carcaça com cárter de óleo.',
-    hint: 'Arraste para girar', pause: 'Pausar', run: 'Retomar', cutaway: 'Corte', reset: 'Redefinir vista',
+    aria: 'Corte 3D animado de um redutor helicoidal de dois estágios, 12:1 no total: eixo de entrada, eixo intermediário e eixo de saída dentro de uma carcaça com cárter de óleo.',
     nogl: 'Este modelo 3D precisa de WebGL, que não está disponível neste navegador.',
-    caption: 'Redutor helicoidal de dois estágios, 12:1 no total (3:1 × 4:1). Arraste para olhar ao redor.',
+    caption: 'Redutor helicoidal de dois estágios, 12:1 no total (3:1 × 4:1).',
     lIn: 'Eixo de entrada · 1.750 rpm', lMid: 'Eixo intermediário', lOut: 'Eixo de saída · 146 rpm',
     lS1: 'Estágio 1 · 3:1', lS2: 'Estágio 2 · 4:1', lSump: 'Cárter de óleo',
   },
   nl: {
-    aria: 'Interactieve 3D-doorsnede van een tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal: ingaande, tussen- en uitgaande as in een behuizing met oliesump.',
-    hint: 'Sleep om te draaien', pause: 'Pauze', run: 'Hervat', cutaway: 'Doorsnede', reset: 'Weergave herstellen',
+    aria: 'Geanimeerde 3D-doorsnede van een tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal: ingaande, tussen- en uitgaande as in een behuizing met oliesump.',
     nogl: 'Dit 3D-model heeft WebGL nodig, dat in deze browser niet beschikbaar is.',
-    caption: 'Tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal (3:1 × 4:1). Sleep om rond te kijken.',
+    caption: 'Tweetraps tandwielreductor met schuine vertanding, 12:1 in totaal (3:1 × 4:1).',
     lIn: 'Ingaande as · 1.750 rpm', lMid: 'Tussenas', lOut: 'Uitgaande as · 146 rpm',
     lS1: 'Trap 1 · 3:1', lS2: 'Trap 2 · 4:1', lSump: 'Oliesump',
   },
   fr: {
-    aria: 'Coupe 3D interactive d’un réducteur hélicoïdal à deux étages, 12:1 au total : arbre d’entrée, arbre intermédiaire et arbre de sortie dans un carter avec bain d’huile.',
-    hint: 'Faites glisser pour tourner', pause: 'Pause', run: 'Reprendre', cutaway: 'Coupe', reset: 'Réinitialiser la vue',
+    aria: 'Coupe 3D animée d’un réducteur hélicoïdal à deux étages, 12:1 au total : arbre d’entrée, arbre intermédiaire et arbre de sortie dans un carter avec bain d’huile.',
     nogl: 'Ce modèle 3D nécessite WebGL, qui n’est pas disponible dans ce navigateur.',
-    caption: 'Réducteur hélicoïdal à deux étages, 12:1 au total (3:1 × 4:1). Faites glisser pour regarder autour.',
+    caption: 'Réducteur hélicoïdal à deux étages, 12:1 au total (3:1 × 4:1).',
     lIn: 'Arbre d’entrée · 1 750 tr/min', lMid: 'Arbre intermédiaire', lOut: 'Arbre de sortie · 146 tr/min',
     lS1: 'Étage 1 · 3:1', lS2: 'Étage 2 · 4:1', lSump: 'Bain d’huile',
   },

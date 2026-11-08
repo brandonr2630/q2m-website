@@ -1,4 +1,4 @@
-/* Gear Reducers category page: interactive 3D cutaway of a two-stage helical gearbox (12:1 = 3:1 x 4:1).
+/* Gear Reducers category page: animated 3D cutaway of a two-stage helical gearbox (12:1 = 3:1 x 4:1).
    Inlined at the end of the page by build-product-pages.js. three.js is self-hosted and loaded only when the
    figure is about to scroll into view, so the page itself stays light. Strings come from #gbx-data. */
 (function () {
@@ -20,9 +20,7 @@
   function start() {
     if (started) return;
     started = true;
-    loadScript('/assets/vendor/three/three.min.js', function () {
-      loadScript('/assets/vendor/three/OrbitControls.js', build, noGl);
-    }, noGl);
+    loadScript('/assets/vendor/three/three.min.js', build, noGl);
   }
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
@@ -35,7 +33,7 @@
 
   function build() {
     var T = window.THREE;
-    if (!T || !T.OrbitControls) return noGl();
+    if (!T) return noGl();
     var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ---------- helpers ---------- */
@@ -99,7 +97,7 @@
       return grp;
     }
 
-    /* ---------- renderer, camera, controls, labels, loop ---------- */
+    /* ---------- renderer, camera, labels, loop ---------- */
     var canvas = stage.querySelector('canvas'), renderer;
     try { renderer = new T.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); } catch (e) { return noGl(); }
     renderer.outputEncoding = T.sRGBEncoding;
@@ -109,12 +107,7 @@
     var camera = new T.PerspectiveCamera(32, 1.8, 0.5, 700);
     var home = new T.Vector3(21, 46, 38), target = new T.Vector3(15, 0, 0);
     camera.position.copy(home);
-    var controls = new T.OrbitControls(camera, canvas);
-    controls.target.copy(target);
-    controls.enableZoom = false; controls.enablePan = false;
-    controls.enableDamping = true; controls.dampingFactor = 0.08;
-    controls.maxPolarAngle = Math.PI * 0.6;
-    controls.update();
+    camera.lookAt(target);
 
     scene.add(new T.HemisphereLight(0xffffff, 0x8b97a5, 0.85));
     var key = new T.DirectionalLight(0xffffff, 0.95); key.position.set(30, 60, 40); scene.add(key);
@@ -144,8 +137,7 @@
 
     /* ---------- two-stage helical gearbox ---------- */
     var rig = new T.Group(); scene.add(rig);
-    var clip = new T.Plane(new T.Vector3(0, -1, 0), 0);
-    var clipMats = [];
+    var clip = new T.Plane(new T.Vector3(0, -1, 0), 0);   // fixed cutaway: housing clipped at the mid-plane
     var z1 = 14, z2 = 42, m1 = 0.36, z3 = 12, z4 = 48, m2 = 0.4;
     var X0 = 0, X1 = (z1 + z2) / 2 * m1, X2 = X1 + (z3 + z4) / 2 * m2;       // shaft x-positions
     var ZA = -2.6, ZB = 2.6, HX = 15, hw = 39.5, hh = 23, hd = 11.6;          // gear z-positions, housing
@@ -177,7 +169,7 @@
     put(rig, new T.LineSegments(new T.EdgesGeometry(hGeo), eMat), HX, 0, 0);
     var feetM = mat(0x6d7b89);
     [HX - 15, HX + 15].forEach(function (fx) { put(rig, box(6, 1.2, hd + 5, feetM), fx, -hh / 2 - 0.6, 0); });
-    var brM = mat(0x5a6773, { clippingPlanes: [clip] }); clipMats.push(brM);
+    var brM = mat(0x5a6773, { clippingPlanes: [clip] });;
     rod(rig, 'y', 0.8, hh / 2, hh / 2 + 1.6, brM, HX + 10, 0, 24);
     rod(rig, 'y', 1.1, hh / 2 + 1.6, hh / 2 + 2.1, brM, HX + 10, 0, 24);
     rod(rig, 'y', 0.7, -hh / 2 - 0.5, -hh / 2, mat(0x2a323b), HX - 8, 3, 20);
@@ -192,19 +184,7 @@
     addLabel(D.s.lS2, anchor(rig, X1 + (X2 - X1) * 0.3, 11.5, ZB), 'gbx-stage-lbl');
     addLabel(D.s.lSump, anchor(rig, HX + hw / 2 - 6, -hh / 2 + 2, hd / 2), 'gbx-sump');
 
-    // controls
-    var running = !reduceMotion;
-    var runBtn = fig.querySelector('[data-act=run]'), cutBox = fig.querySelector('[data-act=cut]'), resetBtn = fig.querySelector('[data-act=reset]');
-    function syncRun() { runBtn.textContent = running ? D.s.pause : D.s.run; }
-    runBtn.addEventListener('click', function () { running = !running; syncRun(); });
-    resetBtn.addEventListener('click', function () { camera.position.copy(home); controls.target.copy(target); controls.update(); });
-    function setCut(on) {
-      var cp = on ? [clip] : [];
-      hMat.clippingPlanes = cp; eMat.clippingPlanes = cp; hMat.needsUpdate = true; eMat.needsUpdate = true;
-      clipMats.forEach(function (m) { m.clippingPlanes = cp; m.needsUpdate = true; });
-    }
-    cutBox.addEventListener('change', function () { setCut(cutBox.checked); });
-    setCut(cutBox.checked); syncRun();
+    var running = !reduceMotion;   // reduced motion: show a still frame
 
     // kinematics: the gear phase is set so teeth enter the gaps of the mating gear
     var th = 0, W = 2.2;
@@ -221,7 +201,6 @@
       var dt = Math.min(clock.getDelta(), 0.05);
       if (!visible || document.hidden) return;
       if (running) { th += W * dt; pose(th); }
-      controls.update();
       scene.updateMatrixWorld();
       for (var j = 0; j < labels.length; j++) {
         var L = labels[j]; L.obj.getWorldPosition(L.v); L.v.project(camera);
