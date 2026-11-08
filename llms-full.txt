@@ -109,7 +109,7 @@ Industrial equipment supplied by Q² Machines from manufacturers it represents, 
 Gear Reducers: https://www.q2m.io/products/gear-reducers/
 Shaft-mounted gear reducers supplied by Q² Machines from Trinidad, backed by our repair and servicing capability.
 
-OCR RP Series Shaft-Mounted Gear Reducers: https://www.q2m.io/products/gear-reducers/ocr-rp-series/
+Shaft Mount Gear Reducers: https://www.q2m.io/products/gear-reducers/ocr-rp-series/
 Q² Machines is the authorised agent for OCR RP Series shaft-mounted gear reducers: 8 sizes, 0.6–155 kW, up to 11,280 Nm. Supplied from Trinidad.
 # products:end
 
