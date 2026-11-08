@@ -2,7 +2,7 @@
 // Gear Reducers category page: narrative copy and the strings of the gearbox cutaway figure.
 // English is the owner's final copy (gear-reducers-narrative.md). es/pt/nl/fr are translations: native review needed.
 // p1 is also the category `intro` in products-data.js. The page renders p1, paras, the figure, the ratio
-// block (ratioH, ratioParas, closing) and the sizing list (sizeH, sizeItems).
+// block (ratioH, ratioParas, closing), the service factor block (svcH, svcParas) and the sizing list (sizeH, sizeItems).
 
 const NARRATIVE = {
   en: {
@@ -17,7 +17,13 @@ const NARRATIVE = {
       'Higher ratios are often reached in stages, and the stage ratios multiply. A reducer with a 5:1 stage followed by a 4:1 stage has an overall ratio of 5 × 4 = 20:1.',
       'Quoted ratios are nominal: catalogues round them, and the exact value comes from the tooth counts. Losses do not change the speed ratio, but they reduce the torque delivered. Helical gear reducers typically run in the mid-90% efficiency range per unit. Worm gear reducers are lower, roughly 50% to 90% depending on ratio, so they multiply torque by less.',
     ],
-    closing: 'The ratio is the first number to settle, but it does not select the reducer on its own. The unit must also carry the torque and power, withstand the load type and running hours (the service factor, set by AGMA practice, rises with shock loading and long duty), stay within its thermal limit, and fit the mounting and shaft arrangement.',
+    closing: 'The ratio is the first number to settle, but it does not select the reducer on its own. The unit must also carry the torque and power, withstand the load type and running hours (see the service factor below), stay within its thermal limit, and fit the mounting and shaft arrangement.',
+    svcH: 'Gear Reducer Service Factor',
+    svcParas: [
+      'Service factor is a multiplier applied to the power or torque an application needs, to arrive at the rating the gear reducer must have. It allows for how hard the reducer will actually be worked: the nature of the load, the number of starts and stops per hour, and the hours of operation per day. A reducer is suitable when its rated capacity is at least the required load multiplied by the service factor. For example, a 7.5 kW load with a service factor of 1.25 calls for a reducer rated at 9.4 kW or more.',
+      'The nature of the load is generally classed as uniform, moderate shock or heavy shock. Peak torque in moderate shock service is about 1.3 times normal running torque, and in heavy shock service about 2 times. Overloads occur when starting under full load, when demand exceeds the calculated load, when braking, and when shocks occur.',
+      'Longer duty and more frequent starts call for a higher service factor. Too low a factor leads to premature wear or tooth and bearing failure; too high a factor pays for capacity that is not needed. Factors are published by the manufacturer, based on AGMA practice, and we confirm the right one when sizing your reducer.',
+    ],
     sizeH: 'What we need to size your reducer',
     sizeItems: [
       'Motor power and speed (kW or hp, rpm)',
@@ -39,7 +45,13 @@ const NARRATIVE = {
       'Las relaciones altas suelen lograrse por etapas, y las relaciones de cada etapa se multiplican. Un reductor con una etapa de 5:1 seguida de otra de 4:1 tiene una relación total de 5 × 4 = 20:1.',
       'Las relaciones indicadas son nominales: los catálogos las redondean y el valor exacto surge del número de dientes. Las pérdidas no modifican la relación de velocidad, pero reducen el par entregado. Los reductores helicoidales suelen operar en un rango de rendimiento de mediados del 90 % por unidad. Los reductores de tornillo sin fin tienen menos rendimiento, aproximadamente del 50 % al 90 % según la relación, por lo que multiplican menos el par.',
     ],
-    closing: 'La relación es el primer número que hay que fijar, pero por sí sola no selecciona el reductor. La unidad también debe soportar el par y la potencia, resistir el tipo de carga y las horas de funcionamiento (el factor de servicio, definido por la práctica AGMA, aumenta con las cargas de choque y los servicios prolongados), mantenerse dentro de su límite térmico y ajustarse al montaje y a la disposición de ejes.',
+    closing: 'La relación es el primer número que hay que fijar, pero por sí sola no selecciona el reductor. La unidad también debe soportar el par y la potencia, resistir el tipo de carga y las horas de funcionamiento (véase el factor de servicio más abajo), mantenerse dentro de su límite térmico y ajustarse al montaje y a la disposición de ejes.',
+    svcH: 'Factor de servicio del reductor de engranajes',
+    svcParas: [
+      'El factor de servicio es un multiplicador que se aplica a la potencia o al par que necesita una aplicación para obtener la capacidad nominal que debe tener el reductor. Tiene en cuenta cuánto trabajará realmente el reductor: la naturaleza de la carga, el número de arranques y paradas por hora y las horas de funcionamiento al día. Un reductor es adecuado cuando su capacidad nominal es al menos la carga requerida multiplicada por el factor de servicio. Por ejemplo, una carga de 7,5 kW con un factor de servicio de 1,25 requiere un reductor de 9,4 kW o más.',
+      'La naturaleza de la carga se clasifica generalmente como uniforme, con choques moderados o con choques fuertes. El par máximo en servicio con choques moderados es de alrededor de 1,3 veces el par normal de funcionamiento, y con choques fuertes de alrededor de 2 veces. Las sobrecargas se producen al arrancar a plena carga, cuando la demanda supera la carga calculada, al frenar y cuando se producen choques.',
+      'Los servicios más prolongados y los arranques más frecuentes exigen un factor de servicio mayor. Un factor demasiado bajo provoca desgaste prematuro o rotura de dientes y rodamientos; uno demasiado alto paga una capacidad que no se necesita. Los factores los publica el fabricante, con base en la práctica AGMA, y confirmamos el adecuado al dimensionar su reductor.',
+    ],
     sizeH: 'Qué necesitamos para dimensionar su reductor',
     sizeItems: [
       'Potencia y velocidad del motor (kW o hp, rpm)',
@@ -61,7 +73,13 @@ const NARRATIVE = {
       'Relações mais altas são frequentemente obtidas em estágios, e as relações de cada estágio se multiplicam. Um redutor com um estágio de 5:1 seguido de outro de 4:1 tem relação total de 5 × 4 = 20:1.',
       'As relações informadas são nominais: os catálogos as arredondam e o valor exato vem do número de dentes. As perdas não alteram a relação de velocidade, mas reduzem o torque entregue. Os redutores helicoidais costumam operar na faixa de rendimento de meados de 90 % por unidade. Os redutores de rosca sem fim têm rendimento menor, de aproximadamente 50 % a 90 % conforme a relação, e por isso multiplicam menos o torque.',
     ],
-    closing: 'A relação é o primeiro número a definir, mas sozinha não seleciona o redutor. A unidade também deve suportar o torque e a potência, resistir ao tipo de carga e às horas de operação (o fator de serviço, definido pela prática AGMA, aumenta com cargas de choque e serviço prolongado), permanecer dentro do seu limite térmico e se ajustar à montagem e à disposição dos eixos.',
+    closing: 'A relação é o primeiro número a definir, mas sozinha não seleciona o redutor. A unidade também deve suportar o torque e a potência, resistir ao tipo de carga e às horas de operação (veja o fator de serviço abaixo), permanecer dentro do seu limite térmico e se ajustar à montagem e à disposição dos eixos.',
+    svcH: 'Fator de serviço do redutor de engrenagens',
+    svcParas: [
+      'O fator de serviço é um multiplicador aplicado à potência ou ao torque de que uma aplicação precisa, para chegar à capacidade nominal que o redutor deve ter. Ele leva em conta o quanto o redutor será realmente exigido: a natureza da carga, o número de partidas e paradas por hora e as horas de operação por dia. Um redutor é adequado quando sua capacidade nominal é pelo menos a carga necessária multiplicada pelo fator de serviço. Por exemplo, uma carga de 7,5 kW com fator de serviço de 1,25 exige um redutor de 9,4 kW ou mais.',
+      'A natureza da carga é geralmente classificada como uniforme, com choques moderados ou com choques fortes. O torque de pico em serviço com choques moderados é de cerca de 1,3 vez o torque normal de operação, e com choques fortes de cerca de 2 vezes. As sobrecargas ocorrem na partida com carga total, quando a demanda excede a carga calculada, na frenagem e quando ocorrem choques.',
+      'Serviços mais longos e partidas mais frequentes exigem um fator de serviço maior. Um fator muito baixo leva a desgaste prematuro ou quebra de dentes e rolamentos; um fator muito alto paga por uma capacidade desnecessária. Os fatores são publicados pelo fabricante, com base na prática AGMA, e confirmamos o adequado ao dimensionar o seu redutor.',
+    ],
     sizeH: 'O que precisamos para dimensionar o seu redutor',
     sizeItems: [
       'Potência e rotação do motor (kW ou hp, rpm)',
@@ -83,7 +101,13 @@ const NARRATIVE = {
       'Hogere verhoudingen worden vaak in trappen bereikt, en de verhoudingen van de trappen worden met elkaar vermenigvuldigd. Een reductor met een trap van 5:1 gevolgd door een trap van 4:1 heeft een totale verhouding van 5 × 4 = 20:1.',
       'Opgegeven verhoudingen zijn nominaal: catalogi ronden ze af en de exacte waarde volgt uit het aantal tanden. Verliezen veranderen de toerentalverhouding niet, maar verlagen wel het geleverde koppel. Reductoren met schuine vertanding halen doorgaans een rendement in de midden-90%-range per eenheid. Wormwielreductoren zitten lager, grofweg 50% tot 90% afhankelijk van de verhouding, en vermenigvuldigen het koppel dus minder.',
     ],
-    closing: 'De verhouding is het eerste getal dat vastligt, maar bepaalt de reductor niet alleen. De unit moet ook het koppel en het vermogen aankunnen, bestand zijn tegen het belastingtype en de draaiuren (de servicefactor, volgens AGMA-praktijk, stijgt bij schokbelasting en lange bedrijfsduur), binnen zijn thermische grens blijven en passen bij de montage en de asuitvoering.',
+    closing: 'De verhouding is het eerste getal dat vastligt, maar bepaalt de reductor niet alleen. De unit moet ook het koppel en het vermogen aankunnen, bestand zijn tegen het belastingtype en de draaiuren (zie servicefactor hieronder), binnen zijn thermische grens blijven en passen bij de montage en de asuitvoering.',
+    svcH: 'Servicefactor van tandwielreductoren',
+    svcParas: [
+      'De servicefactor is een vermenigvuldiger die wordt toegepast op het vermogen of koppel dat een toepassing nodig heeft, om te komen tot het vermogen waarvoor de reductor moet zijn gedimensioneerd. Hij houdt rekening met hoe zwaar de reductor in de praktijk wordt belast: de aard van de belasting, het aantal starts en stops per uur en de bedrijfsuren per dag. Een reductor is geschikt wanneer zijn nominale capaciteit minstens gelijk is aan de vereiste belasting maal de servicefactor. Een belasting van 7,5 kW met een servicefactor van 1,25 vraagt bijvoorbeeld om een reductor met een nominaal vermogen van 9,4 kW of meer.',
+      'De aard van de belasting wordt doorgaans ingedeeld als gelijkmatig, matige schokbelasting of zware schokbelasting. Het piekkoppel bij matige schokbelasting is ongeveer 1,3 keer het normale bedrijfskoppel, bij zware schokbelasting ongeveer 2 keer. Overbelasting treedt op bij starten onder volle belasting, wanneer de vraag hoger is dan de berekende belasting, bij afremmen en bij schokken.',
+      'Langere bedrijfsduur en vaker starten vragen om een hogere servicefactor. Een te lage factor leidt tot voortijdige slijtage of breuk van tanden en lagers; een te hoge factor betaalt voor capaciteit die niet nodig is. De factoren worden gepubliceerd door de fabrikant, op basis van AGMA-praktijk, en wij bevestigen de juiste bij het dimensioneren van uw reductor.',
+    ],
     sizeH: 'Wat wij nodig hebben om uw reductor te dimensioneren',
     sizeItems: [
       'Motorvermogen en toerental (kW of pk, rpm)',
@@ -105,7 +129,13 @@ const NARRATIVE = {
       'Les rapports élevés s’obtiennent souvent par étages, et les rapports de chaque étage se multiplient. Un réducteur avec un étage de 5:1 suivi d’un étage de 4:1 a un rapport total de 5 × 4 = 20:1.',
       'Les rapports annoncés sont nominaux : les catalogues les arrondissent et la valeur exacte découle du nombre de dents. Les pertes ne modifient pas le rapport de vitesse, mais elles réduisent le couple délivré. Les réducteurs à engrenages hélicoïdaux affichent généralement un rendement de l’ordre de 95 % par unité. Les réducteurs à vis sans fin sont moins efficaces, environ 50 % à 90 % selon le rapport, et multiplient donc moins le couple.',
     ],
-    closing: 'Le rapport est le premier chiffre à fixer, mais il ne suffit pas à choisir le réducteur. L’unité doit aussi supporter le couple et la puissance, résister au type de charge et aux heures de fonctionnement (le facteur de service, défini par la pratique AGMA, augmente avec les chocs et les services prolongés), rester dans sa limite thermique et convenir au montage et à la disposition des arbres.',
+    closing: 'Le rapport est le premier chiffre à fixer, mais il ne suffit pas à choisir le réducteur. L’unité doit aussi supporter le couple et la puissance, résister au type de charge et aux heures de fonctionnement (voir le facteur de service ci-dessous), rester dans sa limite thermique et convenir au montage et à la disposition des arbres.',
+    svcH: 'Facteur de service du réducteur à engrenages',
+    svcParas: [
+      'Le facteur de service est un multiplicateur appliqué à la puissance ou au couple requis par une application, pour obtenir la capacité nominale que doit avoir le réducteur. Il tient compte de la sollicitation réelle du réducteur : la nature de la charge, le nombre de démarrages et d’arrêts par heure et les heures de fonctionnement par jour. Un réducteur convient lorsque sa capacité nominale est au moins égale à la charge requise multipliée par le facteur de service. Par exemple, une charge de 7,5 kW avec un facteur de service de 1,25 exige un réducteur de 9,4 kW ou plus.',
+      'La nature de la charge est généralement classée comme uniforme, à chocs modérés ou à chocs importants. Le couple de pointe en service à chocs modérés est d’environ 1,3 fois le couple normal de fonctionnement, et d’environ 2 fois en service à chocs importants. Les surcharges surviennent au démarrage à pleine charge, lorsque la demande dépasse la charge calculée, au freinage et lors de chocs.',
+      'Un service plus long et des démarrages plus fréquents appellent un facteur de service plus élevé. Un facteur trop faible entraîne une usure prématurée ou la rupture des dents et des roulements ; un facteur trop élevé fait payer une capacité inutile. Les facteurs sont publiés par le fabricant, selon la pratique AGMA, et nous confirmons le bon lors du dimensionnement de votre réducteur.',
+    ],
     sizeH: 'Ce qu’il nous faut pour dimensionner votre réducteur',
     sizeItems: [
       'Puissance et vitesse du moteur (kW ou ch, tr/min)',

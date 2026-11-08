@@ -393,6 +393,11 @@ function narrativeHtml(code, nar) {
         <p class="cat-intro cat-narr">${esc(t)}</p>`).join('')}
         <p class="cat-intro cat-narr">${esc(nar.closing)}</p>
       </section>
+      <section class="content-block cat-svc">
+        <h2>${esc(nar.svcH)}</h2>
+        ${nar.svcParas.map((t) => `
+        <p class="cat-intro cat-narr">${esc(t)}</p>`).join('')}
+      </section>
       <section class="content-block cat-sizing">
         <h2>${esc(nar.sizeH)}</h2>
         <ul class="size-list">${nar.sizeItems.map((t) => `
@@ -454,8 +459,8 @@ const PRODUCTS_CSS = `
 .products-page .tile-text{justify-content:center;min-height:120px;}
 .products-page .cat-narr{margin:0 0 18px;}
 .products-page .tiles-first{margin:0 0 36px;}
-.products-page .cat-wide,.products-page .cat-narr,.products-page .cat-ratio,.products-page .cat-sizing{max-width:860px;}
-.products-page .cat-ratio h2,.products-page .cat-sizing h2{margin-top:36px;}
+.products-page .cat-wide,.products-page .cat-narr,.products-page .cat-ratio,.products-page .cat-svc,.products-page .cat-sizing{max-width:860px;}
+.products-page .cat-ratio h2,.products-page .cat-svc h2,.products-page .cat-sizing h2{margin-top:36px;}
 .products-page .size-list{margin:0 0 32px;padding-left:20px;color:var(--text-2);font-size:15px;line-height:1.7;}
 .products-page .size-list li{margin-bottom:4px;}
 .products-page .gbx{margin:28px 0 36px;padding:12px;background:var(--ink-3);border:1px solid var(--border);border-radius:2px;max-width:860px;}
