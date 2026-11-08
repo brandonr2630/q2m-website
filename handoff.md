@@ -1,6 +1,6 @@
 # Q2M Website — Handoff
 
-*Last updated: 2026-11-06 · Session 24*
+*Last updated: 2026-11-07 · Session 25*
 
 Sessions 1–19 are condensed into the history table and the lessons below. Per-session detail lives in git history (`git log -- handoff.md`).
 
@@ -34,7 +34,7 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 
 ---
 
-## Where Things Stand (2026-10-12)
+## Where Things Stand (2026-11-07)
 
 **Live and healthy:** multilingual site (en/es/pt/nl/fr) with pre-rendered language pages for home, depot and projects; hreflang, canonicals, schema, sitemap (75 URLs); every page passes mobile LCP (home 1.1 s, depot 2.3 s, projects 2.0 s, CLS 0 — lab, Fast 3G, 4× CPU). Lighthouse on home: SEO 100, Best Practices 100, Accessibility 96.
 
@@ -47,7 +47,7 @@ npm run build-all    # build-lang-pages + build-depot-langs + build-projects-lan
 - Dutch pages rank for generic used-equipment queries (`gebruikte industriële apparatuur` pos 5.9, `verkoop van tweedehands industriële apparatuur` pos 9.1) with no clicks — the translated-page strategy can rank.
 - Mobile position is better than desktop (6.1 vs 13.4); 7 of 9 clicks were mobile.
 
-**Work in progress:** the redesigned Products catalogue is **merged to `master` and deployed** (PR #97 on 2026-11-05, polish PRs #98-#102 the same day; Sessions 23-24). See Open Items 2. The About page rework (#88, #90) shipped 2026-10-13. The old Products section (PR #92) was removed 2026-10-14 (Session 22); the new catalogue replaced it, so the live site has Products pages, a nav link and a footer link again.
+**Work in progress:** the redesigned Products catalogue is **merged to `master` and deployed** (PR #97 on 2026-11-05, polish PRs #98-#102 the same day; Sessions 23-25). Session 25 (2026-11-07, PRs #104-#106) added a new gear-reducers intro, `lang="la" translate="no"` on the Latin footer line, and 40 OCR RP data sheet PDFs (8 sizes x 5 languages) in place of the on-page dimension drawings. See Open Items 2 and Session 25. The About page rework (#88, #90) shipped 2026-10-13. The old Products section (PR #92) was removed 2026-10-14 (Session 22); the new catalogue replaced it, so the live site has Products pages, a nav link and a footer link again.
 
 ---
 
@@ -108,6 +108,7 @@ The old section (PR #92) was removed 2026-10-14 and replaced by a clean-sheet ca
 **OWNER TODO (Products):**
 
 - [ ] Native review of nl and fr (and es, pt) strings: the `UI` keys in `scripts/products-data.js` (`products`, `all_categories`, `categories`, `crumb_home`, `request_quote`, `filter_models`, `filter_all`, `filter_clear`, `filter_count`, `filter_none`, `filter_min`, `filter_max`, `filter_active`, `col_*`, `spec_caption`, `crumbs_label`, `specs_heading`, `dims_heading`, `dims_weight`, `enquire_cta`, `brand_link`), the `HUB` and category texts, `nav_products` and `quote_prefill` in `index.html` translations. Terms to check in particular: **gear reducer**, **shaft-mounted**, **torque arm**, **rated power**.
+- [ ] Native review (nl, fr) of the data sheet text in `scripts/datasheet_strings.py` and the `datasheet_download` label (see Session 25).
 - [ ] After merge and deploy: Search Console → URL Inspection → Request indexing for the 5 hubs, the category and the family pages; resubmit `sitemap.xml` (75 URLs).
 - [ ] Search across the catalogue (spec stage 2) is **not built**.
 - [ ] Delete stale files from the server by hand in cPanel File Manager (older copies of `docs/`, `handoff.md`, `CLAUDE.md` from earlier deploys). The deploy uses `--diff-filter=ACM`, so deleted or renamed files are never removed on the server, and these are still live.
@@ -313,7 +314,9 @@ Performance traces (DevTools, 412×823 mobile, Fast 3G, 4× CPU, cache disabled,
 
 **Date:** 2026-11-05 · Branch `feat/products-drawing-lightbox`, merged as PR #102 (`33da8c6`)
 
-Visitors can click a drawing in `#dimensions` on the OCR RP family page (all 5 languages) to enlarge it and read the dimensions.
+**Superseded 2026-11-07 (Session 25):** the on-page drawings, `dims_enlarge`/`lb_*` strings, `products-lightbox.js` and `dim-*.webp` were removed; data sheet PDFs replace them. The notes below are history only.
+
+Visitors could click a drawing in `#dimensions` on the OCR RP family page (all 5 languages) to enlarge it and read the dimensions.
 
 - One native `<dialog class="dim-lightbox">` per page, shared by all 8 drawings. Each drawing is wrapped in a `<button class="dim-open">` with a zoom cursor and a "+" badge; aria-label is `dims_enlarge` + model.
 - Controls: prev/next buttons, Left/Right arrow keys, Esc, backdrop click, × button. The dialog image is the same 1400 px WebP (no extra asset); `src` is cleared on close.
@@ -321,6 +324,19 @@ Visitors can click a drawing in `#dimensions` on the OCR RP family page (all 5 l
 - Source: `scripts/products-lightbox.js` (inlined by `build-product-pages.js` as `DIM_LIGHTBOX_JS`, like the filters script), CSS in the generator, strings `dims_enlarge`, `lb_close`, `lb_prev`, `lb_next` in `products-data.js` (all 5 languages; added to the `UI_KEYS` test). The hub and category pages changed only because the CSS block is shared.
 - Checked: `node test-products-data.js` passes, `node verify-products.js` 1606 passed / 0 failed. In the browser pane (local static server): open, next, prev, close at 1280 px and 375 px; no horizontal page scroll. Not checked: live site after deploy, keyboard-only focus order and Safari/iOS (`<dialog>` is supported in current browsers; the script does nothing if `showModal` is missing, so drawings simply stay non-clickable there).
 - Process notes: the first worktree was cut from the stale `feat/products-page` (Oct 13) by mistake; the live Products work is on `master`. Always branch from `origin/master`. In a hidden browser pane `innerWidth` can read 0 and collapse `100vw`; set an explicit viewport (`resize_window`) before measuring layout.
+
+---
+
+## Session 25 — Gear-reducers intro, Latin footer lang, OCR data sheets
+
+**Date:** 2026-11-07 · PRs #104, #105, #106
+
+- **#104:** new intro on the gear-reducers category page; the "OCR authorised agent" sentence was dropped (all 5 languages).
+- **#105:** the footer "Gloria Patri" line is now `lang="la" translate="no"` on every page type (contrast on that line is unchanged; see the pre-existing issues list).
+- **#106 data sheets:**
+  - 40 PDFs (8 RP sizes x en/es/pt/nl/fr) built by `scripts/build-datasheets.py` from `scripts/products-data/ocr-rp-options.json`, `scripts/datasheet_strings.py` and crops from `scripts/extract-catalogue-diagrams.py`. Rebuild with `python scripts/build-datasheets.py [lang ...]`.
+  - OCR gave consent to reuse the catalogue material. The on-page dimension drawings, lightbox script, `dim-*.webp` and related UI strings were removed; the PDF is the source of truth.
+  - Still open: native review of nl/fr sheet text (`datasheet_strings.py`) and `datasheet_download` label.
 
 ---
 
@@ -365,6 +381,9 @@ Visitors can click a drawing in `#dimensions` on the OCR RP family page (all 5 l
 | 20 | 2026-10-12 | Search Console diagnosis; footer language links, Q2M brand signals, footer i18n, depot schema fix, lazy EmailJS, non-blocking projects fonts, sitemap lastmod script, README rewrite, address match, homepage FAQ + FAQPage schema, llms.txt/llms-full.txt, UTF-8 charset, About + Privacy pages, menu link, translation leftovers, Dutch wording, hero on phones, privacy wording (PRs #54–#72). |
 | 21 | 2026-10-13 | Products section: hub and OCR RP Series reducers page in 5 languages, Products nav/footer link, services cross-link, 10 sitemap URLs, `build-product-pages.js` and `verify-products.js`. |
 | 22 | 2026-10-14 | Products section removed for a clean-sheet redesign: 10 pages, 3 scripts, nav/footer links, sitemap (70 to 60), llms entries, services cross-link. History holds it (PR #92). |
+| 23 | 2026-11-05 | Products catalogue rebuilt clean-sheet: tree data model, hub/category/family pages, 280-row OCR RP rating table with filters, quote links, nav/footer, sitemap and llms blocks, `verify-products.js` (PR #97; polish #98-#101). |
+| 24 | 2026-11-05 | Click-to-enlarge lightbox for the 8 dimension drawings (PR #102); removed again in Session 25. |
+| 25 | 2026-11-07 | New gear-reducers intro, OCR authorised-agent sentence dropped (#104); Latin footer line `lang="la" translate="no"` (#105); 40 OCR RP data sheet PDFs, drawings and lightbox removed (#106). |
 
 ---
 
@@ -375,9 +394,3 @@ Visitors can click a drawing in `#dimensions` on the OCR RP family page (all 5 l
 - **Deploy workflow:** `.github/workflows/deploy.yml` → `brandonr2630/projects/.github/workflows/deploy.yml@master`
 - **Build scripts:** `scripts/build-lang-pages.js`, `build-depot-langs.js`, `build-projects-langs.js` (`npm run build-all`); `scripts/update-sitemap-lastmod.js` (sitemap dates, also run by `build-all`); `scripts/upscale-images.js` only upscales/converts to `-upscaled.webp` — it does **not** watermark (the Session 7/12 watermarking was done with an ad-hoc `sharp` script that was never committed)
 - **Project board:** https://github.com/users/brandonr2630/projects/1
-
-## Data sheets (2026-11-07)
-
-- 40 PDFs (8 RP sizes x en/es/pt/nl/fr) built by `scripts/build-datasheets.py` from `scripts/products-data/ocr-rp-options.json`, `scripts/datasheet_strings.py` and crops from `scripts/extract-catalogue-diagrams.py`. Rebuild with `python scripts/build-datasheets.py [lang ...]`.
-- OCR gave consent to reuse the catalogue material. The on-page dimension drawings, lightbox script, `dim-*.webp` and related UI strings were removed; the PDF is the source of truth.
-- Still open: native review of nl/fr sheet text (`datasheet_strings.py`) and `datasheet_download` label.
