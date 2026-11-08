@@ -339,6 +339,9 @@ function filterDefs(lang, n) {
   return JSON.stringify({ columns, strings }).replace(/</g, '\\u003c');
 }
 
+const { GEARBOX } = require('./products-gear-intro');
+const GEARBOX_JS = fs.readFileSync(path.join(__dirname, 'products-gearbox.js'), 'utf-8').replace(/\r\n/g, '\n').trim();
+if (/<\/script/i.test(GEARBOX_JS)) throw new Error('products-gearbox.js must not contain "</script"');
 const FILTERS_JS = fs.readFileSync(path.join(__dirname, 'products-filters.js'), 'utf-8').replace(/\r\n/g, '\n').trim();
 if (/<\/script/i.test(FILTERS_JS)) throw new Error('products-filters.js must not contain "</script"');
 
@@ -372,12 +375,48 @@ ${c.facts.map(([v, l]) => `        <div class="fact"><strong>${esc(v)}</strong><
   return parts.join('');
 }
 
+// Category narrative (Gear Reducers intro): further paragraphs, the interactive gearbox figure, the
+// reduction-ratio worked example and the sizing checklist. The figure stays hidden until its script runs.
+function narrativeHtml(code, nar) {
+  const G = GEARBOX[code];
+  return `${nar.paras.map((t) => `
+      <p class="cat-intro cat-narr">${esc(t)}</p>`).join('')}
+      <figure class="gbx" id="gbx" hidden>
+        <div class="gbx-stage" role="img" aria-label="${attr(G.aria)}">
+          <canvas></canvas><div class="gbx-nogl">${esc(G.nogl)}</div><div class="gbx-hint">${esc(G.hint)}</div>
+        </div>
+        <div class="gbx-ctrls">
+          <button type="button" data-act="run">${esc(G.pause)}</button>
+          <label><input type="checkbox" data-act="cut" checked> ${esc(G.cutaway)}</label>
+          <button type="button" data-act="reset">${esc(G.reset)}</button>
+        </div>
+        <figcaption>${esc(G.caption)}</figcaption>
+      </figure>
+      <section class="content-block cat-ratio">
+        <h2>${esc(nar.ratioH)}</h2>
+        <div class="callout">
+          <p class="formula">${esc(nar.formula)}</p>
+          <p>${esc(nar.example)}</p>
+          <p class="callout-note">${esc(nar.note)}</p>
+        </div>
+        <p class="cat-intro cat-narr">${esc(nar.closing)}</p>
+      </section>
+      <section class="content-block cat-sizing">
+        <h2>${esc(nar.sizeH)}</h2>
+        <ul class="size-list">${nar.sizeItems.map((t) => `
+          <li>${esc(t)}</li>`).join('')}
+        </ul>
+      </section>`;
+}
+
 function listingHtml(lang, page) {
   const code = lang.code;
   const p = pageText(page, code);
   const parts = [crumbsHtml(lang, page), `
       <h1>${p.h1Html}</h1>
       <p class="cat-intro">${esc(p.lead)}</p>`];
+  const nar = page.node && page.node.narrative && page.node.narrative[code];
+  if (nar) parts.push(narrativeHtml(code, nar));
   if (page.kind === 'hub') parts.push(`
       <h2 class="tiles-head">${esc(UI.all_categories[code])}</h2>`);
   parts.push(tilesHtml(lang, nodeId(page)));
@@ -416,6 +455,33 @@ const PRODUCTS_CSS = `
 .products-page .tile-name{display:block;padding:10px 12px 12px;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:.3px;line-height:1.25;color:var(--text);overflow-wrap:break-word;}
 .products-page .tile:hover .tile-name,.products-page .tile:focus-visible .tile-name{color:var(--gold);}
 .products-page .tile-text{justify-content:center;min-height:120px;}
+.products-page .cat-narr{margin:0 0 18px;}
+.products-page .cat-ratio,.products-page .cat-sizing{max-width:720px;}
+.products-page .cat-ratio h2,.products-page .cat-sizing h2{margin-top:36px;}
+.products-page .callout{border-left:3px solid var(--gold);background:var(--ink-3);padding:16px 20px;margin:0 0 20px;}
+.products-page .callout p{font-size:15px;color:var(--text-2);line-height:1.7;margin:0 0 10px;}
+.products-page .callout .formula{font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;letter-spacing:.5px;color:var(--text);margin:0 0 10px;}
+.products-page .callout .callout-note{font-size:14px;margin:0;}
+.products-page .size-list{margin:0 0 32px;padding-left:20px;color:var(--text-2);font-size:15px;line-height:1.7;}
+.products-page .size-list li{margin-bottom:4px;}
+.products-page .gbx{margin:28px 0 36px;padding:12px;background:var(--ink-3);border:1px solid var(--border);border-radius:2px;max-width:860px;}
+.products-page .gbx[hidden]{display:none;}
+.products-page .gbx-stage{position:relative;height:440px;overflow:hidden;border:1px solid var(--border);background:radial-gradient(ellipse at 50% 35%,#2a3036,#0d0f11);touch-action:pan-y;}
+.products-page .gbx-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;}
+.products-page .gbx-stage canvas:active{cursor:grabbing;}
+.products-page .gbx-hint{position:absolute;right:10px;bottom:8px;font-size:12px;color:var(--text-2);pointer-events:none;}
+.products-page .gbx-nogl{display:none;position:absolute;inset:0;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-2);font-size:15px;}
+.products-page .gbx-stage.nogl .gbx-nogl{display:flex;}
+.products-page .gbx-stage.nogl canvas,.products-page .gbx-stage.nogl .gbx-hint{display:none;}
+.products-page .gbx-lbl{position:absolute;left:0;top:0;pointer-events:none;white-space:nowrap;will-change:transform;opacity:0;background:rgba(13,15,17,.82);color:var(--text);border:1px solid var(--border);padding:2px 8px;font:600 13px/1.3 'Barlow Condensed',sans-serif;letter-spacing:.5px;}
+.products-page .gbx-lbl.on{opacity:1;}
+.products-page .gbx-lbl.gbx-stage-lbl{border-color:var(--gold);color:var(--gold);}
+.products-page .gbx-ctrls{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-top:12px;font-size:14px;color:var(--text);}
+.products-page .gbx-ctrls button{font:inherit;color:var(--text);background:var(--ink);border:1px solid var(--border);border-radius:2px;padding:6px 14px;min-height:36px;cursor:pointer;}
+.products-page .gbx-ctrls button:hover,.products-page .gbx-ctrls button:focus-visible{border-color:var(--gold);color:var(--gold);}
+.products-page .gbx-ctrls label{display:flex;align-items:center;gap:6px;cursor:pointer;}
+.products-page .gbx figcaption{font-size:14px;color:var(--text-2);line-height:1.5;margin-top:10px;}
+@media (max-width:600px){.products-page .gbx-stage{height:340px;}.products-page .gbx-lbl{font-size:12px;padding:1px 6px;}.products-page .gbx-lbl.gbx-stage-lbl{display:none;}}
 .products-page .cat-note p{font-size:15px;color:var(--text-2);line-height:1.7;margin:0 0 8px;}
 .products-page .cat-note a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
 .products-page .cat-tree-head{font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);cursor:pointer;padding:6px 0 10px;border-bottom:1px solid var(--border);margin-bottom:10px;}
@@ -678,6 +744,15 @@ function build(page, lang) {
     $('body').append(`<script type="application/json" id="filter-defs">${filterDefs(lang, page.node)}</script>
 <script>
 ${FILTERS_JS}
+</script>
+`);
+  }
+
+  // Gearbox figure: strings as inline JSON, then the client script (three.js loads from /assets/vendor on demand)
+  if (page.node && page.node.narrative) {
+    $('body').append(`<script type="application/json" id="gbx-data">${JSON.stringify({ s: GEARBOX[code] }).replace(/</g, '\\u003c')}</script>
+<script>
+${GEARBOX_JS}
 </script>
 `);
   }

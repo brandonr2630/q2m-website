@@ -7,6 +7,7 @@
  */
 
 const rows = require('./products-data/ocr-rp-rows');
+const GEAR = require('./products-gear-intro');
 
 // UI strings used by the catalogue page build. {n}, {total}, {kg}, {model} are placeholders.
 // native review: all nl and fr strings in UI are new
@@ -91,13 +92,9 @@ const NODES = [
       nl: 'Opsteekreductoren geleverd door Q² Machines vanuit Trinidad, ondersteund door onze reparatie- en onderhoudscapaciteit.', // native review
       fr: "Réducteurs pendulaires fournis par Q² Machines depuis Trinidad, avec l'appui de nos capacités de réparation et d'entretien.", // native review
     },
-    intro: {
-      en: 'Shaft-mounted gear reducers are the workhorses of industrial power transmission. They mount directly onto the driven machine’s shaft through a hollow bore, with a torque arm to maintain the gear reducer in a stable position during operation. With no foot mounting or base plate needed, they install quickly and easily. They are widely used on conveyors, bucket elevators, mixers, fine and coarse material washers and similar equipment. Q² Machines supplies, services and supports OCR shaft-mounted gear reducers from Modena, Italy.',
-      es: 'Los reductores montados en eje son los caballos de batalla de la transmisión de potencia industrial. Se montan directamente sobre el eje de la máquina accionada mediante un orificio hueco, con un brazo de reacción que mantiene el reductor en una posición estable durante el funcionamiento. Al no requerir patas de fijación ni bancada, se instalan de forma rápida y sencilla. Se utilizan ampliamente en transportadores, elevadores de cangilones, mezcladoras, lavadoras de materiales finos y gruesos y equipos similares. Q² Machines suministra, mantiene y respalda reductores montados en eje OCR de Módena, Italia.',
-      pt: 'Os redutores de eixo montado são os cavalos de batalha da transmissão de potência industrial. Montam-se diretamente no eixo da máquina acionada por meio de um furo oco, com um braço de reação que mantém o redutor em posição estável durante a operação. Como não precisam de fixação por pés nem de base, são instalados de forma rápida e simples. São muito utilizados em transportadores, elevadores de caçambas, misturadores, lavadores de materiais finos e grossos e equipamentos semelhantes. A Q² Machines fornece, faz a manutenção e dá suporte a redutores de eixo montado OCR de Módena, Itália.',
-      nl: 'Opsteekreductoren zijn de werkpaarden van de industriële krachtoverbrenging. Ze worden met een holle boring direct op de as van de aangedreven machine geplaatst, met een reactiearm die de reductor tijdens het bedrijf in een stabiele positie houdt. Omdat er geen voetbevestiging of basisplaat nodig is, zijn ze snel en eenvoudig te installeren. Ze worden veel gebruikt op transporteurs, emmerelevators, mengers, wassers voor fijn en grof materiaal en vergelijkbare apparatuur. Q² Machines levert, onderhoudt en ondersteunt OCR-opsteekreductoren uit Modena, Italië.', // native review
-      fr: "Les réducteurs pendulaires sont les piliers de la transmission de puissance industrielle. Ils se montent directement sur l’arbre de la machine entraînée par un alésage creux, avec un bras de réaction qui maintient le réducteur dans une position stable pendant le fonctionnement. Sans pattes de fixation ni châssis, ils s’installent rapidement et facilement. Ils sont largement utilisés sur les convoyeurs, les élévateurs à godets, les malaxeurs, les laveurs de matériaux fins et grossiers et les équipements similaires. Q² Machines fournit, entretient et soutient les réducteurs pendulaires OCR de Modène, en Italie.", // native review
-    },
+    // Intro = opening paragraph of the narrative; the page renders the rest of it (products-gear-intro.js)
+    intro: Object.fromEntries(Object.entries(GEAR.NARRATIVE).map(([l, v]) => [l, v.p1])),
+    narrative: GEAR.NARRATIVE,
     tileImage: { file: TILE, w: 600, h: 600, alt: tileAlt },
   },
   {
