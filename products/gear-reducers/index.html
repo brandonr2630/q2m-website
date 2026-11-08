@@ -301,10 +301,6 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
 .products-page .tiles-first{margin:0 0 36px;}
 .products-page .cat-wide,.products-page .cat-narr,.products-page .cat-ratio,.products-page .cat-sizing{max-width:860px;}
 .products-page .cat-ratio h2,.products-page .cat-sizing h2{margin-top:36px;}
-.products-page .callout{border-left:3px solid var(--gold);background:var(--ink-3);padding:16px 20px;margin:0 0 20px;}
-.products-page .callout p{font-size:15px;color:var(--text-2);line-height:1.7;margin:0 0 10px;}
-.products-page .callout .formula{font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;letter-spacing:.5px;color:var(--text);margin:0 0 10px;}
-.products-page .callout .callout-note{font-size:14px;margin:0;}
 .products-page .size-list{margin:0 0 32px;padding-left:20px;color:var(--text-2);font-size:15px;line-height:1.7;}
 .products-page .size-list li{margin-bottom:4px;}
 .products-page .gbx{margin:28px 0 36px;padding:12px;background:var(--ink-3);border:1px solid var(--border);border-radius:2px;max-width:860px;}
@@ -515,12 +511,11 @@ footer{background:#F4F3EF;border-top:2px solid var(--gold);padding:16px 60px;pos
         <figcaption>Two-stage helical gear reducer, 12:1 overall (3:1 × 4:1).</figcaption>
       </figure>
       <section class="content-block cat-ratio">
-        <h2>Choosing the reduction ratio</h2>
-        <div class="callout">
-          <p class="formula">Reduction ratio = input rpm ÷ output rpm</p>
-          <p>Example: a 7.5 kW (10 hp) motor at 1,750 rpm drives a conveyor that needs about 146 rpm. The ratio is 1,750 ÷ 146 ≈ 12:1. The motor delivers about 41 N·m (30 lb-ft). The reducer output delivers about 12 × 41 × efficiency; at 96% efficiency that is roughly 470 N·m (350 lb-ft).</p>
-          <p class="callout-note">Helical gear reducers typically run in the mid-90% efficiency range per unit. Worm gear reducers are lower, roughly 50% to 90% depending on ratio, so they multiply torque by less.</p>
-        </div>
+        <h2>Gear Reducer Reduction Ratio</h2>
+        
+        <p class="cat-intro cat-narr">The reduction ratio is the number of turns of the input shaft needed to produce one turn of the output shaft, written input:output. A 20:1 reducer turns the output once for every 20 turns of the input, so speed falls to one-twentieth and torque rises about twenty-fold, less losses. Ratios need not be whole numbers; 12.5:1 is common.</p>
+        <p class="cat-intro cat-narr">Higher ratios are often reached in stages, and the stage ratios multiply. A reducer with a 5:1 stage followed by a 4:1 stage has an overall ratio of 5 × 4 = 20:1.</p>
+        <p class="cat-intro cat-narr">Quoted ratios are nominal: catalogues round them, and the exact value comes from the tooth counts. Losses do not change the speed ratio, but they reduce the torque delivered. Helical gear reducers typically run in the mid-90% efficiency range per unit. Worm gear reducers are lower, roughly 50% to 90% depending on ratio, so they multiply torque by less.</p>
         <p class="cat-intro cat-narr">The ratio is the first number to settle, but it does not select the reducer on its own. The unit must also carry the torque and power, withstand the load type and running hours (the service factor, set by AGMA practice, rises with shock loading and long duty), stay within its thermal limit, and fit the mounting and shaft arrangement.</p>
       </section>
       <section class="content-block cat-sizing">
