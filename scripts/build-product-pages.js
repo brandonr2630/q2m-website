@@ -415,7 +415,7 @@ function listingHtml(lang, page) {
       </div>`);
   parts.push(`
       <h1>${p.h1Html}</h1>
-      <p class="cat-intro">${esc(p.lead)}</p>`);
+      <p class="cat-intro${nar ? ' cat-wide' : ''}">${esc(p.lead)}</p>`);
   if (nar) parts.push(narrativeHtml(code, nar));
   if (page.kind === 'hub') parts.push(`
       <h2 class="tiles-head">${esc(UI.all_categories[code])}</h2>`);
@@ -457,7 +457,7 @@ const PRODUCTS_CSS = `
 .products-page .tile-text{justify-content:center;min-height:120px;}
 .products-page .cat-narr{margin:0 0 18px;}
 .products-page .tiles-first{margin:0 0 36px;}
-.products-page .cat-ratio,.products-page .cat-sizing{max-width:720px;}
+.products-page .cat-wide,.products-page .cat-narr,.products-page .cat-ratio,.products-page .cat-sizing{max-width:860px;}
 .products-page .cat-ratio h2,.products-page .cat-sizing h2{margin-top:36px;}
 .products-page .callout{border-left:3px solid var(--gold);background:var(--ink-3);padding:16px 20px;margin:0 0 20px;}
 .products-page .callout p{font-size:15px;color:var(--text-2);line-height:1.7;margin:0 0 10px;}
