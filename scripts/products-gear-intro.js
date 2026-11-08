@@ -2,7 +2,7 @@
 // Gear Reducers category page: narrative copy and the strings of the gearbox cutaway figure.
 // English is the owner's final copy (gear-reducers-narrative.md). es/pt/nl/fr are translations: native review needed.
 // p1 is also the category `intro` in products-data.js. The page renders p1, paras, the figure, the ratio
-// block (ratioH, formula, example, note, closing) and the sizing list (sizeH, sizeItems).
+// block (ratioH, ratioParas, closing) and the sizing list (sizeH, sizeItems).
 
 const NARRATIVE = {
   en: {
@@ -11,10 +11,12 @@ const NARRATIVE = {
       'Speed and torque trade against each other; reduce the speed to one-tenth and the torque at the output increases by a factor of ten, less losses. This torque multiplication is also one of the factors considered in the selection of a gear reducer for a particular application.',
       'Gear reducers employ a system of interconnecting gears of different sizes to achieve the reduction in rpm and increase in torque. A small gear (pinion) driving a larger gear turns it more slowly and with more torque. Higher ratios are reached by stacking stages, and the ratios of the stages multiply: a 3:1 stage followed by a 4:1 stage gives 12:1. Typically, gear reducers have an input and output shaft. The motor couples to the input shaft while the component being driven couples to the output on the gear reducer. The input shaft is usually referred to as the ‘high speed shaft.’ The output is either a solid shaft joined to the driven machine by a coupling, or a hollow bore that slips over the machine’s own shaft. The hollow-bore, shaft-mounted arrangement is widely used on belt conveyor drives, where a torque arm holds the housing against rotation. When motor and reducer are supplied as one unit, it is called a gearmotor.',
     ],
-    ratioH: 'Choosing the reduction ratio',
-    formula: 'Reduction ratio = input rpm ÷ output rpm',
-    example: 'Example: a 7.5 kW (10 hp) motor at 1,750 rpm drives a conveyor that needs about 146 rpm. The ratio is 1,750 ÷ 146 ≈ 12:1. The motor delivers about 41 N·m (30 lb-ft). The reducer output delivers about 12 × 41 × efficiency; at 96% efficiency that is roughly 470 N·m (350 lb-ft).',
-    note: 'Helical gear reducers typically run in the mid-90% efficiency range per unit. Worm gear reducers are lower, roughly 50% to 90% depending on ratio, so they multiply torque by less.',
+    ratioH: 'Gear Reducer Reduction Ratio',
+    ratioParas: [
+      'The reduction ratio is the number of turns of the input shaft needed to produce one turn of the output shaft, written input:output. A 20:1 reducer turns the output once for every 20 turns of the input, so speed falls to one-twentieth and torque rises about twenty-fold, less losses. Ratios need not be whole numbers; 12.5:1 is common.',
+      'Higher ratios are often reached in stages, and the stage ratios multiply. A reducer with a 5:1 stage followed by a 4:1 stage has an overall ratio of 5 × 4 = 20:1.',
+      'Quoted ratios are nominal: catalogues round them, and the exact value comes from the tooth counts. Losses do not change the speed ratio, but they reduce the torque delivered. Helical gear reducers typically run in the mid-90% efficiency range per unit. Worm gear reducers are lower, roughly 50% to 90% depending on ratio, so they multiply torque by less.',
+    ],
     closing: 'The ratio is the first number to settle, but it does not select the reducer on its own. The unit must also carry the torque and power, withstand the load type and running hours (the service factor, set by AGMA practice, rises with shock loading and long duty), stay within its thermal limit, and fit the mounting and shaft arrangement.',
     sizeH: 'What we need to size your reducer',
     sizeItems: [
@@ -31,10 +33,12 @@ const NARRATIVE = {
       'Velocidad y par se compensan entre sí: si se reduce la velocidad a una décima parte, el par en la salida se multiplica por diez, menos las pérdidas. Esta multiplicación del par es también uno de los factores que se consideran al seleccionar un reductor para una aplicación determinada.',
       'Los reductores emplean un sistema de engranajes interconectados de distintos tamaños para lograr la reducción de rpm y el aumento de par. Un engranaje pequeño (piñón) que acciona uno mayor lo hace girar más despacio y con más par. Las relaciones más altas se consiguen apilando etapas, y las relaciones de cada etapa se multiplican: una etapa de 3:1 seguida de una de 4:1 da 12:1. Normalmente, los reductores tienen un eje de entrada y un eje de salida. El motor se acopla al eje de entrada, mientras que el componente accionado se acopla a la salida del reductor. El eje de entrada suele llamarse ‘eje de alta velocidad’. La salida es un eje macizo unido a la máquina accionada mediante un acople, o un orificio hueco que se desliza sobre el eje de la propia máquina. La disposición montada en eje, con orificio hueco, se usa mucho en accionamientos de transportadores de banda, donde un brazo de reacción sujeta la carcasa para que no gire. Cuando motor y reductor se suministran como una sola unidad, se llama motorreductor.',
     ],
-    ratioH: 'Cómo elegir la relación de reducción',
-    formula: 'Relación de reducción = rpm de entrada ÷ rpm de salida',
-    example: 'Ejemplo: un motor de 7,5 kW (10 hp) a 1.750 rpm acciona un transportador que necesita unas 146 rpm. La relación es 1.750 ÷ 146 ≈ 12:1. El motor entrega unos 41 N·m (30 lb-pie). La salida del reductor entrega unos 12 × 41 × rendimiento; con un rendimiento del 96 %, son aproximadamente 470 N·m (350 lb-pie).',
-    note: 'Los reductores helicoidales suelen operar en un rango de rendimiento de mediados del 90 % por unidad. Los reductores de tornillo sin fin tienen menos rendimiento, aproximadamente del 50 % al 90 % según la relación, por lo que multiplican menos el par.',
+    ratioH: 'Relación de reducción del reductor de engranajes',
+    ratioParas: [
+      'La relación de reducción es el número de vueltas del eje de entrada necesarias para producir una vuelta del eje de salida, y se escribe entrada:salida. Un reductor de 20:1 da una vuelta de salida por cada 20 vueltas de entrada, de modo que la velocidad baja a una veinteava parte y el par aumenta unas veinte veces, descontando las pérdidas. Las relaciones no tienen que ser números enteros; 12,5:1 es habitual.',
+      'Las relaciones altas suelen lograrse por etapas, y las relaciones de cada etapa se multiplican. Un reductor con una etapa de 5:1 seguida de otra de 4:1 tiene una relación total de 5 × 4 = 20:1.',
+      'Las relaciones indicadas son nominales: los catálogos las redondean y el valor exacto surge del número de dientes. Las pérdidas no modifican la relación de velocidad, pero reducen el par entregado. Los reductores helicoidales suelen operar en un rango de rendimiento de mediados del 90 % por unidad. Los reductores de tornillo sin fin tienen menos rendimiento, aproximadamente del 50 % al 90 % según la relación, por lo que multiplican menos el par.',
+    ],
     closing: 'La relación es el primer número que hay que fijar, pero por sí sola no selecciona el reductor. La unidad también debe soportar el par y la potencia, resistir el tipo de carga y las horas de funcionamiento (el factor de servicio, definido por la práctica AGMA, aumenta con las cargas de choque y los servicios prolongados), mantenerse dentro de su límite térmico y ajustarse al montaje y a la disposición de ejes.',
     sizeH: 'Qué necesitamos para dimensionar su reductor',
     sizeItems: [
@@ -51,10 +55,12 @@ const NARRATIVE = {
       'Velocidade e torque se compensam: reduzindo a velocidade a um décimo, o torque na saída aumenta dez vezes, descontadas as perdas. Essa multiplicação de torque é também um dos fatores considerados na seleção de um redutor para uma aplicação específica.',
       'Os redutores empregam um sistema de engrenagens interligadas de tamanhos diferentes para obter a redução de rpm e o aumento de torque. Uma engrenagem pequena (pinhão) que aciona uma maior a faz girar mais devagar e com mais torque. Relações mais altas são obtidas empilhando estágios, e as relações dos estágios se multiplicam: um estágio de 3:1 seguido de um de 4:1 resulta em 12:1. Normalmente, os redutores têm um eixo de entrada e um de saída. O motor se acopla ao eixo de entrada, enquanto o componente acionado se acopla à saída do redutor. O eixo de entrada costuma ser chamado de ‘eixo de alta rotação’. A saída é um eixo maciço ligado à máquina acionada por um acoplamento, ou um furo oco que desliza sobre o eixo da própria máquina. A disposição de eixo montado, com furo oco, é muito usada em acionamentos de transportadores de correia, em que um braço de reação impede a carcaça de girar. Quando motor e redutor são fornecidos como uma só unidade, chama-se motorredutor.',
     ],
-    ratioH: 'Como escolher a relação de redução',
-    formula: 'Relação de redução = rpm de entrada ÷ rpm de saída',
-    example: 'Exemplo: um motor de 7,5 kW (10 hp) a 1.750 rpm aciona um transportador que precisa de cerca de 146 rpm. A relação é 1.750 ÷ 146 ≈ 12:1. O motor entrega cerca de 41 N·m (30 lb-pé). A saída do redutor entrega cerca de 12 × 41 × rendimento; com rendimento de 96 %, isso dá aproximadamente 470 N·m (350 lb-pé).',
-    note: 'Os redutores helicoidais costumam operar na faixa de rendimento de meados de 90 % por unidade. Os redutores de rosca sem fim têm rendimento menor, de aproximadamente 50 % a 90 % conforme a relação, e por isso multiplicam menos o torque.',
+    ratioH: 'Relação de redução do redutor de engrenagens',
+    ratioParas: [
+      'A relação de redução é o número de voltas do eixo de entrada necessárias para produzir uma volta do eixo de saída, escrita entrada:saída. Um redutor de 20:1 dá uma volta de saída a cada 20 voltas de entrada, de modo que a velocidade cai para um vigésimo e o torque aumenta cerca de vinte vezes, descontadas as perdas. As relações não precisam ser números inteiros; 12,5:1 é comum.',
+      'Relações mais altas são frequentemente obtidas em estágios, e as relações de cada estágio se multiplicam. Um redutor com um estágio de 5:1 seguido de outro de 4:1 tem relação total de 5 × 4 = 20:1.',
+      'As relações informadas são nominais: os catálogos as arredondam e o valor exato vem do número de dentes. As perdas não alteram a relação de velocidade, mas reduzem o torque entregue. Os redutores helicoidais costumam operar na faixa de rendimento de meados de 90 % por unidade. Os redutores de rosca sem fim têm rendimento menor, de aproximadamente 50 % a 90 % conforme a relação, e por isso multiplicam menos o torque.',
+    ],
     closing: 'A relação é o primeiro número a definir, mas sozinha não seleciona o redutor. A unidade também deve suportar o torque e a potência, resistir ao tipo de carga e às horas de operação (o fator de serviço, definido pela prática AGMA, aumenta com cargas de choque e serviço prolongado), permanecer dentro do seu limite térmico e se ajustar à montagem e à disposição dos eixos.',
     sizeH: 'O que precisamos para dimensionar o seu redutor',
     sizeItems: [
@@ -71,10 +77,12 @@ const NARRATIVE = {
       'Snelheid en koppel wegen tegen elkaar op: verlaag de snelheid tot een tiende en het koppel op de uitgaande as wordt tien keer zo groot, min de verliezen. Deze koppelvermenigvuldiging is ook een van de factoren bij het kiezen van een reductor voor een bepaalde toepassing.',
       'Tandwielreductoren gebruiken een stelsel van in elkaar grijpende tandwielen van verschillende grootte om het toerental te verlagen en het koppel te verhogen. Een klein tandwiel (rondsel) dat een groter tandwiel aandrijft, laat dit langzamer en met meer koppel draaien. Hogere overbrengingsverhoudingen worden bereikt door trappen te stapelen, en de verhoudingen van de trappen vermenigvuldigen zich: een trap van 3:1 gevolgd door een trap van 4:1 geeft 12:1. Een reductor heeft doorgaans een ingaande en een uitgaande as. De motor wordt gekoppeld aan de ingaande as, terwijl het aan te drijven onderdeel wordt gekoppeld aan de uitgang van de reductor. De ingaande as wordt meestal de ‘snellopende as’ genoemd. De uitgang is ofwel een massieve as die met een koppeling aan de aangedreven machine is verbonden, ofwel een holle boring die over de as van de machine zelf schuift. De opsteekuitvoering met holle boring wordt veel gebruikt bij aandrijvingen van bandtransporteurs, waar een reactiearm de behuizing tegen draaien behoedt. Wanneer motor en reductor als één eenheid worden geleverd, spreekt men van een motorreductor.',
     ],
-    ratioH: 'De reductieverhouding kiezen',
-    formula: 'Reductieverhouding = ingaand toerental ÷ uitgaand toerental',
-    example: 'Voorbeeld: een motor van 7,5 kW (10 pk) op 1.750 rpm drijft een transporteur aan die ongeveer 146 rpm nodig heeft. De verhouding is 1.750 ÷ 146 ≈ 12:1. De motor levert ongeveer 41 N·m (30 lb-ft). De uitgang van de reductor levert ongeveer 12 × 41 × rendement; bij 96% rendement is dat ongeveer 470 N·m (350 lb-ft).',
-    note: 'Reductoren met schuine vertanding halen doorgaans een rendement in de midden-90%-range per eenheid. Wormwielreductoren zitten lager, grofweg 50% tot 90% afhankelijk van de verhouding, en vermenigvuldigen het koppel dus minder.',
+    ratioH: 'Reductieverhouding van tandwielreductoren',
+    ratioParas: [
+      'De reductieverhouding is het aantal omwentelingen van de ingaande as dat nodig is voor één omwenteling van de uitgaande as, geschreven als in:uit. Een reductor van 20:1 draait de uitgaande as één keer rond per 20 omwentelingen van de ingaande as: het toerental daalt tot een twintigste en het koppel stijgt ongeveer twintigvoudig, minus verliezen. Verhoudingen hoeven geen hele getallen te zijn; 12,5:1 komt veel voor.',
+      'Hogere verhoudingen worden vaak in trappen bereikt, en de verhoudingen van de trappen worden met elkaar vermenigvuldigd. Een reductor met een trap van 5:1 gevolgd door een trap van 4:1 heeft een totale verhouding van 5 × 4 = 20:1.',
+      'Opgegeven verhoudingen zijn nominaal: catalogi ronden ze af en de exacte waarde volgt uit het aantal tanden. Verliezen veranderen de toerentalverhouding niet, maar verlagen wel het geleverde koppel. Reductoren met schuine vertanding halen doorgaans een rendement in de midden-90%-range per eenheid. Wormwielreductoren zitten lager, grofweg 50% tot 90% afhankelijk van de verhouding, en vermenigvuldigen het koppel dus minder.',
+    ],
     closing: 'De verhouding is het eerste getal dat vastligt, maar bepaalt de reductor niet alleen. De unit moet ook het koppel en het vermogen aankunnen, bestand zijn tegen het belastingtype en de draaiuren (de servicefactor, volgens AGMA-praktijk, stijgt bij schokbelasting en lange bedrijfsduur), binnen zijn thermische grens blijven en passen bij de montage en de asuitvoering.',
     sizeH: 'Wat wij nodig hebben om uw reductor te dimensioneren',
     sizeItems: [
@@ -91,10 +99,12 @@ const NARRATIVE = {
       'Vitesse et couple s’échangent : si l’on réduit la vitesse au dixième, le couple en sortie est multiplié par dix, aux pertes près. Cette multiplication du couple est aussi l’un des facteurs pris en compte dans le choix d’un réducteur pour une application donnée.',
       'Les réducteurs utilisent un système d’engrenages de tailles différentes pour réduire la vitesse de rotation et augmenter le couple. Un petit engrenage (pignon) qui entraîne un plus grand le fait tourner plus lentement et avec plus de couple. Les rapports plus élevés s’obtiennent en empilant des étages, et les rapports des étages se multiplient : un étage de 3:1 suivi d’un étage de 4:1 donne 12:1. En général, un réducteur possède un arbre d’entrée et un arbre de sortie. Le moteur se couple à l’arbre d’entrée, tandis que l’organe entraîné se couple à la sortie du réducteur. L’arbre d’entrée est généralement appelé « arbre rapide ». La sortie est soit un arbre plein relié à la machine entraînée par un accouplement, soit un alésage creux qui s’enfile sur l’arbre de la machine elle-même. La disposition pendulaire, à alésage creux, est très répandue sur les entraînements de convoyeurs à bande, où un bras de réaction empêche le carter de tourner. Lorsque le moteur et le réducteur sont fournis en un seul ensemble, on parle de motoréducteur.',
     ],
-    ratioH: 'Choisir le rapport de réduction',
-    formula: 'Rapport de réduction = vitesse d’entrée ÷ vitesse de sortie',
-    example: 'Exemple : un moteur de 7,5 kW (10 ch) à 1 750 tr/min entraîne un convoyeur qui demande environ 146 tr/min. Le rapport est 1 750 ÷ 146 ≈ 12:1. Le moteur fournit environ 41 N·m (30 lb-ft). La sortie du réducteur fournit environ 12 × 41 × rendement ; à 96 % de rendement, cela donne à peu près 470 N·m (350 lb-ft).',
-    note: 'Les réducteurs à engrenages hélicoïdaux affichent généralement un rendement de l’ordre de 95 % par unité. Les réducteurs à vis sans fin sont moins efficaces, environ 50 % à 90 % selon le rapport, et multiplient donc moins le couple.',
+    ratioH: 'Rapport de réduction du réducteur à engrenages',
+    ratioParas: [
+      'Le rapport de réduction est le nombre de tours de l’arbre d’entrée nécessaires pour faire tourner l’arbre de sortie d’un tour, écrit entrée:sortie. Un réducteur de 20:1 fait un tour en sortie pour 20 tours en entrée : la vitesse tombe au vingtième et le couple est multiplié par vingt environ, pertes déduites. Les rapports ne sont pas forcément entiers ; 12,5:1 est courant.',
+      'Les rapports élevés s’obtiennent souvent par étages, et les rapports de chaque étage se multiplient. Un réducteur avec un étage de 5:1 suivi d’un étage de 4:1 a un rapport total de 5 × 4 = 20:1.',
+      'Les rapports annoncés sont nominaux : les catalogues les arrondissent et la valeur exacte découle du nombre de dents. Les pertes ne modifient pas le rapport de vitesse, mais elles réduisent le couple délivré. Les réducteurs à engrenages hélicoïdaux affichent généralement un rendement de l’ordre de 95 % par unité. Les réducteurs à vis sans fin sont moins efficaces, environ 50 % à 90 % selon le rapport, et multiplient donc moins le couple.',
+    ],
     closing: 'Le rapport est le premier chiffre à fixer, mais il ne suffit pas à choisir le réducteur. L’unité doit aussi supporter le couple et la puissance, résister au type de charge et aux heures de fonctionnement (le facteur de service, défini par la pratique AGMA, augmente avec les chocs et les services prolongés), rester dans sa limite thermique et convenir au montage et à la disposition des arbres.',
     sizeH: 'Ce qu’il nous faut pour dimensionner votre réducteur',
     sizeItems: [

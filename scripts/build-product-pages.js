@@ -389,11 +389,8 @@ function narrativeHtml(code, nar) {
       </figure>
       <section class="content-block cat-ratio">
         <h2>${esc(nar.ratioH)}</h2>
-        <div class="callout">
-          <p class="formula">${esc(nar.formula)}</p>
-          <p>${esc(nar.example)}</p>
-          <p class="callout-note">${esc(nar.note)}</p>
-        </div>
+        ${nar.ratioParas.map((t) => `
+        <p class="cat-intro cat-narr">${esc(t)}</p>`).join('')}
         <p class="cat-intro cat-narr">${esc(nar.closing)}</p>
       </section>
       <section class="content-block cat-sizing">
@@ -459,10 +456,6 @@ const PRODUCTS_CSS = `
 .products-page .tiles-first{margin:0 0 36px;}
 .products-page .cat-wide,.products-page .cat-narr,.products-page .cat-ratio,.products-page .cat-sizing{max-width:860px;}
 .products-page .cat-ratio h2,.products-page .cat-sizing h2{margin-top:36px;}
-.products-page .callout{border-left:3px solid var(--gold);background:var(--ink-3);padding:16px 20px;margin:0 0 20px;}
-.products-page .callout p{font-size:15px;color:var(--text-2);line-height:1.7;margin:0 0 10px;}
-.products-page .callout .formula{font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;letter-spacing:.5px;color:var(--text);margin:0 0 10px;}
-.products-page .callout .callout-note{font-size:14px;margin:0;}
 .products-page .size-list{margin:0 0 32px;padding-left:20px;color:var(--text-2);font-size:15px;line-height:1.7;}
 .products-page .size-list li{margin-bottom:4px;}
 .products-page .gbx{margin:28px 0 36px;padding:12px;background:var(--ink-3);border:1px solid var(--border);border-radius:2px;max-width:860px;}
