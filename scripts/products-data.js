@@ -108,11 +108,11 @@ const NODES = [
     serviceParam: 'reducers',
     brand: { name: 'O.C.R. Riduttori', url: 'https://www.ocr-riduttori.com' },
     name: {
-    "en": "OCR RP Series Shaft-Mounted Gear Reducers",
-    "es": "Reductores Montados en Eje OCR Serie RP",
-    "pt": "Redutores de Eixo Montado OCR Série RP",
-    "nl": "OCR RP-serie Opsteekreductoren",
-    "fr": "Réducteurs Pendulaires OCR Série RP"
+    "en": "Shaft Mount Gear Reducers",
+    "es": "Reductores Montados en Eje",
+    "pt": "Redutores de Eixo Montado",
+    "nl": "Opsteekreductoren",
+    "fr": "Réducteurs Pendulaires"
   },
     description: {
     "en": "Q² Machines is the authorised agent for OCR RP Series shaft-mounted gear reducers: 8 sizes, 0.6–155 kW, up to 11,280 Nm. Supplied from Trinidad.",
@@ -148,9 +148,9 @@ const NODES = [
     copy: {
     "en": {
       "label": "Products",
-      "title": "OCR RP Series Shaft-Mounted Gear Reducers — Trinidad | Q² Machines",
+      "title": "Shaft Mount Gear Reducers – OCR Reducers - RP Series — Trinidad | Q² Machines",
       "description": "Q² Machines is the authorised agent for OCR RP Series shaft-mounted gear reducers: 8 sizes, 0.6–155 kW, up to 11,280 Nm. Supplied from Trinidad.",
-      "h1Html": "OCR RP Series <span>Shaft-Mounted Gear Reducers</span>",
+      "h1Html": "Shaft Mount Gear Reducers<br><span>OCR Reducers - RP Series</span>",
       "lead": "The RP Series shaft-mounted reducers are built for conveyors, screw conveyors, elevators, mixers and crushers, and are supplied and supported by our team.",
       "facts": [
         [
@@ -216,9 +216,9 @@ const NODES = [
     },
     "es": {
       "label": "Productos",
-      "title": "Reductores Montados en Eje OCR Serie RP — Trinidad | Q² Machines",
+      "title": "Reductores Montados en Eje – Reductores OCR - Serie RP — Trinidad | Q² Machines",
       "description": "Q² Machines es el agente autorizado de los reductores montados en eje OCR Serie RP: 8 tamaños, 0,6–155 kW, hasta 11.280 Nm. Suministro desde Trinidad.",
-      "h1Html": "Reductores Montados en Eje <span>OCR Serie RP</span>",
+      "h1Html": "Reductores Montados en Eje<br><span>Reductores OCR - Serie RP</span>",
       "lead": "Los reductores montados en eje de la Serie RP están pensados para transportadores, transportadores de tornillo, elevadores, mezcladoras y trituradoras, y los suministra y respalda nuestro equipo.",
       "facts": [
         [
@@ -284,9 +284,9 @@ const NODES = [
     },
     "pt": {
       "label": "Produtos",
-      "title": "Redutores de Eixo Montado OCR Série RP — Trinidad | Q² Machines",
+      "title": "Redutores de Eixo Montado – Redutores OCR - Série RP — Trinidad | Q² Machines",
       "description": "A Q² Machines é a agente autorizada dos redutores de eixo montado OCR Série RP: 8 tamanhos, 0,6–155 kW, até 11.280 Nm. Fornecimento a partir de Trinidad.",
-      "h1Html": "Redutores de Eixo Montado <span>OCR Série RP</span>",
+      "h1Html": "Redutores de Eixo Montado<br><span>Redutores OCR - Série RP</span>",
       "lead": "Os redutores de eixo montado da Série RP são projetados para transportadores, transportadores helicoidais, elevadores, misturadores e britadores, e são fornecidos e apoiados pela nossa equipe.",
       "facts": [
         [
@@ -352,9 +352,9 @@ const NODES = [
     },
     "nl": {
       "label": "Producten",
-      "title": "OCR RP-serie Opsteekreductoren — Trinidad | Q² Machines",
+      "title": "Opsteekreductoren – OCR-reductoren - RP-serie — Trinidad | Q² Machines",
       "description": "Q² Machines is de erkende agent voor OCR RP-serie opsteekreductoren: 8 maten, 0,6–155 kW, tot 11.280 Nm. Geleverd vanuit Trinidad.",
-      "h1Html": "OCR RP-serie <span>Opsteekreductoren</span>",
+      "h1Html": "Opsteekreductoren<br><span>OCR-reductoren - RP-serie</span>",
       "lead": "De opsteekreductoren van de RP-serie zijn gebouwd voor transporteurs, schroeftransporteurs, elevators, mengers en brekers en worden door ons team geleverd en ondersteund.",
       "facts": [
         [
@@ -420,9 +420,9 @@ const NODES = [
     },
     "fr": {
       "label": "Produits",
-      "title": "Réducteurs Pendulaires OCR Série RP — Trinidad | Q² Machines",
+      "title": "Réducteurs Pendulaires – Réducteurs OCR - Série RP — Trinidad | Q² Machines",
       "description": "Q² Machines est l'agent agréé des réducteurs pendulaires OCR Série RP : 8 tailles, 0,6–155 kW, jusqu'à 11 280 Nm. Fourniture depuis Trinidad.",
-      "h1Html": "Réducteurs Pendulaires <span>OCR Série RP</span>",
+      "h1Html": "Réducteurs Pendulaires<br><span>Réducteurs OCR - Série RP</span>",
       "lead": "Les réducteurs pendulaires de la Série RP sont conçus pour les convoyeurs, les convoyeurs à vis, les élévateurs, les malaxeurs et les concasseurs, et sont fournis et soutenus par notre équipe.",
       "facts": [
         [
